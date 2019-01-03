@@ -1,0 +1,280 @@
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding-top: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(245, 39, 166);
+}
+
+a:hover {
+    color: rgb(238, 34, 79);
+}
+
+#coursename {
+    color: rgb(238, 34, 79);
+    margin: 30px 40px 20px;
+    font-size: 40px;
+    line-height: 45px;
+}
+
+#courseid {
+    color: rgb(238, 34, 79);
+    font-size: 60px;
+    margin-right: 10px;
+}
+
+#courseinfo {
+    margin-left: 40px;
+}
+
+.navbar-top {
+    position: fixed;
+    top: 0;
+    padding: 10px 0;
+    width: 100%;
+    background-color: rgb(245, 39, 166);
+    line-height: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+.navbar-top a {
+    color: white;
+}
+
+.navbar-top a:hover {
+    color: white;
+}
+
+#navitems {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.navitem {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 15px;
+}
+
+#toc-button {
+    background-color: Transparent;
+    border: none;
+    float: left;
+    margin-left: 15px;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+#content {
+    margin: 20px 40px 40px;
+}
+
+.content {
+    margin: 20px 40px 40px;
+}
+
+.segment {
+    margin-top: 20px;
+    border-top: 2px solid rgb(245, 39, 166);
+    padding-top: 20px;
+}
+
+.segmenttitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.code {
+    margin: 0 30px;
+    background-color: #EEE;
+    padding: 5px 15px 10px;
+    border-radius: 2px;
+}
+
+.codeindent {
+    margin-left: 30px;
+}
+
+/* Code Segments & Font */
+pre {
+    margin: 0;
+    line-height: normal;
+    border: 1px solid #EEE;
+    border-bottom: none;
+}
+
+code {
+    background-color: #EEE;
+    font-size: 15px;
+}
+
+/* Small caps */
+.sc {
+    font-variant: small-caps;
+}
+
+/* Blank out for self-tests, etc. */
+
+whiteout {
+    color: white;
+}
+
+whiteout::selection {
+    color: black;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn,
+.dropbtn:focus {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: none;
+}
+
+table {
+    margin: 20px 0;
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 300;
+    text-align: center;
+    min-width: 80px;
+    padding: 0 10px;
+}
+
+
+/* Announcements Table */
+#announcements td {
+    line-height: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#announcements td:nth-child(2) {
+    text-align: left;
+}
+
+#announcements td:nth-child(3) {
+    text-align: left;
+}
+
+/* Calendar */
+.odd {
+    background-color: #DDD;
+}
+
+.curweek {
+    background-color: #e9f2fd;
+}
+
+.emph1 {
+    color: white;
+    background-color: #2F86EB;
+}
+
+.emph2 {
+    background-color: #777;
+    color: white;
+}
+
+.proj {
+    color: #4CBB17;
+}
+
+.calendar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (min-width: 900px) {
+    .curweek {
+        background-color: #e9f2fd;
+    }
+
+    .curweek {
+        background-color: #e9f2fd;
+    }
+
+    .small-calendar {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .large-calendar {
+        display: none;
+    }
+}
