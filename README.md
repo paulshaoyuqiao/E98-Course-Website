@@ -1,4 +1,5 @@
-# E98 Course Website (Developed with Ruby on Rails)
+# E98 Course Website (In Development with Ruby on Rails)
+Author: Paul Shao
 _______________________________________________________________________________________________________________________________________
 ## Development To-Dos:
 
