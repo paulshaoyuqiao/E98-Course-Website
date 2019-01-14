@@ -13,7 +13,6 @@
     <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
     <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
     <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
-    <%= stylesheet_link_tag asset_path("jquery.qtip.min.css", skip_pipeline: true) %>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 
@@ -55,7 +54,6 @@
         <div class="segment">
             <div class="segmenttitle">
                 Announcements
-                [<a href="announcement-archive.html">Past Announcements</a>]
             </div>
             <table id="announcements">
                 <thead>
@@ -80,6 +78,7 @@
                         Signed in as <strong><%= current_user.name %></strong>!
                         <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
                         <%= form_tag({:action => :import, :controller=>"autograder"}, multipart: true) do %>
+                            <%= select_tag :week, options_for_select(['week1', 'week2', 'week3', 'week4']) %>
                             <%= file_field_tag :file %>
                             <%= submit_tag("Submit for Grading") %>
                         <% end %>

@@ -10,5 +10,3 @@ class AutograderController < ApplicationController
     end
 
 end
-
-

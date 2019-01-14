@@ -4426,3 +4426,343 @@ Processing by CourseController#home as HTML
 Completed 200 OK in 75ms (Views: 72.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:11:42 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paulshao/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 414ms (Views: 403.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-14 12:11:46 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-14 12:11:46 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=4671318ec0f9698d0aacd951750a6f421f402f5d029baea3&code=4/0gDW2nD8bUECQ4YnCjwN1jyey1QbwB5Js-r_fGonQ3t3uzxBo8mwIy5wDsgWDvacBxv6C0JJEluEonNWrihHo9c&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2019-01-14 12:11:49 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"4671318ec0f9698d0aacd951750a6f421f402f5d029baea3", "code"=>"4/0gDW2nD8bUECQ4YnCjwN1jyey1QbwB5Js-r_fGonQ3t3uzxBo8mwIy5wDsgWDvacBxv6C0JJEluEonNWrihHo9c", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "107651003042943561194"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:9
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.GlyRBizBCrCJmETs1Jug9tyBvDWEltbjIHBX46VUHW5yw0L-sv704YNWD_r89b22_akqU5fWRpS9zmgBP-R9JZ3Fk6GmTFJtKBTl2jVQntZITEtA91qtnn_R3-vSsQ"], ["oauth_expires_at", "2019-01-14 18:11:49"], ["updated_at", "2019-01-14 17:11:50.408742"], ["id", 1]]
+  ↳ app/models/user.rb:9
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:11:50 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (345.6ms)
+Completed 500 Internal Server Error in 361ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007fad6d96cce8>:0x00007fad6deb1ff0>):
+    80:                         Signed in as <strong><%= current_user.name %></strong>!
+    81:                         <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
+    82:                         <%= form_tag({:action => :import, :controller=>"autograder"}, multipart: true) do %>
+    83:                             <%= f.select :desired_attribute, ['week1', 'week2', 'week3', 'week4'] %>
+    84:                             <%= file_field_tag :file %>
+    85:                             <%= submit_tag("Submit for Grading") %>
+    86:                         <% end %>
+  
+app/views/course/home.html.erb:83:in `block in _app_views_course_home_html_erb___1747318476230520402_70191425098860'
+app/views/course/home.html.erb:82:in `_app_views_course_home_html_erb___1747318476230520402_70191425098860'
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:12:58 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (42.9ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    80:                         Signed in as <strong><%= current_user.name %></strong>!
+    81:                         <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
+    82:                         <%= form_tag({:action => :import, :controller=>"autograder"}, multipart: true) do %>
+    83:                             <%= select :desired_attribute, ['week1', 'week2', 'week3', 'week4'] %>
+    84:                             <%= file_field_tag :file %>
+    85:                             <%= submit_tag("Submit for Grading") %>
+    86:                         <% end %>
+  
+app/views/course/home.html.erb:83:in `block in _app_views_course_home_html_erb___1747318476230520402_70191422864680'
+app/views/course/home.html.erb:82:in `_app_views_course_home_html_erb___1747318476230520402_70191422864680'
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:14:23 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 54ms (Views: 51.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:14:47 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 52ms (Views: 49.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-14 12:15:37 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iumJdp9s/qlNwwDZJv8+l6MooboW2uizZBzloLBe9fKb3msJ8EKAHMxyBcoIdAIHgpILNnxjwoRbG5RnGoy1yA==", "desired_attribute"=>"week2", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fad6de348c0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190114-26349-1s4op5z.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 1717ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:16:11 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 83ms (Views: 78.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-14 12:16:17 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j1hE/5+PZaYb84JRVaeUOnJy9z+XnPCl6MGCuFxVDrOeb6aA8KEbE5pCh0J7LKiqU8hds/0l2pLXxvN/9odOiQ==", "desired_attribute"=>"week1", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fad6eb600d0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190114-26349-m8ckdu.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, "commit"=>"Submit for Grading"}
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `a' for #<AutograderController:0x00007fad6eb78798>):
+  
+app/controllers/autograder_controller.rb:6:in `import'
+Started PUT "/__web_console/repl_sessions/a0549d9332562de7ca8cdce83583f45a" for 127.0.0.1 at 2019-01-14 12:16:20 -0500
+Started PUT "/__web_console/repl_sessions/a0549d9332562de7ca8cdce83583f45a" for 127.0.0.1 at 2019-01-14 12:16:21 -0500
+Started PUT "/__web_console/repl_sessions/a0549d9332562de7ca8cdce83583f45a" for 127.0.0.1 at 2019-01-14 12:17:23 -0500
+Started PUT "/__web_console/repl_sessions/a0549d9332562de7ca8cdce83583f45a" for 127.0.0.1 at 2019-01-14 12:17:30 -0500
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:17:47 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 61ms (Views: 57.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2019-01-14 12:17:50 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:17:50 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 77ms (Views: 73.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:18:42 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:19:58 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.qtip.min.map"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.2) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.2) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.2) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.2) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:20:33 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.qtip.min.map"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.2) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.2) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.2) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.2) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:21:31 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paulshao/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 297ms (Views: 289.4ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.qtip.min.map"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.2) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.2) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.2) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.2) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:23:38 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/jquery.qtip.min.map"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.2) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.2) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.2) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.2) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:24:38 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 45ms (Views: 41.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:25:42 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 63ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-14 12:26:20 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 0.0ms)
+
+
