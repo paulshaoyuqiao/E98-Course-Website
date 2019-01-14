@@ -13,6 +13,8 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# Used for unit testing purposes
+gem 'test-unit'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -29,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Google OAuth 2 for authenticating users
 gem "omniauth-google-oauth2", "~> 0.2.1"
 
+# Use Refile for file uploading and
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

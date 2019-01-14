@@ -1,14 +1,24 @@
-# E98 Course Website (In Development with Ruby on Rails)
-Author: Paul Shao
-_______________________________________________________________________________________________________________________________________
-## Development To-Dos:
+# README
 
-### Completed:
-1. Adding Database for Storing User Information
-2. Configuring Home Page for the Website + Frontend UI
-3. Adding and Configuring Google OAuth authentication for students logging in to check their assignment scores
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### To Be Completed:
-1. File Uploading and Handling (Executing Bash/Ruby Scripts on the Server)
-2. Connecting to the Database, Updating and Displaying Student Scores
-3. Deployment on a Web Server (Potentially Need to Update Data Storage to PostgreSQL or MySQL)
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
