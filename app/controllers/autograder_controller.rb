@@ -14,7 +14,7 @@ class AutograderController < ApplicationController
         while i < filenames.length
           filename = filenames[i]
           filepath = filepaths[i]
-          value = `ruby -r "./E98/execute.rb" -e "Exec.run_all_test '#{filepath}', '#{week}', '#{filename}'"`
+          value = `ruby -r "./Autograder/execute.rb" -e "Exec.run_all_test '#{filepath}', '#{week}', '#{filename}'"`
           result = value.split("\n")
           @result_array_disp += result
           @passed_test_cases += value.scan(/(?=Test Case Passed)/).count
