@@ -1,13 +1,13 @@
-require './Interactive'
+require './Autograder/Interactive'
 
-class Week2Test < Test::Unit::TestCase
+class Week2Test
 
     def self.test_bottles_99(path)
         Interactive.test_match(
            path,
            '',
            './Autograder/week2_test/99_bottles_oup.txt',
-           './Autograder/wee2_test/99_bottles_expected.txt',
+           './Autograder/week2_test/99_bottles_expected.txt',
            1,
            false,
            false,
@@ -147,7 +147,8 @@ class Week2Test < Test::Unit::TestCase
             false ,
             true,
             './Autograder/week2_test/leap_inp_none.txt',
-            "Leap Year Counter - Test Case 1"
+            "Leap Year Counter - Test Case 1",
+            1
         )
     end
 
@@ -160,7 +161,8 @@ class Week2Test < Test::Unit::TestCase
             false,
             true,
             './Autograder/week2_test/leap_inp_one.txt',
-            "Leap Year Counter - Test Case 2"
+            "Leap Year Counter - Test Case 2",
+            1
         )
     end
 
@@ -173,7 +175,8 @@ class Week2Test < Test::Unit::TestCase
             false ,
             true,
             './Autograder/week2_test/leap_inp_many.txt',
-            "Leap Year Counter - Test Case 3"
+            "Leap Year Counter - Test Case 3",
+            1
         )
     end
 

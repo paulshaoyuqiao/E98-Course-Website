@@ -1,7 +1,10 @@
 # E98 Course Website
 **Author: Paul Shao**
 _________________________________________________________________________________________________________________________________________
-### Most Recent Update: Jan 14th - 11:00 PM - EST => Rev H
+### Most Recent Update: Jan 15th - 11:15 AM - EST => Rev I
+* Fully Replaced and Updated Code Base for the Backend Autograder
+* Provided Additional Classes for Message/Exception Handling & Reporting and Util Methods
+* Updated Week 3 and Week 2 Tests Based on New Code Base
 * Added Multiple Script File Uploading/Processing Functionality
 * Autograder will detect for missing required files for a given week
 * Autograder will now provide helpful logging/debugging statements for each individual test case

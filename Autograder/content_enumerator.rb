@@ -2,6 +2,8 @@
 
 # AUTHOR: Paul Shao
 
+require './Autograder/message_reporter'
+
 class ContentEnumerator
 
   @@NUM_PATTERN = /\d+\.?\d+/
@@ -11,10 +13,11 @@ class ContentEnumerator
     begin
       IO.readlines(file).each(&method(:puts))
     rescue EOFError => e
-      print_exception(e, true)
+      MessageReporter.print_exception(e, true)
     rescue => e
-      print_exception(e, false)
+      MessageReporter.print_exception(e, false)
     end
+    puts "\n"
   end
 
   def self.enumerate_numbers(title, file)
@@ -29,10 +32,11 @@ class ContentEnumerator
         end
       end
     rescue EOFError => e
-      print_exception(e, true)
+      MessageReporter.print_exception(e, true)
     rescue => e
-      print_exception(e, false)
+      MessageReporter.print_exception(e, false)
     end
+    puts "\n"
   end
 
 end

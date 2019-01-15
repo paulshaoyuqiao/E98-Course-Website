@@ -30,7 +30,7 @@ class Interactive
 
     @@NUM_PATTERN = /\d+\.?\d+/
 
-    def self.test_num_match_only(test_file, oup, expected_oup, time_limit, multiple_ans, required_input, inp, test_name)
+    def self.test_num_match_only(test_file, oup, expected_oup, time_limit, multiple_ans, required_input, inp, test_name, padding)
         MessageReporter.report_preconditions(test_name, time_limit, '', -1, [], -1)
         if required_input
             ContentEnumerator.enumerate_content("Input", inp)
@@ -46,6 +46,12 @@ class Interactive
             actual = File.readlines(oup).each
             expected = File.readlines(expected_oup).each
             i = 0
+            count = 0
+            while count < padding
+                actual.next
+                count += 1
+                i += 1
+            end
             while i < actual.size
                 i += 1
                 curr_actual = actual.next.strip

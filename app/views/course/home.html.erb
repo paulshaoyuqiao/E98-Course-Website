@@ -74,6 +74,9 @@
                   Assignment Submission - Please Sign In With Your Google Account
                 </div>
                 <div>
+                    <% if flash[:notice] %>
+                        <strong><%= flash[:notice] %></strong><br>
+                    <% end %>
                     <% if current_user %>
                         Signed in as <strong><%= current_user.name %></strong>!
                         <%= link_to "Sign out", signout_path, id: "sign_out" %><br>

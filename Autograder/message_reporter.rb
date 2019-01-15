@@ -19,7 +19,13 @@ class MessageReporter
       puts "[Applying an Edit Distance of]: #{dist} for Comparing Outputs \n"
     end
     if lines.any?
-      puts "[Lines Considered for Comparing Outputs]: #{lines.join(', ')} \n"
+      if lines.length >= 10
+        start = lines[0]
+        last = lines[lines.length - 1]
+        puts "[Lines Considered for Comparing Outputs]: #{start} ~ #{last}"
+      else
+        puts "[Lines Considered for Comparing Outputs]: #{lines.join(', ')} \n"
+      end
     end
     unless tolerance <= 0
       puts "[Applying a Text Alignment Deviation Tolerance of]: #{tolerance} from the aligned center \n"
