@@ -12,7 +12,7 @@ class Exec
           "new_roman_numerals.rb"=> %w(new_roman0 new_roman1 new_roman2 new_roman3 new_roman4 new_roman5)
       },
       "week2" => {
-          "99_bob.rb" => [:bottles_99],
+          "99_bob.rb" => ["bottles_99"],
           "deaf_grandma.rb" => %w(deaf_grandma1 deaf_grandma2 deaf_grandma3 deaf_grandma4),
           "deaf_grandma_extended.rb" => %w(extended_deaf_grandma1 extended_deaf_grandma2 extended_deaf_grandma3 extended_deaf_grandma4),
           "leap_year_counter.rb" => %w(leap_year_counter1 leap_year_counter2 leap_year_counter3),
@@ -20,11 +20,11 @@ class Exec
           "table_of_contents.rb" => [:table_of_contents]
       },
       "week1" => {
-          "age_in_seconds.rb" => [:age_in_seconds],
-          "author_age.rb" => [:author_age],
-          "hours_in_year.rb" => [:hours_in_year],
-          "minutes_in_decade.rb" => [:minutes_in_decade],
-          "bigger_better_favorite_number.rb" => [:bigger_better_favorite_number],
+          "age_in_seconds.rb" => ["age_in_seconds"],
+          "author_age.rb" => ["author_age"],
+          "hours_in_year.rb" => ["hours_in_year"],
+          "minutes_in_decade.rb" => ["minutes_in_decade"],
+          "bigger_better_favorite_number.rb" => ["bigger_better_favorite_number"],
           "full_name_greeting.rb" => %w(greeting1 greeting2 greeting3),
           "angry_boss.rb" => %w(angry_boss1 angry_boss2),
           "table_of_contents.rb" => [:table_of_contents]
