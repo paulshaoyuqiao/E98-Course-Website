@@ -5941,3 +5941,415 @@ Processing by AutograderController#import as HTML
 Completed 200 OK in 2912ms (Views: 60.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:27:49 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paulshao/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 341ms (Views: 334.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-15 09:27:52 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-15 09:27:54 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=22c357fc2accd67245457e80b0d1d6c25d62c98bbbeb9b36&code=4/0wAc88B0NlagDj1-HbI-Il3QY2C0mlMyT6-GUBjBvZwiMbXgX2nQxaE63Mp8L8gV5kwDKnvm541qc5NPYI9RbBQ&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2019-01-15 09:27:57 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"22c357fc2accd67245457e80b0d1d6c25d62c98bbbeb9b36", "code"=>"4/0wAc88B0NlagDj1-HbI-Il3QY2C0mlMyT6-GUBjBvZwiMbXgX2nQxaE63Mp8L8gV5kwDKnvm541qc5NPYI9RbBQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "107651003042943561194"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:9
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.GlySBpcYpsiiJg35PKWJNNs8tb5JVVAgKb9KdDW2CEU6xqLz64zyRTbCyOKUKwGaUmVISNnLNAqV_K2_0ieBTzfdiADRAfIrlLvsVo8uuQkn4TAoyMXT9v1BitEx0g"], ["oauth_expires_at", "2019-01-15 15:27:57"], ["updated_at", "2019-01-15 14:27:57.709088"], ["id", 1]]
+  ↳ app/models/user.rb:9
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:27:57 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 56ms (Views: 51.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:28:09 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"moP2MN5ZSzvg2b8WQUJfDhY7hOH+8jozUL020l3gWwCBdG7bptNBcppBIOkZWS4psWSw6uG0OrtX0WGNOkOH7w==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0d9522a48 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1bdemwn.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0d9522980 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1g58uaq.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0d95228b8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1wr6382.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 820ms (Views: 37.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:30:11 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 60ms (Views: 57.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:30:21 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+piAwlsJZXYQUZXtnRRl7iQDCOcRBSZHEQJZBURoor7hbxgpI4NvP2rJChLFDxTJg1w87A5DJs8Wbg5aI8t+UQ==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0e4013560 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-2973p0.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0e4013510 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-a9nlfa.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0e40134c0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-16el2v9.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 848ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:31:31 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 68ms (Views: 65.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:31:42 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ifZUxVNhTJqzWVTiI+jmGdfUVr+elPKMOAiucyPizXOSAcwuK+tG08nByx1785c+cItitIHS8gQ/ZPksREERnA==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0e08a5a88 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-12wakca.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0e08a5a38 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-jd87xl.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0e08a59e8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-q5oieg.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 846ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:32:46 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 71ms (Views: 68.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:32:55 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Iz4LSrvtWmTjMU28NNuG/qMcq24+PpsNbgImHWWklpE4yZOhw2dQLZmp0kNswPfZBEOfZSF4m4VpbnFCAgdKfg==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0d96d6a38 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1n19ipy.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0d96d69e8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1neoz46.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0d96d6998 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-bws7hr.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4240ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:35:04 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 67ms (Views: 64.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:35:09 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SlSDbgKsLcfCAiP+AmLhGQR5gGCcxAizy87pp2Bgz9ZRoxuFeiYnjriavAFaeZA+oya0a4OCCDvMor74B8MTOQ==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0da3daf18 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-17fjx5z.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 826ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:35:47 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 86ms (Views: 83.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:35:55 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bYOLuig1XYrD3tVun3lHnzMS8ZJzobItXUluWIxeFNN2dBNRUL9Xw7lGSpHHYja4lE3FmWznsqVaJTkH6/3IPA==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dc1feaf8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1um7y9w.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 845ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:36:40 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 70ms (Views: 67.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:36:49 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WMjY5qpWgaxn5R2fiY2Q66MzkGnXH8JDIohINbBKol5DP0AN0tyL5R19gmDRluHMBGykYshZwssl5B9q1+l+sQ==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0de082c40 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1g04xth.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0de082bf0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-etal0n.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0de082ba0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-uyz68k.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4040ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:37:05 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 61ms (Views: 58.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:37:13 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K4x3gvG9WxiI3gncl0r3iYWXdoX/929Fpz1Zc3CRhY0we+9piTdRUfJGliPPUYauIshCjuCxb82gUQ4sFzJZYg==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dee66eb0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-tldw0a.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dee66e60 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-i83bik.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dee66de8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-uedzje.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4041ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:38:02 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 70ms (Views: 67.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:38:23 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/Cl5uVFDzfvwYS5hZHPSygUrBAaQIW2hONrp8naf9Dvn3uFSKcnHsor5sZ48aKPtonQwDY9nbSk/tr6tETwo1A==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dc1f52f0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1qu8vip.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dc1f52a0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1sewoqs.pdf>, @original_filename="Natural Language Processing with Python.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"Natural Language Processing with Python.pdf\"\r\nContent-Type: application/pdf\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dc1f5250 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1ld0gmm.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dc1f5200 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-14gjgjc.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4429ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:40:05 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 80ms (Views: 77.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:40:15 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xZS91a/YXzsjUQrgLczqT5NAEOUaB1GzAGQgQbsrIzHeYyU+11JVclnJlR9115toNB8k7gVBUTsHCHce3Ij/3g==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dee4ca10 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-zg07fv.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dee4c9c0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-xmqd66.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dee4c970 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-cvprd.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4105ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:42:09 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 91ms (Views: 87.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:42:18 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mx9C2zYrz4k4r6uCVZHXdfbzMZY1eUYgpcCMcQEARHIo6NowTqHFwEI3NH0NiqZSUawFnSo/RqiirNsuZqOYnQ==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dca768c0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-yx3nlp.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dca767f8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-usoayc.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dca76708 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-wo22n4.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4083ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:43:40 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 81ms (Views: 78.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:43:50 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j8jHEnF3aMrESG9E1UNzHKAs0sGQvI1O1OyaVs3LIaiUP1/5Cf1ig77Q8LuNWAI7B3Pmyo/6jcbTgM0Jqmj9Rw==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0defa6be0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-pjwi9y.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0defa6b90 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1iinze2.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0defa6b40 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-80rqav.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4108ms (Views: 47.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:45:03 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 57ms (Views: 54.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:45:13 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7mLslSRDQq4iWzbWqsIz+HUc6sKDpfk0yeD6hWK2Dur1lXR+XMlI51jDqSny2ULf0kPeyZzj+bzOjK3aBRXSBQ==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0d979b658 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-170a17v.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0d979b608 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1defw2y.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0d979b5b8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-17b5s61.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4101ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:45:35 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 67ms (Views: 63.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:45:42 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x03IV2csNHSKdHYZ987N4/6FWs99yPejdDSos/9r1PDculC8H6Y+PfDs6eav1bzEWdpuxGKO9ytzWP/smMgIHw==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dabae348 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1ucf7f9.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dabae2f8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-ghtj9i.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dabae2a8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1pu0czu.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4078ms (Views: 38.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:46:54 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 66ms (Views: 63.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:47:03 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tsak9C0sCJatcSFZOdZdhw8tWdr9ZIFkD/y/SoXHPf2tMTwfVaYC39fpvqZhzSygqHJt0eIigewIkOgV4mThEg==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dcb3f2e8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1aa0tqe.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dcb3f298 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-xj4al.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dcb3f220 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-jau2kb.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4086ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:49:23 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 95ms (Views: 92.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:49:33 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H3RO0BT99P40V1hkpClL5OXRWOq8rv3FszvTdKEsSJsEg9Y7bHf+t07Px5v8MjrDQo5s4aPo/U20V4Qrxo+UdA==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0e010b4f8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-12r8pob.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0e010b4a8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-dcfoic.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0e010b458 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-x7ro94.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4162ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:51:21 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 56ms (Views: 53.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:51:26 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RhLtuDtnUD2HzeYq7UT2YvzxUJmKZtHqVUVbQivNLbpd5XVTQ+1adP1VedW1X4dFW65kkpUg0WJSKQwdTG7xVQ==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dcbb2360 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-8jd9j4.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 840ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:52:15 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 68ms (Views: 65.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:52:33 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7R+czrjUrz19J4m5h432Cn/ddXuHEPOU3xKgXuLrFgL26AQlwF6ldAe/Fkbfloct2IJBcJhW8xzYfvcBhUjK7Q==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0da8d2ed0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-12wwvyy.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 834ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:54:46 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 69ms (Views: 66.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 09:55:19 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 60ms (Views: 57.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 09:55:24 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6HlHlJ9dmkqMKlK/tEkGQ4Trd77xiU24omGqYQ/3ed/zjt9/59eQA/ayzUDsUndkI7RDte7PTTClDf0+aFSlMA==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0d97c06d8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-vwe2an.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 840ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 10:00:12 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 62ms (Views: 59.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 10:00:17 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G3Gau7Shr6yfqro+h3cp3PfLt6ufU0B7pc5G7hSmNp8AhgJQzCul5eUyJcHfbFj7UJSDoIAVQPOiohGxcwXqcA==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0da67aae8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1l59lri.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 846ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 10:03:51 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 69ms (Views: 67.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 10:03:56 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dmWd9787sQGOeWyGx9A9gyLDg7mXFD93u4NDDLsQQwttkgUcx7G7SPTh83mfy0ykhZy3sohSP/+87xRT3LOf5A==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0da491358 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1cyxmlk.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 835ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-15 10:08:48 -0500
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 83ms (Views: 80.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 10:08:56 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x+XVpiGA3OaeixYPfdsIdowHcbXdzK3VqfBbe2iYl3HcEk1NWQrWr+QTifAlwHlRK1hFvsKKrV2unAwkDztLng==", "week"=>"week3", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fa0dc1e5828 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-mdoig6.rb>, @original_filename="ask.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"ask.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dc1e57d8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1lh24ee.rb>, @original_filename="new_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"new_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fa0dc1e5788 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-2863-1elpyvy.rb>, @original_filename="old_roman_numerals.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"old_roman_numerals.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4130ms (Views: 34.8ms | ActiveRecord: 0.0ms)
+
+

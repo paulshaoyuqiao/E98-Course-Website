@@ -3,9 +3,12 @@
 # AUTHOR: Paul Shao
 
 require 'timeout'
+require './Autograder/message_reporter'
+require './Autograder/content_enumerator'
+require './Autograder/utils'
 
 class Interactive
-    # The primary method for testing interactive programs for the scope of this course.
+    # All methods used for testing different scripts contain >=1 of the following inputs
     # @param test_file -> the .rb file containing the program to test on
     # @param inp -> the .txt file with the given input from the instructor's end
     # @param oup -> the .txt file with the output that whatever is printed to the console
@@ -17,65 +20,27 @@ class Interactive
     # The method has an additional clause for handling random integers generated in this range.
     # @return true IFF all lines of output produced by the given program exactly match all of those
     # from the expected output.
+    # @param test_name -> the name of this test
+    # @param multiple_ans -> if the test contains multiple acceptable answers
+    # @param required_input -> if this test requires a specific user input
+    # @param target -> the target to match in the user output
+    # @param lines -> an array of line indices to check the outputs for
+    # @param dist -> an upper threshold used for matching strings using edit distance
+    # @param tolerance -> an upper threshold used for checking text alignment
 
     @@NUM_PATTERN = /\d+\.?\d+/
 
-    def self.print_exception(exception, explicit)
-        puts "[#{explicit ? 'EXPLICIT' : 'INEXPLICIT'}] #{exception.class}: #{exception.message}"
-        puts exception.backtrace.join("\n")
-    end
-
-    def self.enumerate_content(title, file)
-        puts "#{title}: \n"
-        begin
-            IO.readlines(file).each(&method(:puts))
-        rescue EOFError => e
-            print_exception(e, true)
-        rescue => e
-            print_exception(e, false)
-        end
-    end
-
-    def self.report_unmatch_exception(expected, actual, line)
-        puts "Unmatched Error: \n"
-        puts "At line #{line} => Expected: #{expected}, But got #{actual} \n"
-        puts "Test Case Failed \n"
-        puts "------------------------------------------------------------- \n\n"
-    end
-
-    def self.report_timeout_exception
-        puts "Timeout Error: \n"
-        puts "Method takes too long to run. Please check for unhandled infinite loops. \n"
-        puts "Test Case Failed \n"
-        puts "------------------------------------------------------------- \n\n"
-    end
-
-    def self.report_unfound_exception(target)
-        puts "Target Not Found Error: \n"
-        puts "Target #{target} not found in user output. \n"
-        puts "Test Case Failed \n"
-        puts "------------------------------------------------------------- \n\n"
-    end
-
-    def self.report_passed
-        puts "Test Case Passed \n"
-        puts "------------------------------------------------------------- \n\n"
-    end
-
-    def self.add_import_statement(add_to, test_file)
-        original_lines = File.read(add_to).split(/\n/)
-        original_lines.insert(0, "load #{test_file}")
-        File.open(add_to, "w") {|f| f.write(original_lines.join("\n"))}
-    end
-
-    def self.test_num_match_only(test_file, oup, expected_oup, time_limit, multiple_ans, required_input, inp)
+    def self.test_num_match_only(test_file, oup, expected_oup, time_limit, multiple_ans, required_input, inp, test_name)
+        MessageReporter.report_preconditions(test_name, time_limit, '', -1, [], -1)
         if required_input
+            ContentEnumerator.enumerate_content("Input", inp)
             cmd = "ruby #{test_file} < #{inp} > #{oup}"
         else
             cmd = "ruby #{test_file} > #{oup}"
         end
+        ContentEnumerator.enumerate_numbers("Numbers Expected to be Matched", expected_oup)
         begin
-            Timeout::timeout(time_limit) do
+            status = Timeout::timeout(time_limit) do
                 system(cmd)
             end
             actual = File.readlines(oup).each
@@ -85,35 +50,36 @@ class Interactive
                 i += 1
                 curr_actual = actual.next.strip
                 curr_expected = expected.next.strip
-                actual_number = curr_actual.scan(@@NUM_PATTERN).map {|x| x.to_f }
-                expected_number = curr_expected.scan(@@NUM_PATTERN).map {|y| y.to_f }
-                unless actual_number.any?
-                    next
-                end
-                if multiple_ans
-                    num = actual_number[0]
-                    unless expected_number.include?(num)
-                        return false
-                    end
-                else
-                    unless (expected_number & actual_number).any?
-                        return false
+                actual_number = curr_actual.scan(@@NUM_PATTERN).map(&:to_i)
+                expected_number = curr_expected.scan(@@NUM_PATTERN).map(&:to_i)
+                if actual_number.any?
+                    if multiple_ans
+                        num = actual_number[0]
+                        unless expected_number.include?(num)
+                            MessageReporter.report_num_unmatched_exception(num, i)
+                            return
+                        end
+                    else
+                        unless (expected_number & actual_number).any?
+                            MessageReporter.report_unmatch_exception(expected_number, actual_number, i)
+                            return
+                        end
                     end
                 end
             end
         rescue Timeout::Error
-            puts "Error: your method is taking too long to run."
-            return false
+            MessageReporter.report_timeout_exception
+            return
+        rescue => e
+            MessageReporter.report_stack_trace_exception(e, true)
+            return
         end
-        return true
+        MessageReporter.report_passed
     end
 
     def self.test_partial_str_match(test_file, inp, target, time_limit, test_name, test_method, params)
-        puts "#{test_name} \n"
-        puts "------------------------------------------------------------- \n"
-        puts "[Imposed Time Restraint]: #{time_limit} second(s) \n"
-        puts "[Expected Target in Output]: #{target} \n\n"
-        enumerate_content("Input", inp)
+        MessageReporter.report_preconditions(test_name, time_limit, target, -1, [], -1)
+        ContentEnumerator.enumerate_content("Input", inp)
         begin
             file = File.open(inp)
             puts "\n Actual Output: \n"
@@ -125,107 +91,95 @@ class Interactive
             file.close
             puts "\n"
             unless result.to_s.include?(target)
-                report_unfound_exception(target)
+                MessageReporter.report_unfound_exception(target)
                 return
             end
         rescue Timeout::Error
-            report_timeout_exception
+            MessageReporter.report_timeout_exception
+            return
+        rescue => e
+            MessageReporter.report_stack_trace_exception(e, true)
             return
         end
-        report_passed
+        MessageReporter.report_passed
     end
 
-    def self.test_complete_partial_match(test_file, inp, oup, expected, time_limit, require_input)
-        if require_input
-            cmd = "ruby #{test_file} < #{inp} > #{oup}"
-        else
-            cmd = "ruby #{test_file} > #{oup}"
-        end
+    def self.test_inp_reformatted_match(test_file, inp, oup, time_limit, test_name)
+        MessageReporter.report_preconditions(test_name, time_limit, '', -1, [], -1)
+        compressed_target = Utils.concatenate_in_one_line(inp).strip.downcase()
+        puts "[Searching for Compressed Target in Output]: #{compressed_target} \n\n"
+        cmd = "ruby #{test_file} < #{inp} > #{oup}"
         begin
-            Timeout::timeout(time_limit) do
+            status = Timeout::timeout(time_limit) do
                 system(cmd)
             end
-            compare = File.readlines(expected).each
             actual = File.readlines(oup).each
             i = 0
-            contains_oup = false
             while i < compare.size
                 i += 1
-                compareTo = compare.next.strip
-                target = actual.next.strip
-                if actual.eql?("")
-                    break
-                end
-                if target.include?(compareTo)
-                    contains_oup = true
+                curr_actual = actual.next.strip.downcase()
+                if curr_actual.include?(compressed_target)
+                    MessageReporter.report_passed
+                    return
                 end
             end
-            unless contains_oup
-
-            end
-            rescue Timeout::Error
-            return false
+        rescue Timeout::Error
+            MessageReporter.report_timeout_exception
+            return
+        rescue => e
+            MessageReporter.report_stack_trace_exception(e, true)
+            return
         end
-        return true
+        MessageReporter.report_unfound_exception(compressed_target)
     end
 
-    def self.test_text_align(test_file, oup, expected_oup)
+    def self.test_text_align(test_file, oup, expected_oup, tolerance, test_name, time_limit)
+        MessageReporter.report_preconditions(test_name, time_limit, '', -1, [], tolerance)
         cmd = "ruby #{test_file} > #{oup}"
-        system(cmd)
-        actual = File.readlines(oup).each
-        expected = File.readlines(expected_oup).each
-        adjustment = actual.next.size
-        i = 1
-        while i < actual.size - 9
-            i += 1
-        end
-        until i >= actual.size
-            i += 1
-            curr_actual = actual.next.strip
-            if curr_actual.size - (adjustment - 2) > 10
-                return false
+        begin
+            status = Timeout::timeout(time_limit) do
+                system(cmd)
             end
-            shrinked = curr_actual.gsub(/\s+/, "").downcase
-            curr_expected = expected.next.strip
-            unless shrinked.eql?(curr_expected)
-                return false
+            actual = File.readlines(oup).each
+            expected = File.readlines(expected_oup).each
+            adjustment = actual.next.size
+            i = 1
+            while i < actual.size - 9
+                i += 1
             end
-        end
-        return true
-    end
-
-    def self.edit_distance(first, second)
-        first_len = first.length
-        second_len = second.length
-        return first_len if second_len == 0 or second.nil?
-        return second_len if first_len == 0 or first.nil?
-        dp = Array.new(first_len + 1) {Array.new(second_len + 1)}
-        (0..first_len).each {|i| dp[i][0] = i}
-        (0..second_len).each {|j| dp[0][j] = j}
-        (1..second_len).each do |j|
-            (1..first_len).each do |i|
-                dp[i][j] = if first[i - 1] == second[j - 1]
-                    dp[i - 1][j - 1]
-                else
-                    [dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + 1].min
+            while i < actual.size
+                i += 1
+                curr_actual = actual.next.strip
+                unless curr_actual.size - (adjustment - 2) <= tolerance
+                    MessageReporter.report_unaligned_exception(tolerance, adjustment, i)
+                    return
+                end
+                shrunk = curr_actual.gsub(/\s+/, "").downcase
+                curr_expected = expected.next.strip
+                unless shrunk.eql?(curr_expected)
+                    MessageReporter.report_unmatch_exception(curr_expected, curr_actual, i)
+                    return
                 end
             end
+        rescue Timeout::Error
+            MessageReporter.report_timeout_exception
+            return
+        rescue => e
+            MessageReporter.report_stack_trace_exception(e, true)
+            return
         end
-        dp[first_len][second_len]
+        MessageReporter.report_passed
     end
 
     def self.test_match(test_file, inp, oup, expected_oup, time_limit, gr_modified, required_input, lines, test_name, dist)
-        puts "#{test_name} \n"
-        puts "------------------------------------------------------------- \n"
-        puts "[Imposed Time Restraint]: #{time_limit} second(s) \n"
-        puts "[Applying an Edit Distance of]: #{dist} for Comparing Outputs \n"
+        MessageReporter.report_preconditions(test_name, time_limit, '', dist, lines, -1)
         if required_input
-            enumerate_content("[Input]", inp)
+            ContentEnumerator.enumerate_content("[Input]", inp)
             cmd = "ruby #{test_file} < #{inp} > #{oup}"
         else
             cmd = "ruby #{test_file} > #{oup}"
         end
-        enumerate_content("[Expected]", expected_oup)
+        ContentEnumerator.enumerate_content("[Expected]", expected_oup)
         begin
             status = Timeout::timeout(time_limit) do
                 system(cmd)
@@ -246,22 +200,22 @@ class Interactive
                         i += 1
                     end
                     if curr_expected.match?(@@NUM_PATTERN)
-                        unless assert_num_equal(curr_actual, curr_expected, 0.01)
-                            report_unmatch_exception(curr_expected, curr_actual, i)
+                        unless Utils.assert_num_equal(curr_actual, curr_expected, 0.01)
+                            MessageReporter.report_unmatch_exception(curr_expected, curr_actual, i)
                             return
                         end
                     else
                         ces = curr_expected.gsub(/\s+/, "").downcase
                         cas = curr_actual.gsub(/\s+/, "").downcase
-                        unless edit_distance(ces, cas) <= dist
-                            report_unmatch_exception(curr_expected, curr_actual, i)
+                        unless Utils.edit_distance(ces, cas) <= dist
+                            MessageReporter.report_unmatch_exception(curr_expected, curr_actual, i)
                             return
                         end
                     end
                     if gr_modified
                         if curr_actual[0..1].eql?("NO")
-                            unless grandma_test(curr_actual, curr_expected)
-                                report_unmatch_exception(curr_expected, curr_actual, i)
+                            unless Utils.grandma_test(curr_actual, curr_expected)
+                                MessageReporter.report_unmatch_exception(curr_expected, curr_actual, i)
                                 return
                             end
                         end
@@ -269,46 +223,13 @@ class Interactive
                 end
             end
         rescue Timeout::Error
-            report_timeout_exception
+            MessageReporter.report_timeout_exception
+            return
+        rescue => e
+            MessageReporter.report_stack_trace_exception(e, true)
             return
         end
-        report_passed
-    end
-
-    # Helper method written to check if two string of numbers are equal to each other (or
-    # the absolute value of their difference is less than or equal to the given threshold).
-    def self.assert_num_equal(first_num_str, second_num_str, threshold)
-        first_num = first_num_str.to_f
-        second_num = second_num_str.to_f
-        return (first_num - second_num).abs <= threshold
-    end
-
-    # Helper method written to check specifically for the deaf_grandma.rb test case.
-    # Checks if the first half of the string matches what we expect and the output random year
-    # is within the given range.
-    def self.grandma_test(curr_actual, curr_expected)
-        curr_actual_first_half = curr_actual[0..13].gsub(/\s+/, "").downcase
-        curr_expected_first_half = curr_expected[0..13].gsub(/\s+/, "").downcase
-        unless edit_distance(curr_actual_first_half, curr_expected_first_half) <= 3
-            return false
-        end
-        curr_actual_year = curr_actual[14..17].to_i
-        unless in_range(curr_actual_year, 1930, 1950)
-            return false
-        end
-        return true
-    end
-
-    # Helper method written to check if 2 strings are equal.
-    def self.assert_equal(s1, s2)
-        unless s1.eql?(s2)
-            puts "Error: Unmatched output. Expecting #{s1}, but got #{s2}."
-        end
-    end
-
-    # Helper method written to check if a given number is in the range [low, high].
-    def self.in_range(number, low, high)
-        return number >= low && number <= high
+        MessageReporter.report_passed
     end
 
 end

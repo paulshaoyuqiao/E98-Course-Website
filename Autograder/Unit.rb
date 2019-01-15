@@ -12,7 +12,7 @@ class Unit
   def self.assert_equal(inp_list, script_path, method_name, test_name, expected)
     load script_path
     puts "#{test_name} \n"
-    puts "------------------------------------------------------------- \n"
+    puts "-------------------------------------------------------------------------------------------------- \n"
     puts "Input: #{inp_list}, Expected: #{expected}"
     begin
       result = send(method_name, *inp_list)
@@ -22,14 +22,15 @@ class Unit
       else
         puts "Test Case Failed \n"
       end
-      puts "------------------------------------------------------------- \n\n"
+      puts "-------------------------------------------------------------------------------------------------- \n\n"
       return
     rescue NoMethodError => e
       print_exception(e, true)
     rescue => e
       print_exception(e, false)
-    puts "Test Case Failed \n"
-    puts "------------------------------------------------------------- \n\n"
     end
+    puts "Test Case Failed \n"
+    puts "-------------------------------------------------------------------------------------------------- \n\n"
   end
 end
+
