@@ -1,4 +1,18 @@
-<h1>Here is the autograded result for <%= @file_name %></h1><br>
-<% @result_array_disp.each do |row| %>
-    <%= row %><br>
+<h1>Here is the autograded result for <%= @week_name %> assignments</h1><br>
+<% if @unrecognized_files.any? %>
+  <strong>Warning: Missing <%= @unrecognized_files.length %> Required File(s)</strong><br>
+  Your submission seems to be missing the following files for <%= @week_name %> assignments: <br>
+  <% @unrecognized_files.each do |f| %>
+    <strong><%= f %></strong><br>
+  <% end %><br>
+<% else %>
+  All required files present. <br>
+<% end %>
+<br><strong>Test Case Summary</strong><br>
+Passed <strong><%= @passed_test_cases %>/<%= @total_test_cases %> tests.</strong><br><br>
+<strong>Autograder Feedback</strong><br>
+<% if @result_array_disp.any? %>
+  <% @result_array_disp.each do |row| %>
+      <%= row %><br>
+  <% end %>
 <% end %>

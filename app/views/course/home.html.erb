@@ -71,7 +71,7 @@
             </table>
             <div class="segment">
                 <div class="segmenttitle">
-                    Sign In With Your Google Account
+                  Assignment Submission - Please Sign In With Your Google Account
                 </div>
                 <div>
                     <% if current_user %>
@@ -79,7 +79,7 @@
                         <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
                         <%= form_tag({:action => :import, :controller=>"autograder"}, multipart: true) do %>
                             <%= select_tag :week, options_for_select(['week1', 'week2', 'week3', 'week4']) %>
-                            <%= file_field_tag :file %>
+                            <%= file_field_tag 'files[]', :multiple => true %>
                             <%= submit_tag("Submit for Grading") %>
                         <% end %>
                     <% else %>
