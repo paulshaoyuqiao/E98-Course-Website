@@ -37,7 +37,7 @@ class Exec
     test_class_name = @@week_class[week_name]
     tests_per_method = methods_by_week[file_name]
     tests_per_method.each do |method|
-      test_output = `ruby -r "./Autograder/#{week_name}_test.rb" -e "#{test_class_name}.#{'test_' + method} '#{file_path}'"`
+      test_output = `ruby -r "./Autograder/#{week_name}_test.rb" -e "#{test_class_name}.test_#{method} '#{file_path}'"`
       puts test_output
     end
   end

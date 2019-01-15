@@ -6849,3 +6849,22 @@ Processing by AutograderController#import as HTML
 Completed 200 OK in 9219ms (Views: 38.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-01-15 11:21:50 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paulshao/.rvm/gems/ruby-2.5.1/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 325ms (Views: 316.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-15 11:21:57 -0500
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O+xQmV3Vp5h8b66UiDM7em6WdrTwD/hM+9MHFE03OGkgG8hyJV+t0Qb3MWvQKEpdyclCv+9J+MT8v1BLKpTkhg==", "week"=>"week2", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007fbac03aecb0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-15562-1qu9q6i.rb>, @original_filename="99_bob.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"99_bob.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fbac03aec60 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-15562-bqeud9.rb>, @original_filename="array_sort.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"array_sort.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fbac03aec10 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-15562-15myizr.rb>, @original_filename="deaf_grandma_extended.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"deaf_grandma_extended.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fbac03aebc0 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-15562-kyn62o.rb>, @original_filename="deaf_grandma.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"deaf_grandma.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fbac03aeb70 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-15562-1u4fiz2.rb>, @original_filename="leap_year_counter.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"leap_year_counter.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007fbac03aeb20 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190115-15562-hxp1jd.rb>, @original_filename="table_of_contents.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"table_of_contents.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 9817ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
