@@ -8436,3 +8436,259 @@ Processing by CourseController#score as HTML
 Completed 200 OK in 74ms (Views: 69.3ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:37:18 -0800
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.2) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.2) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (216.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "my_database_development"[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "my_database_development"[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (846.5ms)[0m  [1m[35mCREATE DATABASE "my_database_development" ENCODING = 'utf8'[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE "my_database_development" ENCODING = 'utf8'[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (20.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5168794849566389475)[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+Migrating to CreateUsers (20190103193516)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying, "uid" character varying, "email" character varying, "name" character varying, "oauth_token" character varying, "oauth_expires_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190103193516_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190103193516"]]
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+Migrating to CreateScores (20190116172714)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "scores" ("id" bigserial primary key, "email" character varying, "name" character varying, "week" integer, "total_test" integer, "passed_test" integer, "total_score" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190116172714_create_scores.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190116172714"]]
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-16 22:37:49.547569"], ["updated_at", "2019-01-16 22:37:49.547569"]]
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5168794849566389475)[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paulshao/.rvm/rubies/ruby-2.6.0/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:38:07 -0800
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paulshao/.rvm/gems/ruby-2.6.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 653ms (Views: 644.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-16 14:38:14 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-16 14:38:15 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=f922fe6c48864e83268d27bcc7db3f59e5e01f9c2d456c1f&code=4/1QAKU6gENlAdgkVdHAaLDnYLDc6nER4AX2UaRnmvdMxqK_ZGz8RvQPBF6YodJE0CxuTiYHSdKIr3e9rG0EAzDGw&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email" for 127.0.0.1 at 2019-01-16 14:38:19 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"f922fe6c48864e83268d27bcc7db3f59e5e01f9c2d456c1f", "code"=>"4/1QAKU6gENlAdgkVdHAaLDnYLDc6nER4AX2UaRnmvdMxqK_ZGz8RvQPBF6YodJE0CxuTiYHSdKIr3e9rG0EAzDGw", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "107651003042943561194"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:10
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "email", "name", "oauth_token", "oauth_expires_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["provider", "google_oauth2"], ["uid", "107651003042943561194"], ["email", "paulshaoyuqiao@gmail.com"], ["name", "Shao Yuqiao Paul"], ["oauth_token", "ya29.GlyUBs_R5KStNMQW9DBTtM-NCiTdGJTgTIBLaPVG4zWGZB_nBxFr94BEYdS4TW_SjQwqO1nKPsi12mAXAhMCh5szkG4c5DrnGi7qVhAWZXJNtwjNdA5WY13bzd5-Cg"], ["oauth_expires_at", "2019-01-16 23:38:19"], ["created_at", "2019-01-16 22:38:20.612872"], ["updated_at", "2019-01-16 22:38:20.612872"]]
+  ↳ app/models/user.rb:10
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms (ActiveRecord: 14.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:38:20 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 69ms (Views: 66.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/import" for 127.0.0.1 at 2019-01-16 14:38:47 -0800
+Processing by AutograderController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LjDT9C0V/aipwzceTab73DTvsjf5KPYsJmVCK5ecmyTkYPTFEXVbMPwvbMJduJu42IUw1rJK+j5JYQljg5DJkg==", "week"=>"week2", "files"=>[#<ActionDispatch::Http::UploadedFile:0x00007f9aa31d7848 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190116-14527-8lf2bo.rb>, @original_filename="99_bob.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"99_bob.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007f9aa31d77f8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190116-14527-xkjjpf.rb>, @original_filename="array_sort.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"array_sort.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007f9aa31d77a8 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190116-14527-1g6k4wz.rb>, @original_filename="deaf_grandma_extended.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"deaf_grandma_extended.rb\"\r\nContent-Type: text/x-ruby-script\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007f9aa31d7758 @tempfile=#<Tempfile:/var/folders/jq/f0szv_453d31_9xwgvhs45yc0000gn/T/RackMultipart20190116-14527-zxwbl3.rb>, @original_filename="deaf_grandma.rb", @content_type="text/x-ruby-script", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"deaf_grandma.rb\"\r\nContent-Type: text/x-ruby-script\r\n">], "commit"=>"Submit for Grading"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mScore Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "scores" WHERE "scores"."email" = $1 AND "scores"."name" = $2 AND "scores"."week" = $3 LIMIT $4[0m  [["email", "paulshaoyuqiao@gmail.com"], ["name", "Shao Yuqiao Paul"], ["week", 2], ["LIMIT", 1]]
+  ↳ app/controllers/autograder_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/autograder_controller.rb:37
+  [1m[36mScore Create (0.6ms)[0m  [1m[32mINSERT INTO "scores" ("email", "name", "week", "total_test", "passed_test", "total_score", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "paulshaoyuqiao@gmail.com"], ["name", "Shao Yuqiao Paul"], ["week", 2], ["total_test", 16], ["passed_test", 12], ["total_score", 42.857142857142854], ["created_at", "2019-01-16 22:38:55.230314"], ["updated_at", "2019-01-16 22:38:55.230314"]]
+  ↳ app/controllers/autograder_controller.rb:37
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/autograder_controller.rb:37
+  Rendering autograder/import.html.erb within layouts/application
+  Rendered autograder/import.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 7658ms (Views: 101.8ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2019-01-16 14:39:39 -0800
+Processing by CourseController#score as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering course/score.html.erb within layouts/application
+  [1m[36mScore Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "scores" WHERE "scores"."email" = $1 LIMIT $2[0m  [["email", "paulshaoyuqiao@gmail.com"], ["LIMIT", 1]]
+  ↳ app/views/course/score.html.erb:61
+  [1m[36mScore Load (0.4ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."email" = $1[0m  [["email", "paulshaoyuqiao@gmail.com"]]
+  ↳ app/views/course/score.html.erb:75
+  Rendered course/score.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 48ms (Views: 43.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:39:43 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 68ms (Views: 64.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:45:33 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 93ms (Views: 81.9ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:47:24 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 78ms (Views: 74.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2019-01-16 14:47:29 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:47:29 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 90ms (Views: 88.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2019-01-16 14:47:37 -0800
+Processing by CourseController#score as HTML
+  Rendering course/score.html.erb within layouts/application
+  Rendered course/score.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 55ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-16 14:47:38 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-16 14:47:39 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=af04fda9e5c7b70255e5233d0a8e84e59d8e6aaad4e6d4b6&code=4/1QDLDZV0wPrHiVLhsmBWdd3uJzg61eoyTmeB1flKTZva29fvj-FOYd7ekevZH_vrEV456M6mzkp5kTB0EOgmvZY&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email" for 127.0.0.1 at 2019-01-16 14:47:44 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"af04fda9e5c7b70255e5233d0a8e84e59d8e6aaad4e6d4b6", "code"=>"4/1QDLDZV0wPrHiVLhsmBWdd3uJzg61eoyTmeB1flKTZva29fvj-FOYd7ekevZH_vrEV456M6mzkp5kTB0EOgmvZY", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "107651003042943561194"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:10
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlyUBlejaL_6Kiuguuh2jaG5Ss5nNP4LFWO8dxEwctCTfd90HG4lwrTSWxr_UyDtkZxwC3belMiepKeZR5YKIgpv_vHUuT5AXgB-ckMhhEd5GJc8xt40bBtKQnHA-g"], ["oauth_expires_at", "2019-01-16 23:47:43"], ["updated_at", "2019-01-16 22:47:44.714923"], ["id", 1]]
+  ↳ app/models/user.rb:10
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:47:44 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/scores" for 127.0.0.1 at 2019-01-16 14:47:47 -0800
+Processing by CourseController#score as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering course/score.html.erb within layouts/application
+  [1m[36mScore Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "scores" WHERE "scores"."email" = $1 LIMIT $2[0m  [["email", "paulshaoyuqiao@gmail.com"], ["LIMIT", 1]]
+  ↳ app/views/course/score.html.erb:61
+  [1m[36mScore Load (0.3ms)[0m  [1m[34mSELECT "scores".* FROM "scores" WHERE "scores"."email" = $1[0m  [["email", "paulshaoyuqiao@gmail.com"]]
+  ↳ app/views/course/score.html.erb:75
+  Rendered course/score.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 53ms (Views: 45.8ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 14:47:53 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 80ms (Views: 78.0ms | ActiveRecord: 0.4ms)
+
+

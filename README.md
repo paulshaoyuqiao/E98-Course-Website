@@ -2,6 +2,7 @@
 **Author: Paul Shao**
 _________________________________________________________________________________________________________________________________________
 ### Most Recent Update: Jan 16th - 11:00 AM - PST => Rev J
+* Switched Database from SQLite3 to PostgreSQL 11 => Deployed on Heroku
 * Updated and Connected Autograder to Backend Database per User
 * Fully Replaced and Updated Code Base for the Backend Autograder
 * Provided Additional Classes for Message/Exception Handling & Reporting and Util Methods
@@ -18,8 +19,6 @@ ________________________________________________________________________________
 * Single Script Upload and Remote Autograding with Bash and Ruby
 * Multiple Script Files Uploading/Processing/Autograding
 * Backend Database Connection (Read, Insert, Update)
+* Scalable Database Support (PostgreSQL 11)
 _________________________________________________________________________________________________________________________________________
-### Current To-dos
-* Switch Database From SQLite3 to Something More Scalable and Usable
-* Add Unit Testing for the Website
-* Deploy the Website
+

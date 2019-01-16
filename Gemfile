@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -31,6 +30,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Google OAuth 2 for authenticating users
 gem "omniauth-google-oauth2", "~> 0.2.1"
 
+group :production do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'sqlite3'
+end
 # Use Refile for file uploading and
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
