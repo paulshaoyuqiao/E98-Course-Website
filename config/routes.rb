@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'scores', to: 'course#score', as: 'scores'
   post 'import', to: 'autograder#import'
 
   resources :sessions, only: [:create, :destroy]

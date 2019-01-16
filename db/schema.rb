@@ -10,22 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_194003) do
+ActiveRecord::Schema.define(version: 2019_01_16_172714) do
 
-  create_table "assignments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "homeworks", force: :cascade do |t|
-    t.integer "item_id"
-    t.string "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_homeworks_on_item_id"
-  end
-
-  create_table "items", force: :cascade do |t|
+  create_table "scores", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.integer "week"
+    t.integer "total_test"
+    t.integer "passed_test"
+    t.float "total_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_01_13_194003) do
   create_table "users", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
+    t.string "email"
     t.string "name"
     t.string "oauth_token"
     t.datetime "oauth_expires_at"

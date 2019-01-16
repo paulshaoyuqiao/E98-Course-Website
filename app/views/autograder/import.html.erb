@@ -1,4 +1,4 @@
-<h1>Here is the autograded result for <%= @week_name %> assignments</h1><br>
+<h1>Here is the autograded result for <%= @week_name %> assignments, User <%= current_user.email %></h1><br>
 <% if @unrecognized_files.any? %>
   <strong>Warning: Missing <%= @unrecognized_files.length %> Required File(s)</strong><br>
   Your submission seems to be missing the following files for <%= @week_name %> assignments: <br>
