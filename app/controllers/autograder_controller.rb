@@ -53,7 +53,7 @@ class AutograderController < ApplicationController
       if total == 0 and passed == 0
         return 0
       end
-      return passed / (total + passed + 0.0) * 100
+      return (passed / (total + 0.0) * 100).round(2)
     end
 
 end

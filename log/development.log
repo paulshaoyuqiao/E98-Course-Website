@@ -8692,3 +8692,69 @@ Processing by CourseController#home as HTML
 Completed 200 OK in 80ms (Views: 78.0ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-01-16 15:03:02 -0800
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/paulshao/.rvm/gems/ruby-2.6.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (44.3ms)
+Completed 200 OK in 382ms (Views: 357.8ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2019-01-16 15:03:04 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 15:03:04 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-16 15:03:05 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-01-16 15:03:05 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=c90d486a2604407d97586ccc6a0a57a34bfe4eb0ec9e99b4&code=4/1QApIkCvFKQkk6baTYvxSkiXfGNvQ6nSLbuJCouiiJKqJ9FwUkiOooNQk2tb8Gd6f3McS16xJE17Enq9JCHOJf0&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2019-01-16 15:03:08 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"c90d486a2604407d97586ccc6a0a57a34bfe4eb0ec9e99b4", "code"=>"4/1QApIkCvFKQkk6baTYvxSkiXfGNvQ6nSLbuJCouiiJKqJ9FwUkiOooNQk2tb8Gd6f3McS16xJE17Enq9JCHOJf0", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "107651003042943561194"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:10
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlyUBvPHkb8oUG3Ttlb52tW_cqPyMRL9GOQlLVyZxNXbaYokugU5cFd9N79kR9Iw9Xz8mVAdHjDF9ZXGVufLNEUXtdmtoAf5MjlXL6_UbP5blYbL2hqwdCrJErn9VQ"], ["oauth_expires_at", "2019-01-17 00:03:08"], ["updated_at", "2019-01-16 23:03:09.308124"], ["id", 1]]
+  ↳ app/models/user.rb:10
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 15:03:09 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered course/home.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 92ms (Views: 90.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2019-01-16 15:03:12 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-16 15:03:12 -0800
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
