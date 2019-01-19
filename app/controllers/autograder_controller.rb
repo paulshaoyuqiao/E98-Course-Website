@@ -29,7 +29,7 @@ class AutograderController < ApplicationController
             @passed_test_cases += value.scan(/(?=Test Case Passed)/).count
             @compiled_results = []
             current_test = []
-            result.each do |element|
+            @result_array_disp.each do |element|
               if element.include?("- Test Case")
                 current_test.append(element)
               elsif element.include?("Test Case Passed")
