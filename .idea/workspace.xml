@@ -36,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/autograder_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="109" lean-forward="true" selection-start-line="7" selection-start-column="109" selection-end-line="7" selection-end-column="109" />
+            <state relative-caret-position="150">
+              <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -72,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Autograder/execute.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="28" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="28" />
+            <state relative-caret-position="247">
+              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -178,37 +178,6 @@
             <path>
               <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
               <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="autograder" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="course" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
@@ -395,7 +364,7 @@
       <workItem from="1547675169347" duration="3253000" />
       <workItem from="1547871121635" duration="13000" />
       <workItem from="1547871158270" duration="109000" />
-      <workItem from="1547873444834" duration="2663000" />
+      <workItem from="1547873444834" duration="2805000" />
     </task>
     <servers />
   </component>
@@ -405,7 +374,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33986000" />
+    <option name="totallyTimeSpent" value="34128000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="126" y="114" width="1536" height="827" extended-state="0" />
@@ -608,17 +577,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Autograder/execute.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/autograder_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="28" />
+        <state relative-caret-position="150">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/autograder_controller.rb">
+    <entry file="file://$PROJECT_DIR$/Autograder/execute.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="109" lean-forward="true" selection-start-line="7" selection-start-column="109" selection-end-line="7" selection-end-column="109" />
+        <state relative-caret-position="247">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
         </state>
       </provider>
     </entry>

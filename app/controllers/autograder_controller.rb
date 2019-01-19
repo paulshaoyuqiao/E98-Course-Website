@@ -7,7 +7,7 @@ class AutograderController < ApplicationController
         "week3" => ["ask.rb", "old_roman_numerals.rb", "new_roman_numerals.rb"],
         "week4" => ["array_max.rb", "contains_char.rb", "count_array.rb", "factorial.rb", "sum_of_digits.rb"]
     }
-    @@total_tests_by_week = {"week1" => 10, "week2" => 16, "week3" => 13}
+    @@total_tests_by_week = {"week1" => 10, "week2" => 16, "week3" => 13, "week4" => 20}
     def import
         begin
           filenames = params[:files].map{|f| f.original_filename}
