@@ -1,7 +1,12 @@
 require 'set'
 
 class AutograderController < ApplicationController
-    @@files_by_week = {"week1" => ["age_in_seconds.rb", "author_age.rb", "hours_in_year.rb", "minutes_in_decade.rb","bigger_better_favorite_number.rb", "full_name_greeting.rb", "angry_boss.rb", "table_of_contents.rb"],"week2" =>["99_bob.rb", "deaf_grandma.rb", "deaf_grandma_extended.rb", "leap_year_counter.rb", "array_sort.rb", "table_of_contents.rb"], "week3" => ["ask.rb", "old_roman_numerals.rb", "new_roman_numerals.rb"]}
+    @@files_by_week = {
+        "week1" => ["age_in_seconds.rb", "author_age.rb", "hours_in_year.rb", "minutes_in_decade.rb","bigger_better_favorite_number.rb", "full_name_greeting.rb", "angry_boss.rb", "table_of_contents.rb"],
+        "week2" =>["99_bob.rb", "deaf_grandma.rb", "deaf_grandma_extended.rb", "leap_year_counter.rb", "array_sort.rb", "table_of_contents.rb"],
+        "week3" => ["ask.rb", "old_roman_numerals.rb", "new_roman_numerals.rb"],
+        "week4" => ["array_max.rb", "contains_char.rb", "count_array.rb", "factorial.rb", "sum_of_digits.rb"]
+    }
     @@total_tests_by_week = {"week1" => 10, "week2" => 16, "week3" => 13}
     def import
         begin
