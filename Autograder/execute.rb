@@ -6,6 +6,13 @@
 
 class Exec
   @@test_method = {
+      "week4" => {
+          "array_max.rb" => %w(arr_max1 arr_max2 arr_max3 arr_max4),
+          "contains_char.rb" => %w(contains_char1 contains_char2 contains_char3 contains_char4),
+          "count_array.rb" => %w(count_array1 count_array2 count_array3 count_array4),
+          "factorial.rb" => %w(factorial1 factorial2 factorial3 factorial4),
+          "sum_of_digits.rb" => %w(sum_of_digits1 sum_of_digits2 sum_of_digits3 sum_of_digits4)
+      },
       "week3" => {
           "ask.rb" => %w(ask1 ask2),
           "old_roman_numerals.rb"=> %w(old_roman0 old_roman1 old_roman2 old_roman3 old_roman4),
@@ -30,7 +37,7 @@ class Exec
           "table_of_contents.rb" => [:table_of_contents]
       }
     }
-  @@week_class = {"week1" =>"Week1Test", "week2" =>"Week2Test", "week3" =>"Week3Test"}
+  @@week_class = {"week1" =>"Week1Test", "week2" =>"Week2Test", "week3" =>"Week3Test", "week4" => "Week4Test"}
 
   def self.run_all_test(file_path, week_name, file_name)
     methods_by_week = @@test_method[week_name]
