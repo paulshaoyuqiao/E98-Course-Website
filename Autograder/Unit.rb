@@ -28,7 +28,7 @@ class Unit
         return
       rescue Timeout::Error => e
         print_exception(e, true)
-      end 
+      end
     rescue NoMethodError => e
       print_exception(e, true)
     rescue => e

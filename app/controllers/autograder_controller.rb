@@ -27,6 +27,21 @@ class AutograderController < ApplicationController
             result = value.split("\n")
             @result_array_disp += result
             @passed_test_cases += value.scan(/(?=Test Case Passed)/).count
+            @compiled_results = []
+            current_test = []
+            result.each do |element|
+              if element.include?("- Test Case")
+                current_test.append(element)
+              elsif element.include?("Test Case Passed")
+                current_test.append("Passed")
+                @compiled_results.append(current_test)
+                current_test.clear
+              elsif element.include?("Test Case Failed")
+                current_test.append("Failed")
+                @compiled_results.append(current_test)
+                current_test.clear
+              end
+            end
             i += 1
           end
           @total_test_cases = @@total_tests_by_week[week]

@@ -8,7 +8,10 @@
 <% else %>
   All required files present. <br>
 <% end %>
-<br><strong>Test Case Summary</strong><br>
+<br><strong>Test Case Summary</strong><br><br>
+<% @compiled_results.each do |r| %>
+  ** <%= r[0] + "- Test Case " + r[1] %> ** <br>
+<% end %><br>
 Passed <strong><%= @passed_test_cases %>/<%= @total_test_cases %> tests.</strong><br><br>
 <strong>Autograder Feedback</strong><br>
 <% if @result_array_disp.any? %>
