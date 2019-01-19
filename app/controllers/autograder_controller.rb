@@ -31,16 +31,13 @@ class AutograderController < ApplicationController
             current_test = []
             @result_array_disp.each do |element|
               if element.include?("- Test Case")
-                puts element
                 current_test.append(element)
               elsif element.include?("Test Case Passed")
                 current_test.append("Passed")
                 @compiled_results.append(current_test)
-                current_test.clear
               elsif element.include?("Test Case Failed")
                 current_test.append("Failed")
                 @compiled_results.append(current_test)
-                current_test.clear
               end
             end
             i += 1
