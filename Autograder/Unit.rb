@@ -1,6 +1,7 @@
 # A helper class written for unit testing programs for Engineering 98.
 
 # AUTHOR: Paul Shao
+require 'timeout'
 
 class Unit
 
@@ -15,15 +16,19 @@ class Unit
     puts "-------------------------------------------------------------------------------------------------- \n"
     puts "Input: #{inp_list}, Expected: #{expected}"
     begin
-      result = send(method_name, *inp_list)
-      puts "Actual: #{result}"
-      if result == expected
-        puts "Test Case Passed \n"
-      else
-        puts "Test Case Failed \n"
-      end
-      puts "-------------------------------------------------------------------------------------------------- \n\n"
-      return
+      Timeout::timeout(1) do
+        result = send(method_name, *inp_list)
+        puts "Actual: #{result}"
+        if result == expected
+          puts "Test Case Passed \n"
+        else
+          puts "Test Case Failed \n"
+        end
+        puts "-------------------------------------------------------------------------------------------------- \n\n"
+        return
+      rescue Timeout::Error => e
+        print_exception(e, true)
+      end 
     rescue NoMethodError => e
       print_exception(e, true)
     rescue => e
