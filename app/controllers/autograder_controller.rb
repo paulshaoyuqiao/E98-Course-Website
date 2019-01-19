@@ -42,7 +42,7 @@ class AutograderController < ApplicationController
           end
           index = 0
           while index < current_test.length
-            @compiled_results += [current_test[index], current_test[index + 1]]
+            @compiled_results.append([current_test[index], current_test[index + 1]])
             index += 2
           end
           @total_test_cases = @@total_tests_by_week[week]
