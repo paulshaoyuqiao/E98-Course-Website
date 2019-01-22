@@ -24,7 +24,7 @@ class Exec
           "deaf_grandma_extended.rb" => %w(extended_deaf_grandma1 extended_deaf_grandma2 extended_deaf_grandma3 extended_deaf_grandma4),
           "leap_year_counter.rb" => %w(leap_year_counter1 leap_year_counter2 leap_year_counter3),
           "array_sort.rb" => %w(arr_sort1 arr_sort2 arr_sort3),
-          "table_of_contents.rb" => [:table_of_contents]
+          "table_of_contents.rb" => ["table_of_contents"]
       },
       "week1" => {
           "age_in_seconds.rb" => ["age_in_seconds"],
@@ -34,7 +34,7 @@ class Exec
           "bigger_better_favorite_number.rb" => ["bigger_better_favorite_number"],
           "full_name_greeting.rb" => %w(greeting1 greeting2 greeting3),
           "angry_boss.rb" => %w(angry_boss1 angry_boss2),
-          "table_of_contents.rb" => [:table_of_contents]
+          "table_of_contents.rb" => ["table_of_contents"]
       }
     }
   @@week_class = {"week1" =>"Week1Test", "week2" =>"Week2Test", "week3" =>"Week3Test", "week4" => "Week4Test"}

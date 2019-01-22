@@ -13,6 +13,7 @@
     <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
     <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
     <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+    <%= stylesheet_link_tag asset_path("bttn.min.css", skip_pipeline: true) %>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 
@@ -82,9 +83,9 @@
                         <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
                         <%= form_tag({:action => :import, :controller=>"autograder"}, multipart: true) do %>
                             <%= select_tag :week, options_for_select(['week1', 'week2', 'week3', 'week4']) %>
-                            <%= file_field_tag 'files[]', :multiple => true %>
+                            <%= file_field_tag 'files[]', :multiple => true, class: "bttn-material-flat bttn-md bttn-success"%>
                             <% hidden_field_tag("current_user", current_user) %>
-                            <%= submit_tag("Submit for Grading") %>
+                            <%= submit_tag "Submit for Grading", class: "bttn-material-flat bttn-md bttn-primary" %>
                         <% end %>
                     <% else %>
                         <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
