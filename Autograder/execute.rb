@@ -31,8 +31,8 @@ class Exec
           "author_age.rb" => ["author_age"],
           "hours_in_year.rb" => ["hours_in_year"],
           "minutes_in_decade.rb" => ["minutes_in_decade"],
-          "bigger_better_favorite_number.rb" => ["bigger_better_favorite_number"],
-          "full_name_greeting.rb" => %w(greeting1 greeting2 greeting3),
+          "bigger_better_favorite_number.rb" => %w(bigger_better_favorite_number1 bigger_better_favorite_number2),
+          "full_name_greeting.rb" => %w(greeting1 greeting2),
           "angry_boss.rb" => %w(angry_boss1 angry_boss2),
           "table_of_contents.rb" => ["table_of_contents"]
       }
