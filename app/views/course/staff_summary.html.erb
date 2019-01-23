@@ -55,39 +55,44 @@
       <% if flash[:notice] %>
         <strong><%= flash[:notice] %></strong><br>
       <% end %>
-      <% if (not current_user.nil?) and (current_user.email == 'paulshaoyuqiao1@berkeley.edu') %>
-        Welcome, <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
-        <% if @scores.any? %>
-          <table id="scores">
-            <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Week</th>
-              <th>Total Test Cases</th>
-              <th>Passed Test Cases</th>
-              <th>Correctness</th>
-              <th>Submitted At</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @scores.each do |score| %>
+      <% if current_user %>
+        <% if current_user.email == 'paulshaoyuqiao1@berkeley.edu' %>
+          Welcome, <strong><%= current_user.name %></strong>!
+          <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
+          <% if @scores.any? %>
+            <table id="scores">
+              <thead>
               <tr>
-                <td><%= score.name %></td>
-                <td><%= score.email %></td>
-                <td><%= score.week %></td>
-                <td><%= score.total_test %></td>
-                <td><%= score.passed_test %></td>
-                <td><%= score.total_score %> %</td>
-                <td><%= score.created_at %></td>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Week</th>
+                <th>Total Test Cases</th>
+                <th>Passed Test Cases</th>
+                <th>Correctness</th>
+                <th>Submitted At</th>
               </tr>
-            <% end %>
-            </tbody>
-          </table>
-        <% else %>
-          <h2>Unauthorized Access for <strong><%= current_user.name %></strong></h2><br>
-        <% end %>
+              </thead>
+              <tbody>
+              <% @scores.each do |score| %>
+                <tr>
+                  <td><%= score.name %></td>
+                  <td><%= score.email %></td>
+                  <td><%= score.week %></td>
+                  <td><%= score.total_test %></td>
+                  <td><%= score.passed_test %></td>
+                  <td><%= score.total_score %> %</td>
+                  <td><%= score.created_at %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <h2>No Scores Currently Available. <br>
+          <% end %>
+          <% else %>
+            <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
+            Unauthorized Access For <%= current_user.name %> at <%= current_user.email %>
+          <% end %>
       <% else %>
         <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
       <% end %>
