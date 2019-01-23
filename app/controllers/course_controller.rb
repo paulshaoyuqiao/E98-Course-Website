@@ -8,4 +8,8 @@ class CourseController < ApplicationController
             @user_score = Score.where(email: current_user.email)
         end
     end
+
+    def staff_summary
+        @scores = Score.group("name").order("week ASC")
+    end
 end
