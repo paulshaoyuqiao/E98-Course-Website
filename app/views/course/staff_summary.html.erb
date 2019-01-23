@@ -55,7 +55,7 @@
       <% if flash[:notice] %>
         <strong><%= flash[:notice] %></strong><br>
       <% end %>
-      <% if current_user.email == 'paulshaoyuqiao1@berkeley.edu' %>
+      <% if not current_user.nil? and current_user.email == 'paulshaoyuqiao1@berkeley.edu' %>
         Welcome, <strong><%= current_user.name %></strong>!
         <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
         <% if @scores.any? %>
