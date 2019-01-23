@@ -10,6 +10,6 @@ class CourseController < ApplicationController
     end
 
     def staff_summary
-        @scores = Score.all
+        @scores = Score.order("email ASC, week ASC")
     end
 end

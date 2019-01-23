@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b24a2fb-fc3a-4225-ba42-f09f3dc907f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/course/staff_summary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/staff_summary.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/course_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/course_controller.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -45,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/course_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
+            <state relative-caret-position="180">
+              <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -72,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/course/staff_summary.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="94" column="19" lean-forward="true" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+            <state relative-caret-position="1425">
+              <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -160,14 +160,14 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.scss" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/course/home.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/course_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/course/staff_summary.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/course_controller.rb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="98" />
-    <option name="y" value="109" />
+    <option name="x" value="60" />
+    <option name="y" value="476" />
     <option name="width" value="1536" />
     <option name="height" value="827" />
   </component>
@@ -411,7 +411,7 @@
       <workItem from="1547871158270" duration="109000" />
       <workItem from="1547873444834" duration="6812000" />
       <workItem from="1548140013564" duration="2754000" />
-      <workItem from="1548201189303" duration="2257000" />
+      <workItem from="1548201189303" duration="2368000" />
     </task>
     <servers />
   </component>
@@ -421,10 +421,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43146000" />
+    <option name="totallyTimeSpent" value="43257000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="98" y="109" width="1536" height="827" extended-state="0" />
+    <frame x="60" y="476" width="1536" height="827" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27376172" />
@@ -680,17 +680,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/course_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/course/staff_summary.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
+        <state relative-caret-position="1425">
+          <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/course/staff_summary.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/course_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="94" column="19" lean-forward="true" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+        <state relative-caret-position="180">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
         </state>
       </provider>
     </entry>
