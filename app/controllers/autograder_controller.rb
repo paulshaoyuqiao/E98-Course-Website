@@ -12,7 +12,7 @@ class AutograderController < ApplicationController
         begin
           filenames = params[:files].map{|f| f.original_filename}
           filepaths = params[:files].map{|f| f.path}
-          week = params[:week]
+          week = params["week"]
           user_email = current_user.email
           user_name = current_user.name
           week_number = week[-1].to_i

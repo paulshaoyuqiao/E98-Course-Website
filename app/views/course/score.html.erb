@@ -15,6 +15,7 @@
   <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <%= javascript_include_tag asset_path("runLoader.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("showFiles.js", skip_pipeline: true) %>
 </head>
 
 <body>
@@ -64,11 +65,55 @@
               Signed in as <strong><%= current_user.name %></strong>!
               <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
               <%= form_tag({:action => :import, :controller=>"autograder"}, multipart: true, onsubmit: "showLoader();") do %>
-                <%= select_tag :week, options_for_select(['week1', 'week2', 'week3', 'week4']) %>
+                <%= select_tag "week", options_for_select(['week1', 'week2', 'week3', 'week4']) %>
                 <%= file_field_tag 'files[]', :multiple => true %>
                 <% hidden_field_tag("current_user", current_user) %>
                 <%= submit_tag "Submit for Grading" %>
               <% end %>
+                <div class="segment">
+                  <div id="week1" style="display: none;">
+                    Here are the <strong>required files for week 1</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
+                    <ul>
+                      <li>age_in_seconds.rb</li>
+                      <li>author_age.rb</li>
+                      <li>hours_in_year.rb</li>
+                      <li>minutes_in_decade.rb</li>
+                      <li>bigger_better_favorite_number.rb</li>
+                      <li>full_name_greeting.rb</li>
+                      <li>angry_boss.rb</li>
+                      <li>table_of_contents.rb</li>
+                    </ul>
+                  </div>
+                  <div id="week2" style="display: none;">
+                    Here are the <strong>required files for week 2</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
+                    <ul>
+                      <li>99_bob.rb</li>
+                      <li>deaf_grandma.rb</li>
+                      <li>deaf_grandma_extended.rb</li>
+                      <li>leap_year_counter.rb</li>
+                      <li>array_sort.rb</li>
+                      <li>table_of_contents.rb</li>
+                    </ul>
+                  </div>
+                  <div id="week3" style="display: none;">
+                    Here are the <strong>required files for week 3</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
+                    <ul>
+                      <li>ask.rb</li>
+                      <li>old_roman_numerals.rb</li>
+                      <li>new_roman_numerals.rb</li>
+                    </ul>
+                  </div>
+                  <div id="week4" style="display: none;">
+                    Here are the <strong>required files for week 4</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
+                    <ul>
+                      <li>array_max.rb</li>
+                      <li>contains_char.rb</li>
+                      <li>count_array.rb</li>
+                      <li>factorial.rb</li>
+                      <li>sum_of_digits.rb</li>
+                    </ul>
+                  </div>
+                </div>
               <div id="loader" style="display: none"></div>
               <% if @user_score.any? %>
                 <div class="segmenttitle">
