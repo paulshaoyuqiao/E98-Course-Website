@@ -58,11 +58,6 @@
             Assignment Submission
           </div>
           <div>
-            <% if flash[:notice] %>
-              <div class="alert">
-                <strong><%= flash[:notice] %></strong><br>
-              </div>
-            <% end %>
             <% if current_user %>
               Signed in as <strong><%= current_user.name %></strong>!
               <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
@@ -73,7 +68,10 @@
                 <%= submit_tag "Submit for Grading" %>
               <% end %>
               <% if flash[:notice] %>
-                <strong><%= flash[:notice] %></strong><br>
+                <div class="alert">
+                  <br>
+                  <strong><%= flash[:notice] %></strong><br>
+                </div>
               <% end %>
                   <div id="week1" style="display: none;">
                     <div class="segment">
