@@ -196,6 +196,10 @@ p > img {
   display: none;
 }
 
+.alert {
+    color: #d6372f;
+}
+
 #loader {
     position: absolute;
     top: 45%;
