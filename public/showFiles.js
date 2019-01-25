@@ -1,4 +1,6 @@
 $(function() {
+    // By default, display week 1's required files
+    $("#week1").show();
     $("#week").on("change", function(){
         var week = $(this).val();
         if (week === "week1") {
