@@ -20,53 +20,58 @@ class AutograderController < ApplicationController
           @result_array_disp = []
           i = 0
           @passed_test_cases = 0
-          while i < filenames.length
-            filename = filenames[i]
-            filepath = filepaths[i]
-            value = `ruby -r "./Autograder/execute.rb" -e "Exec.run_all_test '#{filepath}', '#{week}', '#{filename}'"`
-            result = value.split("\n")
-            @result_array_disp += result
-            @passed_test_cases += value.scan(/(?=Test Case Passed)/).count
-            i += 1
-          end
-          @compiled_results = []
-          current_test = []
-          @result_array_disp.each do |element|
-            if element.include?("- Test Case")
-              current_test.append(element)
-            elsif element.include?("Test Case Passed")
-              current_test.append("Passed")
-            elsif element.include?("Test Case Failed")
-              current_test.append("Failed")
+          if @unrecognized_files.length != @@files_by_week[week].length
+            while i < filenames.length
+              filename = filenames[i]
+              filepath = filepaths[i]
+              value = `ruby -r "./Autograder/execute.rb" -e "Exec.run_all_test '#{filepath}', '#{week}', '#{filename}'"`
+              result = value.split("\n")
+              @result_array_disp += result
+              @passed_test_cases += value.scan(/(?=Test Case Passed)/).count
+              i += 1
             end
-          end
-          index = 0
-          while index < current_test.length
-            @compiled_results.append([current_test[index], current_test[index + 1]])
-            index += 2
-          end
-          @total_test_cases = @@total_tests_by_week[week]
-          @week_name = week
-          overall_score = AutograderController.generate_score(@total_test_cases, @passed_test_cases)
-          curr_record = Score.where(email: user_email, name: user_name, week: week_number)
-          if curr_record.any?
-            curr_record[0].total_test = @total_test_cases
-            curr_record[0].passed_test = @passed_test_cases
-            curr_record[0].total_score = overall_score
-            curr_record[0].save
+            @compiled_results = []
+            current_test = []
+            @result_array_disp.each do |element|
+              if element.include?("- Test Case")
+                current_test.append(element)
+              elsif element.include?("Test Case Passed")
+                current_test.append("Passed")
+              elsif element.include?("Test Case Failed")
+                current_test.append("Failed")
+              end
+            end
+            index = 0
+            while index < current_test.length
+              @compiled_results.append([current_test[index], current_test[index + 1]])
+              index += 2
+            end
+            @total_test_cases = @@total_tests_by_week[week]
+            @week_name = week
+            overall_score = AutograderController.generate_score(@total_test_cases, @passed_test_cases)
+            curr_record = Score.where(email: user_email, name: user_name, week: week_number)
+            if curr_record.any?
+              curr_record[0].total_test = @total_test_cases
+              curr_record[0].passed_test = @passed_test_cases
+              curr_record[0].total_score = overall_score
+              curr_record[0].save
+            else
+              Score.create(
+                  :email => user_email,
+                  :name => user_name,
+                  :week => week_number,
+                  :total_test => @total_test_cases,
+                  :passed_test => @passed_test_cases,
+                  :total_score => overall_score
+              )
+            end
           else
-            Score.create(
-                :email => user_email,
-                :name => user_name,
-                :week => week_number,
-                :total_test => @total_test_cases,
-                :passed_test => @passed_test_cases,
-                :total_score => overall_score
-            )
+            flash[:notice] = "Warning: Please Submit At Least One File For #{week} to the Autograder."
+            redirect_to :controller => 'course', :action => 'score'
           end
         rescue NoMethodError => e
           flash[:notice] = "Warning: Please Make Sure You Upload At Least One File Before Proceeding."
-          redirect_to root_url
+          redirect_to :controller => 'course', :action => 'score'
         end
     end
 

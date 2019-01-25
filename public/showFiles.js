@@ -2,13 +2,24 @@ $(function() {
     $("#week").on("change", function(){
         var week = $(this).val();
         if (week === "week1") {
-            $("#week1").show();
+            showOne(1);
         } else if (week === "week2") {
-            $("#week2").show();
+            showOne(2);
         } else if (week === "week3") {
-            $("#week3").show();
+            showOne(3);
         } else {
-            $("#week4").show();
+            showOne(4);
         }
     });
 })
+
+function showOne(week) {
+    var allWeeks = [1, 2, 3, 4];
+    var hideWeeks = allWeeks.map(function (el) {
+        return el !== week;
+    });
+    for (var i = 0; i < hideWeeks.length; i++) {
+        $("#week" + i.toString()).hide();
+    }
+    $("#week" + week.toString()).show();
+}
