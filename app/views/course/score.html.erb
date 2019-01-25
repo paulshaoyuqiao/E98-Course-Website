@@ -52,44 +52,60 @@
         View Scores
       </div>
       <div>
+        <div class="segment">
+          <div class="segmenttitle">
+            Assignment Submission
+          </div>
+          <div>
+            <% if flash[:notice] %>
+              <strong><%= flash[:notice] %></strong><br>
+            <% end %>
+            <% if current_user %>
+              Signed in as <strong><%= current_user.name %></strong>!
+              <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
+              <%= form_tag({:action => :import, :controller=>"autograder"}, multipart: true) do %>
+                <%= select_tag :week, options_for_select(['week1', 'week2', 'week3', 'week4']) %>
+                <%= file_field_tag 'files[]', :multiple => true %>
+                <% hidden_field_tag("current_user", current_user) %>
+                <%= submit_tag "Submit for Grading" %>
+              <% end %>
+              <% if @user_score.any? %>
+                <table id="scores">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Week</th>
+                    <th>Total Test Cases</th>
+                    <th>Passed Test Cases</th>
+                    <th>Correctness</th>
+                    <th>Submitted At</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @user_score.each do |score| %>
+                    <tr>
+                      <td><%= score.name %></td>
+                      <td><%= score.email %></td>
+                      <td><%= score.week %></td>
+                      <td><%= score.total_test %></td>
+                      <td><%= score.passed_test %></td>
+                      <td><%= score.total_score %> %</td>
+                      <td><%= score.created_at %></td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              <% else %>
+                <h2>No submissions found for <strong><%= current_user.name %></strong></h2><br>
+              <% end %>
+            <% else %>
+              <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+            <% end %>
+          </div>
+        </div>
         <% if flash[:notice] %>
           <strong><%= flash[:notice] %></strong><br>
-        <% end %>
-        <% if current_user %>
-          Signed in as <strong><%= current_user.name %></strong>!
-          <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
-          <% if @user_score.any? %>
-            <table id="scores">
-              <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Week</th>
-                <th>Total Test Cases</th>
-                <th>Passed Test Cases</th>
-                <th>Correctness</th>
-                <th>Submitted At</th>
-              </tr>
-              </thead>
-              <tbody>
-            <% @user_score.each do |score| %>
-                <tr>
-                  <td><%= score.name %></td>
-                  <td><%= score.email %></td>
-                  <td><%= score.week %></td>
-                  <td><%= score.total_test %></td>
-                  <td><%= score.passed_test %></td>
-                  <td><%= score.total_score %> %</td>
-                  <td><%= score.created_at %></td>
-                </tr>
-              <% end %>
-              </tbody>
-            </table>
-          <% else %>
-            <h2>No submissions found for <strong><%= current_user.name %></strong></h2><br>
-          <% end %>
-        <% else %>
-          <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
         <% end %>
       </div>
     </div>

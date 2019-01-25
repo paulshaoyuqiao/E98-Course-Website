@@ -9,5 +9,8 @@
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
       <auth-required>false</auth-required>
     </data-source>
+    <data-source name="Rails E98-Course-Website: production" uuid="bb42a454-3784-4563-8b27-463f3c4d0368">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+    </data-source>
   </component>
 </project>

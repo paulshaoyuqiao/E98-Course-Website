@@ -72,28 +72,6 @@
                     <td>The official course website has been deployed on Heroku - in test run.</td>
                 </tr>
             </table>
-            <div class="segment">
-                <div class="segmenttitle">
-                  Assignment Submission
-                </div>
-                <div>
-                    <% if flash[:notice] %>
-                        <strong><%= flash[:notice] %></strong><br>
-                    <% end %>
-                    <% if current_user %>
-                        Signed in as <strong><%= current_user.name %></strong>!
-                        <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
-                        <%= form_tag({:action => :import, :controller=>"autograder"}, multipart: true) do %>
-                            <%= select_tag :week, options_for_select(['week1', 'week2', 'week3', 'week4']) %>
-                            <%= file_field_tag 'files[]', :multiple => true %>
-                            <% hidden_field_tag("current_user", current_user) %>
-                            <%= submit_tag "Submit for Grading" %>
-                        <% end %>
-                    <% else %>
-                        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-                    <% end %>
-                </div>
-            </div>
         </div>
 
         <div class="segment">
