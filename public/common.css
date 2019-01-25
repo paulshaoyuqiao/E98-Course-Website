@@ -188,39 +188,6 @@ p > img {
   text-align: center;
 }
 
-.upload {
-    width: 150%;
-    height: 120%;
-    margin-left: 15%;
-    margin-right: 15%;
-    background-color: #E0115F;
-    border-radius: 6px;
-    border: white solid 8px;
-    color: white;
-}
-
-#week {
-    background-color: white;
-    width: 150%;
-    height: 120%;
-    margin-left: 10%;
-    margin-right: 10%;
-    border: #E0115F solid 8px;
-    border-radius: 6px;
-    color: #000;
-}
-
-.submission {
-    background-color: white;
-    width: 150%;
-    height: 120%;
-    margin-left: 10%;
-    margin-right: 10%;
-    border: #E0115F solid 8px;
-    border-radius: 6px;
-    color: #000;
-}
-
 .show {
   display: block;
 }
