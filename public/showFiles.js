@@ -1,5 +1,5 @@
 $(function() {
-    $("week").on("change", function(){
+    $("#week").on("change", function(){
         var week = $(this).val();
         if (week === "week1") {
             $("#week1").show();
