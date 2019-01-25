@@ -18,30 +18,33 @@
 </head>
 
 <body>
-<div id="navbar" class="navbar-top navitems">
-  <a href="/">
-    <div class="navitem">Main</div>
-  </a>
-  <a href="#">
-    <div class="navitem">Course Info</div>
-  </a>
-  <a href="#">
-    <div class="navitem">Staff</div>
-  </a>
-  <a href="#">
-    <div class="navitem">Scores</div>
-  </a>
-  <a href="#">
-    <div class="navitem">Screencasts</div>
-  </a>
-  <a href="#">
-    <div class="navitem">Resources</div>
-  </a>
-  <a href="#">
-    <div class="navitem">Office Hours</div>
-  </a>
-</div>
-<a href="index.html">
+  <div id="navbar" class="navbar-top navitems">
+    <a href="/">
+      <div class="navitem">Main</div>
+    </a>
+    <a href="#">
+      <div class="navitem">Course Info</div>
+    </a>
+    <a href="#">
+      <div class="navitem">Staff</div>
+    </a>
+    <a href="scores">
+      <div class="navitem">Scores</div>
+    </a>
+    <a href="#">
+      <div class="navitem">Screencasts</div>
+    </a>
+    <a href="#">
+      <div class="navitem">Resources</div>
+    </a>
+    <a href="#">
+      <div class="navitem">Office Hours</div>
+    </a>
+    <a href="staff_summary">
+      <div class="navitem">Score Summary (Staff)</div>
+    </a>
+  </div>
+<a href="/">
   <div id="coursename">
     <span id="courseid">Engineering 98:</span>
     Introduction to Programming in Ruby
@@ -50,7 +53,6 @@
   <div id="content">
     <div class="segment">
       <div>
-        <div class="segment">
           <div class="segmenttitle">
             Assignment Submission
           </div>
@@ -110,7 +112,6 @@
           <strong><%= flash[:notice] %></strong><br>
         <% end %>
       </div>
-    </div>
   </div>
 
 </body>

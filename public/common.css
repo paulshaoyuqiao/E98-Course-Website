@@ -197,6 +197,9 @@ p > img {
 }
 
 #loader {
+    position: center;
+    top: auto;
+    bottom: auto;
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #E0115F;
