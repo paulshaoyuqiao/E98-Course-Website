@@ -23,8 +23,8 @@ function showOne(week) {
         }
     }
     for (var i = 0; i < hideWeeks.length; i++) {
-        $("#week" + i.toString()).hide();
-        console.log("week " + hideWeeks[i]);
+        $("#week" + hideWeeks[i].toString()).hide();
+        console.log("#week" + hideWeeks[i]);
     }
     $("#week" + week.toString()).show();
 }

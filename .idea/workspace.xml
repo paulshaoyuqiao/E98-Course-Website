@@ -109,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/showFiles.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+            <state relative-caret-position="330">
+              <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -182,8 +182,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="339" />
+    <option name="x" value="86" />
+    <option name="y" value="302" />
     <option name="width" value="1536" />
     <option name="height" value="961" />
   </component>
@@ -433,7 +433,7 @@
       <workItem from="1548140013564" duration="2754000" />
       <workItem from="1548201189303" duration="2871000" />
       <workItem from="1548452770074" duration="7727000" />
-      <workItem from="1548468086879" duration="1619000" />
+      <workItem from="1548468086879" duration="1770000" />
     </task>
     <servers />
   </component>
@@ -443,10 +443,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53106000" />
+    <option name="totallyTimeSpent" value="53257000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="339" width="1536" height="961" extended-state="0" />
+    <frame x="86" y="302" width="1536" height="961" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28045514" />
@@ -737,8 +737,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/showFiles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        <state relative-caret-position="330">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
         </state>
       </provider>
     </entry>
