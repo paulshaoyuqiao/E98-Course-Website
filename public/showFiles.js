@@ -19,7 +19,7 @@ function showOne(week) {
     let hideWeeks = [];
     for (var index = 1; index <= 4; index++) {
         if (index !== week) {
-            hideWeeks.append(index);
+            hideWeeks.push(index);
         }
     }
     for (var i = 0; i < hideWeeks.length; i++) {
