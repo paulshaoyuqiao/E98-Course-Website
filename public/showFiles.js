@@ -1,14 +1,17 @@
 $(function() {
     // By default, display week 1's required files
-    $("#week1").show();
+    showOne(1);
     $("#week").on("change", function(){
         var week = $(this).val();
         if (week === "week1") {
             showOne(1);
+            $("#week4").hide();
         } else if (week === "week2") {
             showOne(2);
+            $("#week4").hide();
         } else if (week === "week3") {
             showOne(3);
+            $("#week4").hide();
         } else if (week === "week4") {
             showOne(4);
         }
@@ -16,25 +19,12 @@ $(function() {
 });
 
 function showOne(week) {
-    if (week === 1) {
-        $("#week1").fadeIn();
-        $("#week2").fadeOut();
-        $("#week3").fadeOut();
-        $("#week4").fadeOut();
-    } else if (week === 2) {
-        $("#week2").fadeIn();
-        $("#week3").fadeOut();
-        $("#week4").fadeOut();
-        $("#week1").fadeOut();
-    } else if (week === 3) {
-        $("#week3").fadeIn();
-        $("#week1").fadeOut();
-        $("#week2").fadeOut();
-        $("#week4").fadeOut();
-    } else if (week === 4) {
-        $("#week4").fadeIn();
-        $("#week1").fadeOut();
-        $("#week2").fadeOut();
-        $("#week3").fadeOut();
+    var allWeeks = [1, 2, 3, 4];
+    var hideWeeks = allWeeks.map(function (el) {
+        return el !== week;
+    });
+    for (var i = 0; i < hideWeeks.length; i++) {
+        $("#week" + i.toString()).hide();
     }
+    $("#week" + week.toString()).show();
 }
