@@ -245,7 +245,7 @@ p > img {
 
 .FileUpload:focus + label,
 .FileUpload + label:hover {
-    background-color: lightgoldenrodyellow;
+    background-color: #f74a8b;
 }
 
 .FileUpload + label {
