@@ -24,10 +24,10 @@
   <a href="#">
     <div class="navitem">Course Info</div>
   </a>
-  <a href="#">
+  <a href="staff_summary">
     <div class="navitem">Staff</div>
   </a>
-  <a href="#">
+  <a href="scores">
     <div class="navitem">Scores</div>
   </a>
   <a href="#">
@@ -52,9 +52,11 @@
       View Scores
     </div>
     <div>
-      <% if flash[:notice] %>
-        <strong><%= flash[:notice] %></strong><br>
-      <% end %>
+      <div class="alert">
+        <% if flash[:notice] %>
+          <br><strong><%= flash[:notice] %></strong><br>
+        <% end %>
+      </div>
       <% if current_user %>
         <% if current_user.email == 'paulshaoyuqiao1@berkeley.edu' %>
           Welcome, <strong><%= current_user.name %></strong>!
