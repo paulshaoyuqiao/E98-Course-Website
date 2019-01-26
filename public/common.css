@@ -39,6 +39,10 @@ li {
     z-index: 10;
 }
 
+#checkmark {
+    color: #E0115F;
+}
+
 .navbar-top a {
     color: white;
 }
@@ -195,7 +199,7 @@ p > img {
     height: 30px;
     color: white;
     font-size: 15px;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-right: 20px;
     cursor: pointer;
 }
@@ -212,15 +216,14 @@ p > img {
 .FileUpload + label {
     margin-left: 10px;
     margin-top: 10px;
-    background-color: white;
-    border-radius: 20px;
-    color: #E0115F;
+    background-color: #E0115F;
+    border-radius: 5px;
+    color: white;
     width: 120px;
     height: 30px;
     font-size: 15px;
     margin-right: 20px;
-    border: lightpink solid;
-    padding: 4px;
+    padding: 4.5px;
 }
 
 
@@ -228,7 +231,7 @@ p > img {
     margin-left: 10px;
     margin-top: 10px;
     background-color: #E0115F;
-    border-radius: 20px;
+    border-radius: 5px;
     color: white;
     width: 160px;
     height: 30px;

@@ -7,6 +7,7 @@
   <meta name="description" content="Engineering 98: Introduction to Programming in Ruby">
   <meta name="keywords" content="Eng98, Engineering, Eng, 98, Programming in Ruby, Berkeley, EECS">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
@@ -65,6 +66,7 @@
                 <% hidden_field_tag("current_user", current_user) %>
                 <%= submit_tag "Submit for Grading", class: "Submit" %>
               <% end %>
+
               <% if flash[:notice] %>
                 <div class="alert">
                   <br>
@@ -75,14 +77,14 @@
                     <div class="segment">
                     Here are the <strong>required files for week 1</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
-                      <li>age_in_seconds.rb</li>
-                      <li>author_age.rb</li>
-                      <li>hours_in_year.rb</li>
-                      <li>minutes_in_decade.rb</li>
-                      <li>bigger_better_favorite_number.rb</li>
-                      <li>full_name_greeting.rb</li>
-                      <li>angry_boss.rb</li>
-                      <li>table_of_contents.rb</li>
+                      <li id="age_in_seconds">age_in_seconds.rb</li>
+                      <li id="author_age">author_age.rb</li>
+                      <li id="hours_in_year">hours_in_year.rb</li>
+                      <li id="minutes_in_decade">minutes_in_decade.rb</li>
+                      <li id="bigger_better_favorite_number">bigger_better_favorite_number.rb</li>
+                      <li id="full_name_greeting">full_name_greeting.rb</li>
+                      <li id="angry_boss">angry_boss.rb</li>
+                      <li id="table_of_contents">table_of_contents.rb</li>
                     </ul>
                     </div>
                   </div>
@@ -90,12 +92,12 @@
                     <div class="segment">
                     Here are the <strong>required files for week 2</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
-                      <li>99_bob.rb</li>
-                      <li>deaf_grandma.rb</li>
-                      <li>deaf_grandma_extended.rb</li>
-                      <li>leap_year_counter.rb</li>
-                      <li>array_sort.rb</li>
-                      <li>table_of_contents.rb</li>
+                      <li id="99_bob">99_bob.rb</li>
+                      <li id="deaf_grandma">deaf_grandma.rb</li>
+                      <li id="deaf_grandma_extended">deaf_grandma_extended.rb</li>
+                      <li id="leap_year_counter">leap_year_counter.rb</li>
+                      <li id="array_sort">array_sort.rb</li>
+                      <li id="table_of_contents">table_of_contents.rb</li>
                     </ul>
                     </div>
                   </div>
@@ -103,9 +105,9 @@
                     <div class="segment">
                     Here are the <strong>required files for week 3</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
-                      <li>ask.rb</li>
-                      <li>old_roman_numerals.rb</li>
-                      <li>new_roman_numerals.rb</li>
+                      <li id="ask">ask.rb</li>
+                      <li id="old_roman_numerals">old_roman_numerals.rb</li>
+                      <li id="new_roman_numerals">new_roman_numerals.rb</li>
                     </ul>
                     </div>
                   </div>
@@ -113,11 +115,11 @@
                     <div class="segment">
                     Here are the <strong>required files for week 4</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
-                      <li>array_max.rb</li>
-                      <li>contains_char.rb</li>
-                      <li>count_array.rb</li>
-                      <li>factorial.rb</li>
-                      <li>sum_of_digits.rb</li>
+                      <li id="array_max">array_max.rb</li>
+                      <li id="contains_char">contains_char.rb</li>
+                      <li id="count_array">count_array.rb</li>
+                      <li id="factorial">factorial.rb</li>
+                      <li id="sum_of_digits">sum_of_digits.rb</li>
                     </ul>
                   </div>
                 </div>
@@ -125,12 +127,10 @@
               <div id="loader" style="display: none"></div>
               <% if @user_score.any? %>
                 <div class="segmenttitle">
-                  View Scores
+                  View Scores for <%= @user_score[0].name %>
                 <table id="scores" class="striped">
                   <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Email</th>
                     <th>Week</th>
                     <th>Total Test Cases</th>
                     <th>Passed Test Cases</th>
@@ -141,8 +141,6 @@
                   <tbody>
                   <% @user_score.each do |score| %>
                     <tr>
-                      <td><%= score.name %></td>
-                      <td><%= score.email %></td>
                       <td><%= score.week %></td>
                       <td><%= score.total_test %></td>
                       <td><%= score.passed_test %></td>
