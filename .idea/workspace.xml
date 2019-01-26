@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b24a2fb-fc3a-4225-ba42-f09f3dc907f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/autograder/import.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/autograder/import.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/score.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/score.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/staff_summary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/staff_summary.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/course/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/home.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -63,11 +61,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/autograder/import.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
               <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/course/home.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -167,10 +174,10 @@
         <option value="$PROJECT_DIR$/app/controllers/autograder_controller.rb" />
         <option value="$PROJECT_DIR$/public/showFiles.js" />
         <option value="$PROJECT_DIR$/public/common.css" />
-        <option value="$PROJECT_DIR$/app/views/course/home.html.erb" />
         <option value="$PROJECT_DIR$/app/views/course/staff_summary.html.erb" />
         <option value="$PROJECT_DIR$/app/views/course/score.html.erb" />
         <option value="$PROJECT_DIR$/app/views/autograder/import.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/course/home.html.erb" />
       </list>
     </option>
   </component>
@@ -420,7 +427,7 @@
       <workItem from="1547873444834" duration="6812000" />
       <workItem from="1548140013564" duration="2754000" />
       <workItem from="1548201189303" duration="2871000" />
-      <workItem from="1548452770074" duration="7382000" />
+      <workItem from="1548452770074" duration="7468000" />
     </task>
     <servers />
   </component>
@@ -430,7 +437,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51142000" />
+    <option name="totallyTimeSpent" value="51228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="195" y="163" width="1536" height="827" extended-state="0" />
@@ -687,13 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/course/home.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -726,6 +726,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/course/home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
         </state>
       </provider>
     </entry>
