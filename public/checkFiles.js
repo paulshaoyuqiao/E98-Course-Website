@@ -56,7 +56,7 @@ function clearCheckMarks() {
                 file_i_tag = document.querySelector("#bob_99");
             }
             else {
-                file_i_tag = document.querySelector("#" + actual_files[j]);
+                file_i_tag = document.querySelector("#" + actual_files[k]);
             }
             if (file_i_tag.textContent.includes("✔")) {
                 let f_len = file_i_tag.textContent.length;
