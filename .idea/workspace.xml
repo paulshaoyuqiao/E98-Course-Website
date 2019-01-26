@@ -93,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/checkFiles.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="58" column="75" selection-start-line="58" selection-start-column="75" selection-end-line="58" selection-end-column="75" />
+            <state relative-caret-position="597">
+              <caret line="53" column="27" lean-forward="true" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -410,7 +410,7 @@
       <workItem from="1548201189303" duration="2871000" />
       <workItem from="1548452770074" duration="7727000" />
       <workItem from="1548468086879" duration="2012000" />
-      <workItem from="1548476400756" duration="7293000" />
+      <workItem from="1548476400756" duration="7380000" />
     </task>
     <servers />
   </component>
@@ -420,7 +420,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60792000" />
+    <option name="totallyTimeSpent" value="60879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="15" y="89" width="1536" height="961" extended-state="0" />
@@ -714,8 +714,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/checkFiles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="58" column="75" selection-start-line="58" selection-start-column="75" selection-end-line="58" selection-end-column="75" />
+        <state relative-caret-position="597">
+          <caret line="53" column="27" lean-forward="true" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -52,7 +52,7 @@ function clearCheckMarks() {
         console.log(actual_files);
         for (var k = 0; k < actual_files.length; k++) {
             var file_i_tag;
-            if (actual_files[j] === '99_bob') {
+            if (actual_files[k] === '99_bob') {
                 file_i_tag = document.querySelector("#bob_99");
             }
             else {
