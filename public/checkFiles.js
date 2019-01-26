@@ -51,8 +51,13 @@ function clearCheckMarks() {
         });
         console.log(actual_files);
         for (var k = 0; k < actual_files.length; k++) {
-
-            let file_i_tag = document.querySelector("#" + actual_files[k]);
+            var file_i_tag;
+            if (actual_files[j] === '99_bob') {
+                file_i_tag = document.querySelector("#bob_99");
+            }
+            else {
+                file_i_tag = document.querySelector("#" + actual_files[j]);
+            }
             if (file_i_tag.textContent.includes("✔")) {
                 let f_len = file_i_tag.textContent.length;
                 file_i_tag.textContent = file_i_tag.textContent.substring(0, f_len - 2);
