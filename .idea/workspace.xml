@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b24a2fb-fc3a-4225-ba42-f09f3dc907f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/E98-Course-Website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E98-Course-Website.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/course/score.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/score.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -51,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/course/score.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -178,8 +175,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="y" value="61" />
+    <option name="x" value="1" />
+    <option name="y" value="179" />
     <option name="width" value="1536" />
     <option name="height" value="961" />
   </component>
@@ -430,7 +427,7 @@
       <workItem from="1548201189303" duration="2871000" />
       <workItem from="1548452770074" duration="7727000" />
       <workItem from="1548468086879" duration="2012000" />
-      <workItem from="1548476400756" duration="950000" />
+      <workItem from="1548476400756" duration="1096000" />
     </task>
     <servers />
   </component>
@@ -440,10 +437,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54449000" />
+    <option name="totallyTimeSpent" value="54595000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="61" width="1536" height="961" extended-state="0" />
+    <frame x="1" y="179" width="1536" height="961" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28380188" />
@@ -727,8 +724,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/course/score.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

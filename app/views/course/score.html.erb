@@ -7,14 +7,12 @@
   <meta name="description" content="Engineering 98: Introduction to Programming in Ruby">
   <meta name="keywords" content="Eng98, Engineering, Eng, 98, Programming in Ruby, Berkeley, EECS">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <%= javascript_include_tag asset_path("runLoader.js", skip_pipeline: true) %>
   <%= javascript_include_tag asset_path("showFiles.js", skip_pipeline: true) %>
@@ -61,10 +59,10 @@
               Signed in as <strong><%= current_user.name %></strong>!
               <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
               <%= form_tag({:action => :import, :controller => "autograder"}, multipart: true, onsubmit: "showLoader();") do %>
-                <%= select_tag "week", options_for_select(['week1', 'week2', 'week3', 'week4']), class: "btn waves-effect waves-light" %>
-                <%= file_field_tag 'files[]', :multiple => true, class: "btn waves-effect waves-light" %>
+                <%= select_tag "week", options_for_select(['week1', 'week2', 'week3', 'week4']) %>
+                <%= file_field_tag 'files[]', :multiple => true %>
                 <% hidden_field_tag("current_user", current_user) %>
-                <%= submit_tag "Submit for Grading", class: "btn waves-effect waves-light" %>
+                <%= submit_tag "Submit for Grading" %>
               <% end %>
               <% if flash[:notice] %>
                 <div class="alert">
