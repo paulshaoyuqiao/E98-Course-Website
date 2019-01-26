@@ -188,6 +188,48 @@ p > img {
   text-align: center;
 }
 
+.WeekSelect {
+    margin-top: 10px;
+    background-color: #E0115F;
+    width: 120px;
+    height: 30px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.FileUpload {
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+    color: #E0115F;
+    width: 120px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.Submit {
+    margin-top: 10px;
+    background-color: #E0115F;
+    border-radius: 5px;
+    color: white;
+    width: 110px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.WeekSelect:hover {
+    background-color: #f74a8b;
+}
+
+.FileUpload:hover {
+    background-color: #ffe5f3;
+}
+
+.Submit:hover {
+    background-color: #f74a8b;
+}
+
 .show {
   display: block;
 }

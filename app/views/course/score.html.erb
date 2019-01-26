@@ -59,10 +59,10 @@
               Signed in as <strong><%= current_user.name %></strong>!
               <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
               <%= form_tag({:action => :import, :controller => "autograder"}, multipart: true, onsubmit: "showLoader();") do %>
-                <%= select_tag "week", options_for_select(['week1', 'week2', 'week3', 'week4']) %>
-                <%= file_field_tag 'files[]', :multiple => true %>
+                <%= select_tag "week", options_for_select(['week1', 'week2', 'week3', 'week4']), class: "WeekSelect"%>
+                <%= file_field_tag 'files[]', :multiple => true, class: "FileUpload" %>
                 <% hidden_field_tag("current_user", current_user) %>
-                <%= submit_tag "Submit for Grading" %>
+                <%= submit_tag "Submit for Grading", class: "Submit" %>
               <% end %>
               <% if flash[:notice] %>
                 <div class="alert">
