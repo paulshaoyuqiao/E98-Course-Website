@@ -1,11 +1,11 @@
 $(function() {
     // By default, display week 1's required files
     showOne(1);
+    document.querySelector("#week4").style.visibility = "hidden";
     $("#week").on("change", function(){
         var week = $(this).val();
         if (week === "week1") {
             showOne(1);
-            $("#week4").hide();
         } else if (week === "week2") {
             showOne(2);
             $("#week4").hide();
