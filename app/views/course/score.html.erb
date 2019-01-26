@@ -93,7 +93,7 @@
                     <div class="segment">
                     Here are the <strong>required files for week 2</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
-                      <li id="99_bob">99_bob.rb</li>
+                      <li id="bob_99">99_bob.rb</li>
                       <li id="deaf_grandma">deaf_grandma.rb</li>
                       <li id="deaf_grandma_extended">deaf_grandma_extended.rb</li>
                       <li id="leap_year_counter">leap_year_counter.rb</li>
@@ -142,7 +142,7 @@
                   <tbody>
                   <% i = 0 %>
                   <% @user_score.each do |score| %>
-                    <% if i % 2 == 1 %>
+                    <% if i % 2 == 0 %>
                       <tr class="odd">
                         <td><%= score.week %></td>
                         <td><%= score.total_test %></td>

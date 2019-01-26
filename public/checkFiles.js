@@ -29,7 +29,13 @@ function addCheckMarks() {
         });
         console.log(actual_files);
         for (var j = 0; j < actual_files.length; j++) {
-            let file_i_tag = document.querySelector("#" + actual_files[j]);
+            var file_i_tag;
+            if (actual_files[j] === '99_bob') {
+                file_i_tag = document.querySelector("#bob_99");
+            }
+            else {
+                file_i_tag = document.querySelector("#" + actual_files[j]);
+            }
             file_i_tag.textContent += " ✔";
         }
     }
@@ -45,6 +51,7 @@ function clearCheckMarks() {
         });
         console.log(actual_files);
         for (var k = 0; k < actual_files.length; k++) {
+
             let file_i_tag = document.querySelector("#" + actual_files[k]);
             if (file_i_tag.textContent.includes("✔")) {
                 let f_len = file_i_tag.textContent.length;
