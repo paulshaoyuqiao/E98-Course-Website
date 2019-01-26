@@ -61,6 +61,7 @@
               <%= form_tag({:action => :import, :controller => "autograder"}, multipart: true, onsubmit: "showLoader();") do %>
                 <%= select_tag "week", options_for_select(['week1', 'week2', 'week3', 'week4']), class: "WeekSelect"%>
                 <%= file_field_tag 'files[]', :multiple => true, class: "FileUpload" %>
+                <label for='files_'>Upload Your Ruby Scripts</label>
                 <% hidden_field_tag("current_user", current_user) %>
                 <%= submit_tag "Submit for Grading", class: "Submit" %>
               <% end %>
