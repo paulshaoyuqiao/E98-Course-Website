@@ -1,6 +1,9 @@
-$(".FileUpload").change(addCheckMarks());
+document.querySelector(".FileUpload").addEventListener("change", function () {
+    addCheckMarks();
+});
 
 function addCheckMarks() {
+    console.log("detected");
     let files = document.querySelector(".FileUpload").files;
     let week = document.querySelector(".WeekSelect").value;
     let files_per_week =  {
@@ -19,6 +22,7 @@ function addCheckMarks() {
         actual_files = actual_files.map(function (el) {
             return el.substring(0, el.length - 3);
         });
+        console.log(actual_files);
         for (var j = 0; j < actual_files.length; j++) {
             let file_i_tag = document.querySelector("#" + actual_files[j]);
             file_i_tag.append(" ✅");
