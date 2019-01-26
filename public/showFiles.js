@@ -18,7 +18,9 @@ $(function() {
 function showOne(week) {
     var allWeeks = [1, 2, 3, 4];
     var hideWeeks = allWeeks.map(function (el) {
-        return el !== week;
+        if (el !== week) {
+            return el;
+        }
     });
     for (var i = 0; i < hideWeeks.length; i++) {
         $("#week" + i.toString()).hide();
