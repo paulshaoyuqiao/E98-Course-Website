@@ -140,14 +140,26 @@
                   </tr>
                   </thead>
                   <tbody>
+                  <% i = 0 %>
                   <% @user_score.each do |score| %>
-                    <tr>
-                      <td><%= score.week %></td>
-                      <td><%= score.total_test %></td>
-                      <td><%= score.passed_test %></td>
-                      <td><%= score.total_score %> %</td>
-                      <td><%= score.updated_at %></td>
-                    </tr>
+                    <% if i % 2 == 1 %>
+                      <tr class="odd">
+                        <td><%= score.week %></td>
+                        <td><%= score.total_test %></td>
+                        <td><%= score.passed_test %></td>
+                        <td><%= score.total_score %> %</td>
+                        <td><%= score.updated_at %></td>
+                      </tr>
+                    <% else %>
+                      <tr>
+                        <td><%= score.week %></td>
+                        <td><%= score.total_test %></td>
+                        <td><%= score.passed_test %></td>
+                        <td><%= score.total_score %> %</td>
+                        <td><%= score.updated_at %></td>
+                      </tr>
+                    <% end %>
+                    <% i = i + 1 %>
                   <% end %>
                   </tbody>
                 </table>
