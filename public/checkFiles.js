@@ -18,6 +18,6 @@ if (files !== undefined) {
     });
     for (var j = 0; j < actual_files.length; j++) {
         let file_i_tag = document.querySelector("#" + actual_files[j]);
-        file_i_tag.append("<i class='fas fa-check-circle' id='checkmark'></i>");
+        file_i_tag.append("✅");
     }
 }

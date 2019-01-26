@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b24a2fb-fc3a-4225-ba42-f09f3dc907f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/checkFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/checkFiles.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -45,7 +45,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/course/score.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="268">
@@ -90,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/checkFiles.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+            <state relative-caret-position="315">
+              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -151,15 +151,15 @@
         <option value="$PROJECT_DIR$/app/views/autograder/import.html.erb" />
         <option value="$PROJECT_DIR$/app/views/course/home.html.erb" />
         <option value="$PROJECT_DIR$/public/showFiles.js" />
-        <option value="$PROJECT_DIR$/public/checkFiles.js" />
         <option value="$PROJECT_DIR$/public/common.css" />
         <option value="$PROJECT_DIR$/app/views/course/score.html.erb" />
+        <option value="$PROJECT_DIR$/public/checkFiles.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="442" />
-    <option name="y" value="63" />
+    <option name="x" value="195" />
+    <option name="y" value="39" />
     <option name="width" value="1536" />
     <option name="height" value="961" />
   </component>
@@ -410,7 +410,7 @@
       <workItem from="1548201189303" duration="2871000" />
       <workItem from="1548452770074" duration="7727000" />
       <workItem from="1548468086879" duration="2012000" />
-      <workItem from="1548476400756" duration="5346000" />
+      <workItem from="1548476400756" duration="5567000" />
     </task>
     <servers />
   </component>
@@ -420,10 +420,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58845000" />
+    <option name="totallyTimeSpent" value="59066000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="442" y="63" width="1536" height="961" extended-state="0" />
+    <frame x="195" y="39" width="1536" height="961" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28380188" />
@@ -698,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/checkFiles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -716,6 +709,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/checkFiles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
