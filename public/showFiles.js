@@ -16,12 +16,12 @@ $(function() {
 });
 
 function showOne(week) {
-    var allWeeks = [1, 2, 3, 4];
-    var hideWeeks = allWeeks.map(function (el) {
-        if (el !== week) {
-            return el;
+    let hideWeeks = [];
+    for (var index = 1; index <= 4; index++) {
+        if (index !== week) {
+            hideWeeks.append(index);
         }
-    });
+    }
     for (var i = 0; i < hideWeeks.length; i++) {
         $("#week" + i.toString()).hide();
         console.log("week " + hideWeeks[i]);
