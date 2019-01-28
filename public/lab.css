@@ -33,7 +33,7 @@ a:hover {
 }
 .due-date {
     font-size: 16px;
-    color: #0072c1;
+    color: #E0115F;
 }
 p, ul, ol, li {
     font-weight: 300;
@@ -46,21 +46,21 @@ ul, ol, li {
 }
 
 h2 {
-    color: #2F86EB;
+    color: #E0115F;
     font-size: 32px;
     font-weight: 300;
     margin: 25px 0 0;
-    border-top: 2px solid #2F86EB;
+    border-top: 2px solid #E0115F;
     padding-top: 35px;
 }
 h3 {
-    color: #2F86EB;
+    color: #E0115F;
     font-size: 24px;
     font-weight: 300;
     margin: 25px 0 0;
 }
 h4 {
-    color: #2F86EB;
+    color: #E0115F;
     font-size: 20px;
     font-weight: 300;
     margin: 25px 0 0;
@@ -88,7 +88,7 @@ td {
     font-weight: 300;
 }
 td.case {
-    background-color: #B0E2FF;
+    background-color: #E64874;
 }
 table.text {
     line-height: 16px;
