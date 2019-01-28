@@ -82,6 +82,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
+    high_voltage (3.1.0)
     i18n (1.4.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -227,6 +228,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  high_voltage (~> 3.1)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   omniauth-google-oauth2 (~> 0.2.1)
