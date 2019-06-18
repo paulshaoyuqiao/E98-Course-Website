@@ -11,6 +11,7 @@ ________________________________________________________________________________
 * Autograder will detect for missing required files for a given week
 * Autograder will now provide helpful logging/debugging statements for each individual test case
 * Integrated Autograder for Remote Script Running and Scoring (**Now Support Multiple Files**)
+* Adding new course staff information on the staff page as well as inserting the right contents under corresponding links
 _________________________________________________________________________________________________________________________________________
 ### Completed
 * UI Design
