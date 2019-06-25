@@ -2,10 +2,10 @@
 <html>
 
 <head>
-  <title>Main | Engineering 98 Winter 2019</title>
+  <title>Main | ICS Winter 2019</title>
   <meta charset="UTF-8">
-  <meta name="description" content="Engineering 98: Introduction to Programming in Ruby">
-  <meta name="keywords" content="Eng98, Engineering, Eng, 98, Programming in Ruby, Berkeley, EECS">
+  <meta name="description" content="ICS: Introduction to CS in Ruby">
+  <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
@@ -42,64 +42,81 @@
 </div>
 <a href="index.html">
   <div id="coursename">
-    <span id="courseid">Engineering 98:</span>
-    Introduction to Programming in Ruby
+    <span id="courseid">ICS:</span>
+    Introduction to CS in Ruby
   </div>
 </a>
+
+<div class="section-title">
+  <h2> Meet our staff :)</h2>
+</div>
+
 <div id="content">
-  <div class="segment">
-    <div class="segmenttitle">
-      View Scores
-    </div>
-    <div>
-      <div class="alert">
-        <% if flash[:notice] %>
-          <br><strong><%= flash[:notice] %></strong><br>
-        <% end %>
+  <div class="segment"><div>
+</div>
+
+<div class="staff-page">
+  <div class="staff-container">
+    <div class="staff">
+      <div class="staff-pic"> <%= image_tag("paul.jpg", size: "160x120", alt: "Paul Shao") %></div>
+      <div class="staff-name"><h4>Paul Shao (Head TA)</h4></div>
+      <a href="mailto:paulshaoyuqiao1@berkeley.edu">paulshaoyuqiao1@berkeley.edu</a><br>
+      Regular Office Hours*: MWFU 8-10pm <br>
+      (please check main page for the up-to-date time) <br><br>
+      <div class="bio">
+        Hello everyone! I am Paul, an incoming third year majoring in EECS. Fun facts about me:
+        <div class="ul-custom">
+          <ul>
+            <li> I once mistook glue for milk in kintergraden and was rushed to the ER. </li>
+            <li> I crawled up the stairs on all four when I was hiking up the Mist Trail in Yosemite. </li>
+            <li> I once composed a string symphony in less than 3 days. </li>
+          </ul>
+        </div>
       </div>
-      <% if current_user %>
-        <% if current_user.email == 'paulshaoyuqiao1@berkeley.edu' %>
-          Welcome, <strong><%= current_user.name %></strong>!
-          <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
-          <% if @scores.any? %>
-            <table id="scores">
-              <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Week</th>
-                <th>Total Test Cases</th>
-                <th>Passed Test Cases</th>
-                <th>Correctness</th>
-                <th>Submitted At</th>
-              </tr>
-              </thead>
-              <tbody>
-              <% @scores.each do |score| %>
-                <tr>
-                  <td><%= score.name %></td>
-                  <td><%= score.email %></td>
-                  <td><%= score.week %></td>
-                  <td><%= score.total_test %></td>
-                  <td><%= score.passed_test %></td>
-                  <td><%= score.total_score %> %</td>
-                  <td><%= score.updated_at %></td>
-                </tr>
-              <% end %>
-              </tbody>
-            </table>
-          <% else %>
-            <h2>No Scores Currently Available.</h2> <br>
-          <% end %>
-          <% else %>
-            <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
-            Unauthorized Access For <%= current_user.name %> at <%= current_user.email %>
-          <% end %>
-      <% else %>
-        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-      <% end %>
     </div>
   </div>
+
+  <div class="staff-container">
+    <div class="staff">
+      <div class="staff-pic"><%= image_tag("catherine.jpg", size: "160x120", alt: "Catherine Hu") %></div>
+      <div class="staff-name"><h4>Catherine Hu (TA)</h4></div>
+      <a href="mailto:catherine.gobears@berkeley.edu">catherine.gobears@berkeley.edu</a><br>
+      Regular Office Hours*: MWFS 7-9pm <br> <br>
+      <div class="bio">
+        Hello friends! I'm Catherine, a rising junior in EECS. Here are some (fun) facts about me:
+        <div class="ul-custom">
+          <ul>
+            <li> I love Pixar/Disney movies! My favorites are Coco and Coraline (spook~ 👻). </li>
+            <li> I recently picked up magic from the Magic DeCal (you should take it). </li>
+            <li> I used to do figure skating but now I'm not very flexible haha... :'( </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="staff-container">
+    <div class="staff">
+      <div class="staff-pic"><%= image_tag("tony.jpg", size: "160x120", alt: "Tony Tu") %></div>
+      <div class="staff-name"><h4>Tony Tu (TA)</h4></div>
+      <a href="mailto:tonytu16@berkeley.edu">tonytu16@berkeley.edu</a><br>
+      Regular Office Hours*: MWTF 3-5pm <br> <br>
+      <div class="bio">
+      Hi everyone, my name is Tony and I am an incoming third year EECS major from Vancouver, Canada. Some (fun) facts about me:
+        <div class="ul-custom">
+          <ul>
+            <li> Fun fact 1 </li>
+            <li> Fun fact 2 </li>
+            <li> Fun fact 3 </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="note">
+  [note] *: Please check the main page calendar for the most up-to-date OH time.
 </div>
 
 </body>
