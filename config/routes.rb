@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get 'scores', to: 'course#score', as: 'scores'
   get 'staff_summary', to: 'course#staff_summary', as: 'staff_summary'
+  get 'course_info', to: 'course#course_info', as: 'course_info'
   post 'import', to: 'autograder#import'
 
   resources :sessions, only: [:create, :destroy]
