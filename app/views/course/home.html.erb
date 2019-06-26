@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -63,10 +64,15 @@
                     </tr>
                 </thead>
                 <tr>
-                    <td>1/22</td>
+                    <td>7/1</td>
                     <td>Miscellaneous</td>
                     <td>The official course website has been deployed on Heroku - in test run.</td>
                 </tr>
+                #more announcements
+                </tr>
+                    <td>7/8</td>
+                    <td>Material</td>
+                    <td>Week1 lab released.</td>
             </table>
         </div>
 
@@ -95,18 +101,19 @@
                     <!-- Week 1 -->
                     <tr class="odd">
                         <td rowspan="3">1</td>
-                        <td rowspan="3">12/24 - 12/29</td>
+                        <td rowspan="3">7/1 - 7/7</td>
                         <td> LTP 1-12 </td>
                         <td> Basic Operations </td>
                         <td rowspan="3">
                             1. <%= link_to 'Handling Program Input and Output', page_path('handling_user_inp_oup') %><br>
-                            2. <a href="#" target="_blank">More Advanced String Processing Methods</a>
+                            2. <%= link_to 'More Advanced String Processing Methods', page_path('more_advanced_string') %><br>
                         </td>
                         <td rowspan="3">
                             <a href="materials/lab/lab1/index.html" target="_blank">Lab 1</a>
                         </td>
-                        <td rowspan="3"><a href="materials/hw/hw0/index.html" target="_blank">HW 1: Getting to Know
-                                Ruby</a><br>(due 12/29)</td>
+                        <td rowspan="3"><a href="materials/hw/hw0/index.html" target="_blank">
+                            <%= link_to 'HW 1: Getting to Know Ruby', page_path('hw1') %><br>
+                            <p>(due 7/5)</p>
                     </tr>
                     <tr class="odd">
                         <td> LTP 13-25 </td>
@@ -119,9 +126,9 @@
                     <!-- Week 2 -->
                     <tr>
                         <td rowspan="2">2</td>
-                        <td rowspan="2">12/31 - 1/5</td>
+                        <td rowspan="2">7/8 - 7/14</td>
                         <td>LTP 37-49</td>
-                        <td> Flow Control <br> <a href="materials/lectures/lect3.pdf" target="_blank">[slides]</a></td>
+                        <td> Flow Control <%# <br> <a href="materials/lectures/lect3.pdf" target="_blank">[slides]</a> %> </td>
 
                         <td rowspan="2">
                             3. <a href="#" target="_blank">Fun With Logic</a><br>
@@ -131,16 +138,16 @@
                             <a href="materials/lab/lab2/index.html" target="_blank">Lab 2</a>
                         </td>
                         <td rowspan="2"><a href="materials/hw/hw1/index.html" target="_blank">HW 2: Flow Control,
-                                Arrays, Iterators</a><br>(due 1/5)</td>
+                                Arrays, Iterators</a><br>(due 7/12)</td>
                     </tr>
                     <tr>
                         <td>LTP 51-56 </td>
-                        <td> Arrays, Iterators <br> <a href="materials/lectures/lect4.pdf" target="_blank">[slides]</a></td>
+                        <td> Arrays, Iterators <%# <br> <a href="materials/lectures/lect4.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <!-- Week 3 -->
                     <tr class="odd">
                         <td rowspan="3">3</td>
-                        <td rowspan="3">1/7 - 1/12</td>
+                        <td rowspan="3">7/15 - 7/21</td>
                         <td>LTP 57-61</td>
                         <td> Methods, Parameters </td>
                         <td rowspan="3">
@@ -153,22 +160,22 @@
                         <td rowspan="3"><a href="materials/hw/hw2/index.html" target="_blank">HW 3: More Interactive
                                 Methods</a><br>
                             <a href="materials/proj/proj1/index.html" target="_blank">Challenge 1: Roman Numerals</a><br>(due
-                            1/12)</td>
+                            7/19)</td>
                     </tr>
                     <tr class="odd">
                         <td>LTP 62-64</td>
-                        <td> Local Variables, Return Values <br> <a href="materials/lectures/lect6.pdf" target="_blank">[slides]</a></td>
+                        <td> Local Variables, Return Values <%# <br> <a href="materials/lectures/lect6.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <tr class="odd">
                         <td>LTP 65-68</td>
-                        <td> Manipulating Integers, Conversion <br> <a href="materials/lectures/lect7.pdf" target="_blank">[slides]</a></td>
+                        <td> Manipulating Integers, Conversion <%# <br> <a href="materials/lectures/lect7.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <!-- Week 4 -->
                     <tr>
                         <td rowspan="3">4</td>
-                        <td rowspan="3"> 1/12 - 1/17 </td>
+                        <td rowspan="3"> 7/22 - 7/28 </td>
                         <td>LTP 69-71</td>
-                        <td> Recursive Programming <br> <a href="materials/lectures/lect8.pdf" target="_blank">[slides]</a></td>
+                        <td> Recursive Programming <%# <br> <a href="materials/lectures/lect8.pdf" target="_blank">[slides]</a> %> </td>
 
                         <td rowspan="3">
                             7. <a href="#" target="_blank">Why sorting?</a><br>
@@ -180,45 +187,17 @@
                         </td>
                         <td rowspan="3"><a href="materials/proj/proj1/index.html" target="_blank">HW 4: Recursion,
                                 Arrays</a><br><a href="materials/hw/hw2/index.html" target="_blank">Challenge 2: Binary
-                                Search</a><br>(due 1/17)</td>
+                                Search</a><br>(due 7/26)</td>
                     </tr>
                     <tr>
                         <td>LTP 72-75</td>
-                        <td> Developing a Sorting Strategy <br> <a href="materials/lectures/lect9.pdf" target="_blank">[slides]</a></td>
+                        <td> Developing a Sorting Strategy <%# <br> <a href="materials/lectures/lect9.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <tr>
                         <td>LTP 76-81</td>
-                        <td> Shuffling, Random Numbers and Sequences <br> <a href="materials/lectures/lect10.pdf"
-                                target="_blank">[slides]</a></td>
+                        <td> Shuffling, Random Numbers and Sequences <%# <br> <a href="materials/lectures/lect10.pdf"
+                                target="_blank">[slides]</a> %> </td>
                     </tr>
-                    <!-- Week 5 -->
-                    <tr class="odd">
-                        <td rowspan="3">5</td>
-                        <td rowspan="3">1/17 - 1/22</td>
-                        <td>LTP 103-105</td>
-                        <td> Classes, Objects <br> <a href="materials/lectures/lect11.pdf" target="_blank">[slides]</a></td>
-
-                        <td rowspan="3">
-                            10. <a href="#" target="_blank">Static and Non-static Methods</a><br>
-                            11. <a href="#" target="_blank">Inheritance and Polymorphism</a>
-                        </td>
-                        <td rowspan="3">
-                            <a href="materials/lab/lab5/index.html" target="_blank">Lab 5</a>
-                        </td>
-                        <td rowspan="3"><a href="materials/hw/hw3/index.html" target="_blank">HW 5: Intro to OOP</a><br><a
-                                href="materials/hw/hw2/index.html" target="_blank">Challenge 3 (Optional): <br>the Hash
-                                and Time classes</a><br>(due 1/22)</td>
-                    </tr>
-                    <tr class="odd">
-                        <td>LTP 105-107</td>
-                        <td> Instance Variables, Encapsulation <br> <a href="materials/lectures/lect12.pdf" target="_blank">[slides]</a></td>
-                    </tr>
-                    <tr class="odd">
-                        <td> LTP 108-112</td>
-                        <td> A Case Study on Object-Oriented Programming <br> <a href="materials/lectures/lect13.pdf"
-                                target="_blank">[slides]</a></td>
-                    </tr>
-
                 </tbody>
             </table>
         </div>
