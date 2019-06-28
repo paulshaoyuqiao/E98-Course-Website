@@ -9,6 +9,10 @@
   <link rel="shortcut icon" href="/assets/images/josh4.png">
 
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
@@ -61,16 +65,13 @@
         <li><a href="#the-ruby-interpreter" id="markdown-toc-the-ruby-interpreter">String methods</a></li>
       </ul>
     </li>
-    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">B. Git &amp; Local Repos</a></li>
-    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">C. Git Exercise</a></li>
-    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">D. Git &amp; Remote Repos</a>    <ul>
-      <li><a href="#working-on-the-skeleton" id="markdown-toc-working-on-the-skeleton">Working on the Skeleton</a></li>
-    </ul>
-    </li>
-    <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">E. Git Checkoff</a></li>
-    <li><a href="#f-leap-year" id="markdown-toc-f-leap-year">F. Leap Year</a></li>
-    <li><a href="#g-submitting-lab-1" id="markdown-toc-g-submitting-lab-1">G. Submitting Lab 1</a></li>
-    <li><a href="#recap" id="markdown-toc-recap">Recap</a></li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">B. String Interpolation</a></li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">C. String prefix & Suffix</a></li>
+    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">D. String Conversions</a></li>
+    <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">E. Replacing Text in Strings</a></li>
+    <li><a href="#f-leap-year" id="markdown-toc-f-leap-year">F. Finding Characters and Text</a></li>
+    <li><a href="#g-submitting-lab-1" id="markdown-toc-g-submitting-lab-1">G. Padding and Stripping Strings</a></li>
+    <li><a href="#recap" id="markdown-toc-recap">Conclusion</a></li>
   </ul>
 
     <h2 id="how-does-a-program-work">What are Ruby Strings?</h2>
@@ -111,10 +112,12 @@
 
     <span style="white-space: pre-line">         </span>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Ruby".size<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv">$ </span> #4 <span class="nt"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "Ruby".size</span>
+        <span class="ruby-value">$ 4</span>
+      </code>
+    </pre>
 
     <p>We can also use <strong>length</strong> instead of <strong>size</strong>, they do the same thing</p>
 
@@ -122,17 +125,21 @@
 
     <p> String interpolation allows us to combine strings together, for example:</p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>name = "Paul"<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv">$ </span>puts "Hello #{name}" <span class="nt"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ name = "Paul"</span>
+        <span class="ruby-node">$ puts "Hello #{name}"</span>
+      </code>
+    </pre>
 
     <p>You can have actual code inside the interpolation too:</p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>puts "The sum of 1 and 1 is #{1+1}"<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv">$ </span># "the sum of 1 and 1 is 2" <span class="nt"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ puts "The sum of 1 and 1 is #{1+1}"</span>
+        <span class="ruby-value">$ "the sum of 1 and 1 is 2" </span>
+      </code>
+    </pre>
 
     <p>Ruby calls the <strong>to_s</strong> method on the string interpolation block, this tells the object to convert itself into a string.</p>
 
@@ -142,45 +149,54 @@
 
     <p>Here is one example:</p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>string = "ruby programming"<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv">$ </span>string.start_with? "ruby" <span class="nt"></span>
- <span class="nv">$ </span># true <span class="nv"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ string = "ruby programming"</span>
+        <span class="ruby-node">$ string.start_with? "ruby"</span>
+        <span class="ruby-value">$ true</span>
+      </code>
+    </pre>
+
 
     <p>In addition, Ruby 2.5 introduced the <strong>delete_prefix & delete_suffix</strong> methods, which may be useful to you.</p>
     <p><strong>Here is an example:</strong></p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>string = "gold is expensive"<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv">$ </span>string.delete_suffix(" is expensive")<span class="nt"></span>
- <span class="nv">$ </span># "gold" <span class="nv"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ string = "gold is expensive"</span>
+        <span class="ruby-node">$ string.delete_suffix(" is expensive")</span>
+        <span class="ruby-value">$ "gold"</span>
+      </code>
+    </pre>
 
     <h2 id="d-git--remote-repos">D. String Conversions</h2>
 
 <ul>
-    <li><strong>Converting Array to String</strong></li>
+    <li><strong>(Optional) - Converting Array to String</strong></li>
 
     <p>If you would like to take an array of strings & join these strings into a big string you can use the <strong>join</strong> method.</p>
 
     <p><strong>Example:</strong></p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>arr = ['a', 'b', 'c']<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv">$ </span>arr.join<span class="nt"></span>
- <span class="nv">$ </span># "abc" <span class="nv"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ arr = ['a', 'b', 'c']</span>
+        <span class="ruby-node">$ arr.join</span>
+        <span class="ruby-value">$ "abc"</span>
+      </code>
+    </pre>
 
     <p>It’s also possible to pass an argument to <strong>join</strong>, this argument is the character separator.</p>
 
     <p><strong>Example:</strong></p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>arr = ['a', 'b', 'c']<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv">$ </span>arr.join("-")<span class="nt"></span>
- <span class="nv">$ </span># "a-b-c" <span class="nv"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ arr = ['a', 'b', 'c']</span>
+        <span class="ruby-node">$ arr.join("-")</span>
+        <span class="ruby-value">$ "a-b-c"</span>
+      </code>
+    </pre>
 
     <li><strong>Converting String to Integer</strong></li>
 
@@ -189,16 +205,23 @@
 
     <p><strong>Example:</strong></p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"49".to_i<span class="k"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "49".to_i </span>
+        <span class="ruby-value">$ 49</span>
+      </code>
+    </pre>
 
     <p>Notice that if you try this with a string that contains no numbers then you will get <strong>0</strong>.</p>
 
     <p><strong>Example:</strong></p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"a".to_i<span class="k"></span>
- <span class="nv">$ </span>#0 <span class="nv"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "a".to_i </span>
+        <span class="ruby-value">$ 0</span>
+      </code>
+    </pre>
 
     <li><strong>Convert a String to An Array of Characters</strong></li>
     <p>Taking a string & breaking it down into an array of characters is easy with the <strong>split</strong> method.</p>
@@ -207,11 +230,13 @@
 
     <p><strong>Example:</strong></p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>string = "a b c d"<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv">$ </span>string.split<span class="nt"></span>
- <span class="nv">$ </span>#["a", "b", "c", "d"]<span class="nv"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ string = "a b c d" </span>
+        <span class="ruby-node">$ string.split</span>
+        <span class="ruby-value">$ ["a", "b", "c", "d"]</span>
+      </code>
+    </pre>
 
     <p>But if you are working with CSV data specifically you may want to consider using the CSV class from <strong>the standard library</strong>. 
     This class can do things like reading column headers, so it makes things easier for you.</p>
@@ -221,19 +246,29 @@
 
     <p><strong>Example:</strong></p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"abcd".upcase<span class="k"></span>
- <span class="nv">$ </span>#"ABCD"<span class="nv"></span>
-</code></pre></div>    </div>
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "berkeley".upcase </span>
+        <span class="ruby-value">$ "BERKELEY"</span>
+      </code>
+    </pre>
 
     <p>And if you want to convert to <strong>lower</strong> case you can use the downcase method.</p>
 
     <p><strong>Example:</strong></p>
 
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "CAL".downcase </span>
+        <span class="ruby-value">$ "cal"</span>
+      </code>
+    </pre>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"ABCD".downcase<span class="k"></span>
  <span class="nv">$ </span>#"abcd"<span class="nv"></span>
 </code></pre></div>    </div>
 </ul>
-    
+
     <h2 id="e-git-checkoff">E. Replacing Text in Strings</h2>
 
     <p>The find and replace feature in word processors lets you search for a string and replace it with another string. 
@@ -263,7 +298,7 @@
     <p>Only the first occurrance changed.</p>
 
     <p>To change them all, use the <strong>gsub</strong> method, which performs <strong>global</strong> substitution:</p>
-    
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>text = "Sammy has a balloon"<span class="k"></span>
  <span class="nv">$ </span>text.gsub("ballooon", "boomerang")<span class="nv"></span>
  <span class="nv">$ </span>print text<span class="nv"></span>
@@ -271,7 +306,7 @@
  <span class="nv">$ </span>#Sammy has a balloon<span class="nv"></span>
 </code></pre></div>    </div>
 
-    <p>The output doesn't show the result we're looking for, because while we did specify the substitution, we never assigned the result of <strong>gsub</strong> to a new variable. 
+    <p>The output doesn't show the result we're looking for, because while we did specify the substitution, we never assigned the result of <strong>gsub</strong> to a new variable.
     To get the result we'd like, we could rewrite the program like this:</p>
 
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>text = "Sammy has a balloon"<span class="k"></span>
