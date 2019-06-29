@@ -1,0 +1,490 @@
+<html>
+<head>
+  <title>Lab 1: javac, java, git | CS 61B Spring 2018</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Computer Science 61B: Data Structures">
+  <meta name="keywords" content="CS61B, Computer Science, CS, 61B, Data Structures, Josh Hug, Berkeley, EECS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Optional Reading 2: More advanced String Processing Methods</header><ul id="markdown-toc">
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">A. What are Ruby Strings? </a>
+      <ul>
+        <li><a href="#compiler-vs-interpreter" id="markdown-toc-compiler-vs-interpreter">Single Quotes vs Double Quotes</a></li>
+        <li><a href="#the-ruby-interpreter" id="markdown-toc-the-ruby-interpreter">String methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">B. String Interpolation</a></li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">C. String prefix & Suffix</a></li>
+    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">D. String Conversions</a></li>
+    <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">E. Replacing Text in Strings</a></li>
+    <li><a href="#f-leap-year" id="markdown-toc-f-leap-year">F. Finding Characters and Text</a></li>
+    <li><a href="#g-submitting-lab-1" id="markdown-toc-g-submitting-lab-1">G. Padding and Stripping Strings</a></li>
+    <li><a href="#recap" id="markdown-toc-recap">Conclusion</a></li>
+  </ul>
+
+    <h2 id="how-does-a-program-work">What are Ruby Strings?</h2>
+
+    <p>A String object in Ruby holds and manipulates an arbitrary sequence of one or more bytes, 
+    typically representing characters that represent human language.
+    </p>
+
+    <p>The simplest string literals are enclosed in single quotes (the apostrophe character). 
+    The text within the quote marks is the value of the string − 'This is a ruby string'
+    </p>
+
+    <h4 id="compiler-vs-interpreter">Single Quotes vs Double Quotes</h4>
+
+    <p>
+    1. The essential difference between the two literal forms of strings (single or double quotes) is 
+    that <strong>double quotes allow for escape sequences while single quotes do not!</strong>
+    </p>
+
+    <p>
+    2. A string literal created by single quotes does not support <strong>string interpollation</strong>
+    and <strong>does not escape sequences.</strong>
+    <p>
+
+
+    <h4 id="the-ruby-interpreter">String methods</h4>
+
+    <p>Ruby strings have many built-in methods that make it easy to modify and manipulate text, a common 
+    task in many programs.</p>
+
+    <p>Strings in Ruby by default are mutable and 
+    can be changed in place or a new string can be returned from a method. </p>
+
+
+    <h2 id="a-java-compilation--development">A. How to get the string length </h2>
+
+    <p>    </p>
+
+    <span style="white-space: pre-line">         </span>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "Ruby".size</span>
+        <span class="ruby-value">$ 4</span>
+      </code>
+    </pre>
+
+    <p>We can also use <strong>length</strong> instead of <strong>size</strong>, they do the same thing</p>
+
+    <h2 id="b-git--local-repos">B. String Interpolation</h2>
+
+    <p> String interpolation allows us to combine strings together, for example:</p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ name = "Paul"</span>
+        <span class="ruby-node">$ puts "Hello #{name}"</span>
+      </code>
+    </pre>
+
+    <p>You can have actual code inside the interpolation too:</p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ puts "The sum of 1 and 1 is #{1+1}"</span>
+        <span class="ruby-value">$ "the sum of 1 and 1 is 2" </span>
+      </code>
+    </pre>
+
+    <p>Ruby calls the <strong>to_s</strong> method on the string interpolation block, this tells the object to convert itself into a string.</p>
+
+    <h2 id="c-git-exercise">C. String prefix & Suffix</h2>
+
+    <p>We can use the <strong>start_with?</strong> method to check if a string starts with a specific prefix.</p>
+
+    <p>Here is one example:</p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ string = "ruby programming"</span>
+        <span class="ruby-node">$ string.start_with? "ruby"</span>
+        <span class="ruby-value">$ true</span>
+      </code>
+    </pre>
+
+
+    <p>In addition, Ruby 2.5 introduced the <strong>delete_prefix & delete_suffix</strong> methods, which may be useful to you.</p>
+    <p><strong>Here is an example:</strong></p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ string = "gold is expensive"</span>
+        <span class="ruby-node">$ string.delete_suffix(" is expensive")</span>
+        <span class="ruby-value">$ "gold"</span>
+      </code>
+    </pre>
+
+    <h2 id="d-git--remote-repos">D. String Conversions</h2>
+
+<ul>
+    <li><strong>(Optional) - Converting Array to String</strong></li>
+
+    <p>If you would like to take an array of strings & join these strings into a big string you can use the <strong>join</strong> method.</p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ arr = ['a', 'b', 'c']</span>
+        <span class="ruby-node">$ arr.join</span>
+        <span class="ruby-value">$ "abc"</span>
+      </code>
+    </pre>
+
+    <p>It’s also possible to pass an argument to <strong>join</strong>, this argument is the character separator.</p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ arr = ['a', 'b', 'c']</span>
+        <span class="ruby-node">$ arr.join("-")</span>
+        <span class="ruby-value">$ "a-b-c"</span>
+      </code>
+    </pre>
+
+    <li><strong>Converting String to Integer</strong></li>
+
+    <p>If you want to convert a string like <strong>"49"</strong> into the Integer <strong>49</strong> you can use 
+    the <strong>to_i method</strong>.</p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "49".to_i </span>
+        <span class="ruby-value">$ 49</span>
+      </code>
+    </pre>
+
+    <p>Notice that if you try this with a string that contains no numbers then you will get <strong>0</strong>.</p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "a".to_i </span>
+        <span class="ruby-value">$ 0</span>
+      </code>
+    </pre>
+
+    <li><strong>Convert a String to An Array of Characters</strong></li>
+    <p>Taking a string & breaking it down into an array of characters is easy with the <strong>split</strong> method.</p>
+
+    <p><strong>Taking a string & breaking it down into an array of characters is easy with the split method.</strong></p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ string = "a b c d" </span>
+        <span class="ruby-node">$ string.split</span>
+        <span class="ruby-value">$ ["a", "b", "c", "d"]</span>
+      </code>
+    </pre>
+
+    <p>But if you are working with CSV data specifically you may want to consider using the CSV class from <strong>the standard library</strong>. 
+    This class can do things like reading column headers, so it makes things easier for you.</p>
+
+    <li><strong>How to Convert a String to Upper or Lowercase in Ruby</strong></li>
+    <p>If you would like to convert a string to all upper case you can use the upcase method.</p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "berkeley".upcase </span>
+        <span class="ruby-value">$ "BERKELEY"</span>
+      </code>
+    </pre>
+
+    <p>And if you want to convert to <strong>lower</strong> case you can use the downcase method.</p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre>
+      <code class="ruby">
+        <span class="ruby-node">$ "CAL".downcase </span>
+        <span class="ruby-value">$ "cal"</span>
+      </code>
+    </pre>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"ABCD".downcase<span class="k"></span>
+ <span class="nv">$ </span>#"abcd"<span class="nv"></span>
+</code></pre></div>    </div>
+</ul>
+
+    <h2 id="e-git-checkoff">E. Replacing Text in Strings</h2>
+
+    <p>The find and replace feature in word processors lets you search for a string and replace it with another string. 
+    You can do that in Ruby with the <strong>sub</strong> and <strong>gsub</strong> methods.</p>
+
+    <p>The <strong>sub</strong> method replaces part of a string with another.</p>
+
+    <p>Sammy no longer has the balloon; it flew away. Let's change the substring <strong>"has"</strong> to <strong>"had"</strong>.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>balloon = "Sammy has a balloon"<span class="k"></span>
+ <span class="nv">$ </span>print balloon.sub("has","had")<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>Our output will look like this:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>balloon = "Sammy had a balloon"<span class="k"></span>
+</code></pre></div>    </div>
+
+    <p>The <strong>sub</strong> method only replaces the first occurrance of the match with the new text. 
+    Let's use a modified string that has two occurrences of the word <strong>has</strong>:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>balloon = "Sammy has a balloon. The balloon has a ribbon"<span class="k"></span>
+ <span class="nv">$ </span>print balloon.sub("has","had")<span class="nv"></span>
+ <span class="nv">$ </span>#Sammy had a balloon. The balloon has a ribbon<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>Only the first occurrance changed.</p>
+
+    <p>To change them all, use the <strong>gsub</strong> method, which performs <strong>global</strong> substitution:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>text = "Sammy has a balloon"<span class="k"></span>
+ <span class="nv">$ </span>text.gsub("ballooon", "boomerang")<span class="nv"></span>
+ <span class="nv">$ </span>print text<span class="nv"></span>
+ <span class="nv">  <span>
+ <span class="nv">$ </span>#Sammy has a balloon<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>The output doesn't show the result we're looking for, because while we did specify the substitution, we never assigned the result of <strong>gsub</strong> to a new variable.
+    To get the result we'd like, we could rewrite the program like this:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>text = "Sammy has a balloon"<span class="k"></span>
+ <span class="nv">$ </span>text = text.sub("ballooon", "boomerang")<span class="nv"></span>
+ <span class="nv">$ </span>print text<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>Alternatively, you can use sub! instead, which modifies the original string. Let's try this by doing a couple of string replacements. 
+    We'll change "red balloon" to "blue boomerang":</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>text = "Sammy has a red balloon"<span class="k"></span>
+ <span class="nv">$ </span>text.sub!("red", "blue")<span class="nv"></span>
+ <span class="nv">$ </span>text.sub!("balloon", "boomerang")<span class="nv"></span>
+ <span class="nv">$ </span>print text<span class="nv"></span>
+ <span class="nv">$ </span>#Sammy has a blue boomerang<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>You can use the <strong>gsub!</strong> method to do a global substitution in place as well.</p>
+
+    <p>The <strong>sub</strong> and <strong>gsub</strong> methods accept regular expressions for the search pattern. 
+    Let's replace all the vowels in the string with the <strong>@</strong> symbol:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Sammy has a red balloon".gsub /[aeiou]/, "@"<span class="k"></span>
+</code></pre></div>    </div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>#"S@mmy h@s @ r@d b@ll@@n"<span class="k"></span>
+</code></pre></div>    </div>
+
+    <p>The replacement value doesn't have to be a string. You can use a hash to specify how individual characters or pieces should be replaced. 
+    Let's replace all occurrances of the letter <strong>a</strong> with <strong>@</strong> and all the <strong>o</strong> characters with zeros:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Sammy has a red balloon".gsub /[aeiou]/, {"a" => "@", "o" => "0"}<span class="k"></span>
+</code></pre></div>    </div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># "S@mmy h@s @ rd b@ll00n"<span class="k"></span>
+</code></pre></div>    </div>
+
+    <p>You can use this to perform more complex substitutions with less code.</p>
+
+
+
+    <h2 id="f-leap-year">F. Finding Characters and Text</h2>
+
+    <p>Sometimes you need to determine whether or not a string contains another string.</p>
+
+    <p>The <strong>include?</strong> method checks to see if a string contains another string. 
+    It returns <strong>true</strong> if the string exists and <strong>false</strong> if not:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Sammy".include?("a")   # true<span class="k"></span>
+ <span class="nv">$ </span>"Sammy".include?("b")   # false<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>The <strong>index</strong> method returns the index of a character. It can also identify the index of the first character of a substring. 
+    And it returns <strong>nil</strong> if the character or substring doesn't exist:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Sammy".index("a")     # 1<span class="k"></span>
+ <span class="nv">$ </span>"Sammy".index("mm")    # 2<span class="nv"></span>
+ <span class="nv">$ </span>"Sammy".index("Fish")  # nil<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>The <strong>index</strong> method only finds the first occurrance though. Here's an example with a longer string:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>text = "Sammy has a balloon"   
+ <span class="nv">$ </span>text.index("a")    # 1  
+</code></pre></div>    </div>
+
+    <p>The string <strong>Sammy has a balloon</strong> has four occurrances of the letter "a". But <strong>index</strong> only found the first occurrance. 
+    You'll have to write something more specific to locate one of the other occurrances.</p>
+
+    <p>For example, you could convert the string to an array of characters and use array methods to iterate through the results and select the indices for the character. 
+    Here's one method for doing that:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>text = "Sammy has a balloon"<span class="k"></span>
+ <span class="nv">$ </span>indices = text.chars<span class="nv"></span>
+ <span class="nv">$ </span>  .each_with_index<span class="nv"></span>
+ <span class="nv">$ </span>  .select{|char, index| char == "a" }<span class="nv"></span>
+ <span class="nv">$ </span>  .map{|pair| pair.last}<span class="nv"></span>
+ <span class="nv">$ </span>print indices<span class="nv"></span>
+</code></pre></div>    </div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ [1, 7, 10, 13]<span class="k"></span>
+</code></pre></div>    </div>
+
+    <p><strong>each_with_index</strong> returns a two-dimensional array containing the an entry for each character and its index. 
+    <strong>select</strong> whittles it down to just the entries where the character is <strong>a</strong>, and <strong>map</strong> converts the two dimensional array 
+    into a one-dimensional array of the indices.</p>
+
+    <h2 id="g-submitting-lab-1">G. Padding and Stripping Strings</h2>
+
+    <p>If you're writing a program that has to format some text, you'll often find that you'll want to add 
+    some space in front of, after, or around a string in order to make it line up with other data. 
+    And other times, you may want to remove unnecessary characters from the beginning or end of your strings, 
+    like extra whitespace or special characters.</p>
+
+    <p>To surround a string with spaces, use the <strong>center</strong> method:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Sammy",center(21)    # "        Sammy        "    
+</code></pre></div>    </div>
+
+    <p>You can specify a string as the second argument if you want to use a different character:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>" [Sammy] ".center(21, "<>")   # "<><><> [Sammy] <><><>"    
+</code></pre></div>    </div>
+
+<p>The <strong>ljust</strong> and <strong>rjust</strong> methods add spaces or characters to the left or right side of a 
+string and work exactly like the <strong>center</strong> method:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Sammy".ljust(20)         # "Sammy               "<span class="k"></span>
+<span class="nv"> $ </span>"Sammy".rjust(20)         # "               Sammy"<span class="nv"></span>
+<span class="nv"> $ </span>"Sammy".rjust(20, "!")    # "!!!!!!!!!!!!!!!Sammy"<span class="nv"></span>
+</code></pre></div>    </div>
+    
+<p>To remove leading spaces from a string, use the <strong>rstrip method</strong>. To remove trailing spaces, use <strong>lstrip</strong>.
+Use <strong>strip</strong> to remove both leading and trailing spaces:</p>
+    
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"        Sammy".rstrip    # "Sammy"
+<span class="nv"> $ </span>"Sammy        ".lstrip    # "Sammy"<span class="nv"></span>
+<span class="nv"> $ </span>"      Sammy  ".strip     # "Sammy"<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>Sometimes you'll need to remove characters from the end of a string. 
+Ruby's chop method does just that; it removes the last character from a string:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Sammy".chop     # "Samm"
+</code></pre></div>    </div>
+
+    <p>This is especially useful for removing the newline character (\n) from strings:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"This string has a newline\n".chop
+    </code></pre></div>    </div>
+
+    <p>The <strong>chop</strong> method leaves the original string intact, returning a new string. 
+    The <strong>chop!</strong> method modifies the existing string in place.</p>
+
+    <p>The <strong>chomp</strong> method can remove multiple characters from the end of a string:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"Sammy".chomp("my")    # "Sam"
+    </code></pre></div>    </div>
+
+    <p>If you don't specify a string to remove, <strong>chomp</strong> will remove the newline:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"This string has a newline\n".chomp   # "This string has a newline
+    </code></pre></div>    </div>
+
+    <p>However, if the string doesn't contain a newline character, <strong>chomp</strong> just returns the original string:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>Sammy".chomp     # "Sammy"
+    </code></pre></div>    </div>
+
+    <p>This makes <strong>chomp</strong> a little safer to use when removing newlines than the <strong>chop</strong> method, which always removes the last character.</p>
+
+    <p>Ruby has a <strong>chomp!</strong> method that mutates the original string and returns the modfied string if it performed a replacement. 
+    However, unlike <strong>chomp</strong>, the <strong>chomp!</strong> method returns <strong>nil</strong> if it didn't alter the string:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>string = "Hello\n"<span class="k"></span>
+ <span class="nv">$ </span>string.chomp!     # "Hello"<span class="nv"></span>
+ <span class="nv">$ </span>     <span class="nv"></span>
+ <span class="nv">$ </span>string = "Hello"<span class="nv"></span>
+ <span class="nv">$ </span>string.chomp!     # nil<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <h2 id="recap">Conclusion</h2>
+    <p>Ruby gives you the flexibility to choose how you want to work with your data. These built-in methods 
+    allow us to modify more easily. Follow <a href=https://www.shortcutfoo.com/app/dojos/ruby-strings/cheatsheet>this link</a> to a more complete Ruby Strings cheatsheet:
+    </p>
+    
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
