@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <title>Main | ICSBC Summer 2019</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
+  <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="course_info">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+<a href="index.html">
+  <div id="coursename">
+    <span id="courseid">ICS:</span>
+    Introduction to CS Bootcamp in Ruby
+  </div>
+</a>
+
+<div class="section-title">
+  <h2> Lab 1: WWRD </h2>
+</div>
+
+<div id="content">
+  <div class="segment"><div>
+</div>
+
+<div class="lab-page">
+  <div class="section">
+    <h3>Introduction</h3>
+    The lab series, WWRD (What Would Ruby Do), is meant to test you on your understanding of how code runs in Ruby, and we mimic the style of irb, 
+    the interactive Ruby shell that you can run on your terminal (Open your terminal and type `irb` to start a Ruby interactive session).
+  </div>
+
+  <div class="section">
+    <h3>Starter Files</h3>
+    Download <a href="labs/lab1.zip">lab1.zip</a> and unzip. Inside the folder, you will see two files: one called lab1.txt, and one called lab_runner.rb.
+    Do not modify those files.
+  </div>
+
+  <div class="section">
+    <h3>Running Instruction</h3>
+    Open up your terminal, `cd` (change directory) to the folder you just downloaded. 
+    Type in the command, `ruby lab_runner.rb 1` to start your lab session. <br>
+    Please follow the instructions in the session. Press enter to enter your response. You have unlimited tries. <br>
+    You can exit the lab session by pressing `ctrl` + `C`, and your progress will be saved! Next time, simply run 
+    `ruby lab_runner.rb 1` again to resume from where you ended. <br>
+    After you finish all questions, a secret word will be displayed for submission. Please see the next section. </p>
+  </div>
+
+  <div class="section">
+    <h3>Submission</h3>
+    Create an empty text file called "lab1-word.txt", copy the exact secret word/phrase into it. <br>
+    Under the course website "scores" tab, sign in, choose the corresponding week, upload your file 
+    (along with your other homework scripts that you will do later), and submit. </p>
+  </div>
+  
+  <div class="section">
+    <h3>Getting stuck or confused? Check this out!</h3>
+    As we said, WWRD mimics irb. However, to focus on certain parts of the code, and because we cannot accept multiple lines without spoiling some aspects of the answer, 
+    the answer that you type in for WWRD is different from what you would see in the irb output in several ways:
+    <ul>
+      <li> irb uses `=>` to separate the output from `puts` from the return value of the line, while you can omit this symbol in your answers to WWRD.
+      <li> When there are multiple lines, <b> you should separate the multiple lines with `;` followed by a space </b>.
+      <li> We do not ask for the return value of any line that is not the last line of the problem. We do, however, ask for all output from puts, no matter what line it is. 
+    </ul>
+    So WWRD is not irb, it's pretty different. It's actually more similar to what you would get writing a .rb file and running it, plus the return value of the last line (and the ; ). <br><br>
+
+    Examples <br>
+    This is what irb would display: <br>
+
+    <span class=*type >>>> 1 + 2</span>
+    => 3
+
+    >>> puts "Hi"
+    Hi
+    => nil
+
+    >>> a = 3
+    => 3
+    >>> puts a
+    3
+    => nil
+    >>> puts(a + 2 == 4)
+    false
+    => nil
+    This is what you should type in WWRD to get the correct answer:
+
+    >>> 1 + 2
+    3
+
+    >>> puts "Hi"
+    Hi; nil
+
+    >>> a = 3
+    >>> puts a
+    >>> puts(a + 2 == 4)
+    3; false; nil
+
+    <br>
+    Quick tips for getting unstuck: <br>
+    <ul> 
+      <li> Check for double quotes (a string returned is in what?) and nil (puts returns what?)
+      <li> Run the code in irb
+      <li> Contact a TA
+    </ul>
+  </div>
+</div>
+
+</body>
+
+</html>
