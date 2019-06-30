@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b24a2fb-fc3a-4225-ba42-f09f3dc907f6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/autograder/import.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/autograder/import.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/course/course_info.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/course_info.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/course/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/home.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/course/score.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/score.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/course/staffsummary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/staffsummary.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/handling_user_inp_oup.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/handling_user_inp_oup.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/hw1.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/hw1.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/lab1.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/lab1.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/more_advanced_string.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/more_advanced_string.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/assets.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/checkFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/checkFiles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fullcalendar.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/fullcalendar.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/runLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/runLoader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/showFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/showFiles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sunburst.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sunburst.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/cc/355a446c5bcc11" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/cc/355a446c5bcc11" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -37,25 +58,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/course/home.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="79" column="59" lean-forward="true" selection-start-line="79" selection-start-column="59" selection-end-line="79" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/course/score.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="71" lean-forward="true" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+            <state relative-caret-position="30">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/common.css">
+        <entry file="file://$PROJECT_DIR$/config/initializers/assets.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="76" lean-forward="true" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/common.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-158">
-              <caret line="330" lean-forward="true" selection-start-line="208" selection-end-line="330" />
+              <caret line="330" selection-start-line="208" selection-end-line="330" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/custom.css">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="817">
               <caret line="122" selection-start-line="122" selection-end-line="122" />
@@ -67,16 +106,16 @@
         <entry file="file://$PROJECT_DIR$/app/views/autograder/import.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/pages/lab1.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/checkFiles.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+            <state relative-caret-position="135">
+              <caret line="9" column="103" lean-forward="true" selection-start-line="9" selection-start-column="103" selection-end-line="9" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -94,25 +133,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/pages/more_advanced_string.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/course/course_info.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+              <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -121,7 +142,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/pages/handling_user_inp_oup.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+              <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -151,7 +172,13 @@
       <find>LabSelect</find>
       <find>staff_summary</find>
       <find>common</find>
+      <find>skip_pipeline</find>
+      <find>asset_path</find>
+      <find>, skip_pipeline: true</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -198,7 +225,6 @@
         <option value="$PROJECT_DIR$/app/controllers/course_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/course/staffsummary.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/course/home.html.erb" />
         <option value="$PROJECT_DIR$/app/views/course/course_info.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/lab1.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/hw1.html.erb" />
@@ -207,7 +233,9 @@
         <option value="$PROJECT_DIR$/app/views/autograder/import.html.erb" />
         <option value="$PROJECT_DIR$/public/common.css" />
         <option value="$PROJECT_DIR$/public/custom.css" />
+        <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
         <option value="$PROJECT_DIR$/app/views/course/score.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/course/home.html.erb" />
       </list>
     </option>
   </component>
@@ -225,8 +253,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="186" />
-    <option name="y" value="62" />
+    <option name="x" value="58" />
+    <option name="y" value="235" />
     <option name="width" value="1536" />
     <option name="height" value="986" />
   </component>
@@ -246,6 +274,33 @@
               <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
               <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="markdown" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
@@ -275,14 +330,13 @@
             <path>
               <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
               <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
               <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="initializers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
@@ -294,11 +348,6 @@
               <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="migrate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -318,6 +367,15 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
+      <recent name="$PROJECT_DIR$/app/assets/javascripts" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/public/stylesheets" />
+      <recent name="$PROJECT_DIR$/public/assets" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -498,7 +556,7 @@
       <workItem from="1561699084346" duration="1472000" />
       <workItem from="1561700661966" duration="2427000" />
       <workItem from="1561869464920" duration="2856000" />
-      <workItem from="1561873715691" duration="5876000" />
+      <workItem from="1561873715691" duration="7089000" />
     </task>
     <servers />
   </component>
@@ -508,10 +566,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78476000" />
+    <option name="totallyTimeSpent" value="79689000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="186" y="62" width="1536" height="986" extended-state="0" />
+    <frame x="58" y="235" width="1536" height="986" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30722892" />
@@ -544,9 +602,6 @@
     <SUITE FILE_PATH="coverage/E98_Course_Website@Development__E98_Course_Website.rcov" NAME="Development: E98-Course-Website Coverage Results" MODIFIED="1561699852818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="E98-Course-Website" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Autograder/week1_test/bigger_better_expected_1.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Autograder/week4_test.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3015">
@@ -624,14 +679,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/runLoader.js">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/runLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/showFiles.js">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/showFiles.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
@@ -735,13 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/checkFiles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="78" selection-start-column="78" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/score.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -776,13 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/course/home.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="9" column="86" lean-forward="true" selection-start-line="9" selection-start-column="86" selection-end-line="9" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -814,42 +855,63 @@
     <entry file="file://$PROJECT_DIR$/app/views/pages/more_advanced_string.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/handling_user_inp_oup.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/autograder/import.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/common.css">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-158">
-          <caret line="330" lean-forward="true" selection-start-line="208" selection-end-line="330" />
+          <caret line="330" selection-start-line="208" selection-end-line="330" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/custom.css">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
           <caret line="122" selection-start-line="122" selection-end-line="122" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/checkFiles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="103" lean-forward="true" selection-start-line="9" selection-start-column="103" selection-end-line="9" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/assets.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="76" lean-forward="true" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/course/score.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="71" lean-forward="true" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/course/home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="79" column="59" lean-forward="true" selection-start-line="79" selection-start-column="59" selection-end-line="79" selection-end-column="59" />
         </state>
       </provider>
     </entry>
