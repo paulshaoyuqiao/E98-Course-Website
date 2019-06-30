@@ -1,0 +1,20 @@
+
+.lab-page {
+    margin-top: -15px;
+}
+
+.section {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.section > h3 {
+    border-top: transparent;
+}
+
+.inline-highlight {
+    display:inline;
+    background-color: coral;
+    color: #ff1778;
+}

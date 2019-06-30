@@ -1,24 +1,9 @@
 <html>
-<linkhref="https://fonts.googleapis.com/css?family=Inconsolata"rel="stylesheet">
-<%=stylesheet_link_tag asset_path("common.css",skip_pipeline:true)%>
-<%=stylesheet_link_tag asset_path("index.css",skip_pipeline:true)%>
-<%=stylesheet_link_tag asset_path("font-awesome.min.css",skip_pipeline:true)%>
-<%=stylesheet_link_tag asset_path("sunburst.css",skip_pipeline:true)%>
-<%=stylesheet_link_tag asset_path("fullcalendar.min.css",skip_pipeline:true)%>
-<%=stylesheet_link_tag asset_path("calendar.css",skip_pipeline:true)%>
-<%=stylesheet_link_tag asset_path("lab.css",skip_pipeline:true)%>
-<scriptsrc="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
-<%=javascript_include_tag asset_path("script.js",skip_pipeline:true)%>
-<%=javascript_include_tag asset_path("cheet.min.js",skip_pipeline:true)%>
 <head>
-  <title>Lab 1: javac, java, git | CS 61B Spring 2018</title>
+  <title>Main | ICSBC Summer 2019</title>
   <meta charset="UTF-8">
-  <meta name="description" content="Computer Science 61B: Data Structures">
-  <meta name="keywords" content="CS61B, Computer Science, CS, 61B, Data Structures, Josh Hug, Berkeley, EECS">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="shortcut icon" href="/assets/images/josh4.png">
-
+  <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
+  <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
@@ -27,9 +12,7 @@
   <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
   <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
 
-
   <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
@@ -43,7 +26,7 @@
   <a href="/">
     <div class="navitem">Main</div>
   </a>
-  <a href="#">
+  <a href="course_info">
     <div class="navitem">Course Info</div>
   </a>
   <a href="staff_summary">
@@ -76,28 +59,25 @@
     <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">Q5. Full name greeting</a></li>
     <li><a href="#f-leap-year" id="markdown-toc-f-leap-year">Q6. Bigger, better favorite number
     </a></li>
-    <li><a href="#recap" id="markdown-toc-recap">Conclusion</a></li>
   </ul>
 
 
   <h2 id="f-leap-year">Instructions</h2>
 
-  <p>Download HW1 zip file</p>
+  <p>Download <%= link_to 'hw1.zip', '/hw/hw1.zip'%></p>
 
   <p><strong>Due Date:</strong> Homework 1 is due by 11:59 pm on Friday, 7/5</p>
   
   <p><strong>Submission:</strong> When you are done, you can submit your assingment under the SCORE tab on the course website</p>
-
-  <p><strong>Readings:</strong> You might find <strong>Chapter 2</strong> and <strong>Chapter 5</strong> of Chris Pine's ruby textbook, <i>Learn to Program</i> useful</p>
 
     <h2 id="how-does-a-program-work">Q1. Hours in a year</h2>
 
     <p>Write a statement that prints the number of hours in a year.
     </p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># Prints the age of Chris Pine (type: a numerical value)<span class="k"></span>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the age of Chris Pine (type: a numerical value)<span class="k"></span>
     <span class="nv">  <span>
- <span class="nv">$ </span>## YOUR CODE HERE <span class="nt"></span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
 </code></pre></div>    </div>
 
 
@@ -107,9 +87,9 @@
     how old is he? Try writing a statement that prints the author's age.
     </p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># Prints the age of Chris Pine (type: a numerical value)<span class="k"></span>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the age of Chris Pine (type: a numerical value)<span class="k"></span>
     <span class="nv">  <span>
- <span class="nv">$ </span>## YOUR CODE HERE <span class="nt"></span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
 </code></pre></div>    </div>
 
 
@@ -117,10 +97,10 @@
 
     <p> Write a statement that prints the number of hours in a year</p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># Prints the number of hours in a year (type: a numerical value)<span class="k"></span>
- <span class="nv">$ </span># Takes leap year into consideration <span class="nt"></span>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the number of hours in a year (type: a numerical value)<span class="k"></span>
+ <span class="nv"></span># Takes leap year into consideration <span class="nt"></span>
     <span class="nv">  <span>
- <span class="nv">$ </span>## YOUR CODE HERE <span class="nt"></span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
 </code></pre></div>    </div>
 
     
@@ -128,10 +108,10 @@
 
     <p> Write a statement that prints the number of minutes in a decade</p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># Prints the number of minutes in a decade (type: a numerical value) (type: a numerical value)<span class="k"></span>
- <span class="nv">$ </span># Takes leap year into consideration <span class="nt"></span>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the number of minutes in a decade (type: a numerical value) (type: a numerical value)<span class="k"></span>
+ <span class="nv"></span># Takes leap year into consideration <span class="nt"></span>
     <span class="nv">  <span>
- <span class="nv">$ </span>## YOUR CODE HERE <span class="nt"></span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
 </code></pre></div>    </div>
 
     
@@ -140,10 +120,10 @@
     and then suggest the result as a bigger and better favorite number.
     (Do be tactful about it, though.)</p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># Ask for user input for their favorite number (type: a numerical value)<span class="k"></span>
- <span class="nv">$ </span># Prints input + 1 as a bigger better favorite number <span class="nt"></span>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span># Ask for user input for their favorite number (type: a numerical value)<span class="k"></span>
+ <span class="nv"></span># Prints input + 1 as a bigger better favorite number <span class="nt"></span>
     <span class="nv">  <span>
- <span class="nv">$ </span>## YOUR CODE HERE <span class="nt"></span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
 </code></pre></div>    </div>
 
 
@@ -154,10 +134,10 @@
     name, then middle, and then last. Finally, it should greet the
     person using their full name.</p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># Ask for user input for their favorite number (type: a numerical value)<span class="k"></span>
- <span class="nv">$ </span># Prints input + 1 as a bigger better favorite number<span class="nt"></span>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Ask for user input for their favorite number (type: a numerical value)<span class="k"></span>
+ <span class="nv"></span># Prints input + 1 as a bigger better favorite number<span class="nt"></span>
     <span class="nv">  <span>
- <span class="nv">$ </span>## YOUR CODE HERE <span class="nt"></span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
 </code></pre></div>    </div>
 
   </main>
