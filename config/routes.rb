@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get 'scores', to: 'course#score', as: 'scores'
-  get 'staff_summary', to: 'course#staff_summary', as: 'staff_summary'
+  get 'staffsummary', to: 'course#staffsummary', as: 'staffsummary'
   get 'course_info', to: 'course#course_info', as: 'course_info'
   get 'lab1', to: 'course#lab1', as: 'lab1'
   post 'import', to: 'autograder#import'
