@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b24a2fb-fc3a-4225-ba42-f09f3dc907f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/course/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/home.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/staff_summary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/staffsummary.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-d08e6e838a47ae824f7494ed34de1739.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-58d6eab44b775d7e4e0e8e3beffc987f9d3741f85faad08959405c69e420706c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-58d6eab44b775d7e4e0e8e3beffc987f9d3741f85faad08959405c69e420706c.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/lab_clarifications-6bb504645cc9d08f423bee9214aef9a4a6ab11cc57a5853ad27ca351258ebbce.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/style_guide-5a555eeb50d5b7525cef50f2cc253d275a060aa673bbb638c2f5f9a72ee9d636.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/week3-4-7c043d9f0b0284c3f8d20141e8af67fc36276d86d968b01f38c073e5f64c2961.md" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -38,11 +43,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/course/home.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="356">
               <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/pages/lab1.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -278,6 +292,12 @@
               <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="E98-Course-Website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E98-Course-Website" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -476,7 +496,7 @@
       <workItem from="1561699084346" duration="1472000" />
       <workItem from="1561700661966" duration="2427000" />
       <workItem from="1561869464920" duration="2856000" />
-      <workItem from="1561873715691" duration="5167000" />
+      <workItem from="1561873715691" duration="5299000" />
     </task>
     <servers />
   </component>
@@ -486,7 +506,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77767000" />
+    <option name="totallyTimeSpent" value="77899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="186" y="62" width="1536" height="986" extended-state="0" />
@@ -522,9 +542,6 @@
     <SUITE FILE_PATH="coverage/E98_Course_Website@Development__E98_Course_Website.rcov" NAME="Development: E98-Course-Website Coverage Results" MODIFIED="1561699852818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="E98-Course-Website" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Autograder/week1_test/age_in_seconds_expected.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Autograder/week1_test/author_age_expected.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -812,6 +829,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/lab1.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
         </state>
       </provider>
     </entry>
