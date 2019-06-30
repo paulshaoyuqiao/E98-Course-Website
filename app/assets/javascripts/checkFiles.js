@@ -1,7 +1,9 @@
-document.querySelector(".FileUpload").addEventListener("change", function () {
+
+function checkfiles() {
     clearCheckMarks();
     addCheckMarks();
-});
+};
+
 
 let files_per_week =  {
     "week1": ["age_in_seconds.rb", "author_age.rb", "hours_in_year.rb", "minutes_in_decade.rb","bigger_better_favorite_number.rb", "full_name_greeting.rb", "angry_boss.rb", "table_of_contents.rb"],

@@ -15,10 +15,6 @@
   <%= stylesheet_link_tag asset_path("sunburst.css") %>
   <%= stylesheet_link_tag asset_path("fullcalendar.min.css") %>
   <%= stylesheet_link_tag asset_path("calendar.css") %>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <%= javascript_include_tag asset_path("runLoader.js") %>
-  <%= javascript_include_tag asset_path("showFiles.js") %>
-  <%= javascript_include_tag asset_path("checkFiles.js") %>
 </head>
 
 <body>
@@ -64,7 +60,7 @@
               <%= form_tag({:action => :import, :controller => "autograder"}, multipart: true, onsubmit: "showLoader();") do %>
                 <label>Homework:  </label>
                 <%= select_tag "week", options_for_select(['week1', 'week2', 'week3', 'week4']), class: "WeekSelect"%>
-                <%= file_field_tag 'files[]', :multiple => true, class: "FileUpload" %>
+                <%= file_field_tag 'files[]', :multiple => true, class: "FileUpload", onchange: "checkfiles()" %>
                 <label for='files_'>Upload Your Ruby Scripts</label>
                 <% hidden_field_tag("current_user", current_user) %>
                 <%= submit_tag "Submit Homework for Grading", class: "Submit" %>
@@ -84,7 +80,7 @@
               <% end %>
                   <div id="week1" style="display: none;">
                     <div class="segment">
-                    Here are the <strong>required files for week 1</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
+                    For the homework section, here are the <strong>required files for week 1</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
                       <li id="age_in_seconds">age_in_seconds.rb</li>
                       <li id="author_age">author_age.rb</li>
@@ -99,7 +95,7 @@
                   </div>
                   <div id="week2" style="display: none;">
                     <div class="segment">
-                    Here are the <strong>required files for week 2</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
+                      For the homework section, here are the <strong>required files for week 2</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
                       <li id="bob_99">99_bob.rb</li>
                       <li id="deaf_grandma">deaf_grandma.rb</li>
@@ -112,7 +108,7 @@
                   </div>
                   <div id="week3" style="display: none;">
                     <div class="segment">
-                    Here are the <strong>required files for week 3</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
+                      For the homework section, here are the <strong>required files for week 3</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
                       <li id="ask">ask.rb</li>
                       <li id="old_roman_numerals">old_roman_numerals.rb</li>
@@ -122,7 +118,7 @@
                   </div>
                   <div id="week4" style="display: none;">
                     <div class="segment">
-                    Here are the <strong>required files for week 4</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
+                      For the homework section, here are the <strong>required files for week 4</strong>, you should submit at least <strong>1</strong> of the following files for the autograder: <br>
                     <ul>
                       <li id="array_max">array_max.rb</li>
                       <li id="contains_char">contains_char.rb</li>
@@ -185,6 +181,10 @@
         </div>
       </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("runLoader.js") %>
+  <%= javascript_include_tag asset_path("showFiles.js") %>
+  <%= javascript_include_tag asset_path("checkFiles.js") %>
 
 </body>
 
