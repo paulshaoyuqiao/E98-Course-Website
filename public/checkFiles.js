@@ -1,4 +1,4 @@
-document.getElementsByClassName("FileUpload").addEventListener("change", function () {
+document.getElementsByClassName("FileUpload")[0].addEventListener("change", function () {
     clearCheckMarks();
     addCheckMarks();
 });
