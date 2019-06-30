@@ -1,0 +1,208 @@
+<html>
+<linkhref="https://fonts.googleapis.com/css?family=Inconsolata"rel="stylesheet">
+<%=stylesheet_link_tag asset_path("common.css",skip_pipeline:true)%>
+<%=stylesheet_link_tag asset_path("index.css",skip_pipeline:true)%>
+<%=stylesheet_link_tag asset_path("font-awesome.min.css",skip_pipeline:true)%>
+<%=stylesheet_link_tag asset_path("sunburst.css",skip_pipeline:true)%>
+<%=stylesheet_link_tag asset_path("fullcalendar.min.css",skip_pipeline:true)%>
+<%=stylesheet_link_tag asset_path("calendar.css",skip_pipeline:true)%>
+<%=stylesheet_link_tag asset_path("lab.css",skip_pipeline:true)%>
+<scriptsrc="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+<%=javascript_include_tag asset_path("script.js",skip_pipeline:true)%>
+<%=javascript_include_tag asset_path("cheet.min.js",skip_pipeline:true)%>
+<head>
+  <title>Lab 1: javac, java, git | CS 61B Spring 2018</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Computer Science 61B: Data Structures">
+  <meta name="keywords" content="CS61B, Computer Science, CS, 61B, Data Structures, Josh Hug, Berkeley, EECS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Lab1: Setup and workflow</header><ul id="markdown-toc">
+    <li><a href="#f-leap-year" id="markdown-toc-f-leap-year">Starter Files
+    </a></li>
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">Setup</a>
+    </li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">How to Use Terminal</a></li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">Lab Questions</a></li>
+        <ul>
+    </ul>
+    </li>
+
+  </ul>
+
+
+  <h2 id="f-leap-year">Starter Files</h2>
+
+  <p>Download lab1 zip file</p>
+
+  <p><strong>Due Date:</strong> Homework 1 is due by 11:59 pm on Friday, 7/5</p>
+
+    <h2 id="how-does-a-program-work">Setup</h2>
+
+    <p><strong><font size="4" color="black">Install a Terminal</font></strong></p>
+
+    <p>The terminal is a program that allows you to interact with your computer by entering commands.
+    No matter what operating system you use (Windows, macOS, Linux), the terminal will be an essential tool for this course.</p>
+
+    <p><strong><font size="3" color="black">macOS/Linux</font></strong></p>
+
+    <p>If you're on a Mac or are using a form of Linux (such as Ubuntu), you already have a program called Terminal or something similar on your computer.
+    Open that up and you should be good to go.</p>
+
+    <p><strong><font size="3" color="black">Windows</font></strong></p>
+
+    <p>For windows users, we recommend you download Git Bash</p>
+
+    <p><strong><font size="3" color="black">Install a Text Editor</font></strong></p>
+
+    <p>The lab runner which is included in the zip file allows you to run ruby codes. You will also need a text Editor
+    where you can write Ruby codes.</p>
+
+    <p>There are many text editors out there. The ones that we found most popular are Sublime Text 3 and Atom,
+    but you are welcome to install any text editor you like.</p>
+
+    <h2 id="c-git-exercise">How to Use Terminal</h2>
+
+    <p>Let's check if everything was installed properly! First, open a new terminal window, if you haven't already.</p>
+
+    <p>When you first open your terminal, you should be in your home directory, which is represented by the '~' symbol</p>
+
+    <p><strong><font size="4" color="black">Navigating files and folders</font></strong></p>
+
+   <ul>
+    <li><strong><font size=3 color="black">ls</font></stronng></li>
+      <p>In this section, we will teach you some basic Unix commands. The first one is <mark><font size=3 color="blue">
+      ls</font></mark>, a command that allows you to see the contents in your current directory. A directory is the same
+      as a folder. If you run this command in your home directory, you should see all the contents of your home directory.</p>
+      <li><strong><font size=3 color="black">cd</font></stronng></li>
+      <p>We can use cd to change directories. When we are in our home directory, we can use ls to see if
+      <mark><font size=3 color="blue">Desktop</font></mark> directory is in our list of contents. If yes, you can try
+      typing the following command to move into that directory.
+      </p>
+      <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>cd Desktop<span class="k"></span>
+</code></pre></div>    </div>
+      <p>Now that we are in the home directory, we can type ls in the terminal to see the list of contents in the
+      Desktop directory.</p>
+      <p>There are a few ways to return the the home directory:</p>
+      <ul>
+        <li><strong>cd .. </strong></li>
+        <p>The two dots means parent directory. So you can
+        use this command to go up one directory</p>
+        <li><strong>cd ~</strong> (the tilde)
+        </li>
+        <p>The '~' represents the home directory, so we can use this command to return to the home directory
+        </p>
+        <li><strong>cd</strong></li>
+        <p>cd on its own is a shortcut for the cd ~ command</p>
+      </ul>
+  </ul>
+  <p><strong><font size="4" color="black">Creating new directories</font></strong></p>
+  <p>The next command that we want to teach you is <mark><font size=3 color="blue">
+  mkdir</font></mark>, which makes new directories. So let's try creating a new directory called ICS-bootcamp
+  on your Desktop.</p>
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>mkdir ICS-Bootcamp<span class="k"></span>
+</code></pre></div>    </div>
+  <p>Now a folder called ICS-bootcamp will appear on your Desktop. You can verify this by running ls again in your Desktop directory.
+  </p>
+  <p>Now let's navigate to this directory and create two new folders called 'Labs' and 'Homeworks'
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>cd ~/Desktop/ICS-bootcamp<span class="k"></span>
+ <span class="nv">$ </span>mkdir Homeworks<span class="nt"></span>
+ <span class="nv">$ </span>mkdir labs<span class="nt"></span>
+</code></pre></div>    </div>
+<p>Now if we run the <strong>ls</strong> command in the ICS-bootcamp directory, we should be able to see these two folders</p>
+
+<p><strong><font size="4" color="black">Download and Extracting Starter File</font></strong></p>
+  <p>If you haven't already, you can click the box on the top of this page to download lab00.zip, which contains
+  all the files you will need for this lab. After you download it, the zip file will most likely be located in a directory
+  called Downloads in your home directory. You can navigate to this directory and extract this folder by running the
+  following commands:</p>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>cd ~/Downloads<span class="k"></span>
+ <span class="nv">$ </span>unzip lab0.zip<span class="nt"></span>
+  </code></pre></div>    </div>
+
+  <p>Now you have an unzipped file called lab0 in your Downloads folder. We can use the terminal command mv
+  to move this file to ICS-bootcamp directory on the desktop:</p>
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>mv ~/Downloads/lab0 ~/Desktop/ICS-bootcamp/Labs<span class="k"></span>
+</code></pre></div>    </div>
+
+  <p>Now you can try navigating to the ICS-Bootcamp using the commands we have taught you. Useful to know that
+  we can also use <mark><font size=3 color="blue">cd ~/Desktop/ICS-bootcamp/Labs/lab0</font></mark>, the absolute path, to
+  navigate to this directory.</p>
+
+    <h2 id="b-git--local-repos">Lab Questions</h2>
+
+    <p>The purpose of this lab is to get you familiar with the terminal commands so there won't be any coding exercises.
+
+    <p>The lab0 folder will include a ruby runner which allows you to run the lab from your terminal. Navigate to
+    the lab0 folder and open the interactive interpreter by running the following command:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>ruby ruby_runner.rb<span class="k"></span>
+</code></pre></div>    </div>
+
+    <p>And have fun with the questions! Hopefully by the end of this lab you are familiar with the general workflow of
+    the terminal and how to run lab files from your local computer.</p>
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
