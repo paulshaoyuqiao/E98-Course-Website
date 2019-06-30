@@ -1,4 +1,4 @@
-document.querySelector(".FileUpload").addEventListener("change", function () {
+document.getElementsByClassName("FileUpload").addEventListener("change", function () {
     clearCheckMarks();
     addCheckMarks();
 });

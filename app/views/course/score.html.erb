@@ -61,13 +61,20 @@
               Signed in as <strong><%= current_user.name %></strong>!
               <%= link_to "Sign out", signout_path, id: "sign_out" %><br>
               <%= form_tag({:action => :import, :controller => "autograder"}, multipart: true, onsubmit: "showLoader();") do %>
+                <label>Homework:  </label>
                 <%= select_tag "week", options_for_select(['week1', 'week2', 'week3', 'week4']), class: "WeekSelect"%>
                 <%= file_field_tag 'files[]', :multiple => true, class: "FileUpload" %>
                 <label for='files_'>Upload Your Ruby Scripts</label>
                 <% hidden_field_tag("current_user", current_user) %>
-                <%= submit_tag "Submit for Grading", class: "Submit" %>
+                <%= submit_tag "Submit Homework for Grading", class: "Submit" %>
               <% end %>
-
+              <%= form_tag({:action => :import_lab, :controller => "autograder"}, multipart: true) do %>
+                <label>Lab:  </label>
+                <%= select_tag "labweek", options_for_select(['week1', 'week2', 'week3', 'week4']), class: "LabSelect"%>
+                <%= file_field_tag 'labfile[]', :multiple => true, class: "LabUpload" %>
+                <label for="labfile_">Upload Your Lab Submission Text File</label>
+                <%= submit_tag "Submit Lab for Grading", class: "LabSubmit" %>
+              <% end %>
               <% if flash[:notice] %>
                 <div class="alert">
                   <br>
@@ -133,6 +140,7 @@
                   <thead>
                   <tr>
                     <th>Week</th>
+                    <th>Assignment Type</th>
                     <th>Total Test Cases</th>
                     <th>Passed Test Cases</th>
                     <th>Correctness</th>
@@ -145,6 +153,7 @@
                     <% if i % 2 == 0 %>
                       <tr class="odd">
                         <td><%= score.week %></td>
+                        <td><%= score.assignment %></td>
                         <td><%= score.total_test %></td>
                         <td><%= score.passed_test %></td>
                         <td><%= score.total_score %> %</td>
@@ -153,6 +162,7 @@
                     <% else %>
                       <tr>
                         <td><%= score.week %></td>
+                        <td><%= score.assignment %></td>
                         <td><%= score.total_test %></td>
                         <td><%= score.passed_test %></td>
                         <td><%= score.total_score %> %</td>
