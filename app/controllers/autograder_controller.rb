@@ -8,6 +8,58 @@ class AutograderController < ApplicationController
         "week4" => ["array_max.rb", "contains_char.rb", "count_array.rb", "factorial.rb", "sum_of_digits.rb"]
     }
     @@total_tests_by_week = {"week1" => 11, "week2" => 16, "week3" => 13, "week4" => 20}
+    @@lab_codes_by_week = {
+        "week1" => "tomhiddleston",
+        "week2" => "beyonce",
+        "week3" => "johnnydepp",
+        "week4" => "scarlettjohansson"
+    }
+
+    def import_lab
+      begin
+        week = params["labweek"]
+        week_number = week[-1].to_i
+        user_email = current_user.email
+        user_name = current_user.name
+        if params[:labfile].nil? or params[:labfile].length == 0
+          flash[:notice] = "Warning: Please Make Sure the Lab Submission File is Uploaded."
+          redirect_to :controller => 'course', :action => 'score'
+        else
+          filepath = params[:labfile][0].path
+          secret_codeword = @@lab_codes_by_week[week]
+          value = `python "./Autograder/lab_check.py" #{filepath} #{secret_codeword}`
+          result = value.split("\n")[0]
+          curr_record = Score.where(email: user_email, name: user_name, week: week_number, assignment: "lab")
+          if result == 'True'
+            if curr_record.any?
+              curr_record[0].total_test = 1
+              curr_record[0].passed_test = 1
+              curr_record[0].total_score = 100
+              curr_record[0].save
+            else
+              Score.create(
+                  :email => user_email,
+                  :name => user_name,
+                  :week => week_number,
+                  :assignment => "lab",
+                  :total_test => 1,
+                  :passed_test => 1,
+                  :total_score => 100
+              )
+            end
+            redirect_to :controller => 'course', :action => 'score'
+          else
+            flash[:notice] = "It seems like you haven't finished the lab for this week. \n
+                              Please make sure to finish it before uploading anything."
+            redirect_to :controller => 'course', :action => 'score'
+          end
+        end
+      rescue NoMethodError => e
+        flash[:notice] = "Unexpected Error: Please Make Sure the Lab Submission File is Uploaded."
+        redirect_to :controller => 'course', :action => 'score'
+      end
+    end
+
     def import
         begin
           filenames = params[:files].map{|f| f.original_filename}
@@ -49,7 +101,7 @@ class AutograderController < ApplicationController
             @total_test_cases = @@total_tests_by_week[week]
             @week_name = week
             overall_score = AutograderController.generate_score(@total_test_cases, @passed_test_cases)
-            curr_record = Score.where(email: user_email, name: user_name, week: week_number)
+            curr_record = Score.where(email: user_email, name: user_name, week: week_number, assignment: "homework")
             if curr_record.any?
               curr_record[0].total_test = @total_test_cases
               curr_record[0].passed_test = @passed_test_cases
@@ -60,6 +112,7 @@ class AutograderController < ApplicationController
                   :email => user_email,
                   :name => user_name,
                   :week => week_number,
+                  :assignment => "homework",
                   :total_test => @total_test_cases,
                   :passed_test => @passed_test_cases,
                   :total_score => overall_score

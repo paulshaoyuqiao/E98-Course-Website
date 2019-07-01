@@ -4,30 +4,34 @@ body {
     font-weight: 300;
     /*padding-top: 40px;*/
 }
+
 a {
     text-decoration: none;
     color: #E0115F;
 }
 
 li {
-  font-family: Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 
 #coursename {
-	color: #E0115F;
-	margin: 30px 40px 20px;
-	font-size: 40px;
-	line-height: 45px;
-  font-weight: 300;
+    color: #E0115F;
+    margin: 30px 40px 20px;
+    font-size: 40px;
+    line-height: 45px;
+    font-weight: 300;
 }
+
 #courseid {
-	color: #E0115F;
-	font-size: 60px;
-	margin-right: 10px;
+    color: #E0115F;
+    font-size: 60px;
+    margin-right: 10px;
 }
+
 #courseinfo {
     margin-left: 40px;
 }
+
 .navbar-top {
     /*position: fixed;*/
     top: 0;
@@ -46,13 +50,16 @@ li {
 .navbar-top a {
     color: white;
 }
+
 .navbar-top a:hover {
     color: white;
 }
+
 #navitems {
     display: inline-block;
     margin: 0 auto;
 }
+
 .navitem {
     display: inline-block;
     text-align: center;
@@ -60,6 +67,7 @@ li {
     font-weight: 300;
     margin: 0 15px;
 }
+
 #toc-button {
     background-color: Transparent;
     border: none;
@@ -70,10 +78,15 @@ li {
     margin-top: -4px;
     cursor: pointer;
 }
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
 #content {
     margin: 20px 40px 40px;
 }
+
 h3, .segment {
     margin-top: 20px;
     border-top: 2px solid #E0115F;
@@ -97,9 +110,9 @@ p {
 }
 
 td > p {
-  font-size: 14px;
-  font-weight: 300;
-  margin: 0px;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0px;
 
 }
 
@@ -131,65 +144,66 @@ p code, ol code, ul code, h1 code, h2 code, h3 code, h4 code {
 }
 
 .highlight > code {
-  color: #F7F7F7;
-  padding: 0px;
+    color: #F7F7F7;
+    padding: 0px;
 }
 
 p > img {
-  display: block;
-  margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .red {
-  color: red;
+    color: red;
 }
 
 @media screen and (max-width: 750px) {
-  .announcements {
-    max-width: 700px;
-  }
+    .announcements {
+        max-width: 700px;
+    }
 }
 
 
 @media screen and (min-width: 750px) {
-  .announcements {
-    width: 700px;
-  }
-  .prev, .next {
-    vertical-align: top;
-    margin: 50px 15px 0 15px;
-  }
+    .announcements {
+        width: 700px;
+    }
+
+    .prev, .next {
+        vertical-align: top;
+        margin: 50px 15px 0 15px;
+    }
 }
 
 .announcements {
-  display: inline-block;
-  list-style-type: none;
-  padding: 0;
-  margin: 0 15px 0 15px;
-  height: 250px;
-  overflow-y: auto;
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 15px 0 15px;
+    height: 250px;
+    overflow-y: auto;
 }
 
 .announcements p {
-  max-width: none;
+    max-width: none;
 }
 
 .announcements li {
-  text-align: left;
-  width: 95%;
+    text-align: left;
+    width: 95%;
 }
 
 .prev, .next {
-  display: inline-block;
-  color: #E0115F;
-  padding: 10px;
-  font-size: 36px;
-  border-radius: 5px;
-  cursor: pointer;
+    display: inline-block;
+    color: #E0115F;
+    padding: 10px;
+    font-size: 36px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .announcement-wrapper {
-  text-align: center;
+    text-align: center;
 }
 
 .WeekSelect {
@@ -204,7 +218,28 @@ p > img {
     cursor: pointer;
 }
 
+.LabSelect {
+    margin-top: 10px;
+    background-color: #E0115F;
+    width: 120px;
+    height: 30px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 .FileUpload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.LabUpload {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -226,6 +261,19 @@ p > img {
     padding: 6px;
 }
 
+.LabUpload + label {
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #E0115F;
+    border-radius: 5px;
+    color: white;
+    width: 120px;
+    height: 30px;
+    font-size: 15px;
+    margin-right: 20px;
+    padding: 6px;
+}
+
 
 .Submit {
     margin-left: 10px;
@@ -233,13 +281,25 @@ p > img {
     background-color: #E0115F;
     border-radius: 5px;
     color: white;
-    width: 160px;
+    width: auto;
     height: 30px;
     font-size: 15px;
     cursor: pointer;
 }
 
-.WeekSelect:hover {
+.LabSubmit {
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #E0115F;
+    border-radius: 5px;
+    color: white;
+    width: auto;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.WeekSelect:hover, .LabSelect:hover {
     background-color: #f74a8b;
 }
 
@@ -248,7 +308,16 @@ p > img {
     background-color: #f74a8b;
 }
 
+.LabUpload:focus + label,
+.LabUpload + label:hover {
+    background-color: #f74a8b;
+}
+
 .FileUpload + label {
+    cursor: pointer;
+}
+
+.LabUpload + label {
     cursor: pointer;
 }
 
@@ -256,12 +325,16 @@ p > img {
     background-color: #f74a8b;
 }
 
+.LabSubmit:hover {
+    background-color: #f74a8b;
+}
+
 .show {
-  display: block;
+    display: block;
 }
 
 .hide {
-  display: none;
+    display: none;
 }
 
 .alert {
@@ -285,29 +358,34 @@ p > img {
 
 /* Safari */
 @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-#announce-scroll::-webkit-scrollbar-track
-{
-  border: 1px solid #E0115F;
-  background-color: white;
+#announce-scroll::-webkit-scrollbar-track {
+    border: 1px solid #E0115F;
+    background-color: white;
 }
 
-#announce-scroll::-webkit-scrollbar
-{
-  margin-left: 5px;
-  width: 10px;
-  background-color: white;
+#announce-scroll::-webkit-scrollbar {
+    margin-left: 5px;
+    width: 10px;
+    background-color: white;
 }
 
-#announce-scroll::-webkit-scrollbar-thumb
-{
-  background-color: #E0115F;
+#announce-scroll::-webkit-scrollbar-thumb {
+    background-color: #E0115F;
 }
