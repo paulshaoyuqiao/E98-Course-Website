@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'scores', to: 'course#score', as: 'scores'
   get 'staffsummary', to: 'course#staffsummary', as: 'staffsummary'
   get 'course_info', to: 'course#course_info', as: 'course_info'
-  get 'lab1', to: 'course#lab1', as: 'lab1'
+  get 'resources', to: 'course#resources', as: 'resources'
   post 'import', to: 'autograder#import'
   post 'import_lab', to: 'autograder#import_lab'
 
