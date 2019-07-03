@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/Intro-to-CS-Bootcamp/labs/master/labs_cath/lab1/lab1.json
+https://raw.githubusercontent.com/Intro-to-CS-Bootcamp/labs/master/lab1/lab1.json
