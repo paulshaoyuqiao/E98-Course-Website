@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -7,12 +8,12 @@
     <meta name="description" content="Intro to CS Bootcamp">
     <meta name="keywords" content="ICSBC, Bootcamp, Intro to CS, ICS, Programming in Ruby, Berkeley, EECS">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-    <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
-    <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
-    <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
-    <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
-    <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
-    <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+    <%= stylesheet_link_tag asset_path("common.css" ) %>
+    <%= stylesheet_link_tag asset_path("index.css" ) %>
+    <%= stylesheet_link_tag asset_path("font-awesome.min.css" ) %>
+    <%= stylesheet_link_tag asset_path("sunburst.css" ) %>
+    <%= stylesheet_link_tag asset_path("fullcalendar.min.css" ) %>
+    <%= stylesheet_link_tag asset_path("calendar.css" ) %>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 
@@ -21,23 +22,17 @@
         <a href="/">
             <div class="navitem">Main</div>
         </a>
-        <a href="#">
+        <a href="course_info">
             <div class="navitem">Course Info</div>
         </a>
-        <a href="staff_summary">
+        <a href="staffsummary">
             <div class="navitem">Staff</div>
         </a>
         <a href="scores">
             <div class="navitem">Scores</div>
         </a>
-        <a href="#">
-            <div class="navitem">Screencasts</div>
-        </a>
-        <a href="#">
+        <a href="resources">
             <div class="navitem">Resources</div>
-        </a>
-        <a href="#">
-            <div class="navitem">Office Hours</div>
         </a>
     </div>
     <a href="/">
@@ -62,11 +57,18 @@
                         <th>Announcement</th>
                     </tr>
                 </thead>
-                <tr>
-                    <td>1/22</td>
-                    <td>Miscellaneous</td>
-                    <td>The official course website has been deployed on Heroku - in test run.</td>
                 </tr>
+                    <td>7/1</td>
+                    <td>Announcement</td>
+                    <td>Welcome to ICSBC! Please take a look around the website to get familiar with the course structure.
+                        We will be mainly communicating via `announcement` channel on Slack so please keep an eye out! <br><br>
+                        For each week, we recommend to follow the workflow below: <br> 
+                        &nbsp; &nbsp;   1. Read the assigned chapters for our textbook, LTP (<i> Learn to Program </i>) <br>
+                        &nbsp; &nbsp;   2. Work on the lab <br>
+                        &nbsp; &nbsp;   3. Work on the homework - Please read the Ruby style guide under the `Resources` page before coding!<br>
+                        &nbsp; &nbsp;   4. (Optional) Read the optional reading, other textbook, documentations, etc. we provide <br><br>
+                        Please ask any questions you have along the way on Slack (or Google)! We are friendly people ;)
+                    </td>
             </table>
         </div>
 
@@ -95,18 +97,19 @@
                     <!-- Week 1 -->
                     <tr class="odd">
                         <td rowspan="3">1</td>
-                        <td rowspan="3">12/24 - 12/29</td>
+                        <td rowspan="3">7/1 - 7/7</td>
                         <td> LTP 1-12 </td>
                         <td> Basic Operations </td>
                         <td rowspan="3">
-                            1. <%= link_to 'Handling Program Input and Output', page_path('handling_user_inp_oup') %><br>
-                            2. <a href="#" target="_blank">More Advanced String Processing Methods</a>
+                            1. <%= link_to 'How Does a Program Work?', page_path('handling_user_inp_oup') %><br>
+                            2. <%= link_to 'More Advanced String Processing Methods', page_path('more_advanced_string') %><br>
                         </td>
                         <td rowspan="3">
-                            <a href="materials/lab/lab1/index.html" target="_blank">Lab 1</a>
+                            <%= link_to 'lab 1', page_path('lab1') %><br>
                         </td>
-                        <td rowspan="3"><a href="materials/hw/hw0/index.html" target="_blank">HW 1: Getting to Know
-                                Ruby</a><br>(due 12/29)</td>
+                        <td rowspan="3"><a href="materials/hw/hw0/index.html" target="_blank">
+                            <%= link_to 'HW 1: Getting to Know Ruby', page_path('hw1') %><br>
+                            <p>(due 7/5)</p>
                     </tr>
                     <tr class="odd">
                         <td> LTP 13-25 </td>
@@ -119,106 +122,99 @@
                     <!-- Week 2 -->
                     <tr>
                         <td rowspan="2">2</td>
-                        <td rowspan="2">12/31 - 1/5</td>
+                        <td rowspan="2">7/8 - 7/14</td>
                         <td>LTP 37-49</td>
-                        <td> Flow Control <br> <a href="materials/lectures/lect3.pdf" target="_blank">[slides]</a></td>
+                        <td> Flow Control <%# <br> <a href="materials/lectures/lect3.pdf" target="_blank">[slides]</a> %> </td>
 
                         <td rowspan="2">
-                            3. <a href="#" target="_blank">Fun With Logic</a><br>
-                            4. <a href="#" target="_blank">A Detour on Logical Programming</a>
+                            TBD
+                            <!-- 3. <a href="#" target="_blank">Fun With Logic</a><br> -->
+                            <!-- 4. <a href="#" target="_blank">A Detour on Logical Programming</a> -->
                         </td>
                         <td rowspan="2">
-                            <a href="materials/lab/lab2/index.html" target="_blank">Lab 2</a>
+                            Lab 2 <br>
+                            (due 7/12)
+                            <!-- <a href="materials/lab/lab2/index.html" target="_blank">Lab 2</a> -->
                         </td>
-                        <td rowspan="2"><a href="materials/hw/hw1/index.html" target="_blank">HW 2: Flow Control,
-                                Arrays, Iterators</a><br>(due 1/5)</td>
+                        <td rowspan="2">
+                            HW 2 <br>
+                            (due 7/12)
+                            <!-- <a href="materials/hw/hw1/index.html" target="_blank">HW 2: Flow Control,
+                                Arrays, Iterators</a><br>(due 7/12) -->
+                        </td>
                     </tr>
                     <tr>
                         <td>LTP 51-56 </td>
-                        <td> Arrays, Iterators <br> <a href="materials/lectures/lect4.pdf" target="_blank">[slides]</a></td>
+                        <td> Arrays, Iterators <%# <br> <a href="materials/lectures/lect4.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <!-- Week 3 -->
                     <tr class="odd">
                         <td rowspan="3">3</td>
-                        <td rowspan="3">1/7 - 1/12</td>
+                        <td rowspan="3">7/15 - 7/21</td>
                         <td>LTP 57-61</td>
                         <td> Methods, Parameters </td>
                         <td rowspan="3">
-                            5. <a href="#" target="_blank">Bits and Integers</a><br>
-                            6. <a href="#" target="_blank">More on the IRB</a>
+                            TBD
+                            <!-- 5. <a href="#" target="_blank">Bits and Integers</a><br> -->
+                            <!-- 6. <a href="#" target="_blank">More on the IRB</a> -->
                         </td>
                         <td rowspan="3">
-                            <a href="materials/lab/lab3/index.html" target="_blank">Lab 3</a>
+                            Lab 3 <br> (due 7/19)
+                            <!-- <a href="materials/lab/lab3/index.html" target="_blank">Lab 3</a> -->
                         </td>
-                        <td rowspan="3"><a href="materials/hw/hw2/index.html" target="_blank">HW 3: More Interactive
-                                Methods</a><br>
+                        <td rowspan="3">
+                            HW 3 <br>
+                            Challenge 1: Roman Numerals <br>
+                            (due 7/19)
+                            <!-- <a href="materials/hw/hw2/index.html" target="_blank">HW 3: More Interactive
+                                Methods</a><br> 
                             <a href="materials/proj/proj1/index.html" target="_blank">Challenge 1: Roman Numerals</a><br>(due
-                            1/12)</td>
+                            7/19) -->
+                        </td>
                     </tr>
                     <tr class="odd">
                         <td>LTP 62-64</td>
-                        <td> Local Variables, Return Values <br> <a href="materials/lectures/lect6.pdf" target="_blank">[slides]</a></td>
+                        <td> Local Variables, Return Values <%# <br> <a href="materials/lectures/lect6.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <tr class="odd">
                         <td>LTP 65-68</td>
-                        <td> Manipulating Integers, Conversion <br> <a href="materials/lectures/lect7.pdf" target="_blank">[slides]</a></td>
+                        <td> Manipulating Integers, Conversion <%# <br> <a href="materials/lectures/lect7.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <!-- Week 4 -->
                     <tr>
                         <td rowspan="3">4</td>
-                        <td rowspan="3"> 1/12 - 1/17 </td>
+                        <td rowspan="3"> 7/22 - 7/28 </td>
                         <td>LTP 69-71</td>
-                        <td> Recursive Programming <br> <a href="materials/lectures/lect8.pdf" target="_blank">[slides]</a></td>
+                        <td> Recursive Programming <%# <br> <a href="materials/lectures/lect8.pdf" target="_blank">[slides]</a> %> </td>
 
                         <td rowspan="3">
-                            7. <a href="#" target="_blank">Why sorting?</a><br>
-                            8. <a href="#" target="_blank">Iteration v.s. Recursion</a><br>
-                            9. <a href="#" target="_blank">Developing a Way to Test Your Codes</a><br>
+                            TBD
+                            <!-- 7. <a href="#" target="_blank">Why sorting?</a><br> -->
+                            <!-- 8. <a href="#" target="_blank">Iteration v.s. Recursion</a><br> -->
+                            <!-- 9. <a href="#" target="_blank">Developing a Way to Test Your Codes</a><br> -->
                         </td>
                         <td rowspan="3">
-                            <a href="materials/lab/lab4/index.html" target="_blank">Lab 4</a>
+                            Lab 4 <br> (due 7/26)
+                            <!-- <a href="materials/lab/lab4/index.html" target="_blank">Lab 4</a> -->
                         </td>
-                        <td rowspan="3"><a href="materials/proj/proj1/index.html" target="_blank">HW 4: Recursion,
+                        <td rowspan="3">
+                            HW 4: Recursion, Arrays <br>
+                            Challenge 2: Binary Search <br>
+                            (due 7/26)
+                            <!-- <a href="materials/proj/proj1/index.html" target="_blank">HW 4: Recursion,
                                 Arrays</a><br><a href="materials/hw/hw2/index.html" target="_blank">Challenge 2: Binary
-                                Search</a><br>(due 1/17)</td>
+                                Search</a><br>(due 7/26) -->
+                        </td>
                     </tr>
                     <tr>
                         <td>LTP 72-75</td>
-                        <td> Developing a Sorting Strategy <br> <a href="materials/lectures/lect9.pdf" target="_blank">[slides]</a></td>
+                        <td> Developing a Sorting Strategy <%# <br> <a href="materials/lectures/lect9.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <tr>
                         <td>LTP 76-81</td>
-                        <td> Shuffling, Random Numbers and Sequences <br> <a href="materials/lectures/lect10.pdf"
-                                target="_blank">[slides]</a></td>
+                        <td> Shuffling, Random Numbers and Sequences <%# <br> <a href="materials/lectures/lect10.pdf"
+                                target="_blank">[slides]</a> %> </td>
                     </tr>
-                    <!-- Week 5 -->
-                    <tr class="odd">
-                        <td rowspan="3">5</td>
-                        <td rowspan="3">1/17 - 1/22</td>
-                        <td>LTP 103-105</td>
-                        <td> Classes, Objects <br> <a href="materials/lectures/lect11.pdf" target="_blank">[slides]</a></td>
-
-                        <td rowspan="3">
-                            10. <a href="#" target="_blank">Static and Non-static Methods</a><br>
-                            11. <a href="#" target="_blank">Inheritance and Polymorphism</a>
-                        </td>
-                        <td rowspan="3">
-                            <a href="materials/lab/lab5/index.html" target="_blank">Lab 5</a>
-                        </td>
-                        <td rowspan="3"><a href="materials/hw/hw3/index.html" target="_blank">HW 5: Intro to OOP</a><br><a
-                                href="materials/hw/hw2/index.html" target="_blank">Challenge 3 (Optional): <br>the Hash
-                                and Time classes</a><br>(due 1/22)</td>
-                    </tr>
-                    <tr class="odd">
-                        <td>LTP 105-107</td>
-                        <td> Instance Variables, Encapsulation <br> <a href="materials/lectures/lect12.pdf" target="_blank">[slides]</a></td>
-                    </tr>
-                    <tr class="odd">
-                        <td> LTP 108-112</td>
-                        <td> A Case Study on Object-Oriented Programming <br> <a href="materials/lectures/lect13.pdf"
-                                target="_blank">[slides]</a></td>
-                    </tr>
-
                 </tbody>
             </table>
         </div>
