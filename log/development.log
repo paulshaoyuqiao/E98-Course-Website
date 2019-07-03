@@ -10029,3 +10029,17 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-06-15 10:31:42 -0700
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-06-15 10:31:44 -0700
+Processing by CourseController#home as HTML
+  Rendering course/home.html.erb within layouts/application
+  Rendered course/home.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+
+
