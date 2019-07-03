@@ -1,0 +1,151 @@
+<html>
+<head>
+  <title>Main | ICSBC Summer 2019</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
+  <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css" ) %>
+  <%= stylesheet_link_tag asset_path("index.css" ) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css" ) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css" ) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css" ) %>
+  <%= stylesheet_link_tag asset_path("calendar.css" ) %>
+
+  <%= stylesheet_link_tag asset_path("lab.css" ,skip_pipeline: true) %>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js" ) %>
+  <%= javascript_include_tag asset_path("cheet.min.js" ) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="/course_info">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="/staffsummary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="/scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="resources">
+    <div class="navitem">Resources</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Homework 1: Getting to know Ruby</header><ul id="markdown-toc">
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">Q1. Hours in a year </a>
+    </li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">Q2. Minutes in a decade</a></li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">Q3. Your age in seconds</a></li>
+    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">Q4. Our dear author's name</a></li>    <ul>
+    </ul>
+    </li>
+    <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">Q5. Full name greeting</a></li>
+    <li><a href="#f-leap-year" id="markdown-toc-f-leap-year">Q6. Bigger, better favorite number
+    </a></li>
+  </ul>
+
+
+  <h2 id="f-leap-year">Instructions</h2>
+
+  <p>Download <%= link_to 'hw1.zip', '/hw/hw1.zip'%></p>
+
+  <p><strong>Due Date:</strong> Homework 1 is due by 11:59 pm on Friday, 7/5</p>
+  
+  <p><strong>Submission:</strong> When you are done, you can submit your assingment under the SCORE tab on the course website</p>
+
+    <h2 id="how-does-a-program-work">Q1. Hours in a year</h2>
+
+    <p>Write a statement that prints the number of hours in a year.
+    </p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the age of Chris Pine (type: a numerical value)<span class="k"></span>
+    <span class="nv">  <span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
+</code></pre></div>    </div>
+
+
+    <h2 id="a-java-compilation--development">Q2. Author's age </h2>
+
+    <p>Our dear author’s age. If the author is 1,025 million seconds old (which he is, though he was in the 800 millions when he started this book),
+    how old is he? Try writing a statement that prints the author's age.
+    </p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the age of Chris Pine (type: a numerical value)<span class="k"></span>
+    <span class="nv">  <span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
+</code></pre></div>    </div>
+
+
+    <h2 id="b-git--local-repos">Q3. Hours in year</h2>
+
+    <p> Write a statement that prints the number of hours in a year</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the number of hours in a year (type: a numerical value)<span class="k"></span>
+ <span class="nv"></span># Takes leap year into consideration <span class="nt"></span>
+    <span class="nv">  <span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
+</code></pre></div>    </div>
+
+    
+    <h2 id="c-git-exercise">Q4 Minutes in a decade</h2>
+
+    <p> Write a statement that prints the number of minutes in a decade</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the number of minutes in a decade (type: a numerical value) (type: a numerical value)<span class="k"></span>
+ <span class="nv"></span># Takes leap year into consideration <span class="nt"></span>
+    <span class="nv">  <span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
+</code></pre></div>    </div>
+
+    
+    <h2 id="d-git--remote-repos">Q5. Better Number</h2>
+    <p> Write a program that asks for a person’s favorite number. Have your program add 1 to the number,
+    and then suggest the result as a bigger and better favorite number.
+    (Do be tactful about it, though.)</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span># Ask for user input for their favorite number (type: a numerical value)<span class="k"></span>
+ <span class="nv"></span># Prints input + 1 as a bigger better favorite number <span class="nt"></span>
+    <span class="nv">  <span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
+</code></pre></div>    </div>
+
+
+
+    <h2 id="e-git-checkoff">Q6. Full Name Greeting</h2>
+
+    <p> Write a program that asks for a person’s first
+    name, then middle, and then last. Finally, it should greet the
+    person using their full name.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Ask for user input for their favorite number (type: a numerical value)<span class="k"></span>
+ <span class="nv"></span># Prints input + 1 as a bigger better favorite number<span class="nt"></span>
+    <span class="nv">  <span>
+ <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
+</code></pre></div>    </div>
+
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>

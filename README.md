@@ -1,5 +1,6 @@
 # ICSBC Course Website
 **Author: Paul Shao**
+**Contributors: Catherine Hu, Tony Tu**
 _________________________________________________________________________________________________________________________________________
 ### Most Recent Update: Jan 16th - 11:00 AM - PST => Rev J
 * Switched Database from SQLite3 to PostgreSQL 11 => Deployed on Heroku
@@ -11,6 +12,7 @@ ________________________________________________________________________________
 * Autograder will detect for missing required files for a given week
 * Autograder will now provide helpful logging/debugging statements for each individual test case
 * Integrated Autograder for Remote Script Running and Scoring (**Now Support Multiple Files**)
+* Adding new course ssstaff information on the staff page as well as inserting the right contents under corresponding links
 _________________________________________________________________________________________________________________________________________
 ### Completed
 * UI Design
