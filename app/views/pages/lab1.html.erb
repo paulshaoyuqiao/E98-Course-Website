@@ -13,7 +13,7 @@
   <%= stylesheet_link_tag asset_path("fullcalendar.min.css" ) %>
   <%= stylesheet_link_tag asset_path("calendar.css" ) %>
 
-  <%= stylesheet_link_tag asset_path("lab.css" ) %>
+  <%= stylesheet_link_tag asset_path("lab.css" , skip_pipeline: true) %>
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <%= javascript_include_tag asset_path("script.js" ) %>
@@ -27,13 +27,13 @@
   <a href="/">
     <div class="navitem">Main</div>
   </a>
-  <a href="course_info">
+  <a href="/course_info">
     <div class="navitem">Course Info</div>
   </a>
-  <a href="staffsummary">
+  <a href="/staffsummary">
     <div class="navitem">Staff</div>
   </a>
-  <a href="scores">
+  <a href="/scores">
     <div class="navitem">Scores</div>
   </a>
   <a href="resources">
