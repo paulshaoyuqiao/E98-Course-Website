@@ -1,0 +1,137 @@
+<html>
+<head>
+  <title>Main | ICSBC Summer 2019</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
+  <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css" ) %>
+  <%= stylesheet_link_tag asset_path("index.css" ) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css" ) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css" ) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css" ) %>
+  <%= stylesheet_link_tag asset_path("calendar.css" ) %>
+
+  <%= stylesheet_link_tag asset_path("lab.css" ,skip_pipeline: true) %>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js" ) %>
+  <%= javascript_include_tag asset_path("cheet.min.js" ) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="/course_info">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="/staffsummary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="/scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="resources">
+    <div class="navitem">Resources</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Homework 3: Writing Your Own Methods</header><ul id="markdown-toc">
+    <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a>
+    <li><a href="#ask" id="markdown-toc-ask">Q1. Improved `Ask` Method.</a>
+    </li>
+    <li><a href="#old-roman-numerals" id="markdown-toc-old-roman-numerals">Q2. Old-school Roman Numerals</a></li>
+    <li><a href="#new-roman-numerals" id="markdown-toc-new-roman-numerals">Q3. "Modern" Roman Numerals</a></li>
+  </ul>
+
+
+  <h2 id="instructions">Instructions</h2>
+
+  <p>Download <%= link_to 'hw3.zip', '/hw/hw3.zip'%></p>
+
+  <p><strong>Due Date:</strong> Homework 3 is due by 11:59 pm on Friday, 7/19</p>
+  
+  <p><strong>Submission:</strong> When you are done, you can submit your assingment under the SCORE tab on the course website</p>
+
+  <h2 id="ask">Q1. Improved `Ask` Method.</h2>
+
+  <p><b>Requirements:</b></p>
+  <ul>
+    <li> That ask method I showed you was OK, but I bet you could do better. Try to clean it up by removing the answer variable. 
+    You’ll have to use <mark><font size=3 color="blue">Return</font></mark> to exit from the loop. 
+    (Well, it will get you out of the whole method, but it will get you out of the loop in the process.) 
+    How do you like the resulting method? I usually try to avoid using <mark><font size=3 color="blue">Return</font></mark> (a personal preference), but I might make an exception here.</li>
+  </ul>
+  <p><b> Clarifications/Advice: </b></p>
+  <ul>
+    <li> Make sure to account for the three distinct cases:
+      <ul>
+        <li> Answer was "yes" </li>
+        <li> Answer was "no" </li>
+        <li> Answer was anything else </li>
+      </ul>
+    <li> Capitalization or uppercasing should not affect the result.
+    <li> Please name your method <mark><font size=3 color="blue">ask</font></mark> so the autograder can run on it. </li>
+  </ul>
+
+
+    <h2 id="old-roman-numerals">Q2. Old-school Roman Numerals</h2>
+    <p><b>Requirements:</b></p>
+  <ul>
+    <li> In the early days of Roman numerals, the Romans didn’t bother with any of this new-fangled subtraction “IX” nonsense. 
+    No sir, it was straight addition, biggest to littlest—so 9 was written “VIIII”, and so on. Write a method that when passed an integer between 1 and 3000 (or so) 
+    returns a string containing the proper oldschool Roman numeral. In other words, <mark><font size=3 color="blue">old_roman_numeral 4</font></mark> should return 'IIII'. 
+    Make sure to test your method on a bunch of different numbers. Hint: Use the integer division and modulus methods on page 32 of the textbook TLP.</li>
+    <li> For reference, these are the values of the letters used:</li>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>   I = 1 
+    V = 5 
+    X = 10 
+    L = 50
+    C = 100 
+    D = 500 
+    M = 1000<span class="k"></span></code></pre></div></div>
+  </ul>
+  <br>
+  <p><b> Clarifications/Advice: </b></p>
+  <ul>
+    <li> This one is tricky, both roman ones are really. Things to keep in mind are to make sure you’re printing the largest numerals first, and to not overcount. That is, entering ‘5’ should return ‘V’, not ‘VIIIII’.</li>
+    <li> Please name your method <mark><font size=3 color="blue">romanize_old</font></mark> so the autograder can run on it. </li> 
+  </ul>  
+
+    <h2 id="new-roman-numerals">Q3. "Modern" Roman Numerals</h2>
+
+    <p><b>Requirements:</b></p>
+    <ul>
+      <li> Eventually, someone thought it would be terribly clever if putting a smaller number before a larger one meant you had to subtract the smaller one. 
+      As a result of this development, you must now suffer. Rewrite your previous method to return the new-style Roman numerals so when someone calls 
+      <mark><font size=3 color="blue">roman_numeral 4</font></mark>, it should return 'IV'.</li>
+    </ul>
+    <br>
+    <p><b> Clarifications/Advice: </b></p>
+    <ul>
+      <li> This one is really just a harder version of the previous one with more symbols to account for, ‘IV’ for 4, ‘IX’ for 9, and so on for 40 and 90, and 400 and 900.</li>
+      <li> Please name your method <mark><font size=3 color="blue">romanize_new</font></mark> so the autograder can run on it.</li>
+      <li> To test your accuracy for this one, checkout this <a href="https://www.romannumerals.org/converterRoman"> Roman-numerals<=>Integers converter</a>. </li>
+    </ul>
+
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
