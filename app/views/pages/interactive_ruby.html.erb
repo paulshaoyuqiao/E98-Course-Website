@@ -1,0 +1,457 @@
+<html>
+<head>
+  <title>Lab 1: javac, java, git | CS 61B Spring 2018</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Computer Science 61B: Data Structures">
+  <meta name="keywords" content="CS61B, Computer Science, CS, 61B, Data Structures, Josh Hug, Berkeley, EECS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Optional Reading 3: More on IRB</header><ul id="markdown-toc">
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">Introduction</a>
+      <ul>
+        <li><a href="#compiler-vs-interpreter" id="markdown-toc-compiler-vs-interpreter">Starting and Stopping IRB</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-java-compilation--development" id="markdown-toc-b-git--local-repos">A. Executing Code in an IRB Session</a></li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">B. Using Libraries and Gems</a></li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">C. Loading Your Code into IRB</a></li>
+    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">D. Customizing IRB</a></li>    <ul>
+    </ul>
+    </li>
+    </a></li>
+    <li><a href="#recap" id="markdown-toc-recap">Conclusion</a></li>
+  </ul>
+
+    <h2 id="how-does-a-program-work">Introduction</h2>
+
+    <p>IRB, short for Interactive Ruby, is a quick way to explore the Ruby programming language 
+    and try out code without creating a file. IRB is a Read-Eval-Print Loop, or <i>REPL</i>, a tool 
+    offered by many modern programming languages. To use it, you launch the irb executable and 
+    type your Ruby code at the prompt. IRB evaluates the code you type and displays the results.
+    </p>
+
+    <p>IRB gives you access to all of Ruby's built-in features, as well as any libraries or gems 
+    you've installed. In addition, you can configure IRB to save your command history and even 
+    enable auto-completion of your code.
+    </p>
+
+    <p>In this reading, you'll use IRB to run some code, inspect its output, bring in external 
+    libraries, and customize your IRB session.</p>
+
+    <h4 id="compiler-vs-interpreter">Starting and Stopping IRB</h4>
+
+    <p>
+    If you have Ruby installed, you'll have IRB. You can start it on any computer where Ruby is 
+    installed by executing the command irb from your command line interface.
+    </p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb<span class="k"></span>
+</code></pre></div>    </div>
+
+    <p>You'll be greeted with the IRB prompt:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>IRB session<span class="k"></span>
+    <span class="nv">  <span>
+ <span class="nv">$ </span>irb(main):001:0><span class="nt"></span>
+</code></pre></div>    </div>
+
+    <p>The prompt indicates that you're running IRB and that anything you execute will run in the main context, 
+    which is the top-level default context of a Ruby program. It also shows a line number.</p>
+
+    <p>IRB accepts Ruby syntax, which you can enter at the prompt. Try it out by adding two numbers together:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb(main):001:0> 2 + 2<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>Press the <strong>ENTER</strong> key and IRB will show you the result:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>#IRB session<span class="k"></span>
+    <span class="nv">  <span>
+ <span class="nv">$ </span>=> 4<span class="nt"></span>
+</code></pre></div>    </div>
+
+<p>The => symbol lets you know that this is the return value from the Ruby expression.
+To exit IRB, type exit at the prompt, or press CTRL+D. You'll return to your shell prompt.
+Let's dig a little deeper into IRB by looking at how you can use it to explore code.</p>
+
+
+    <h2 id="a-java-compilation--development">A. Executing Code in an IRB Session </h2>
+
+    <p>IRB is a great way to try out code to see if it's a good solution to your problem. 
+    Almost everything in Ruby returns some value, and every time you execute a statement in 
+    IRB, you'll see that return value printed to the screen.</p>
+
+    <p>To demonstrate this, execute this statement in a new IRB session:</p>
+
+    <p>    </p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb(main):001:0> puts "Hello World"<span class="k"></span>
+</code></pre></div>    </div>
+
+    <p>When you press the <strong>ENTER</strong> key, you'll see two results from IRB:</p>
+
+    <span style="white-space: pre-line">         </span>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>OUTPUT<span class="k"></span>
+    <span class="nv">$ </span>Hello World<span class="nt"></span>
+ <span class="nv">   $ </span>=> nil<span class="nt"></span>
+</code></pre></div>    </div>
+
+<p>The first result is the output from the <strong>puts</strong> method, which prints the string you specified, f
+ollowed by a line break. The <strong>puts</strong> method prints the text to the standard output device, which is 
+your screen. But the <strong>puts</strong> method has a return value, because every method in Ruby has a return 
+value. The puts method returns nil, and that's what IRB is showing you.</p>
+
+<p>Every time you execute a statement, the prompt changes, indicating a new line number:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>irb(main):001:0> puts "Hello World"<span class="k"></span>
+ <span class="nv"></span>Hello World<span class="nv"></span>
+ <span class="nv"></span>=> nil<span class="nv"></span>
+ <span class="nv"></span>irb(main):002:0><span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>This can help you debug statements when doing more complex expressions in an IRB session, 
+as error messages will refer to line numbers.</p>
+
+<p>You can assign values to variables in an IRB session just like you would in your standalone 
+Ruby programs. Execute this statement by typing it in your IRB session and pressing <strong>ENTER</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>irb(main):002:0> birth_year = 1868<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>You'll see the return value of this statement echoed back:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>irb(main):001:0>IRB session<span class="k"></span>
+ <span class="nv"></span>=> 1868<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>The variable <strong>birth_year</strong> holds this value, but, since most statements in Ruby return values, 
+IRB shows you the return value here as well.</p>
+
+<p>Add two more variables. First, create a variable called <strong>death_year</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>irb(main):003:0>death_year = 1921<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>Then create the variable age_at_death by subtracting birth_year from death_year:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>irb(main):004:0>age_at_death = death_year - birth_year<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>IRB assigns the value to the variable, but also shows you the result:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>irb(main):001:0>IRB session<span class="k"></span>
+ <span class="nv"></span>=> 53<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>When you're in an IRB session, you don't have to use an explicit puts or print statement 
+if you don't want to, since you'll see your return values displayed.</p>
+
+<p>Sometimes you'll want to write code that spans multiple lines. IRB supports this intuitively. 
+IRB only executes code that is syntactically complete. The following Ruby code uses an array of 
+sharks and uses the select method to return only the sharks containing the letter "a" in their 
+name. Type this code into your IRB session, pressing ENTER after each line:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>["Tiger", "Great White", "Angel"].select do |shark|<span class="k"></span>
+ <span class="nv"></span>   shark.include?("a")<span class="nv"></span>
+ <span class="nv"></span>end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>IRB lets you enter multiple lines of code, but it only executes the code when it thinks the 
+code is syntactically complete. Notice that the prompt changes to indicate that IRB is not yet 
+evaluating your code by using an asterisk (*) and changing the final zero to a one to indicate 
+a different scope:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>IRB session<span class="k"></span>
+ <span class="nv"></span>irb(main):005:0> ["Tiger", "Great White", "Angel"].select do |shark|<span class="nv"></span>
+ <span class="nv"></span>irb(main):006:1*    shark.include?("a")<span class="nv"></span>
+ <span class="nv"></span>irb(main):007:1> end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>Since the first line contains the do keyword, IRB doesn't attempt to execute 
+    anything until it encounters the end keyword. Then it displays the result:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>IRB session<span class="k"></span>
+    <span class="nv"></span>irb(main):005:0>=> ["Great White"]<span class="nv"></span>
+   </code></pre></div>    </div>
+
+<p>Using IRB, you can test out bits of code to see how they'll work before you incorporate them 
+into your own programs. You can also use IRB to work with external libraries.</p>
+
+
+    <h2 id="b-git--local-repos">B. Using Libraries and Gems</h2>
+
+    <p>You can import libraries into your IRB session using the require statement, 
+    just as you would in a Ruby program. These libraries can be things included in 
+    Ruby's standard library, things you've written yourself, or gems, Ruby libraries 
+    distributed via Rubygems.org which you install using the <strong>gem</strong> command.</p>
+
+<p>Ruby's standard library includes modules for making web requests and fetching the results. 
+You can use those in your IRB session exactly like you would in a Ruby program.</p>
+
+<p>Use the <strong>require</strong> statement to import Net/HTTP from Ruby's standard library. 
+Enter the following line of code into your IRB session and press <strong>ENTER</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>irb(main):004:0>require 'net/http'<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>IRB indicates that this statement returns true, which tells you that the library was loaded successfully. 
+Now type this code into IRB to make a request to icanhazip.com to fetch your external IP address:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>uri = URI.parse("http://icanhazip.com")<span class="k"></span>
+ <span class="nv"></span>response = Net::HTTP.get_response uri<span class="nv"></span>
+ <span class="nv"></span>response.body<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>As you enter each line, IRB shows you the return value, so you can debug each step:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>IRB session<span class="k"></span>
+ <span class="nv"></span>irb(main):010:0> uri = URI.parse("http://icanhazip.com")<span class="nv"></span>
+ <span class="nv"></span>=> #<URI::HTTP http://icanhazip.com><span class="nv"></span>
+ <span class="nv"></span>irb(main):011:0> response = Net::HTTP.get_response uri<span class="nv"></span>
+ <span class="nv"></span>=> #<Net::HTTPOK 200 OK readbody=true><span class="nv"></span>
+ <span class="nv"></span>irb(main):012:0> response.body<span class="nv"></span>
+ <span class="nv"></span>=> 203.0.113.52\n<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>If a library couldn't be found, you'll see a different response. Try importing the HTTParty 
+library, which makes working with HTTP requests a little easier:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>require 'httparty'<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>You'll see this message:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>IRB session<span class="k"></span>
+ <span class="nv"></span>LoadError: cannot load such file -- httparty<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>This message tells you that the libary you want isn't available. HTTParty is distributed as
+ a gem, so we'll have to install it. Exit your IRB session with CTRL+D or type exit to return 
+ to your prompt. Then use the gem command to install the httparty gem:</p>
+
+ <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>gem install httparty<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>Now launch irb again.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>Try loading the module again. In your IRB session, type this code:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>require 'httparty`<span class="k"></span>
+</code></pre></div>    </div>
+
+<p>This time, IRB will display true, letting you know it was able to load the library. 
+Enter this code into IRB to try it out:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>response = HTTParty.get("http://icanhazip.com")<span class="k"></span>
+ <span class="nv"></span>response.body<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>You'll see the output printed to the screen:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>IRB session<span class="k"></span>
+ <span class="nv"></span>=> 203.0.113.52\n<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>Now let's look at how to explore and test your own Ruby code with IRB.</p>
+
+    <h2 id="c-git-exercise">C. Loading Your Code into IRB</h2>
+
+<p>If you start an IRB session and use the -r switch, you can specify libraries or gems you want to load when IRB 
+starts. For example, irb -r httparty would launch an IRB session with the httparty gem already loaded, meaning you 
+can skip the explicit require httparty statement.</p>
+
+<p>However, you can also use this to load your own code into a new session, which is helpful when you want to explore it or test it out.</p>
+
+<p>Exit your IRB session by typing exit or by pressing CTRL+D.</p>
+
+<p>Create a new Ruby file called <strong>ip_grabber.rb</strong> which defines a IPGrabber object with a get method that, 
+when provided a URL, will return the external IP address of the machine. We'll use the HTTParty library 
+    to fetch the response from icanhazip.com. We would use this IPGrabber object in our own program to 
+    insulate our code from external changes; using our obect would let us switch out the underlying 
+    library and the site we use to resolve the IP address without having to change how the rest of our 
+    code works.</p>
+
+<p>Add this code to the file to define the class:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>require 'httparty'<span class="k"></span>
+ <span class="nv"></span>class IPGrabber<span class="nv"></span>
+ <span class="nv"></span>  def initialize()<span class="nv"></span>
+ <span class="nv"></span>    @url = "http://icanhazip.com"<span class="nv"></span>
+ <span class="nv"></span>  end<span class="nv"></span>
+ <span class="nv"></span>  def get<span class="nv"></span>
+ <span class="nv"></span>    response = HTTParty.get(@url)<span class="nv"></span>
+ <span class="nv"></span>    response.body.chomp  # remove the \n if it exists<span class="nv"></span>
+ <span class="nv"></span>  end<span class="nv"></span>
+ <span class="nv"></span>end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>Save the file and exit the editor.</p>
+
+<p>Then launch IRB and load this file. Since it's a local file rather than a gem or a built-in library, 
+we have to specify a path. We also don't need to specify the .rb extension of the file.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ irb -r ./ip_grabber</span><span class="k"></span>
+</code></pre></div>    </div>
+
+<p>The IRB session loads, and you can start using this new object in your session like this:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>ip = IPGrabber.new<span class="k"></span>
+ <span class="nv"></span>ip.get<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>You'll see this output:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>IRB session<span class="k"></span>
+ <span class="nv"></span>=> 203.0.113.52<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>By loading your own code into an IRB session, you can inspect code and work with your own libraries 
+before incorporating them into a full program.</p>
+
+<p>Now that you know how to work with code in an IRB session, let's look at how to customize your IRB session.</p>
+
+
+    <h2 id="d-git--remote-repos">D. Customizing IRB</h2>
+
+<p>You can create a configuration file called .irbrc that lets you customize your IRB session.
+ You can then add support for autocompletion, indentation, and command history.
+Create this file in your home directory:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ nano ~/.irbrc</span><span class="k"></span>
+</code></pre></div>    </div>
+
+<p>First, configure autocompletion support in IRB. This will let you use the TAB key to autocomplete object, 
+variable names, and method names in IRB:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">require 'irb/completion'</span><span class="k"></span>
+</code></pre></div>    </div>
+
+<p>Next, add support for saving your command history to an external file.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">IRB.conf[:SAVE_HISTORY] = 1000</span><span class="k"></span>
+</code></pre></div>    </div>
+
+<p>With this enabled, the last 1000 statements you type will be logged to the .irb_history file in your home directory.</p>
+
+<p>In addition, when you open a new IRB session, your history will load automatically, and you can use the Up
+ and Down arrow keys to move through these entries, or use CTRL+R to do a reverse search, just like you would 
+in a Bash shell.</p>
+
+<p>If you wanted to specify a different history file, add this to your configuration file:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">IRB.conf[:HISTORY_FILE] = '~/your_history_filename'</span><span class="k"></span>
+</code></pre></div>    </div>
+
+<p>Next, add this line to your configuration file to enable auto-indenting, which is handy when writing classes, methods, and blocks:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">IRB.conf[:AUTO_INDENT] = true</span><span class="k"></span>
+</code></pre></div>    </div>
+
+<p>Your configuration file can include any additional valid Ruby code, which means you could define helper 
+methods or use require to load additional libraries. For example, to add a history helper to your IRB session 
+which would show your history, add this code to <strong>.irbrc</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>def history<span class="k"></span>
+ <span class="nv"></span>  history_array = Readline::HISTORY.to_a<span class="nv"></span>
+ <span class="nv"></span>  print history_array.join("\n")<span class="nv"></span>
+ <span class="nv"></span>end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>When you load your IRB session, type history to see your IRB history. You may have quite a bit, 
+so you can alter the history command so it takes an optional number of lines to show. Replace the 
+code for the history function with this code, which takes an optional argument called count and uses 
+it to limit the entries it displays:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span># history command<span class="k"></span>
+ <span class="nv"></span>def history(count = 0)<span class="nv"></span>
+ <span class="nv"></span>  # Get history into an array<span class="nv"></span>
+ <span class="nv"></span>  history_array = Readline::HISTORY.to_a<span class="nv"></span>
+ <span class="nv"></span>  # if count is > 0 we'll use it.<span class="nv"></span>
+ <span class="nv"></span>  # otherwise set it to 0<span class="nv"></span>
+ <span class="nv"></span>  count = count > 0 ? count : 0<span class="nv"></span>
+ <span class="nv"></span>  if count > 0<span class="nv"></span>
+ <span class="nv"></span>    from = hist.length - count<span class="nv"></span>
+ <span class="nv"></span>    history_array = history_array[from..-1] <span class="nv"></span>
+ <span class="nv"></span>  end<span class="nv"></span>
+ <span class="nv"></span>  print history_array.join("\n")<span class="nv"></span>
+ <span class="nv"></span>end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>Save the file and start a new IRB session. Then type history 2 and you'll see only the last two ines of your history.</p>
+
+<p>While you can use .irbrc to load libraries you use frequently, remember that each library you load 
+increases the load time of the IRB session, which can make it less pleasant to use. You're often better 
+off loading specific libaries manually with require statements.</p>
+
+  
+    <h2 id="recap">Conclusion</h2>
+    <p>IRB provides a place to experiment with Ruby code. It's a great way to work out program logic before putting 
+    it in a file.</p>
+    
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
