@@ -1,0 +1,396 @@
+<html>
+<head>
+  <title>Lab 1: javac, java, git | CS 61B Spring 2018</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Computer Science 61B: Data Structures">
+  <meta name="keywords" content="CS61B, Computer Science, CS, 61B, Data Structures, Josh Hug, Berkeley, EECS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Optional Reading 3: bits and integers</header><ul id="markdown-toc">
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">Ruby Bitwise Operators </a>
+      <ul>
+        <li><a href="#compiler-vs-interpreter" id="markdown-toc-compiler-vs-interpreter">Base 10 to Base 2</a></li>
+        <li><a href="#the-ruby-interpreter" id="markdown-toc-the-ruby-interpreter">Base 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#g-submitting-lab-1" id="markdown-toc-g-submitting-lab-1">A. Bitwise AND</a></li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">B. Bitwise OR</a></li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">C. Bitwise XOR</a></li>
+    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">D. Bitwise NOT operator</a></li>    <ul>
+    </ul>
+    </li>
+    <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">E. Bitwise Left Shift</a></li>
+    <li><a href="#f-leap-year" id="markdown-toc-f-leap-year">F. Bitwise Right Shift
+    </a></li>
+    <li><a href="#recap" id="markdown-toc-recap">Conclusion</a></li>
+  </ul>
+
+    <h2 id="how-does-a-program-work">Ruby Bitwise Operators</h2>
+
+    <p>An operator is bitwise when instead of treating integers as whole numbers, it treats them as a sequence of bits.
+    </p>
+
+    <p>This is hugely used to apply a mask to an integer. For example, to verify the answers of an MCQ test.
+    </p>
+
+    <p>So let’s have a look at how the bitwise operators work in Ruby.</p>
+
+    <h4 id="compiler-vs-interpreter">Base 10 to Base 2</h4>
+
+    <p>The <strong>base 10</strong> is the common base that we use everyday.</p>
+
+    <p>The <strong>base 2</strong> is the base used by your computer to make operations. 
+    his base works with 2 values that are <strong>0</strong> and <strong>1</strong>.
+    Each bit has a weight that is a multiple of 2. each value is assigned from the right to the left:</p>
+        <ul>
+            <li>the first bit (from the right) has a value of 1</li>
+            <li>the second one a value of 2</li>
+            <li>the third one a value of 4</li>
+            <li>...</li>
+        </ul>
+    <p>If the bit is set to 1 then the value attached to this bit is counted to retrieve the number.
+    Let’s have a look at the following example to see how to convert a number in <strong>base 2</strong>.</p>
+
+    <p>Here, we convert the number 34 in base 2:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>  128 64 32 16  8 4 2 1<span class="k"></span>
+    <span class="nv">|   |  |  |  | | | |<span>
+ <span class="nv"></span>   0   0  1  0  0 0 1 0<span class="nt"></span>
+</code></pre></div>    </div>
+
+    <p>So, to convert a number in <strong>base 2</strong> we move from the left to the right and we apply the following rule:</p>
+    <ul>
+        <li>Does 128 is included in 34 ? No </li>
+        <li>Does 64 is included in 34 ? No </li>
+        <li>Does 32 is included in 34 ? Yes: <strong>34 — 32 = 2</strong> </li>
+        <li>Does 16 is included in 2 ? No </li>
+        <li>Does 8 is included in 2 ? No </li>
+        <li>Does 4 is included in 2 ? No </li>
+        <li>Does 2 is included in 2 ? Yes: 2 — 2 = 0</li>
+    </ul>
+
+    <p>So the bits attached with value 1 are 32 and 2</p>
+
+
+    <h4 id="the-ruby-interpreter">Base 2</h4>
+
+    <p>As we’ve seen in introduction, a bitwise operator treats integers as a sequence of bits 
+    — In <strong>base 2</strong> instead of <strong>base 10</strong>.</p>
+
+    <p>So, which ruby command allows us to see an integer as a sequence of bits?</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>4.to_s(2)<span class="k"></span>
+ <span class="nv">$ </span>"100"<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>The <strong>Integer#to_s(base = 10)</strong> can take an argument that is the base where the Integer will be returned. 
+    By default, it’s the base 10 — the common base.</p>
+
+    <p>The <strong>to_s(2)</strong> doesn’t return the ahead zeros. It’ll return a String that contains the sequence of 
+    bits that starts with the first 1 encountered from the left to the right.</p>
+
+    <p>Ruby has six bit operators:</p>
+    <!-- Load Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row">
+  <div class="column" style="background-color:white;">
+    <h2><strong><font size = "5"><font color="black">1. Bitwise AND(&)</font></font></strong></h2>
+    <p>x & y: Bits that are set in both x and y are set.</p>
+  </div>
+  <div class="column" style="background-color:white;">
+    <h2><strong><font size = "5"><font color="black">2. Bitwise OR(|)</font></font></strong></h2>
+    <p>x | y: Bits that are set in either x or y are set.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:white;">
+    <h2><strong><font size = "5"><font color="black">3. Bitwise XOR(^)</font></font></strong></h2>
+    <p>x ^ y: Bits that are set in x or y but not both are set.</p>
+  </div>
+  <div class="column" style="background-color:white;">
+    <h2><strong><font size = "5"><font color="black">4. Bitwise NOT(~)</font></font></strong></h2>
+    <p>~x: Bits that are set in x are not set, and vice versa.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:white;">
+  <h2><strong><font size = "5"><font color="black">5. Bitwise Left Shift(<<)</font></font></strong></h2>
+    <p>x << y: The bitwise left shift operators shift the bits of an integer’s 
+    binary representation to the left or right by the given number of positions, 
+    padding with zeros or truncating bits as necessary</p>
+  </div>
+  <div class="column" style="background-color:white;">
+  <h2><strong><font size = "5"><font color="black">6. Bitwise Right Shift(<<)</font></font></strong></h2>
+    <p>x << y: The bitwise right shift operators shift the bits of an integer’s 
+    binary representation to the left or right by the given number of positions, 
+    padding with zeros or truncating bits as necessary</p>
+  </div>
+</div>
+
+    <h2 id="#g-submitting-lab-1">A. Bitwise AND </h2>
+
+    <p>The Bitwise AND operator applies a <strong>&</strong> operation on each bit of the sequence.</p>
+
+    <p>The bitwise AND operator compares the binary representation of two integers bit by bit; 
+    if the same bits in both integers are set to 1 the resulting integer’s binary representation 
+        will have the corresponding bit set to 1. If not, the bit will be set to 0.</p>
+
+    <span style="white-space: pre-line">         </span>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>7 in Base 2: 0000 0111<span class="k"></span>
+ <span class="nv"></span>5 in Base 2: 0000 0101<span class="nv"></span>
+ <span class="nv"></span>  128 64 32 16 8 4 2 1<span class="nv"></span>
+ <span class="nv"></span> ---------------------- <span class="nv"></span>
+ <span class="nv"></span>7: 0  0  0  0  0 1 1 1<span class="nv"></span>
+ <span class="nv"></span>   &  &  &  &  & & & &<span class="nv"></span>
+ <span class="nv"></span>5: 0  0  0  0  0 1 0 1<span class="nv"></span>
+ <span class="nv"></span>-----------------------<span class="nv"></span>
+ <span class="nv"></span>5: 0  0  0  0  0 1 0 1<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>So the result of the operation <strong>7 & 5</strong> is <strong>5</strong>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span><span class="k"></span>
+ <span class="nv">$ </span>7 & 5<span class="nv"></span>
+ <span class="nv">$ </span>5<span class="nv"></span>
+ <span class="nv">$ </span>(7 & 5).to_s(2)<span class="nv"></span>
+ <span class="nv">$ </span>"101"<span class="nv"></span>
+</code></pre></div>    </div>
+
+
+    <h2 id="b-git--local-repos">B. Bitwise OR</h2>
+<p>The Bitwise OR operator applies a | operation on each bit of the sequence</p>
+
+<p>The bitwise OR operator works the same way as the bitwise AND operator, but only requires at 
+least one of the corresponding bits in the two binary representations to be set to 1 in order to 
+set the bit in the resulting integer to 1.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>7 in Base 2: 0000 0111<span class="k"></span>
+ <span class="nv"></span>5 in Base 2: 0000 0101<span class="nv"></span>
+ <span class="nv"></span>  128 64 32 16 8 4 2 1<span class="nv"></span>
+ <span class="nv"></span> ---------------------- <span class="nv"></span>
+ <span class="nv"></span>7: 0  0  0  0  0 1 1 1<span class="nv"></span>
+ <span class="nv"></span>   |  |  |  |  | | | |<span class="nv"></span>
+ <span class="nv"></span>5: 0  0  0  0  0 1 0 1<span class="nv"></span>
+ <span class="nv"></span>-----------------------<span class="nv"></span>
+ <span class="nv"></span>7: 0  0  0  0  0 1 1 1<span class="nv"></span>
+</code></pre></div>    </div>
+
+
+    <h2 id="c-git-exercise">C. Bitwise XOR</h2>
+
+    <p>The bitwise XOR operator performs what’s called an exclusive OR operation on two binary representations.</p>
+
+    <p>This means it requires that only one of the corresponding bits in the two binary representations is set to 1 
+    in order to set the bit in the resulting integer to 1:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>(a = 18).to_s(2)     #=> "10010"<span class="k"></span>
+ <span class="nv"></span>(b = 20).to_s(2)     #=> "10100"<span class="nv"></span>
+ <span class="nv"></span>(a ^ b).to_s(2)      #=>   "110" (leading zeros omitted)<span class="nv"></span>
+</code></pre></div>    </div>
+
+
+    <h2 id="d-git--remote-repos">D. Bitwise NOT operator</h2>
+
+    <p>The bitwise NOT (or one’s complement) operator flips the bits inside an integer turning 
+    zeros to ones and ones to zeros. This sounds simple but is a bit harder to demonstrate. 
+    First, let’s see what <strong>Fixnum#to_s</strong> has to say about this:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>18.to_s(2)       #=> "10010"<span class="k"></span>
+ <span class="nv"></span>~18              #=> -19<span class="nv"></span>
+ <span class="nv"></span>(~18).to_s(2)    #=> "-10011"<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>That doesn’t look very flipped to me! And what is that minus sign doing there?</p>
+
+<p>It turns out <strong>Fixnum#to_s</strong> doesn’t return the underlying binary representation of numbers; 
+it returns the mathematical representation in a given base. In mathematics, negative numbers 
+are denoted with a minus sign regardless of their base.</p>
+
+<p>This means that for negative numbers, when passing 2 as the only argument, 
+<strong>Fixnum#to_s</strong> returns the binary representation of the corresponding positive number 
+prepended with a minus sign:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>-19.to_s(2)         #=> "-10011"<span class="k"></span>
+ <span class="nv"></span>"-" + 19.to_s(2)    #=> "-10011"<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>In computer hardware, there are no minus signs; only ones and zeros. To overcome this limitation, 
+signed integers are encoded in memory using a method called two’s complement(which you will learn in cs61c). This method is designed 
+to make basic arithmetic operations simple to implement and can be summarized in the following three rules:</p>
+
+<ul>
+    <li>The number zero is represented by all zeros.    </li>
+    <li>Positive numbers start at zero and count upward towards a maximum value of 2(n-1)-1 where 
+    n is the number of bits used to represent the number. This means that the maximum value that can 
+    be represented using four bits is 2(4-1)-1 = 7 or <strong>0111</strong>.    </li>
+    <li>For negative numbers, the meaning of zeros and ones changes. Instead of starting at zero, 
+    negative numbers start at minus oen, which is represented using all ones, and count downward 
+    using zeros towards a minimum value of -2(n-1). In the case of a four bit number, that would 
+    be -2(4-1) = -8 or <strong>1000</strong>.    </li>
+</ul>
+
+<p>This means that instead of being able to represent the numbers zero to fifteen, 
+four bits can represent the numbers negative eight to positive seven.</p>
+
+<p>So, if <strong>Fixnum#to_s</strong> can’t help us, how do we get hold of the underlying binary 
+representation of negative numbers?</p>
+
+<p>To do this, we’ll have to turn to the <strong>Fixnum#[]</strong> method. This method returns the bit at a given 
+    position in the binary representation of an integer with zero being the rightmost. This means 
+    that we can loop over the positions and collect their corresponding bit value:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>   5.downto(0).map { |n| 18[n] }.join     #=> "010010"<span class="k"></span>
+    <span class="nv"></span>5.downto(0).map { |n| -19[n] }.join    #=> "101101"<span class="nv"></span>
+   </code></pre></div>    </div>
+
+<p>At last, we can see the effect of the bitwise NOT operator. Reading the rules above, 
+we can also understand why <strong>101101</strong> in this case means <strong>-19</strong> instead of <strong>45</strong>.</p>
+
+
+    
+    <h2 id="e-git-checkoff">E. Bitwise Left Shift</h2>
+
+<p>The LEFT SHIFT operator <strong><<</strong> shifts each bit of a number to the left by n positions.</p>
+
+<p>So let’s detail the following operation <strong>7 << 2</strong></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>7 in Base 2: 0000 0111<span class="k"></span>
+ <span class="nv"></span>   128 64 32 16  8 4 2 1<span class="nv"></span>
+ <span class="nv"></span>   ---------------------- <span class="nv"></span>
+ <span class="nv"></span>7:  0  0  0  0   0 1 1 1<span class="nv"></span>
+ <span class="nv"></span>shift each bit to the left by 2 positions<span class="nv"></span>
+ <span class="nv"></span>   ----------------------<span class="nv"></span>
+ <span class="nv"></span>28: 0  0  0  1   1 1 0 0<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>So the result of the operation <strong>7 << 2</strong> is 28.</p>
+
+<p>Let’s make this operation in Ruby:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>7 << 2<span class="k"></span>
+ <span class="nv"></span>28<span class="nv"></span>
+ <span class="nv"></span>(7 << 2).to_s(2)<span class="nv"></span>
+ <span class="nv"></span>"11100"<span class="nv"></span>
+</code></pre></div>    </div>
+
+
+    <h2 id="f-leap-year">F. Bitwise Right Shift</h2>
+
+    <p>The RIGHT SHIFT operator <strong>>></strong> shifts each bit of a number to the right by n positions.</p>
+
+    <p>So let’s detail the following operation <strong>40 >> 2</strong></p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>40 in Base 2: 0010 1000<span class="k"></span>
+ <span class="nv"></span>   128 64 32 16  8 4 2 1<span class="nv"></span>
+ <span class="nv"></span>   ---------------------- <span class="nv"></span>
+ <span class="nv"></span>7:  0  0  1  0   1 0 0 0<span class="nv"></span>
+ <span class="nv"></span>shift each bit to the right by 2 positions<span class="nv"></span>
+ <span class="nv"></span>   ----------------------<span class="nv"></span>
+ <span class="nv"></span>10: 0  0  0  0   1 0 1 0<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>So the result of the operation <strong>40 >> 2</strong> is 10.</p>
+
+<p>Let’s make this operation in Ruby</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>40 >> 2<span class="k"></span>
+ <span class="nv"></span>10<span class="nv"></span>
+ <span class="nv"></span>(40 >> 2).to_s(2)<span class="nv"></span>
+ <span class="nv"></span>"1010"<span class="nv"></span>
+</code></pre></div>    </div>
+
+
+    <h2 id="recap">Conclusion</h2>
+    <p> Being able to inspect these binary representations makes understanding how bitwise operators work much easier.</p>
+    <p>Bitwise operations also has many real life applications, for example:</p>
+<ul>
+    <li><strong>Bit fields (flags)    </strong></li>
+    <p>They're the most efficient way of representing something whose state is defined by several "yes or no" properties. 
+    ACLs are a good example; if you have let's say 4 discrete permissions (read, write, execute, change policy), 
+    it's better to store this in 1 byte rather than waste 4. These can be mapped to enumeration types in many 
+    languages for added convenience.</p>
+    <li><strong>Communication over ports/sockets</strong>    </li>
+    <p>Always involves checksums, parity, stop bits, flow control algorithms, and so on, which usually depend 
+    on the logic values of individual bytes as opposed to numeric values, since the medium may only be capable 
+    of transmitting one bit at a time.</p>
+    <li><strong>Compression, Encryption</strong>   </li>
+    <p>Both of these are heavily dependent on bitwise algorithms. Search up the deflate algorithm for an 
+    example - everything is in bits, not bytes.</p>
+    <li><strong>Finite State Machines</strong>   </li>
+    <p>You will learn about Finite State Machines in depth if you take cs61c. These are combinatorial 
+    in nature - they might literally be getting "compiled" down to a bunch of logic gates, so they have to be 
+    expressed as AND, OR, NOT, etc.</p>
+    <li><strong>Graphics    </strong></li>
+    <p>There's hardly enough space here to get into every area where these operators are used in graphics programming.  
+    XOR (or ^) is particularly interesting here because applying the same input a second time will undo the first. 
+    Older GUIs used to rely on this for selection highlighting and other overlays, in order to eliminate the need 
+    for costly redraws. They're still useful in slow graphics protocols (i.e. remote desktop).</p>
+</ul>
+
+    
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>

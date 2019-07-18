@@ -1,0 +1,45 @@
+<h2 id="whatsaninteger">What's an Integer?</h2>
+
+<p>You've been dealing with integers for a while now:</p>
+
+<pre><code>x = 5
+</code></pre>
+
+<p>But still, have you ever wondered: what is an integer, anyway?</p>
+
+<p>I mean, mathematically, an integer is any number without fractional parts, like 3, 0, or -10. But what is an integer in programming? How is it stored and used?</p>
+
+<p>Well, everything in a computer is stored as 0s and 1s. An integer is stored in its binary form:</p>
+
+<pre><code>0 -&gt; 0000
+1 -&gt; 0001
+2 -&gt; 0010
+3 -&gt; 0011
+4 -&gt; 0100
+</code></pre>
+
+<p>For example on a hard drive, this will be encoded in different directions in the material's magnetic field. When the CPU is doing calculations, it will be voltages on different wires.</p>
+
+<p>When the computer adds or subtracts two numbers, it does the calculation in binary. This actually makes the computations very simple. The computer only converts the number to decimal when you want to print it out (<code>puts x</code>).</p>
+
+<p>Wait, you say. What about negative numbers?</p>
+
+<p>Well, that's a bit more complicated. I won't give all the details here, but most of the time we use something called two's complement. It looks something like this:</p>
+
+<pre><code>-1 -&gt; 1111
+-2 -&gt; 1110
+-3 -&gt; 1101
+-4 -&gt; 1100
+</code></pre>
+
+<p>This might look weird, but it actually makes a lot of sense in terms of efficiency. Notice that if we calculate -1 + 1, we get <code>1111 + 0001 = 0000</code> (the leftmost carry overflows and poofs out of existence). You will learn more about this in CS 61C.</p>
+
+<p>There is still one problem. When you create an integer, you need to specify how much memory you give it. If you give it 4 bits of memory, then you can store 0000 to 1111, which using two's complement is the numbers -8 (<code>1000</code>) through 7 (<code>0111</code>). But I don't remember doing that when I was writing my <code>age_in_seconds.rb</code> program!</p>
+
+<p>Well it turns out, when you create an integer in Java or some other statically-typed language, you do need to specify how much memory your integer is gonna have. If you try to add 1 to the biggest integer, it will overflow and become the smallest negative number. The largest possible <code>int</code> in Java is 2147483647, and Java programmers are forever haunted by the fear of integer overflow.</p>
+
+<p>However in languages like Ruby and Python, the language takes care of integer overflow under the hood. When an integer is about to overflow, the program just allocates more memory to it. Isn't that smooth.</p>
+
+<p>Okay, now we know all about integers. So then how are fractional numbers stored?</p>
+
+<p>Oh, don't even get me started.</p>
