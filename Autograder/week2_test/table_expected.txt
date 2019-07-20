@@ -1,9 +1,0 @@
-chapter1:gettingstartedpage1
-chapter2:numberspage9
-chapter3:letterspage13
-chapter4:variablesandassignmentpage17
-chapter5:mixingituppage21
-chapter6:moreaboutmethodspage27
-chapter7:flowcontrolpage37
-chapter8:arraysanditeratorspage51
-chapter9:writingyourownmethodspage57

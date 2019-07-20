@@ -1,5 +1,0 @@
-function showLoader() {
-    $("#loader").show();
-}
-
-;

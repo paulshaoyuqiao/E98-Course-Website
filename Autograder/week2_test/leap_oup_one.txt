@@ -1,2 +1,0 @@
-Please enter a starting year: Now enter a ending year: The leap years between the year 2010 and the year 2013 are:
-2012

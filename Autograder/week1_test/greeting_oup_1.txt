@@ -1,4 +1,0 @@
-What's your first name?
-What's your middle name?
-What's your last name?
-Nice to meet youICSWinterBootCamp Winter 2018!
