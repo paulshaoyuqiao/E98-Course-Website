@@ -1,0 +1,127 @@
+<html>
+<head>
+  <title>Optional Reading 1: How Does a Program Work</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Intro to CS Bootcamp">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css" ) %>
+  <%= stylesheet_link_tag asset_path("index.css" ) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css" ) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css" ) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css" ) %>
+  <%= stylesheet_link_tag asset_path("calendar.css" ) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css" , skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js" ) %>
+  <%= javascript_include_tag asset_path("cheet.min.js" ) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="/staffsummary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="/scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Optional Reading 1: How does a Program Work?</header><ul id="markdown-toc">
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">A. How does a Program Work? </a>
+      <ul>
+        <li><a href="#compiler-vs-interpreter" id="markdown-toc-compiler-vs-interpreter">Compiler vs. Interpreter</a></li>
+        <li><a href="#the-ruby-interpreter" id="markdown-toc-the-ruby-interpreter">The Ruby Interpreter</a></li>
+      </ul>
+    </li>
+  </ul>
+
+    <h2 id="how-does-a-program-work">How does a Program Work?</h2>
+
+    <p>On a macro level, a <strong>computer program</strong> is a collected set of instructions that performs a specific task
+      when executed by the computer. As we dive a bit deeper in though, the programs that we write cannot actually quite be understood
+      by the computer.
+    </p>
+
+    <p>What you, I, and most people write and see every day is called <strong>source code</strong>, a form of human-readable computer
+    programming language. In order for the actual machine (or the computer) to understand what to do and how to carry out the source
+      code's specifications, each programming language has the aid of either a <strong>compiler</strong> or an
+      <strong>interpreter</strong>.
+    </p>
+
+    <h4 id="compiler-vs-interpreter">Compiler vs. Interpreter</h4>
+
+    <p>
+      A compiler is basically a computer program that can transform codes written in one programming language (we call it the
+      <strong>source language</strong>) into another (the <strong>target language</strong>). Usually, for a language like <strong>Java</strong>
+      or <strong>C</strong>, the compiler helps translate the source code from those languages to a lower-level languages (or in other words,
+      more primitive languages) that can be executed directly by the machine. Intuitively, the compiler is converting something
+      humans write with logic in the form of text to instructions that can be carried out with simple electronic signals.
+    </p>
+
+    <p>An interpreter, on the other hand, is a computer program that <strong>directly executes</strong> the source code, without the need to compile it
+      into a lower-level form that can be understood by the machine. In reality however, the interpreter system <strong>also contains a compiler</strong>
+      within in order to allow the final execution by the machine. A common strategy used by the interpreter is as below:</p>
+    <ol>
+      <li><strong>parses</strong> the source code (in other words, <strong>breaks it apart</strong> into smaller components that corresponds to different functions);</li>
+      <li><strong>translates</strong> the components into some intermediate representation and immediate executes this afterwards;</li>
+      <li><strong>pre-compiles</strong> the stored code from the previous step, and explicitly executes it on the machine level.</li>
+    </ol>
+
+
+    <h4 id="the-ruby-interpreter">The Ruby Interpreter</h4>
+
+    <p>Ruby, the official language taught in this course, uses an interpreter for executing codes. It follows roughly the scheme we've
+    presented above for a typical interpreter. </p>
+
+    <p>Just to give a bit more details on how the parsing process works for Ruby, it follows the steps below to breaks the code apart
+    into chunks that can be translated into an efficient intermediate representation: </p>
+    <ol>
+      <li>The Ruby Interpreter first <strong>tokenizes</strong> the code you write line by line, essentially <strong>separating</strong> everything into
+      a list of words, symbols, and spaces;</li>
+      <li>The interpreter then applies <strong>lexing</strong> to the list, <strong>tagging</strong> each token based on their functions (
+      ex. the left apostrophe for a string in Ruby is identified as <code>on_tstring_beg</code>, meaning the beginning of a string);</li>
+      <li>Finally, the interpreter <strong>parses</strong> the list into a nested hierarchical representation of the code that can be
+      easily converted to the intermediate representation. The hierarchy (or depth of the list) maps to the logic of the original program.</li>
+    </ol>
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>

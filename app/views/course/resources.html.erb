@@ -1,0 +1,292 @@
+<html>
+<head>
+  <title>Main | ICSBC Summer 2019</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
+  <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="course_info">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="resources">
+    <div class="navitem">Resources</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Resources</header><ul id="markdown-toc">
+    <li><a href="#ics-videos" id="markdown-toc-how-does-a-program-work">ICS Videos</a></li>
+    <li><a href="#ruby-style-guide" id="markdown-toc-c-git-exercise">Ruby Style Guide</a></li>
+  </ul>
+
+
+    <h2 id="ics-videos">ICS Videos</h2>
+    <div class="section">
+        <h3>Assignments/Workflow</h3>
+        <p>How to use <a href="https://www.youtube.com/watch?v=uwRnk4SVKNY&feature=youtu.be">IRB</a> (the Interactive RuBy)?</p>
+    
+        <h3>Supplementary Material Videos</h3>
+        <p> Thanks to two of our previous TAs, Alexander Wu and Josephine Ko.</p>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=vAX6e9hEP0Q">String and Integer Manipulation (Part 1 of 2)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=-fLsnlNxnVU">String and Integer Manipulation (Part 2 of 2)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=_0R6ZT2Pgk8">Sorting (Part 1 of 2)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=OgwEmmTwcQM">Sorting (Part 2 of 2)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=qhZwakg6oL4">Recursion (Part 1 of 3)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=1fzwDIi5DOY">Recursion (Part 2 of 3)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=RWOpAb1EGkc">Recursion (Part 3 of 3)</a></li>
+        </ul>
+
+    <h2 id="ruby-style-guide">Ruby Style Guide</h2>
+
+        <p>A developer who doesn't care about style is like an artist, a painter, who doesn't care about color. -- from this <a href="https://stackoverflow.com/questions/127916/is-programming-style-important-how-important">Stackoverflow post</a>. <br>
+        <i>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.</i> -- Martin Golding <br>
+        When you first start coding, you might wonder why code composition is important. After all, your code is meant to run on computers.<br>
+        However, when you need help or work in a software company, others will inevitably read the code that you have written. For this reason, it is important to follow certain established guidelines to ensure that others can easily understand your code, and vice versa. <br>
+        This guide is based on the CS61A Style Guide, which is written for Python instead of Ruby.</p>
+
+        <div class="section">
+        <h3>General</h3>
+        <p>Limit lines to 80 characters. Generally, each line of code has a singular purpose, otherwise code can be difficult to understand and debug.<br>
+            Don't add trailing whitespaces (spaces, tabs) to the end of a line.</p>
+        </div>
+
+        <div class="section">
+        <h3>Naming</h3>
+        <p>Names should be meaningful. To a computer, variable or method names do not matter. 
+        However, humans who read variable names should know what the variable is used for.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  asdf = 5
+
+  # Good
+  number_of_users = 5<span class="k"></span></code></pre></div></div>
+        <p>Short names can be used to represent numbers if there is context.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Coordinates
+  x = 6
+  y = 5
+
+  # Index
+  i = 0
+<span class="k"></span></code></pre></div></div>
+
+        <p>Use lower-case letters and underscores for variable names.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  NumberOfUsers = 5
+
+  # Good
+  number_of_users = 5
+<span class="k"></span></code></pre></div></div>
+
+        <p>Use CamelCase for Classes.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  class many_users
+
+  # Good
+  class ManyUsers
+<span class="k"></span></code></pre></div></div>
+        </div>
+
+        <div class="section">
+        <h3>Spacing and Indentation</h3>
+        <p>Use spaces instead of tabs. This allows consistency between different text editors.<br><br>
+            Use two spaces for indentation. For other languages such as Python, using four spaces is the norm. 
+            However, the Ruby community has agreed on two-space indentations, primarily for readability reasons.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad Style
+  def method
+      body
+  end
+
+  # Good Style
+  def method
+    body
+  end<span class="k"></span></code></pre></div></div>
+        <p>Add spaces between operators, such as <mark><font size=3 color="blue">+</font></mark> and <mark><font size=3 color="blue">-</font></mark>. 
+        You can decide if you want to add spaces around <mark><font size=3 color="blue">*</font></mark>  or <mark><font size=3 color="blue">/</font></mark>, but be consistent.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  a = 1+5-6*7+8/5
+
+  # Good
+  a = 1 + 5 - 6 * 7 + 8 / 5
+  # Or
+  a = 1 + 5 - 6*7 + 8/5
+<span class="k"></span></code></pre></div></div>
+
+        <p>Don't add spaces after <mark><font size=3 color="blue">(</font></mark> and <mark><font size=3 color="blue">[</font></mark>, 
+        and before <mark><font size=3 color="blue">)</font></mark> and <mark><font size=3 color="blue">]</font></mark>. 
+        Add spaces before and after <mark><font size=3 color="blue">{</font></mark><mark>}<font size=3 color="blue">]</font></mark>.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  a = ( 1 + 3 ) * 4
+  numbers = [ 1, 2, 3 ]
+  numbers.each{|e| puts e}
+
+  # Good
+  a = (1 + 3) * 4
+  numbers = [1, 2, 3]
+  numbers.each { |e| puts e }
+<span class="k"></span></code></pre></div></div>
+
+        <p>Don't add space after <mark><font size=3 color="blue">!</font></mark></p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  ! true
+
+  # Good
+  !true
+<span class="k"></span></code></pre></div></div>
+
+        <p>Don't add space after <mark><font size=3 color="blue">!</font></mark></p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  ! true
+
+  # Good
+  !true
+<span class="k"></span></code></pre></div></div>
+
+        <p>Add newlines between methods.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Good
+
+  def plus_one(x)
+    return x + 1
+  end
+
+  def plus_two(x)
+    return x + 2
+  end
+<span class="k"></span></code></pre></div></div>
+
+        <p>Don't use multiple newlines.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+
+  def plus_one(x)
+    return x + 1
+  end
+
+
+
+  def plus_two(x)
+    return x + 2
+  end
+<span class="k"></span></code></pre></div></div>
+
+        <p>Don't use newlines around method or class bodies.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  class SampleClass
+
+    def plus_one(x)
+
+      return x + 1
+
+    end
+
+  end
+
+  # Good
+  class SampleClass
+    def plus_one(x)
+      return x + 1
+    end
+  end
+<span class="k"></span></code></pre></div></div>
+
+        <p>Add underscores to large numbers for better visibility.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  a = 1000000000000000
+
+  # Good
+  a = 1_000_000_000_000_000
+<span class="k"></span></code></pre></div></div>
+        <p>In this case you could also use scientific notation.</p>
+
+        </div>
+    
+        <div class="section">
+        <h3>Booleans</h3>
+        <p>Don’t use <mark><font size=3 color="blue">and</font></mark> and <mark><font size=3 color="blue">or</font></mark>. 
+        Instead, use <mark><font size=3 color="blue">&&</font></mark> and <mark><font size=3 color="blue">||</font></mark>. 
+        Using <mark><font size=3 color="blue">and</font></mark> and <mark><font size=3 color="blue">or</font></mark> 
+        can make your program behave in unexpected ways.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  a and b
+  a or b
+
+  # Good
+  a && b
+  a || b<span class="k"></span></code></pre></div></div>
+
+        </div>
+
+        <div class="section">
+        <h3>Control Structures</h3>
+        <p>Don't compare a boolean variable to <mark><font size=3 color="blue">true</font></mark> or <mark><font size=3 color="blue">false</font></mark>. 
+        The <mark><font size=3 color="blue">!</font></mark> operator flips the boolean value.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # Bad
+  if a == true
+    ...
+  elsif b == false
+    ...
+  end
+
+  # Good
+  if a
+    ...
+  elsif !b
+    ...
+  end
+<span class="k"></span></code></pre></div></div>
+
+        </div>
+
+        <div class="section">
+        <h3>Comments</h3>
+        <p>Comments are used to explain code, both for yourself and the reader. 
+        A rule of thumb is to think about whether a person can understand your code without prior knowledge. 
+        If this is not the case, and you have followed style guidelines, then add comments. 
+        Otherwise, comments are a good way to keep track of what you have implemented.<br>
+        Comments start with a <mark><font size=3 color="blue">#</font></mark>.</p>
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>  # This is a comment
+<span class="k"></span></code></pre></div></div>
+
+        </div>
+
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>

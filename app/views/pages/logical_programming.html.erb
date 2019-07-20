@@ -1,0 +1,411 @@
+<html>
+<head>
+  <title>Lab 1: javac, java, git | CS 61B Spring 2018</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Computer Science 61B: Data Structures">
+  <meta name="keywords" content="CS61B, Computer Science, CS, 61B, Data Structures, Josh Hug, Berkeley, EECS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Week 2 Optional Reading: Logical Programming and Flow Control</header><ul id="markdown-toc">
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">What is flow control? </a>
+      <ul>
+        <li><a href="#compiler-vs-interpreter" id="markdown-toc-compiler-vs-interpreter">Conditionals</a></li>
+        <li><a href="#the-ruby-interpreter" id="markdown-toc-the-ruby-interpreter">Comparisons</a></li>
+      </ul>
+    </li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">Combining expressions</a></li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">Case Statement</a></li>
+    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">Exercise</a></li>    <ul>
+    </ul>
+  </ul>
+
+    <h2 id="how-does-a-program-work">What is flow control?</h2>
+
+    <p>In many ways, a computer program is like a journey for your data. Along this journey, 
+    data encounters many things that have an impact on it and it is forever changed. Like any 
+    journey, one must travel a given path. On that path, there are many roads. Some roads are 
+    chosen and others not. Which roads are chosen depends on the end goal.
+    </p>
+
+    <p>When you are writing programs, you want your data to make the right decisions. 
+    You want your data to do the right thing when it's supposed to. In computer programming,
+      this is called <strong>conditional flow</strong>.
+    </p>
+
+    <p>How do we make data do the right thing? We use <strong<conditionals</strong>.</p>
+
+    <h4 id="compiler-vs-interpreter">Conditionals</h4>
+
+    <p>
+    1. A conditional is a fork (or many forks) in the road. Your data approaches a conditional 
+    and the conditional then tells the data where to go based on some defined parameters. 
+    Conditionals are formed using a combination of if statements and comparison operators 
+    <strong>(<, >, <=, >=, ==, !=, &&, ||)</strong>. They are basic logical structures that are defined with 
+    the reserved words if, else, elsif, and end. Note that elsif is missing an "e". Enough 
+    talking, time to code.
+    </p>
+
+    <p>Create a file called <strong>conditional.rb</strong> and type the following code into it.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>text = "Sammy has a balloon"puts "Put in a number"
+ <span class="nv">$ </span> a = gets.chomp.to_i<span class="nv"></span>
+ <span class="nv">$ </span>if a == 3<span class="nv"></span>
+ <span class="nv">$ </span>  puts "a is 3"<span class="nv"></span>
+ <span class="nv">$ </span>elsif a == 4<span class="nv"></span>
+ <span class="nv">$ </span>  puts "a is 4"<span class="nv"></span>
+ <span class="nv">$ </span>else<span class="nv"></span>
+ <span class="nv">$ </span>  puts "a is neither 3, nor 4"<span class="nv"></span>
+ <span class="nv">$ </span>end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>Here we are using <strong>gets</strong> to let the user input a number, <strong>chomp</strong> gets rid of the new line created when 
+the user enters the data, and <strong>to_i</strong> is a method that can be called on a string to turn it into an integer. 
+We need to convert the input into an integer because gets always gives us a string.</p>
+
+<p>Run this code three times and do the following:</p>
+
+<ul>
+ <li>1. The first time, type in the number 3 and press enter.</li>
+ <li>2. The second time, type in the number 4 and press enter.</li>
+ <li>3. The third time, type in any number that isn't 3 or 4 and press enter.</li>
+</ul>
+
+<p>You can repeat the third step more than once to see its effect.</p>
+
+<p>What your code is doing is checking, using the <strong>==</strong> operator you learned previously, 
+to see if the input is equal to the number we have defined. We have effectively controlled 
+the flow of the program by setting conditionals in an <strong>if</strong> statement.</p>
+
+<p>The examples below are all valid Ruby conditionals.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># Example 1
+ <span class="nv">$ </span>if x == 3<span class="nv"></span>
+ <span class="nv">$ </span>end<span class="nv"></span>
+ <span class="nv">$ </span>   <span class="nv"></span>
+ <span class="nv">$ </span># Example 2<span class="nv"></span>
+ <span class="nv">$ </span>if x == 3<span class="nv"></span>
+ <span class="nv">$ </span>  puts "x is 3"<span class="nv"></span>
+ <span class="nv">$ </span>elsif x == 4<span class="nv"></span>
+ <span class="nv">$ </span>  puts "x is 4"<span class="nv"></span>
+ <span class="nv">$ </span>end<span class="nv"></span>
+ <span class="nv">$ </span>   <span class="nv"></span>
+ <span class="nv">$ </span># Example 3<span class="nv"></span>
+ <span class="nv">$ </span>if x == 3<span class="nv"></span>
+ <span class="nv">$ </span>  puts "x is 3"<span class="nv"></span>
+ <span class="nv">$ </span>else<span class="nv"></span>
+ <span class="nv">$ </span>  puts "x is NOT 3"<span class="nv"></span>
+ <span class="nv">$ </span>end<span class="nv"></span>
+ <span class="nv">$ </span>   <span class="nv"></span>
+ <span class="nv">$ </span># Example 4: must use "then" keyword when using 1-line syntax<span class="nv"></span>
+ <span class="nv">$ </span>if x == 3 then puts "x is 3" end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>Last, because Ruby is such an expressive language, it also allows you to append the <strong>if</strong> condition at the very end. 
+Example 1 from above could be rewritten like this:
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>puts "x is 3" if x == 3
+</code></pre></div>    </div>
+
+<p>Ruby also has a reserved word, <strong>unless</strong>. It acts as the opposite of <strong>if</strong>, so you can use it like this:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>puts "x is NOT 3" unless x == 3
+</code></pre></div>    </div>
+
+
+    <h4 id="the-ruby-interpreter">Comparisons</h4>
+
+    <p>Let's go over these comparison operators in a little more depth so you can build some more complicated 
+    conditional statements. One thing to remember is that comparison operators always return a <strong>boolean value</strong>.
+     A boolean value is either true or false, nothing else. We'll try them out in irb to see how they work as well.</p>
+
+<ul>
+ <li> <strong><</strong> - The "less than" symbol. Anything to the left of the symbol has a lower value than anything to the right of the symbol.</li>
+ <li> <strong>></strong> - The "greater than" symbol. Anything to the left of the symbol has a higher value than anything to the right of the symbol.
+ <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># Example using 'less than' and 'greater than'
+ <span class="nv">$ </span>irb :001 > 4 < 5<span class="nv"></span>
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>    <span class="nv"></span>
+ <span class="nv">$ </span>irb :002 > 4 > 5<span class="nv"></span>
+ <span class="nv">$ </span> => false<span class="nv"></span>
+</code></pre></div>    </div>
+ <li><strong><=</strong> - The "less than or equal to" symbol. Anything to the left of the symbol is less than or equal to anything on the right.</li>
+ <li><strong>>=</strong> - the "greater than or equal to" symbol. Anything to the left of the symbol is greater than or equal to anything on the right.</li>
+ <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb :001 > 4 <= 5
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>irb :002 > 5 >= 5<span class="nv"></span>
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>irb :003 > 4 >= 5<span class="nv"></span>
+ <span class="nv">$ </span>=> false<span class="nv"></span>
+ <span class="nv">$ </span>irb :004 > 4 >= 3<span class="nv"></span>
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>irb :005 > 4 >= 4<span class="nv"></span>
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+</code></pre></div>    </div>
+ <li><strong>==</strong> - The "is equal to" operator. Anything to the left of the symbol is exactly equal to anything on the right. 
+ We talked about this operator earlier in our chapter on variables so it shouldn't be totally foreign.</li>
+ <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb :001 > 5 == 5
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>  <span class="nv"></span>
+ <span class="nv">$ </span>irb :002 > 5 == 6<span class="nv"></span>
+ <span class="nv">$ </span>=> false<span class="nv"></span>
+ <span class="nv">$ </span>  <span class="nv"></span>
+ <span class="nv">$ </span>irb :003 > '5' == 5<span class="nv"></span>
+ <span class="nv">$ </span>=> falsespan class="nv"></span>
+</code></pre></div>    </div>
+ <p>We threw that last one in as a reminder that when you are comparing for equality you must be comparing two of the same 
+ type or you will always get a <strong>false</strong> boolean value.</p>
+ <li><strong>!=</strong> - The "not equal to" operator. Anything to the left of the symbol is not equal to anything to the right.</li>
+ <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb :001 > 4 != 5
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>  <span class="nv"></span>
+ <span class="nv">$ </span>irb :002 > 4 != 4<span class="nv"></span>
+ <span class="nv">$ </span>=> false<span class="nv"></span>
+ <span class="nv">$ </span>  <span class="nv"></span>
+ <span class="nv">$ </span>irb :003 > 4 != 156<span class="nv"></span>
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+</code></pre></div>    </div>
+ </ul>
+
+    <h2 id="b-git--local-repos">Combining expressions</h2>
+
+    <p>OK, you're starting to get a decent grasp of conditional flow. It is also possible to combine multiple 
+    conditional expressions together to create a more specific scenario. We can do this using the <strong>&&</strong> and 
+      <strong>||</strong> operators. Let's see what they mean.</p>
+
+<ul>
+ <li><strong>&&</strong> - the "and" operator. Expressions to the left and to the right of this operator have to 
+ be both true for the entire expression to be evaluated to true.</li>
+ <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb :001 > (4 == 4) && (5 == 5)
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>irb :002 > (4 == 5) && (5 == 5)<span class="nv"></span>
+ <span class="nv">$ </span>=> false<span class="nv"></span>
+ <span class="nv">$ </span>irb :002 > (4 == 5) && (5 == 6)<span class="nv"></span>
+ <span class="nv">$ </span>=> false<span class="nv"></span>
+</code></pre></div>    </div>
+ <li><strong>||</strong> - the "or" operator. Either the expression to the left has to be true, or the expression 
+ to the right has to be true for the entire expression to be evaluated to true.</li>
+ <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb :001 > (4 == 4) || (5 == 5)
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>irb :002 > (4 == 5) || (5 == 5)<span class="nv"></span>
+ <span class="nv">$ </span>=> true<span class="nv"></span>
+ <span class="nv">$ </span>irb :002 > (4 == 5) || (5 == 6)<span class="nv"></span>
+ <span class="nv">$ </span>=> false<span class="nv"></span>
+</code></pre></div>    </div>
+<li><strong>!</strong> - the "not" operator. When you add this in front of a 
+boolean expression it will change that boolean value to its opposite.</li>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>irb :001 > !(4 == 4)<span class="k"></span>
+ <span class="nv">$ </span>$ => false<span class="nt"></span>
+</code></pre></div>    </div>
+</ul>
+
+<p>Ruby follows an <strong>order of precedence</strong> when deciding how to evaluate multiple expressions. 
+The following is a list of operations from highest order of precedence (top) to lowest (bottom).</p>
+
+<ul>
+ <li><strong><=, <, >, >=</strong> - Comparison</li>
+ <li><strong>==, !=</strong> - Equality</li>
+ <li><strong>&&</strong> - Logical AND</li>
+ <li><strong>||</strong> - Logical OR</li>
+</ul>
+
+<p>Knowing this, we can look at the following expression and see how it is evaluated.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>if x && y || z
+ <span class="nv">$ </span>  # do something<span class="nv"></span>
+ <span class="nv">$ </span>end<span class="nv"></span>
+ </code></pre></div>    </div>
+
+ <p>First the <strong>x && y</strong> statement will be executed. If that statement is true, then the program will 
+ execute the <strong># do something</strong> code on the next line. If the x && y statement is false, then the <strong>z</strong> will
+  be evaluated. If the <strong>z</strong> is true, the code on the next line will be evaluated. If the <strong>z</strong> is false, 
+  then the code will exit the if statement.</p>
+
+
+    <h2 id="c-git-exercise">Case Statement</h2>
+
+    <p>The final conditional flow structure that we want to talk about is called a <strong>case statement</strong>. 
+    A case statement has similar functionality to an if statement but with a slightly different interface.</p>
+
+    <p>Case statements use the reserved words <strong>case, when, else</strong>, and <strong>end</strong>. You create one by first defining a 
+    case and then evaluating the value of the case and what operation to complete if that case is true. 
+      As always, talking about this stuff is much harder than simply observing how the code behaves. 
+      Let's create a file called <strong>case_statement.rb</strong> to play with some case statements and see how they work.</p>
+
+     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>
+     <span class="nv">$ </span>a = 5<span class="nv"></span>
+     <span class="nv">$ </span>when 5<span class="nv"></span>
+     <span class="nv">$ </span>  puts "a is 5"<span class="nv"></span>
+     <span class="nv">$ </span>when 6<span class="nv"></span>
+     <span class="nv">$ </span>  puts "a is 6"<span class="nv"></span>
+     <span class="nv">$ </span>else<span class="nv"></span>
+     <span class="nv">$ </span>  puts "a is neither 5, nor 6"<span class="nv"></span>
+     <span class="nv">$ </span>end<span class="nv"></span>
+    </code></pre></div>    </div>
+
+    <p>This example is sort of a modified version of the if/elsif/else statement that we created earlier. 
+    So you can see how these two are similar.</p>
+
+    <p>You can also save the result of a case statement into a variable. Let's refactor the code above to do just that. 
+      This way we don't have to write puts so many times.</p>
+
+      <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># case_statement.rb <-- refactored
+ <span class="nv">$ </span>a = 5<span class="nv"></span>
+ <span class="nv">$ </span>answer = case a<span class="nv"></span>
+ <span class="nv">$ </span>  when 5<span class="nv"></span>
+ <span class="nv">$ </span>    "a is 5"<span class="nv"></span>
+ <span class="nv">$ </span>  when 6<span class="nv"></span>
+ <span class="nv">$ </span>    "a is 6"<span class="nv"></span>
+ <span class="nv">$ </span>  else<span class="nv"></span>
+ <span class="nv">$ </span>    "a is neither 5, nor 6"<span class="nv"></span>
+ <span class="nv">$ </span>  end<span class="nv"></span>
+ <span class="nv">$ </span>puts answer<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>You don't necessarily have to give case an argument either. You could do the following.</p>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span># case_statement.rb <-- refactored with no case argument
+ <span class="nv">$ </span>a = 5<span class="nv"></span>
+ <span class="nv">$ </span>answer = case<span class="nv"></span>
+ <span class="nv">$ </span>  when a == 5<span class="nv"></span>
+ <span class="nv">$ </span>    "a is 5"<span class="nv"></span>
+ <span class="nv">$ </span>  when a == 6<span class="nv"></span>
+ <span class="nv">$ </span>    "a is 6"<span class="nv"></span>
+ <span class="nv">$ </span>  else<span class="nv"></span>
+ <span class="nv">$ </span>    "a is neither 5, nor 6"<span class="nv"></span>
+ <span class="nv">$ </span>  end<span class="nv"></span>
+ <span class="nv">$ </span>puts answer<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>So you can see that there are lots of uses for case statements and they can be very powerful 
+tools when you are writing Ruby programs. Remember, if you're uncomfortable with these, spend 
+some time modifying them and watching how they respond to the changes you make. Test their 
+boundaries to see what they are capable of. Curiosity will serve you well in your journey to 
+learning Ruby. There is much to discover!</p>
+
+
+    <h2 id="d-git--remote-repos">Exercise</h2>
+<p>1. Write down whether the following expressions return <strong>true</strong> or <strong>false</strong>. 
+Then type the expressions into irb to see the results.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>1. (32 * 4) >= 129
+ <span class="nv">$ </span>2. false != !true<span class="nv"></span>
+ <span class="nv">$ </span>3. true == 4<span class="nv"></span>
+ <span class="nv">$ </span>4. false == (847 == '874')<span class="nv"></span>
+ <span class="nv">$ </span>5. (!true || (!(100 / 5) == 20) || ((328 / 4) == 82)) || false<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>2. Write a method that takes a string as argument. The method should return a new, all-caps 
+version of the string, only if the string is longer than 10 characters. Example: change 
+"hello world" to "HELLO WORLD". (Hint: Ruby's String class has a few methods that would 
+be helpful.)</p>
+
+<p>3. Write a program that takes a number from the user between 0 and 100 and reports back whether the 
+number is between 0 and 50, 51 and 100, or above 100.</p>
+
+<p>4. What will each block of code below print to the screen? Write your answer on a piece of paper or in a text editor and then run 
+each block of code to see if you were correct.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>1. '4' == 4 ? puts("TRUE") : puts("FALSE")
+ <span class="nv">$ </span>2. x = 2<span class="nv"></span>
+ <span class="nv">$ </span>   if ((x * 3) / 2) == (4 + 4 - x - 3)<span class="nv"></span>
+ <span class="nv">$ </span>     puts "Did you get it right?"<span class="nv"></span>
+ <span class="nv">$ </span>   else<span class="nv"></span>
+ <span class="nv">$ </span>     puts "Did you?"<span class="nv"></span>
+ <span class="nv">$ </span>   end<span class="nv"></span>
+ <span class="nv">$ </span>3. y = 9<span class="nv"></span>
+ <span class="nv">$ </span>   x = 10<span class="nv"></span>
+ <span class="nv">$ </span>   if (x + 1) <= (y)<span class="nv"></span>
+ <span class="nv">$ </span>     puts "Alright."<span class="nv"></span>
+ <span class="nv">$ </span>   elsif (x + 1) >= (y)<span class="nv"></span>
+ <span class="nv">$ </span>     puts "Alright now!"<span class="nv"></span>
+ <span class="nv">$ </span>   elsif (y + 1) == x<span class="nv"></span>
+ <span class="nv">$ </span>     puts "ALRIGHT NOW!"<span class="nv"></span>
+ <span class="nv">$ </span>   else<span class="nv"></span>
+ <span class="nv">$ </span>     puts "Alrighty!"<span class="nv"></span>
+ <span class="nv">$ </span>   end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>5. Rewrite your program from exercise 3 using a case statement.
+ Wrap this new case statement in a method and make sure it still works.</p>
+
+<p>When you run the following code...</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>def equal_to_four(x)
+ <span class="nv">$ </span>  if x == 4<span class="nv"></span>
+ <span class="nv">$ </span>    puts "yup"<span class="nv"></span>
+ <span class="nv">$ </span>  else<span class="nv"></span>
+ <span class="nv">$ </span>    puts "nope"<span class="nv"></span>
+ <span class="nv">$ </span> end<span class="nv"></span>
+ <span class="nv">$ </span>equal_to_four(5)<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>You get the following error message..</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>exercise.rb:8: syntax error, unexpected end-of-input, expecting keyword_end
+</code></pre></div>    </div>
+
+<p>Why do you get this error and how can you fix it?</p>
+    
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
