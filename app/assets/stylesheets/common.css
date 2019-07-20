@@ -389,3 +389,7 @@ p > img {
 #announce-scroll::-webkit-scrollbar-thumb {
     background-color: #E0115F;
 }
+
+.blue-code {
+    color: #1d34d4;
+}
