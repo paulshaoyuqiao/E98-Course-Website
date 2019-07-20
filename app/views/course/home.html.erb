@@ -73,20 +73,13 @@
         </div>
 
         <div class="segment">
-            <div class="segmenttitle">Official Textbooks</div>
-            <ul>
-                <li> LTP: <%= link_to "Learn To Program", asset_path("LRP.pdf", skip_pipeline: true), {:style => 'color:#f527a6', :class=>"css_class"} %> </li>
-                <li> RBT: <%= link_to "Recursion with the Best TA's", href="https://docs.google.com/document/d/1S-k4GhBULn8WQKbD6q2E84y1Hb5d5OQoVE4FLWsVmwY/edit" %>
-                    (Disclaimer: we do not actually claim to be the best TA's in the world) </li>
-            </ul>
-
             <div class="segmenttitle">Reference Texts</div>
             <ul>
+                <li> LTP: <%= link_to "Learn To Program", asset_path("LRP.pdf", skip_pipeline: true), {:style => 'color:#f527a6', :class=>"css_class"} %> </li>
                 <li> RBD: <a href="https://devdocs.io/ruby~2.5/" target="_blank"> <i> Ruby Official Documentation</i>
                     </a> </li>
                 <li> PRB: <%= link_to "Programming in Ruby", asset_path("PRB.pdf", skip_pipeline: true), {:style => 'color:#f527a6', :class=>"css_class"} %> </li>
             </ul>
-
             <div class="segmenttitle">Class Calendar / Recommended Reading Schedule</div>
             <table id="calendar">
                 <thead>
@@ -106,7 +99,7 @@
                         <td rowspan="3">1</td>
                         <td rowspan="3">7/1 - 7/7</td>
                         <td> LTP Ch1-2 </td>
-                        <td> Getting Started, Numbers </td>
+                        <td> Setup, Basic Operations </td>
                         <td rowspan="3">
                             1. <%= link_to 'How Does a Program Work?', page_path('handling_user_inp_oup') %><br>
                             2. <%= link_to 'More Advanced String Processing Methods', page_path('more_advanced_string') %><br>
@@ -120,18 +113,18 @@
                     </tr>
                     <tr class="odd">
                         <td> LTP Ch3-4 </td>
-                        <td> Letters and Variables </td>
+                        <td> Strings, Variables, User Input </td>
                     </tr>
                     <tr class="odd">
                         <td>LTP Ch5-6</td>
-                        <td> User Input, String Methods, and Mathy Methods </td>
+                        <td> String Formatting, Miscellaneous Methods </td>
                     </tr>
                     <!-- Week 2 -->
                     <tr>
                         <td rowspan="2">2</td>
                         <td rowspan="2">7/8 - 7/14</td>
                         <td>LTP Ch7</td>
-                        <td> Flow Control </td>
+                        <td> Flow Control <%# <br> <a href="materials/lectures/lect3.pdf" target="_blank">[slides]</a> %> </td>
 
                         <td rowspan="2">
                           1. <%= link_to 'Fun with Logic', page_path('optional_reading2') %><br>
@@ -144,28 +137,27 @@
                         </td>
                         <td rowspan="2">
                             <%= link_to 'HW 2: Flow Control,
-                                Arrays, and Iterators', page_path('hw2') %><br> (due 7/12)
+                                Arrays, Iterators', page_path('hw2') %><br> (due 7/12)
                         </td>
                     </tr>
                     <tr>
                         <td>LTP Ch8 </td>
-                        <td> Arrays and Iterators </td>
+                        <td> Arrays, Iterators <%# <br> <a href="materials/lectures/lect4.pdf" target="_blank">[slides]</a> %> </td>
                     </tr>
                     <!-- Week 3 -->
                     <tr class="odd">
-                        <td rowspan="1">3</td>
-                        <td rowspan="1">7/15 - 7/21</td>
-                        <td>LTP Ch9</td>
-                        <td> Writing Your Own Methods, Manipulating Integers </td>
-                        <td rowspan="1">
-                            5. <%= link_to 'What\'s an Integer?', page_path('whats_integer') %><br>
-                            6. <%= link_to 'Bits and Integers', page_path('bits_and_integers') %><br>
-                            7. <%= link_to 'More on IRB', page_path('interactive_ruby') %><br>
+                        <td rowspan="3">3</td>
+                        <td rowspan="3">7/15 - 7/21</td>
+                        <td>LTP Ch9.1-9.2</td>
+                        <td> Methods, Parameters </td>
+                        <td rowspan="3">
+                            5. <%= link_to 'Bits and Integers', page_path('bits_and_integers') %><br>
+                            6. <%= link_to 'More on IRB', page_path('interactive_ruby') %><br>
                         </td>
-                        <td rowspan="1">
+                        <td rowspan="3">
                             <%= link_to 'Lab 3', page_path('lab3') %><br> (due 7/19)
                         </td>
-                        <td rowspan="1">
+                        <td rowspan="3">
                             <%= link_to 'HW 3: Writing Your Own Methods', page_path('hw3') %><br>
                             (due 7/19)
                             <!-- <a href="materials/hw/hw2/index.html" target="_blank">HW 3: More Interactive
@@ -174,31 +166,48 @@
                             7/19) -->
                         </td>
                     </tr>
+                    <tr class="odd">
+                        <td>LTP Ch9.3-9.4</td>
+                        <td> Local Variables, Return Values <%# <br> <a href="materials/lectures/lect6.pdf" target="_blank">[slides]</a> %> </td>
+                    </tr>
+                    <tr class="odd">
+                        <td>LTP Ch9.5</td>
+                        <td> Manipulating Integers, Conversion <%# <br> <a href="materials/lectures/lect7.pdf" target="_blank">[slides]</a> %> </td>
+                    </tr>
                     <!-- Week 4 -->
                     <tr>
-                        <td rowspan="1">4</td>
-                        <td rowspan="1"> 7/22 - 7/28 </td>
-                        <td>RBT</td>
-                        <td> One Word: RECURSION </td>
+                        <td rowspan="3">4</td>
+                        <td rowspan="3"> 7/22 - 7/28 </td>
+                        <td>LTP Ch10</td>
+                        <td> Recursive Programming <%# <br> <a href="materials/lectures/lect8.pdf" target="_blank">[slides]</a> %> </td>
 
-                        <td rowspan="1">
+                        <td rowspan="3">
                             TBD
-                            <!-- 8. <%= link_to 'MORE Recursion (As If You Haven\'t Had Enough)', page_path('more_recursion') %><br>
-                            9. <%= link_to 'Stacking the Recursion', page_path('stack') %><br>
-                            10. <%= link_to 'All Hail Sorting, the Lightsaber of Programmers', page_path('sorting') %><br>
-                            9. <%= link_to 'There is ABSOLUTELY a Lot to Learn in Chapter 10', page_path('chapter_10') %><br> -->
+                            <!-- 7. <a href="#" target="_blank">Why sorting?</a><br> -->
+                            <!-- 8. <a href="#" target="_blank">Iteration v.s. Recursion</a><br> -->
+                            <!-- 9. <a href="#" target="_blank">Developing a Way to Test Your Codes</a><br> -->
                         </td>
-                        <td rowspan="1">
+                        <td rowspan="3">
                             Lab 4 <br> (due 7/26)
                             <!-- <a href="materials/lab/lab4/index.html" target="_blank">Lab 4</a> -->
                         </td>
-                        <td rowspan="1">
-                            HW 4: Recursive Methods <br>
+                        <td rowspan="3">
+                            HW 4: Recursion, Arrays <br>
+                            Challenge 2: Binary Search <br>
                             (due 7/26)
                             <!-- <a href="materials/proj/proj1/index.html" target="_blank">HW 4: Recursion,
                                 Arrays</a><br><a href="materials/hw/hw2/index.html" target="_blank">Challenge 2: Binary
                                 Search</a><br>(due 7/26) -->
                         </td>
+                    </tr>
+                    <tr>
+                        <td>LTP 72-75</td>
+                        <td> Developing a Sorting Strategy <%# <br> <a href="materials/lectures/lect9.pdf" target="_blank">[slides]</a> %> </td>
+                    </tr>
+                    <tr>
+                        <td>LTP 76-81</td>
+                        <td> Shuffling, Random Numbers and Sequences <%# <br> <a href="materials/lectures/lect10.pdf"
+                                target="_blank">[slides]</a> %> </td>
                     </tr>
                 </tbody>
             </table>
