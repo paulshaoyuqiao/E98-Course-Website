@@ -1,0 +1,265 @@
+<html>
+<head>
+  <title>Lab 1: javac, java, git | CS 61B Spring 2018</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Computer Science 61B: Data Structures">
+  <meta name="keywords" content="CS61B, Computer Science, CS, 61B, Data Structures, Josh Hug, Berkeley, EECS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Optional Reading 4: Ruby Iteration and Recursion</header><ul id="markdown-toc">
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">A. What is Ruby Recursion? </a>
+      <ul>
+        <li><a href="#compiler-vs-interpreter" id="markdown-toc-compiler-vs-interpreter">Iteration vs Recursion</a></li>
+      </ul>
+    </li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">B. Fibonacci</a></li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">C. Summing Array</a></li>
+    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">D. Mapping Array</a></li>    <ul>
+    </ul>
+    </li>
+    <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">E. Reducing Array</a></li>
+    </a></li>
+    <li><a href="#recap" id="markdown-toc-recap">Conclusion</a></li>
+  </ul>
+
+    <h2 id="how-does-a-program-work">What is Ruby Recursion?</h2>
+
+    <p>Recursion is the process of repating a procedure or action. In Ruby, we put all of our procedures 
+    inside of a method, and we use loops to repeat those procedures again and again. So, if we have methods 
+    and loops, what’s the need for recursion? Well, as Rubyists, we’re pretty lucky to work with a language 
+    that’s intuitive and human-friendly. We like to read and write code that’s actually comprehensive and 
+    (ideally) can be understood and appreciated by programmers and non-programmers alike. It turns out that 
+    recursion is a big part of that. It can make our code more readable and can even help it run faster.
+    </p>
+
+    <h4 id="compiler-vs-interpreter">Iteration vs Recursion</h4>
+
+<ul>
+  <li> A conditional statement decides the termination of recursion while a control variable’s value decide the termination of the iteration statement (except in the case of a while loop).         </li>
+  <li> Infinite recursion can lead to system crash whereas, infinite iteration consumes CPU cycles.         </li>
+  <li> Recursion repeatedly invokes the mechanism, and consequently the overhead, of method calls. This can be expensive in both processor time and memory space while iteration doesn’t.         </li>
+  <li> Recursion makes code smaller while iteration makes it longer. </li>
+</ul>
+
+    <p>In Ruby it is often preferable to avoid recursion and use iteration instead. Ruby 
+    (and most imperative programming languages) have very useful language constructs to aid with iterating over data.</p>
+
+    <p>Certain languages, especially functional languages which deal with immutable data (Elixir, Haskell, etc...), 
+    don't have language constructs at all to deal with iteration and all of it is performed through recursion. 
+    These languages are optimized for recursion using a technique called tail call optimization and also come 
+    with handy pattern matching to deal with the head and tail of arrays.</p>
+
+    <h2 id="a-java-compilation--development">A. Factorial </h2>
+
+    <p>    </p>
+
+    <span style="white-space: pre-line">         </span>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>def recur_fact(num)<span class="k"></span>
+ <span class="nv"></span>  if num == 0 || num == 1 <span class="nv"></span>
+ <span class="nv"></span>    1<span class="nv"></span>
+ <span class="nv"></span>  else<span class="nv"></span>
+ <span class="nv"></span>    num * recur_fact(num - 1)<span class="nv"></span>
+ <span class="nv"></span>  end<span class="nv"></span>
+ <span class="nv"></span>end<span class="nv"></span>
+ <span class="nv"></span>recur_fact(6) # 720<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>Let's look at the same method done in an iterative manner:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>def iter_fact(num)<span class="k"></span>
+ <span class="nv"></span>  if num == 0 || num == 1<span class="nv"></span>
+ <span class="nv"></span>    1<span class="nv"></span>
+ <span class="nv"></span>  else<span class="nv"></span>
+ <span class="nv"></span>    sum = 1<span class="nv"></span>
+ <span class="nv"></span>    num.times do |n|<span class="nv"></span>
+ <span class="nv"></span>      sum *= (n + 1)<span class="nv"></span>
+ <span class="nv"></span>    end<span class="nv"></span>
+ <span class="nv"></span>    sum<span class="nv"></span>
+ <span class="nv"></span>  end<span class="nv"></span>
+ <span class="nv"></span>end<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <h2 id="b-git--local-repos">B. Fibonacci</h2>
+
+    <p> I heard a funny definition of Fibonacci that goes like this: "Fibonacci - A problem used to teach 
+    recursion in computer science." The first 10 Fibonacci numbers go like this: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 -
+     The next number is the sum of the previous 2 numbers.</p>
+
+     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>def recur_fib(n)<span class="k"></span>
+     <span class="nv"></span>  acc = [0, 1]<span class="nv"></span>
+     <span class="nv"></span>  f = ->(acc) {<span class="nv"></span>
+     <span class="nv"></span>    if acc.size == n<span class="nv"></span>
+     <span class="nv"></span>      acc<span class="nv"></span>
+     <span class="nv"></span>    else<span class="nv"></span>
+     <span class="nv"></span>      cur, last = acc.last(2)<span class="nv"></span>
+     <span class="nv"></span>      f.(acc + [cur + last])<span class="nv"></span>
+     <span class="nv"></span>    end<span class="nv"></span>
+     <span class="nv"></span>  }<span class="nv"></span>
+     <span class="nv"></span>  f.(acc)<span class="nv"></span>
+     <span class="nv"></span>end<span class="nv"></span>
+     <span class="nv"></span>recur_fib(10) # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34<span class="nv"></span>
+    </code></pre></div>    </div>
+    
+    <h2 id="c-git-exercise">C. Summing Array</h2>
+
+    <p>    </p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>def recur_sum(array)<span class="k"></span>
+     <span class="nv"></span>  if array.empty?<span class="nv"></span>
+     <span class="nv"></span>    0<span class="nv"></span>
+     <span class="nv"></span>  else<span class="nv"></span>
+     <span class="nv"></span>    head, tail = array.head_tail<span class="nv"></span>
+     <span class="nv"></span>    head + recur_sum(tail)<span class="nv"></span>
+     <span class="nv"></span>  end<span class="nv"></span>
+     <span class="nv"></span>end<span class="nv"></span>
+     <span class="nv"></span>recur_sum([1,2,3,4,5]) # 15<span class="nv"></span>
+    </code></pre></div>    </div>
+
+    <p>Done iteratively</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>def iter_sum(array)<span class="k"></span>
+     <span class="nv"></span>  sum = 0<span class="nv"></span>
+     <span class="nv"></span>  array.each do |elem|<span class="nv"></span>
+     <span class="nv"></span>    sum += elem<span class="nv"></span>
+     <span class="nv"></span>  end<span class="nv"></span>
+     <span class="nv"></span>  sum<span class="nv"></span>
+     <span class="nv"></span>end<span class="nv"></span>
+     <span class="nv"></span>iter_sum([1,2,3,4,5]) # 15<span class="nv"></span>
+    </code></pre></div>    </div>
+
+
+    <h2 id="d-git--remote-repos">D. Mapping Array</h2>
+
+    <p>   </p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>def recur_map(array, f)<span class="k"></span>
+     <span class="nv"></span>  if array.empty?<span class="nv"></span>
+     <span class="nv"></span>    []<span class="nv"></span>
+     <span class="nv"></span>  else<span class="nv"></span>
+     <span class="nv"></span>    head, tail = array.head_tail<span class="nv"></span>
+     <span class="nv"></span>    [f.(head)] + recur_map(tail, f)<span class="nv"></span>
+     <span class="nv"></span>  end<span class="nv"></span>
+     <span class="nv"></span>end<span class="nv"></span>
+     <span class="nv"></span>recur_map([1,2,3,4,5], ->(elem) {<span class="nv"></span>
+     <span class="nv"></span>  elem * elem<span class="nv"></span>
+     <span class="nv"></span>}) # [1, 4, 9, 16, 25]<span class="nv"></span>
+    </code></pre></div>    </div>
+
+    <p>Done iteratively</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>def iter_map(array, f)<span class="k"></span>
+     <span class="nv"></span>  new_array = []<span class="nv"></span>
+     <span class="nv"></span>  array.each do |elem|<span class="nv"></span>
+     <span class="nv"></span>    new_array << f.(elem)<span class="nv"></span>
+     <span class="nv"></span>  end<span class="nv"></span>
+     <span class="nv"></span>  new_array<span class="nv"></span>
+     <span class="nv"></span>end<span class="nv"></span>
+     <span class="nv"></span>iter_map([1,2,3,4,5], ->(elem) {<span class="nv"></span>
+     <span class="nv"></span>  elem * elem<span class="nv"></span>
+     <span class="nv"></span>}) # [1, 4, 9, 16, 25]<span class="nv"></span>
+    </code></pre></div>    </div>
+    
+    <h2 id="e-git-checkoff">E. Reducing Array</h2>
+
+    <p>    </p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>   def recur_reduce(array, acc, f)<span class="k"></span>
+     <span class="nv"></span>  if array.empty?<span class="nv"></span>
+     <span class="nv"></span>    acc<span class="nv"></span>
+     <span class="nv"></span>  else<span class="nv"></span>
+     <span class="nv"></span>    head, tail = array.head_tail<span class="nv"></span>
+     <span class="nv"></span>    recur_reduce(tail, f.(acc, head), f)<span class="nv"></span>
+     <span class="nv"></span>  end<span class="nv"></span>
+     <span class="nv"></span>end<span class="nv"></span>
+     <span class="nv"></span># Join<span class="nv"></span>
+     <span class="nv"></span>recur_reduce(["Leigh", "Christopher", "Halliday"], "", ->(r, elem) {<span class="nv"></span>
+     <span class="nv"></span>  "#{r} #{elem}".strip<span class="nv"></span>
+     <span class="nv"></span>}) # "Leigh Christopher Halliday"<span class="nv"></span>
+     <span class="nv"></span># Sum<span class="nv"></span>
+     <span class="nv"></span>recur_reduce([1,2,3,4,5], 0, ->(r, elem) {<span class="nv"></span>
+     <span class="nv"></span>  r + elem<span class="nv"></span>
+     <span class="nv"></span>}) # 15<span class="nv"></span>
+     <span class="nv"></span># Longest String<span class="nv"></span>
+     <span class="nv"></span>recur_reduce(["Leigh", "Christopher", "Halliday"], "", ->(r, elem) {<span class="nv"></span>
+     <span class="nv"></span>  r.length > elem.length ? r : elem<span class="nv"></span>
+     <span class="nv"></span>}) # "Christopher"<span class="nv"></span>
+     <span class="nv"></span># Count<span class="nv"></span>
+     <span class="nv"></span>recur_reduce(["Leigh", "Christopher", "Halliday"], 0, ->(r, elem) {<span class="nv"></span>
+     <span class="nv"></span>  r + 1<span class="nv"></span>
+     <span class="nv"></span>}) # 3<span class="nv"></span>
+     <span class="nv"></span># Map<span class="nv"></span>
+     <span class="nv"></span>recur_reduce([1,2,3,4,5], [], ->(r, elem) {<span class="nv"></span>
+     <span class="nv"></span>  r + [elem * elem]<span class="nv"></span>
+     <span class="nv"></span>}) # [1, 4, 9, 16, 25]<span class="nv"></span>
+    </code></pre></div>    </div>
+
+
+    <h2 id="recap">Conclusion</h2>
+    <p>The usual flow of a recursive function is as follows:</p>
+<ul>
+    <li>Perform an operation on the first element (head) of the array.</li>
+    <li>Call the same function (hence recursion) with the remaining elements (tail) of array.</li>
+    <li>Have a guard clause to stop recursion from happening when we've reached the end.</li>
+</ul>
+    
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
