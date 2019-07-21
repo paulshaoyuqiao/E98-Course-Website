@@ -1,0 +1,89 @@
+<html>
+<head>
+  <title>Optional Reading 10</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Optional Reading 10: All Hail Sorting</header><ul id="markdown-toc">
+    <li><a>All Hail Sorting, the Lightsaber of Programmers</a>
+  </ul>
+
+  <h2>All Hail Sorting, the Lightsaber of Programmers</h2>
+
+  <p>Back in the days, when we actually asked you to read chapter 10 of the textbook... Sorting was officially part of this course.</p>
+
+  <p>Well, sorting <em>is</em> cool. It was just too much for us to ask of you in an introductory programming course. However, if you're still interested, we still have our old sorting videos available.</p>
+
+  <p>But first, some context. What is sorting? Sorting is taking in an array of comparable things (e.g. numbers, strings) and outputting a sorted version of them, where the items are ordered from least to greatest. So if given <code>4 2 5 1 3</code> you output <code>1 2 3 4 5</code>.</p>
+
+  <p>Now, the videos:</p>
+
+  <p><a href="https://youtu.be/_0R6ZT2Pgk8">Sorting Part 1: Introduction to Sorting</a></p>
+
+  <p><a href="https://youtu.be/OgwEmmTwcQM">Sorting Part 2: More on Sorting</a></p>
+
+  <p>These videos introduce selection sort and insertion sort. However, these two sorting algorithms are rarely used in practice, because they are agonizingly slow. Some better algorithms are merge sort and quicksort. If you would like to learn about them, take CS 61B (or just do some googling).</p>
+
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
