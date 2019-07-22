@@ -1,0 +1,479 @@
+<html>
+<head>
+  <title>Lab 1: javac, java, git | CS 61B Spring 2018</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Computer Science 61B: Data Structures">
+  <meta name="keywords" content="CS61B, Computer Science, CS, 61B, Data Structures, Josh Hug, Berkeley, EECS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="/assets/images/josh4.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("index.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css", skip_pipeline: true) %>
+  <%= stylesheet_link_tag asset_path("calendar.css", skip_pipeline: true) %>
+
+
+  <%= stylesheet_link_tag asset_path("lab.css", skip_pipeline: true) %>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js", skip_pipeline: true) %>
+  <%= javascript_include_tag asset_path("cheet.min.js", skip_pipeline: true) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="staff_summary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Screencasts</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Resources</div>
+  </a>
+  <a href="#">
+    <div class="navitem">Office Hours</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Optional Reading 4: More on Sorting</header><ul id="markdown-toc">
+    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">What is Ruby Sorting? </a>
+      <ul>
+        <li><a href="#compiler-vs-interpreter" id="markdown-toc-compiler-vs-interpreter">Sort vs Sort_by</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-java-compilation--development" id="markdown-toc-b-git--local-repos">A. How to sort a string’s characters alphabetically?</a></li>
+    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">B. How to Sort a Hash in Ruby?</a></li>
+    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">C. Bubble Sort</a></li>
+    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">D. QuickSort</a></li>    <ul>
+    </ul>
+    </li>
+    <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">E. MergeSort</a></li>
+    <li><a href="#recap" id="markdown-toc-recap">Conclusion</a></li>
+  </ul>
+
+    <h2 id="how-does-a-program-work">What is Ruby Sorting?</h2>
+
+    <p>In computer science, arranging in an ordered sequence is called "sorting". Sorting is a common 
+    operation in many applications, and efficient algorithms to perform it have been developed. The 
+    most common uses of sorted sequences are: making lookup or search efficient; making merging of 
+    sequences efficient.
+    </p>
+
+    <h4 id="compiler-vs-interpreter">Sort vs. sort_by</h4>
+
+    <p>
+    The difference between <strong>sort</strong> and <strong>sort_by</strong> is in the parameters to the block.
+    </p>
+
+    <p><strong>sort</strong> receives two objects that you have to compare using their <strong><=></strong> operator.</p>
+
+    <p><strong>sort_by</strong> receives just one object, and you have to call a method that will be used to map over the collection. 
+    If that sounds confusing, you’re not alone. So let us see an example.</p>
+
+    <p>
+    If you want to compare sort a two-dimensional array, by the size of each array in the list, 
+    you can call <strong>:size</strong> on the object the block receives.
+    <p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>matrix = [<span class="k"></span>
+ <span class="nv"></span>  [1, 2, 3, 4, 5, 6],<span class="nv"></span>
+ <span class="nv"></span>  [1, 2, 3],<span class="nv"></span>
+ <span class="nv"></span>  [1, 2, 3, 4, 5],<span class="nv"></span>
+ <span class="nv"></span>  [:a, :b, :c, :d]<span class="nv"></span>
+ <span class="nv"></span>]<span class="nv"></span>
+ <span class="nv"></span>matrix.sort_by { |obj| obj.size }<span class="nv"></span>
+ <span class="nv"></span># => [<span class="nv"></span>
+ <span class="nv"></span>  [1, 2, 3],<span class="nv"></span>
+ <span class="nv"></span>  [:a, :b, :c, :d],<span class="nv"></span>
+ <span class="nv"></span>  [1, 2, 3, 4, 5],<span class="nv"></span>
+ <span class="nv"></span>  [1, 2, 3, 4, 5, 6]<span class="nv"></span>
+ <span class="nv"></span>]<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>When you are dealing with larger collections, sort_by is usually what you want to use.</p>
+
+    <h2 id="a-java-compilation--development">A. How to sort a string’s characters alphabetically? </h2>
+
+    <p>    </p>
+
+    <p>The chars method returns an array of characters. So you can just sort that array, and then join the elements back into a string.</p>
+    
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"jhmaeb".chars.sort.join # => "abehjm"<span class="k"></span>
+</code></pre></div>    </div>
+    
+    <p>And if you want to do a case insensitive sort, here’s how.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>"cdBghaZosa".chars.sort(&:casecmp).join # => "aaBcdghosZ"<span class="k"></span>
+</code></pre></div>    </div>
+    
+
+    <h2 id="b-git--local-repos">B. How to Sort a Hash in Ruby?</h2>
+
+    <p>Often you want to sort a Hash just like you sort an Array. A hash is a list of key/value pairs. 
+    And it also includes the Enumerable module. </p>
+
+    <p>So let us say you want to sort a hash by its keys.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>my_hash = {<span class="k"></span>
+ <span class="nv"></span>  name: "John",<span class="nv"></span>
+ <span class="nv"></span>  age: 21,<span class="nv"></span>
+ <span class="nv"></span>  address: "Main Str. 11",<span class="nv"></span>
+ <span class="nv"></span>  email: "john@example.com"<span class="nv"></span>
+ <span class="nv"></span>}<span class="nv"></span>
+ <span class="nv"></span>my_hash.sort_by { |k, v| k }<span class="nv"></span>
+ <span class="nv"></span># => [<span class="nv"></span>
+ <span class="nv"></span>  [:address, "Main Str. 11"],<span class="nv"></span>
+ <span class="nv"></span>  [:age, 21],<span class="nv"></span>
+ <span class="nv"></span>  [:email, "john@example.com"],<span class="nv"></span>
+ <span class="nv"></span>  [:name, "John"]<span class="nv"></span>
+ <span class="nv"></span>]<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>And if you want to sort it by value, it’s just as easy <strong>my_hash.sort_by { |k, v| v }</strong>.
+    As you can see, the result is not a <strong>Hash</strong>. It’s a two dimensional <strong>Array</strong>.
+    If you want to turn it into a hash, you can call <strong>to_h</strong> on it.</p>
+
+    <h2><strong><font size = "5"><font color="black">How to sort an array of hashes in ruby</font></font></strong></h2>
+
+    <p>     </p>
+    <p>     </p>
+    <p>You are not limited to sorting arrays, you can also sort a hash.</p>
+    <p>Example:</p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>hash = {coconut: 200, orange: 50, bacon: 100}<span class="k"></span>
+ <span class="nv"></span>hash.sort_by(&:last)<span class="nv"></span>
+ <span class="nv"></span># [[:orange, 50], [:bacon, 100], [:coconut, 200]]<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>This will sort by value, but notice something interesting here, what you get back is not a hash.
+    You get a multi-dimensional array when sorting a hash.
+    To turn this back into a hash you can use the Array#to_h method.</p>
+
+    <p>Another example:</p>
+
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>scores = [<span class="k"></span>
+ <span class="nv"></span>  {name: "Superman", score: 745},<span class="nv"></span>
+ <span class="nv"></span>  {name: "Ironman", score: 9},<span class="nv"></span>
+ <span class="nv"></span>  {name: "Batman", score: 10}<span class="nv"></span>
+ <span class="nv"></span>]<span class="nv"></span>
+ <span class="nv"></span>scores.sort_by { |h | h[:name] }<span class="nv"></span>
+ <span class="nv"></span># => [<span class="nv"></span>
+ <span class="nv"></span>  {:name=>"Batman", :score=>10},<span class="nv"></span>
+ <span class="nv"></span>  {:name=>"Ironman", :score=>9},<span class="nv"></span>
+ <span class="nv"></span>  {:name=>"Superman", :score=>745}<span class="nv"></span>
+ <span class="nv"></span>]<span class="nv"></span>
+</code></pre></div>    </div>
+
+    
+    <h2 id="c-git-exercise">C. Bubble Sort</h2>
+
+    <p>Bubble sort is an algorithm that we'll learn simply for practice because it's too simple and basic for 
+    any real-world use (and incredibly slow). At its core, bubble sort starts from the left-most value, and keeps 
+    moving to the right. When moving from left to right, if the next value being compared is greater than the 
+    previous one, then it's replaced by the higher value and the sorting continues. In other words, it's taking 
+    the largest element and bubbling it to the top, and this is why it's called bubble sort. Bubble sort requires 
+    many iterations to sort through a typical list since it analyzes one value at a time and finds its right 
+    position in the list. In an array of 97 elements, bubble sort would iterate 97 times before it sorted all 
+    the values in their right positions.</p>
+
+    <strong><font size = "5"><font color="black">Bubble Sort Code Example</font></font></strong>
+
+    <p>    </p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>def bubble_sort(array)<span class="k"></span>
+ <span class="nv">$ </span>  n = array.length <span class="nt"></span>
+ <span class="nv">$ </span>  loop do<span class="nt"></span>
+ <span class="nv">$ </span>  end<span class="nv"></span>
+ <span class="nv">$ </span>end<span class="nv"></span>
+</code></pre></div>    </div>
+
+    <p>Next we assign the length of the array to a variable called n. From there we create a loop to iterate 
+    through the entire array. For this case we're going to use the generic <strong>loop</strong> mechanism, which operates very
+     much like a <strong>while</strong> loop. Inside the loop we check the value of each element and compare it with the next one.</p>
+
+    <p>For example, let's say our array contains the following elements [1, 4, 1, 3, 4, 1, 3, 3]. First bubble sort compares 1 with 4, 
+    and does nothing because 1 is smaller. Next, it will check the next two values, which are 4 and 1, and will 
+    make the swap because 1 is lesser than 4. In the next iteration, it will look at 4 and 3, and will move 3 
+    to the left. This algorithm will continue this way until the entire array is sorted.</p>
+
+    <p>We are going to create a boolean variable called <strong>swapped</strong> and set it to false. This is the variable 
+    that will be checked to determine when the program should exit the loop.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>  loop do<span class="k"></span>
+ <span class="nv">$ </span>    swapped = false<span class="nv"></span>
+ <span class="nv">$ </span>    (n-1).times do |i|<span class="nv"></span>
+ <span class="nv">$ </span>      if array[i] > array[i+1]<span class="nv"></span>
+ <span class="nv">$ </span>        array[i], array[i+1]=array[i+1], array[i]<span class="nv"></span>
+ <span class="nv">$ </span>        swapped = true<span class="nv"></span>
+ <span class="nv">$ </span>      end<span class="nv"></span>
+ <span class="nv">$ </span>    end<span class="nv"></span>
+ <span class="nv">$ </span>  end<span class="nv"></span>
+</code></pre></div>    </div>
+
+<p>In this code you'll see that we're using a nested iterator that will run (n - 1) times. 
+We're also going to use the block variable i. Inside this block we have a conditional where 
+we are checking if a particular element in the array is greater than the next element, and 
+if it's greater, then it swaps the elements. Once that's done, we'll set the swapped variable 
+    to true. We want to have the loop end when the swapped attribute has gone through the 
+    (n - 1) loop and has not been marked as true, which means that the array is sorted. In 
+    order to implement this sentinel value we'll add this code to the end of the loop:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>break if not swapped<span class="k"></span>
+    </code></pre></div>    </div>
+
+    <p>Lastly, let's return the sorted array back to the user by adding a call to array at the end of the method.
+
+    Let's test this method now with the code:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>a = [1, 4, 1, 3, 4, 1, 3, 3]<span class="k"></span>
+    <span class="nv">$ </span>p bubble_sort(a)<span class="nv"></span>
+       </code></pre></div>    </div>
+
+    <p>The entire code for this method is here:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>def bubble_sort array<span class="k"></span>
+    <span class="nv">$ </span>  n = array.length<span class="nv"></span>
+    <span class="nv">$ </span>  loop do<span class="nv"></span>
+    <span class="nv">$ </span>    swapped = false<span class="nv"></span>
+    <span class="nv">$ </span>    (n-1).times do |i|<span class="nv"></span>
+    <span class="nv">$ </span>      if array[i] > array[i+1]<span class="nv"></span>
+    <span class="nv">$ </span>        array[i], array[i+1]=array[i+1], array[i]<span class="nv"></span>
+    <span class="nv">$ </span>        swapped = true<span class="nv"></span>
+    <span class="nv">$ </span>      end<span class="nv"></span>
+    <span class="nv">$ </span>    end<span class="nv"></span>
+    <span class="nv">$ </span>    break if not swapped<span class="nv"></span>
+    <span class="nv">$ </span>  end<span class="nv"></span>
+    <span class="nv">$ </span>  array<span class="nv"></span>
+    <span class="nv">$ </span>end<span class="nv"></span>
+    <span class="nv">$ </span>a = [1, 4, 1, 3, 4, 1, 3, 3]<span class="nv"></span>
+    <span class="nv">$ </span>p bubble_sort(a)<span class="nv"></span>
+       </code></pre></div>    </div>
+
+<p>If you execute this, the output is:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>[1, 1, 1, 3, 3, 3, 4, 4]<span class="k"></span>
+    </code></pre></div>    </div>
+
+<p>Which means that it's working perfectly and can sort an array.
+
+So, you now know how to sort a list of values in Ruby using the <strong>bubble sort algorithm</strong>.</p>
+
+
+    <h2 id="d-git--remote-repos">D. QuickSort</h2>
+
+    <p>Quick sort, on the other hand, is a much faster sorting algorithm compared with bubble sort because 
+    it uses the concept of <strong>divide and conquer</strong>. This algorithm picks a pivot point, and divides the entire 
+    list into two groups - one that's below the pivot point and one that's greater than the pivot. And it 
+    continues to break the collection into smaller and smaller chunks.</p>
+
+    <p>This is an efficient algorithm because it sorts values very fast and breaks the entire value set 
+    into more manageable pieces. Due to these reasons, quick sort is one of the most widely used sorting 
+    algorithm out there, and most people like to use in their code. Also, the Ruby sort method that we 
+    used earlier uses the quick sort algorithm to rearrange values.</p>
+
+    <strong><font size = "5"><font color="black">Quicksort Code Example</font></font></strong>
+
+    <p>Clear as mud? Don't worry if the concept is still a bit fuzzy, Quicksort isn't the most intuitive 
+    algorithm if you've never worked with it before. Let's dive into the code example, because even though 
+    Quicksort is quite complex, it actually has a relatively straightforward code implementation if you 
+    leverage the right built in Ruby methods. We'll start by opening up the array class and we'll add a 
+    new method to <strong>Array</strong> called <strong>quicksort</strong>. An advantage to this metaprogramming approach is that we don't 
+    have to pass an argument to the method like we had to for our bubble sort guide. With this approach 
+    we can directly call the method on any array.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>class Array<span class="k"></span>
+    <span class="nv">$ </span>  def quicksort<span class="nv"></span>
+    <span class="nv">$ </span>  end<span class="nv"></span>
+    <span class="nv">$ </span>end<span class="nv"></span>
+       </code></pre></div>    </div>
+
+    <p>Next let's check if the array that calls this method is empty, and if so, then return an empty array. 
+    This is required for both error handling and so that the quicksort method will know when to end.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>def quicksort<span class="k"></span>
+    <span class="nv">$ </span>  return [] if empty?<span class="nv"></span>
+    <span class="nv">$ </span>end<span class="nv"></span>
+       </code></pre></div>    </div>
+
+    <p>Next, we have to pick our pivot element. Let's say our array is [34, 2, 1, 5, 3], 
+    we're going to select a random value as the pivot. To choose this value, implement the following code:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>pivot = delete_at(rand(size))<span class="k"></span>
+    </code></pre></div>    </div>
+
+    <p>Essentially, this code picks a random index number from the array's length, and passes that 
+    random index number to the array to pull out the element at that random index number. This value 
+    is stored in a variable called pivot.</p>
+
+    <p>devCamp Note: By opening up the Array class we are able to call the size method without passing 
+    it to a specific array because we opened up the Array class and self is assumed. If you tried calling 
+    this line of code outside of the Array class definition it would throw an error. </p>
+
+    <p>Next, we are going to partition the array based on the pivot variable, and to do this, 
+        we are going to use the partition method. This method splits a collection in half. It 
+        takes a block as an argument and inside of the block we're going to use the ampersand 
+        syntax to let the program know that it needs to split array into two components. One 
+        that will be less than the pivot value, and one that will be greater than the pivot. 
+        And it will store these two collections in variables named left and right.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>left, right = partition(&pivot.method(:>))<span class="k"></span>
+    </code></pre></div>    </div>
+
+    <p>Finally, return the left array, pivot and right array and recursively call quicksort on both of the 
+    returned arrays. We're also using the splat argument represented by * before each collection.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>return *left.quicksort, pivot, *right.quicksort<span class="k"></span>
+    </code></pre></div>    </div>
+
+    <p>For our example let's assume our pivot is 1. The, the array gets broken down into two parts, and each of these collections will be sorted again using the same method call.
+
+    The entire code looks like this:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>class Array<span class="k"></span>
+    <span class="nv">$ </span>  def quicksort<span class="nv"></span>
+    <span class="nv">$ </span>    return [] if empty?<span class="nv"></span>
+    <span class="nv">$ </span>    pivot = delete_at(rand(size))<span class="nv"></span>
+    <span class="nv">$ </span>    left, right = partition(&pivot.method(:>))<span class="nv"></span>
+    <span class="nv">$ </span>    return *left.quicksort, pivot, *right.quicksort<span class="nv"></span>
+    <span class="nv">$ </span>  end<span class="nv"></span>
+    <span class="nv">$ </span>end<span class="nv"></span>
+       </code></pre></div>    </div>
+
+    <p>Now let's add the code to test this out:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>arr = [34, 2, 1, 5, 3]<span class="k"></span>
+    <span class="nv">$ </span>p arr.quicksort<span class="nv"></span>
+   </code></pre></div>    </div>
+
+   <p>The output is:</p>
+
+   <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>[1, 2, 3, 5, 34]<span class="k"></span>
+   </code></pre></div>    </div>
+
+    <p>Which means that everything works properly. This is one of the shortest implementations of quicksort that 
+    I've ever seen. Many other languages have Quick sort implementations that would take up hundreds of lines of 
+    code, however by leveraging some built in Ruby methods such as partition we're able to consolidate the program 
+    and make it easier to read.</p>
+
+
+    <h2 id="e-git-checkoff">E. MergeSort</h2>
+
+    <p>The last type of sorting algorithm that we'll cover is merge sort, and this is similar to quick sort, 
+    as it uses the divide and conquer method. However, merge sort divides the entire collection into subsections, 
+    sorts each subsection and merges it with the next subsection to create a larger group of sorted values.
+    This type of sorting typically works as well as the quick sort algorithms, however quick sort is considered 
+    as the de-facto standard for sorting in most computer science circles.</p>
+
+    <p>Though merge sort is a popular sorting method, it's not used as much as quick sort because it is 
+    slightly slower in real world scenarios. However I love merge sort because it is easy to understand 
+    from a high-level perspective. In terms of coding, it has a slightly longer code implementation than 
+    quicksort, but is also easier to understand. At a high level merge sort breaks down the entire array 
+    into smaller groups, sorts the values inside each subgroup and merges it with the larger group to sort 
+    a collection. To implement the algorithm we are going to create two methods, one called merge and the 
+    other called merge_sort.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>def merge_sort(list)<span class="k"></span>
+    <span class="nv">$ </span>end<span class="nv"></span>
+    <span class="nv">$ </span>   <span class="nv"></span>
+    <span class="nv">$ </span>def merge(left, right)<span class="nv"></span>
+    <span class="nv">$ </span>end<span class="nv"></span>
+       </code></pre></div>    </div>
+
+    <p>As the name suggests, merge will take the right and left values and will merge them together.
+     We will begin by writing the code inside our merge method.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>def merge(left, right)<span class="k"></span>
+    <span class="nv">$ </span>  if left.empty?<span class="nv"></span>
+    <span class="nv">$ </span>    right<span class="nv"></span>
+    <span class="nv">$ </span>  elsif right.empty?<span class="nv"></span>
+    <span class="nv">$ </span>    left<span class="nv"></span>
+    <span class="nv">$ </span>  elsif left.first < right.first<span class="nv"></span>
+    <span class="nv">$ </span>    [left.first] + merge(left[1..left.length], right)<span class="nv"></span>
+    <span class="nv">$ </span>  else<span class="nv"></span>
+    <span class="nv">$ </span>    [right.first] + merge(left, right[1..right.length])<span class="nv"></span>
+    <span class="nv">$ </span>  end<span class="nv"></span>
+    <span class="nv">$ </span>end<span class="nv"></span>
+       </code></pre></div>    </div>
+
+    <p>In this merge method, we start with a conditional that returns the right value if the left value 
+    is empty and left if the right is empty. This makes our validation much easier. If both these conditions 
+    are not true, then we are going to check if the first value in the left side is less than the first value 
+    on the right side. If so, we are going to recursively call merge to bring the arrays together.</p>
+
+    <p>Next we'll implement the merge_sort method.</p>
+
+    <p>If the length of the array is one item or less, then simply return the array as it requires no sorting. 
+    If there are more than two elements in the array we are dividing the array into two halves. For the left 
+    side we are recursively calling the merge_sort method with the parameter being the values from the first 
+    to the mid element. For the right side too, we are going to call the merge_sort method recursively, but 
+    the parameters will be from the mid value to the end of the list. Finally, we are calling the merge method 
+    with left and right arrays as its parameters.</p>
+
+    <p>The entire code is:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>def merge_sort(list)<span class="k"></span>
+    <span class="nv">$ </span>  if list.length <= 1<span class="nv"></span>
+    <span class="nv">$ </span>    list<span class="nv"></span>
+    <span class="nv">$ </span>  else<span class="nv"></span>
+    <span class="nv">$ </span>    mid = (list.length / 2).floor<span class="nv"></span>
+    <span class="nv">$ </span>    left = merge_sort(list[0..mid - 1])<span class="nv"></span>
+    <span class="nv">$ </span>    right = merge_sort(list[mid..list.length])<span class="nv"></span>
+    <span class="nv">$ </span>    merge(left, right)<span class="nv"></span>
+    <span class="nv">$ </span>  end<span class="nv"></span>
+    <span class="nv">$ </span>end<span class="nv"></span>
+       </code></pre></div>    </div>
+
+    <p>Now we can test this out with the following code:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>arr = [4, 1, 5, 1, 33, 312]<span class="k"></span>
+    <span class="nv">$ </span>p merge_sort(arr)<span class="nv"></span>
+       </code></pre></div>    </div>
+
+    <p>The output for this program is:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">   $ </span>[1, 1, 4, 5, 33, 312]<span class="k"></span>
+       </code></pre></div>    </div>
+
+    <p>So, that's how you implement merge sort in Ruby.</p>
+
+    
+
+
+    <h2 id="recap">Conclusion</h2>
+    <p>Understanding this sorting method can be quite handy when you're learning a new concept, appearing for an exam or going through a coding interview.
+    </p>
+    
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
