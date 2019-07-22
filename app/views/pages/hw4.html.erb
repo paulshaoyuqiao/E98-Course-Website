@@ -1,0 +1,152 @@
+<html>
+<head>
+  <title>Main | ICSBC Summer 2019</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
+  <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <%= stylesheet_link_tag asset_path("common.css" ) %>
+  <%= stylesheet_link_tag asset_path("index.css" ) %>
+  <%= stylesheet_link_tag asset_path("font-awesome.min.css" ) %>
+  <%= stylesheet_link_tag asset_path("sunburst.css" ) %>
+  <%= stylesheet_link_tag asset_path("fullcalendar.min.css" ) %>
+  <%= stylesheet_link_tag asset_path("calendar.css" ) %>
+
+  <%= stylesheet_link_tag asset_path("lab.css" ,skip_pipeline: true) %>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <%= javascript_include_tag asset_path("script.js" ) %>
+  <%= javascript_include_tag asset_path("cheet.min.js" ) %>
+
+</head>
+
+<body>
+
+<div id="navbar" class="navbar-top navitems">
+  <a href="/">
+    <div class="navitem">Main</div>
+  </a>
+  <a href="/course_info">
+    <div class="navitem">Course Info</div>
+  </a>
+  <a href="/staffsummary">
+    <div class="navitem">Staff</div>
+  </a>
+  <a href="/scores">
+    <div class="navitem">Scores</div>
+  </a>
+  <a href="resources">
+    <div class="navitem">Resources</div>
+  </a>
+</div>
+
+<div id="content-container" class="content-spacer">
+  <main id="content">
+    <header class="title">Homework 4: Recursive Programming</header><ul id="markdown-toc">
+    <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a>
+    <li><a href="#count-arrays" id="markdown-toc-count-arrays">Q1. Count Arrays</a>
+    </li>
+    <li><a href="#factorial" id="markdown-toc-factorial">Q2. Factorial</a></li>
+    <li><a href="#contains-char" id="markdown-toc-contains-char">Q3. Contains Character</a></li>
+    <li><a href="#sum-of-digits" id="markdown-toc-sum-of-digits">Q4. Sum of Digits</a></li>
+    <li><a href="#array-max" id="markdown-toc-array-max">Q5. Array Max</a></li>
+  </ul>
+
+
+  <h2 id="instructions">Instructions</h2>
+
+  <p>Download <%= link_to 'hw4.zip', '/hw/hw4.zip'%></p>
+
+  <p><strong>Due Date:</strong> Homework 4 is due by 11:59 pm on Friday, 7/26</p>
+  
+  <p><strong>Submission:</strong> When you are done, you can submit your assingment under the SCORE tab on the course website</p>
+
+  <p><strong>Note:</strong> <ol> 
+  <li> Recursion is commonly a difficult concept for the people that first see it, but promise it will get more natural and easy to think in the future. Don't worry. </li>
+  <li> Do NOT hesitate to ask for help and bang your head against the keyboard! </li>
+  <li> This week's homework is <i>not</i> from <i>LTP</i>, but written again by Catherine and a past TA Alexander. 
+  They are a different style from the coding questions you've seen before, but highly representative of the straightforward, fundamental programming questions you will see and need to know in CS 61A. <br>
+  <li> Remember to finish reading the assigned reading in Google Docs before you proceed to the homework!</li>
+  </p>
+  
+  <h2 id="count-arrays">Q1. Count Arrays</h2>
+
+  <p><b>Requirements:</b></p>
+  <ul>
+    <li> Fill in the skeleton code so it works as described. </li>
+    <li> This one is to test if you understand the file-and-folder problem. Given a nested array of nested arrays of nested arrays…, return the total number of numbers in the array. </li>
+    <li> For instance, the method call on <mark><font size=3 color="blue">[ [2, 4, 6], 8, [10, 12, [14, 16] ] ]</font></mark> should return <mark><font size=3 color="blue">8</font></mark>. </li>
+  </ul>
+  <p><b> Clarifications/Advice: </b></p>
+  <ul>
+    <li> You will need to use the method <mark><font size=3 color="blue">kind_of?(X)</font></mark>. Example in irb:
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>     irb >> s = "something"
+      => "something"
+      irb >> s.kind_of?(Array)
+      => false
+      irb >> s = ["something", "else"]
+      => ["something", "else"]
+      irb >> s.kind_of?(Array)
+      => true<span class="k"></span></code></pre></div></div>
+  </ul>
+  <br>
+
+    <h2 id="factorial">Q2. Factorial</h2>
+    <p><b>Requirements:</b></p>
+  <ul>
+    <li> Fill in the skeleton code so it works as described. </li>
+    <li> In mathematics there’s this thing called factorial, denoted as an exclamation mark (<mark><font size=3 color="blue">!</font></mark>).</li>
+    <li> So then n factorial (<mark><font size=3 color="blue">n!</font></mark>) is equal to 1 times 2 times 3 times… all the way to 
+    n, so <mark><font size=3 color="blue">5! = 1 ⨉ 2 ⨉ 3 ⨉ 4 ⨉ 5 = 120</font></mark>. 
+    As a note, <mark><font size=3 color="blue">1!</font></mark> and <mark><font size=3 color="blue">0!</font></mark> both evaluate to 1 (0 is weird that way).</li>
+  </ul>
+  <br>
+
+    <h2 id="contains-char">Q3. Contains Character</h2>
+
+    <p><b>Requirements:</b></p>
+    <ul>
+      <li> Fill in the skeleton code so it works as described. </li>
+      <li> Given a string, find whether it contains a character.</li>
+    </ul>
+    <p><b> Clarifications/Advice: </b></p>
+    <ul>
+      <li> You amazing TAs have provided the method <mark><font size=3 color="blue">trim_char()</font></mark> for your use. Example: </li>
+      <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>     irb >> trim_char("abcde")
+      => "bcde"<span class="k"></span></code></pre></div></div>
+    </ul>
+    <br>
+
+    <h2 id="sum-of-digits">Q4. Sum of Digits</h2>
+
+    <p><b>Requirements:</b></p>
+    <ul>
+      <li> Fill in the skeleton code so it works as described. </li>
+      <li> Find the sum of all the digits of a given number. For instance, the method call on <mark><font size=3 color="blue">12345</font></mark> should return <mark><font size=3 color="blue">15</font></mark>. </li>
+    </ul>
+
+
+    <h2 id="array-max">Q5. Array Max</h2>
+
+    <p><b>Requirements:</b></p>
+    <ul>
+      <li> Fill in the skeleton code so it works as described. </li>
+      <li> Given a non-empty array of integers, find its maximum value. For instance, the method call on <mark><font size=3 color="blue">[-1, 0, 5, 3, 2]</font></mark> should return <mark><font size=3 color="blue">5</font></mark>.</li>
+    </ul>
+
+
+  </main>
+</div>
+</body>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"]]}
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+    $("#markdown-toc").insertBefore("#content");
+</script>
+</html>
