@@ -53,7 +53,7 @@ Uhh I don't really have anything to write here...
 
 ## MORE Recursion (As If You Haven't Had Enough)
 
-After we managed to finish that chapter of recursion that is now official material, the recursion videos made earlier became kind of obsolete. We still ask you to watch the first one, but part II and III have mostly retired. However, if you're interested, feel free to watch them and keep them from feeling lonely.
+After we managed to write up that chapter of recursion that is now official material, the recursion videos made earlier became kind of obsolete. We still ask you to watch the first one, but part II and III have mostly retired. However, if you're interested, feel free to watch them and keep them from feeling lonely.
 
 [Recursion Part 2: The Recursive Leap of Faith & Iteration Vs. Recursion](https://youtu.be/1fzwDIi5DOY)
 
@@ -67,13 +67,13 @@ Well first, let me introduce you to the stack.
 
 A stack is like an array, except that new items must be inserted on the top, and when you delete items, you also are only allowed to remove the top one. It's like a stack of plates: you can't access anything in the middle or bottom.
 
-![A Stack](stack.png)
+![A Stack](../images/stack.png)
 
 _Note: This image is not meant to contain any Endgame spoilers._
 
 Well it turns out, the part of memory that executes functions is a stack, and it's called, well, the stack. But instead of Marvel superheroes, it contains methods (and also it grows down instead of up, so yeah).
 
-![The Stack Frame](stack_frame.png)
+![The Stack Frame](../images/stack_frame.png)
 
 Each frame of the stack is a method, and contains stuff about this method the computer needs to know, like who it was called by, what local variables it has, etc. When you call a new method, a new frame is added under the stack. When you exit a method, a frame is popped off.
 
@@ -124,7 +124,7 @@ Sometimes, however, you might not even need the stack, but the recursive version
 
 Back in the days, when we actually asked you to read chapter 10 of the textbook... Sorting was officially part of this course.
 
-Well, sorting *is* cool. It was just too much for us to ask you in an introductory programming course. However, if you're still interested, we still have our old sorting videos available.
+Well, sorting *is* cool. It was just too much for us to ask of you in an introductory programming course. However, if you're still interested, we still have our old sorting videos available.
 
 But first, some context. What is sorting? Sorting is taking in an array of comparable things (e.g. numbers, strings) and outputting a sorted version of them, where the items are ordered from least to greatest. So if given `4 2 5 1 3` you output `1 2 3 4 5`.
 
