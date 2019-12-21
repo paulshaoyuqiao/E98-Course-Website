@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Main | ICSBC Summer 2019</title>
+    <title>Main | ICSB Winter 2020</title>
     <meta charset="UTF-8">
     <meta name="description" content="Intro to CS Bootcamp">
     <meta name="keywords" content="ICSBC, Bootcamp, Intro to CS, ICS, Programming in Ruby, Berkeley, EECS">
@@ -28,9 +28,6 @@
         <a href="staffsummary">
             <div class="navitem">Staff</div>
         </a>
-        <a href="scores">
-            <div class="navitem">Scores</div>
-        </a>
         <a href="resources">
             <div class="navitem">Resources</div>
         </a>
@@ -41,7 +38,7 @@
         </div>
     </a>
     <div id="courseinfo">
-        Summer 2019 <br>
+        Winter 2020 <br>
         Assignments: Weekly
     </div>
     <div id="content">
@@ -59,38 +56,26 @@
                 </thead>
                 </tr>
                 <thead>
-                    <td>7/22</td>
-                    <td>Assignments</td>
-                    <td>For this last week, no <i>LTP</i> reading <i>required</i>. Instead, we have a wonderful introduction to recursion textbook
-                    written primarily by two of our past and current TAs: Alexander and Catherine! You can find it at this google doc
-                    <a href="https://docs.google.com/document/d/1S-k4GhBULn8WQKbD6q2E84y1Hb5d5OQoVE4FLWsVmwY/edit">link</a>, visible to all Berkeley email addresses. <br>
-                    At the same time, we still encourage you to read the Chapter 10 of <i>LTP</i> on recursion for completeness and a different perspective. <br>
-                    In addition, the programming assignments this week will not come from <i>LTP</i> either. </td>
-                </thead>
-                    <td>7/1</td>
+                    <td>12/21</td>
                     <td>Announcement</td>
-                    <td>Welcome to ICSBC! Please take a look around the website to get familiar with the course structure.
-                        We will be mainly communicating via `announcement` channel on Slack so please keep an eye out! <br><br>
-                        For each week, we recommend to follow the workflow below: <br>
-                        &nbsp; &nbsp;   1. Read the assigned chapters for our textbook, LTP (<i> Learn to Program </i>) <br>
-                        &nbsp; &nbsp;   2. Work on the lab <br>
-                        &nbsp; &nbsp;   3. Work on the homework - Please read the <a href="resources#ruby-style-guide">Ruby Style Guide</a> under "Resources" before coding!<br>
-                        &nbsp; &nbsp;   4. (Optional) Read the optional reading, other textbook, documentations, etc. we provide <br><br>
-                        Please ask any questions you have along the way on Slack (or Google)! We are friendly people ;)
-                    </td>
+                    <td>Welcome to Intro to CS Bootcamp! Please take a look around the website to get familiar with the course structure.
+                      We will be mainly communicating via announcements on Piazza and the `announcement` channel on Slack so please keep an eye out! <br><br>
+                      For each week, we recommend to follow the workflow below: <br>
+                      &nbsp; &nbsp;   1. Read the assigned texts and make sure you understand all the concepts. <br>
+                      &nbsp; &nbsp;   2. Work on the lab <br>
+                      &nbsp; &nbsp;   3. Work on the homework - Please read the <a href="resources#ruby-style-guide">Ruby Style Guide</a> under "Resources" before coding!<br>
+                      &nbsp; &nbsp;   4. (Optional) Read the optional reading, other textbook, documentations, etc. we provide <br><br>
+                      Please ask any questions you have along the way on Slack (or Piazza)! We are friendly people ;) </td>
+                </thead>
             </table>
         </div>
 
         <div class="segment">
-            <div class="segmenttitle">Official Textbooks</div>
+            <div class="segmenttitle">Reference Texts</div>
             <ul>
                 <li> LTP: <%= link_to "Learn To Program", asset_path("LRP.pdf", skip_pipeline: true), {:style => 'color:#f527a6', :class=>"css_class"} %> </li>
                 <li> RBT: <%= link_to "Recursion with the Best TA's", href="https://docs.google.com/document/d/1S-k4GhBULn8WQKbD6q2E84y1Hb5d5OQoVE4FLWsVmwY/edit" %>
-                    (Disclaimer: we do not actually claim to be the best TA's in the world) </li>
-            </ul>
-
-            <div class="segmenttitle">Reference Texts</div>
-            <ul>
+                  (Disclaimer: we do not actually claim to be the best TA's in the world) </li>
                 <li> RBD: <a href="https://devdocs.io/ruby~2.5/" target="_blank"> <i> Ruby Official Documentation</i>
                     </a> </li>
                 <li> PRB: <%= link_to "Programming in Ruby", asset_path("PRB.pdf", skip_pipeline: true), {:style => 'color:#f527a6', :class=>"css_class"} %> </li>
@@ -113,101 +98,101 @@
                     <!-- Week 1 -->
                     <tr class="odd">
                         <td rowspan="3">1</td>
-                        <td rowspan="3">7/1 - 7/7</td>
-                        <td> LTP Ch1-2 </td>
-                        <td> Getting Started, Numbers </td>
+                        <td rowspan="3">12/23 - 12/29</td>
+                        <td> PRB Chapter 5: page  55-57 </td>
+                        <td> Primitive Data Types (Numbers, Strings, Booleans, Nil)</td>
                         <td rowspan="3">
                             1. <%= link_to 'How Does a Program Work?', page_path('handling_user_inp_oup') %><br>
                             2. <%= link_to 'More Advanced String Processing Methods', page_path('more_advanced_string') %><br>
                         </td>
                         <td rowspan="3">
-                            <%= link_to 'Lab 1', page_path('lab1') %><br> (due 7/5)
+                            <%= link_to 'Lab 1', page_path('lab1') %><br> (due 12/29)
                         </td>
                         <td rowspan="3"><a href="materials/hw/hw0/index.html" target="_blank">
                             <%= link_to 'HW 1: Getting to Know Ruby', page_path('hw1') %><br>
-                            <p>(due 7/5)</p>
+                            <p>(due 12/29)</p>
                     </tr>
                     <tr class="odd">
-                        <td> LTP Ch3-4 </td>
-                        <td> Letters and Variables </td>
+                        <td> PRB Chapter 6: page 74-76 </td>
+                        <td> Defining and Calling Methods </td>
                     </tr>
                     <tr class="odd">
-                        <td>LTP Ch5-6</td>
-                        <td> User Input, String Methods, and Mathy Methods </td>
+                        <td> PRB Chapter 2: page 16, Chapter 7: page 87-90</td>
+                        <td> Control Structure and Boolean Logic</td>
                     </tr>
-                    <!-- Week 2 -->
-                    <tr>
-                        <td rowspan="2">2</td>
-                        <td rowspan="2">7/8 - 7/14</td>
-                        <td>LTP Ch7</td>
-                        <td> Flow Control </td>
+                    <!-- Week 2 (TO BE UPDATED)-->
+<!--                    <tr>-->
+<!--                        <td rowspan="2">2</td>-->
+<!--                        <td rowspan="2">7/8 - 7/14</td>-->
+<!--                        <td>LTP Ch7</td>-->
+<!--                        <td> Flow Control </td>-->
 
-                        <td rowspan="2">
-                          1. <%= link_to 'Fun with Logic', page_path('optional_reading2') %><br>
-                          2. <%= link_to 'A Detour on Logical Programming', page_path('logical_programming') %><br>
+<!--                        <td rowspan="2">-->
+<!--                          1. <%#= link_to 'Fun with Logic', page_path('optional_reading2') %><br>-->
+<!--                          2. <%#= link_to 'A Detour on Logical Programming', page_path('logical_programming') %><br>-->
                             <!-- 3. <a href="#" target="_blank">Fun With Logic</a><br> -->
                             <!-- 4. <a href="#" target="_blank">A Detour on Logical Programming</a> -->
-                        </td>
-                        <td rowspan="2">
-                            <%= link_to 'Lab 2', page_path('lab2') %><br> (due 7/12)
-                        </td>
-                        <td rowspan="2">
-                            <%= link_to 'HW 2: Flow Control,
-                                Arrays, and Iterators', page_path('hw2') %><br> (due 7/12)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>LTP Ch8 </td>
-                        <td> Arrays and Iterators </td>
-                    </tr>
-                    <!-- Week 3 -->
-                    <tr class="odd">
-                        <td rowspan="1">3</td>
-                        <td rowspan="1">7/15 - 7/21</td>
-                        <td>LTP Ch9</td>
-                        <td> Writing Your Own Methods, Manipulating Integers </td>
-                        <td rowspan="1">
-                            5. <%= link_to 'What\'s an Integer?', page_path('whats_integer') %><br>
-                            6. <%= link_to 'Bits and Integers', page_path('bits_and_integers') %><br>
-                            7. <%= link_to 'More on IRB', page_path('interactive_ruby') %><br>
-                        </td>
-                        <td rowspan="1">
-                            <%= link_to 'Lab 3', page_path('lab3') %><br> (due 7/19)
-                        </td>
-                        <td rowspan="1">
-                            <%= link_to 'HW 3: Writing Your Own Methods', page_path('hw3') %><br>
-                            (due 7/19)
+<!--                        </td>-->
+<!--                        <td rowspan="2">-->
+<!--                            <%#= link_to 'Lab 2', page_path('lab2') %><br> (due 7/12)-->
+<!--                        </td>-->
+<!--                        <td rowspan="2">-->
+<!--                            <%= link_to 'HW 2: Flow Control,-->
+<!--                                Arrays, and Iterators', page_path('hw2') %><br> (due 7/12)-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>LTP Ch8 </td>-->
+<!--                        <td> Arrays and Iterators </td>-->
+<!--                    </tr>-->
+                    <!-- Week 3 (TO BE UPDATED)-->
+<!--                    <tr class="odd">-->
+<!--                        <td rowspan="1">3</td>-->
+<!--                        <td rowspan="1">7/15 - 7/21</td>-->
+<!--                        <td>LTP Ch9</td>-->
+<!--                        <td> Writing Your Own Methods, Manipulating Integers </td>-->
+<!--                        <td rowspan="1">-->
+<!--                            5. <%#= link_to 'What\'s an Integer?', page_path('whats_integer') %><br>-->
+<!--                            6. <%#= link_to 'Bits and Integers', page_path('bits_and_integers') %><br>-->
+<!--                            7. <%#= link_to 'More on IRB', page_path('interactive_ruby') %><br>-->
+<!--                        </td>-->
+<!--                        <td rowspan="1">-->
+<!--                            <%#= link_to 'Lab 3', page_path('lab3') %><br> (due 7/19)-->
+<!--                        </td>-->
+<!--                        <td rowspan="1">-->
+<!--                            <%#= link_to 'HW 3: Writing Your Own Methods', page_path('hw3') %><br>-->
+<!--                            (due 7/19)-->
                             <!-- <a href="materials/hw/hw2/index.html" target="_blank">HW 3: More Interactive
                                 Methods</a><br>
                             <a href="materials/proj/proj1/index.html" target="_blank">Challenge 1: Roman Numerals</a><br>(due
                             7/19) -->
-                        </td>
-                    </tr>
-                    <!-- Week 4 -->
-                    <tr>
-                        <td rowspan="1">4</td>
-                        <td rowspan="1"> 7/22 - 7/28 </td>
-                        <td>RBT</td>
-                        <td> One Word: RECURSION </td>
+<!--                        </td>-->
+<!--                    </tr>-->
+                    <!-- Week 4 (TO BE UPDATED)-->
+<!--                    <tr>-->
+<!--                        <td rowspan="1">4</td>-->
+<!--                        <td rowspan="1"> 7/22 - 7/28 </td>-->
+<!--                        <td>RBT</td>-->
+<!--                        <td> One Word: RECURSION </td>-->
 
-                        <td rowspan="1">
-                            8. <%= link_to 'MORE Recursion (As If You Haven\'t Had Enough)', page_path('more_recursion') %><br>
-                            9. <%= link_to 'Stacking the Recursion', page_path('stack') %><br>
-                            10. <%= link_to 'All Hail Sorting, the Lightsaber of Programmers', page_path('sorting') %><br>
-                            11. <%= link_to 'There is ABSOLUTELY a Lot to Learn in Chapter 10', page_path('chapter_10') %><br>
-                            12. <%= link_to 'More on Sorting', page_path('more_on_sorting') %><br>
-                            13. <%= link_to 'Iteration vs Recursion', page_path('iteration_recursion') %><br>
-                        </td>
-                        <td rowspan="1">
-                            <%= link_to 'Lab 4', page_path('lab4') %><br> (due 7/26)
+<!--                        <td rowspan="1">-->
+<!--                            8. <%#= link_to 'MORE Recursion (As If You Haven\'t Had Enough)', page_path('more_recursion') %><br>-->
+<!--                            9. <%#= link_to 'Stacking the Recursion', page_path('stack') %><br>-->
+<!--                            10. <%#= link_to 'All Hail Sorting, the Lightsaber of Programmers', page_path('sorting') %><br>-->
+<!--                            11. <%#= link_to 'There is ABSOLUTELY a Lot to Learn in Chapter 10', page_path('chapter_10') %><br>-->
+<!--                            12. <%#= link_to 'More on Sorting', page_path('more_on_sorting') %><br>-->
+<!--                            13. <%#= link_to 'Iteration vs Recursion', page_path('iteration_recursion') %><br>-->
+<!--                        </td>-->
+<!--                        <td rowspan="1">-->
+<!--                            <%#= link_to 'Lab 4', page_path('lab4') %><br> (due 7/26)-->
                             <!-- <a href="materials/lab/lab4/index.html" target="_blank">Lab 4</a> -->
-                        </td>
-                        <td rowspan="1">
-                            <%= link_to 'HW 4: Recursive Methods', page_path('hw4') %><br>
-                            HW 4: Recursive Methods <br>
-                            (due 7/26)
-                        </td>
-                    </tr>
+<!--                        </td>-->
+<!--                        <td rowspan="1">-->
+<!--                            <%#= link_to 'HW 4: Recursive Methods', page_path('hw4') %><br>-->
+<!--                            HW 4: Recursive Methods <br>-->
+<!--                            (due 7/26)-->
+<!--                        </td>-->
+<!--                    </tr>-->
                 </tbody>
             </table>
         </div>
