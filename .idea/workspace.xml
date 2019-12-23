@@ -1,42 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe704eff-5281-407b-8f64-fcf25e40d118" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/azureSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/E98-Course-Website.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/E98-Course-Website.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/paulshao.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="704b17e1-e05b-4e46-b822-bb575995fc54" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db/development.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/azureSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/course_info.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/course_info.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/course/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/home.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/resources.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/resources.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/score.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/score.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/staffsummary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/staffsummary.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/bits_and_integers.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/bits_and_integers.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/chapter_10.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/chapter_10.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/handling_user_inp_oup.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/handling_user_inp_oup.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/hw1.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/hw1.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/interactive_ruby.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/interactive_ruby.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/lab1.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/lab1.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/logical_programming.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/logical_programming.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/more_advanced_string.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/more_advanced_string.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/stack.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/stack.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/whats_integer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/whats_integer.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,26 +25,17 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1VIz1HDSsL9cuCpQIGRlWtDctEP" />
+  <component name="ProjectId" id="1VJmiXN8RMM6zHb60iDv3Coa6Xu" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="go.import.settings.migrated" value="true" />
-    <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunDashboard">
@@ -81,17 +50,45 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Run on Local Server" type="RailsRunConfigurationType" factoryName="Rails">
+      <module name="E98-Course-Website" />
+      <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="127.0.0.1" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fe704eff-5281-407b-8f64-fcf25e40d118" name="Default Changelist" comment="" />
-      <created>1576955180681</created>
+      <changelist id="704b17e1-e05b-4e46-b822-bb575995fc54" name="Default Changelist" comment="" />
+      <created>1576979699629</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1576955180681</updated>
-      <workItem from="1576955185263" duration="926000" />
+      <updated>1576979699629</updated>
+      <workItem from="1576979701198" duration="134000" />
+      <workItem from="1576979892303" duration="22000" />
+      <workItem from="1576979938137" duration="1233000" />
+      <workItem from="1577058599785" duration="799000" />
+      <workItem from="1577066021562" duration="207000" />
     </task>
     <servers />
   </component>
@@ -103,7 +100,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
