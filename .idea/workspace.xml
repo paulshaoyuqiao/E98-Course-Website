@@ -2,41 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe704eff-5281-407b-8f64-fcf25e40d118" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/azureSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/E98-Course-Website.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/E98-Course-Website.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/paulshao.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/course_info.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/course_info.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/home.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/resources.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/resources.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/score.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/score.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/course/staffsummary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/course/staffsummary.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/bits_and_integers.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/bits_and_integers.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/chapter_10.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/chapter_10.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/handling_user_inp_oup.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/handling_user_inp_oup.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/hw1.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/hw1.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/interactive_ruby.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/interactive_ruby.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/pages/lab1.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/lab1.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/logical_programming.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/logical_programming.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/more_advanced_string.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/more_advanced_string.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/stack.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/stack.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/whats_integer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/whats_integer.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +58,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576955180681</updated>
-      <workItem from="1576955185263" duration="926000" />
+      <workItem from="1576955185263" duration="1464000" />
+      <workItem from="1577293294469" duration="51000" />
     </task>
     <servers />
   </component>
@@ -103,7 +71,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
