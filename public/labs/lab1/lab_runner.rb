@@ -36,7 +36,7 @@ def flush_and_get
 end
 
 valid_lab_start = 1
-valid_lab_end = 1
+valid_lab_end = 2
 
 if ARGV.length != 1
 	puts 'You must provide a single argument for the number of the lab you want to run.'

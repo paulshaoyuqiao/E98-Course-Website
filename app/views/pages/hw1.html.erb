@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Main | ICSBC Summer 2019</title>
+  <title>Main | ICSBC Winter 2019</title>
   <meta charset="UTF-8">
   <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
   <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
@@ -40,11 +40,11 @@
 <div id="content-container" class="content-spacer">
   <main id="content">
     <header class="title">Homework 1: Getting to know Ruby</header><ul id="markdown-toc">
-    <li><a href="#how-does-a-program-work" id="markdown-toc-how-does-a-program-work">Q1. Hours in a year </a>
+    <li><a href="#diff" id="markdown-toc-diff">Q1. Difference Between Numbers</a>
     </li>
-    <li><a href="#b-git--local-repos" id="markdown-toc-b-git--local-repos">Q2. Minutes in a decade</a></li>
-    <li><a href="#c-git-exercise" id="markdown-toc-c-git-exercise">Q3. Your age in seconds</a></li>
-    <li><a href="#d-git--remote-repos" id="markdown-toc-d-git--remote-repos">Q4. Our dear author's name</a></li>    <ul>
+    <li><a href="#leap" id="markdown-toc-leap">Q2. Is Leap Year</a></li>
+    <li><a href="#snack" id="markdown-toc-snack">Q3. Is Better Snack</a></li>
+    <li><a href="#excel" id="markdown-toc-excel">Q4. Are You Good at Excel</a></li>    <ul>
     </ul>
     </li>
     <li><a href="#e-git-checkoff" id="markdown-toc-e-git-checkoff">Q5. Full name greeting</a></li>
@@ -59,76 +59,114 @@
 
   <p><strong>Due Date:</strong> Homework 1 is due by 11:59 pm on Friday, 7/5</p>
   
-  <p><strong>Submission:</strong> When you are done, you can submit your assingment under the SCORE tab on the course website</p>
+  <p><strong>Submission:</strong> When you are done, compress the files into a zip file by directly using 
+  (<mark><font size=3 color="blue">command/ctrl</font></mark>) + left click to select all 4 files and compress them.
+  (Do NOT put all 4 files into a folder first and then compress them.)</p>
 
-    <h2 id="how-does-a-program-work">Q1. Hours in a year</h2>
+  <p><strong>Note:</strong> 
+  <ul>
+    <li>Do not modify the file names.</li>
+    <li>Do not modify the method signature, i.e. the method names and the parameter names.</li>
+    <li>Other than the two things above, feel free to write the method in any way 
+    you want (except question 1) and write any additional helper methods you want to use. </li>
+  </ul>
 
-    <p>Write a statement that prints the number of hours in a year.
+    <h2 id="diff">Q1. Difference Between Numbers</h2>
+
+    <p>Complete the following Ruby method for finding the difference between 
+    two given numbers <mark><font size=3 color="blue">x</font></mark> and 
+    <mark><font size=3 color="blue">y</font></mark>. Note that the difference 
+    between two numbers are always non-negative (>=0).</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight">
+    <code><span class="nv"></span>def diff(x, y)
+      if _______________
+        return ______________
+      else
+        return ______________
+      end
+    end
+    <span class="nt"></span></code></pre></div>    
+    </div>
+
+    <h2 id="leap">Q2. Is Leap Year </h2>
+
+    <p>Complete the following Ruby Method for determining if a given year is a leap year. 
+    Every year that is exactly divisible by four is a leap year, except for years that are 
+    exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400.
     </p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the age of Chris Pine (type: a numerical value)<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
-</code></pre></div>    </div>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight">
+    <code><span class="nv"></span><span class="nv"></span>def is_leap(year)
+      # Complete the Method
+      # returns the string “yes” if it is leap year; “no” otherwise
+    end
+    <span class="nt"></span></code></pre></div>    </div>
 
 
-    <h2 id="a-java-compilation--development">Q2. Author's age </h2>
+    <h2 id="snack">Q3. Is Better Snack</h2>
 
-    <p>Our dear author’s age. If the author is 1,025 million seconds old (which he is, though he was in the 800 millions when he started this book),
-    how old is he? Try writing a statement that prints the author's age.
+    <p>Complete the following Ruby Method that given a few attributes of two snacks A and B, 
+    determines if A is a “healthier” snack than B (assuming you don’t have to break ties in the end):
+    <br>
+    To compare a snack A with another snack B, we compare their attributes in the following specific order:
+    <ul>
+      <li> sweetness (an integer from 1 to 10 inclusive)
+        <ul><li> If a snack is less sweet, then it is considered healthier</li></ul>
+      </li>
+      <li> calories (an integer from 30 to 300 inclusive)
+        <ul><li> If a snack has less calories, then it is considered healthier</li></ul>
+      </li>
+      <li> proteins (an integer from 0 to 20 inclusive)
+        <ul><li> If a snack has more proteins, then it is considered healthier</li></ul>
+      </li>
+      <li> popularity (a string that can, in decreasing order of popularity, take on one of the following values: “viral” > “popular” > “trending” > “moderate” > “novice”)
+        <ul><li> If a snack is more popular, then it is considered healthier</li></ul>
+      </li>
+    </ul>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>
+    <span class="nv"></span>def is_better_snack(A_sweetness, A_calories, A_proteins, A_popularity, B_sweetness, B_calories, B_proteins, B_popularity)
+      # Complete the Method
+      # returns True if snack A is better than B.
+      # returns False otherwise.
+    end
+    <span class="nt"></span></code></pre></div>    </div>
+
+    
+    <h2 id="excel">Q4. Are You Good at Excel?</h2>
+
+    <p> Complete the following Ruby Method that given an integer <mark><font size=3 color="blue">n</font></mark> 
+    (with max 3 digits) representing the column number, convert this integer to its corresponding Excel 
+    representation (note that the representation will only consist of upper case English letter(s).
+
+    For example:
+    <ul>
+      <li> Column 1 would be mapped to the string “A”. </li>
+      <li> Column 2 would be mapped to the string “B”. </li>
+      <li> Column 26 would be mapped to the string “Z”. </li>
+      <li> Column 27 would be mapped to the string “AB”. </li>
+      <li> Column 28 would be mapped to the string “AC”. </li>
+    </ul>
     </p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the age of Chris Pine (type: a numerical value)<span class="k"></span>
-    <span class="nv">  <span>
- <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
-</code></pre></div>    </div>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> 
+    def convert_to_excel(n):
+      # Complete the Method
+      # Hint 1: Consider splitting your method into 3 separate cases based on the 
+      # possible number of letters the converted Excel representation can have using 
+      # the if - elsif - else statements. 
+      # Hint 2: You are welcome (but not required) to fill in the helper method 
+      # below or add additional helper methods and use it in this method. 
+      # The method we have provided below converts a 1-digit column number to the 
+      # corresponding Excel representation.
+    end
 
-
-    <h2 id="b-git--local-repos">Q3. Hours in year</h2>
-
-    <p> Write a statement that prints the number of hours in a year</p>
-
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the number of hours in a year (type: a numerical value)<span class="k"></span>
- <span class="nv"></span># Takes leap year into consideration <span class="nt"></span>
-    <span class="nv">  <span>
- <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
-</code></pre></div>    </div>
-
-    
-    <h2 id="c-git-exercise">Q4 Minutes in a decade</h2>
-
-    <p> Write a statement that prints the number of minutes in a decade</p>
-
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Prints the number of minutes in a decade (type: a numerical value) (type: a numerical value)<span class="k"></span>
- <span class="nv"></span># Takes leap year into consideration <span class="nt"></span>
-    <span class="nv">  <span>
- <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
-</code></pre></div>    </div>
-
-    
-    <h2 id="d-git--remote-repos">Q5. Better Number</h2>
-    <p> Write a program that asks for a person’s favorite number. Have your program add 1 to the number,
-    and then suggest the result as a bigger and better favorite number.
-    (Do be tactful about it, though.)</p>
-
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span># Ask for user input for their favorite number (type: a numerical value)<span class="k"></span>
- <span class="nv"></span># Prints input + 1 as a bigger better favorite number <span class="nt"></span>
-    <span class="nv">  <span>
- <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
-</code></pre></div>    </div>
-
-
-
-    <h2 id="e-git-checkoff">Q6. Full Name Greeting</h2>
-
-    <p> Write a program that asks for a person’s first
-    name, then middle, and then last. Finally, it should greet the
-    person using their full name.</p>
-
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> # Ask for user input for their favorite number (type: a numerical value)<span class="k"></span>
- <span class="nv"></span># Prints input + 1 as a bigger better favorite number<span class="nt"></span>
-    <span class="nv">  <span>
- <span class="nv"></span>## YOUR CODE HERE <span class="nt"></span>
+    def convert_single_digit(n):
+      # Complete the Method
+      # Note that n is guaranteed to have only 1 digit!
+    end
+    <span class="nt"></span>
 </code></pre></div>    </div>
 
   </main>
