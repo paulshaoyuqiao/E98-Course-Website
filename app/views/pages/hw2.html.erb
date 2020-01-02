@@ -47,8 +47,7 @@
     </li>
     <li><a href="#asteroids" id="markdown-toc-asteroids">Q2. Asteroid Tracker</a></li>
     <li><a href="#adder" id="markdown-toc-adding-numbers">Q3. Adding Numbers</a></li>
-    <li><a href="#cycle" id="markdown-toc-cycle">Q4. Loop Avoidance</a></li>
-    <li><a href="#file" id="markdown-toc-file">Q5. File System Sweeper</a></li>
+    <li><a href="#file" id="markdown-toc-file">Q4. File System Sweeper</a></li>
   </ul>
 
 
@@ -140,7 +139,7 @@
       Given a base $b$ (<strong>you may assume $b \leq 10$ </strong>), complete the following method that adds the numbers represented by two arrays $X$ and $Y$ in base $b$ and returns the resulting sum in a similar array form.
     </p>
     <pre class="prettyprint">
-        def add_numbers(X, Y, b)
+        def add_numbers(x, y, b)
           # Complete the Method Body
 
           # Takes in 2 arrays representing integers X and Y in base b.
@@ -158,31 +157,7 @@
       </ol> 
     </p>
     
-    
-    <h2 id="cycle">Q4. Loop Avoidance</h2>
-     <p><strong><font size="4" color="tomato">Prerequisite</font></strong></p>
-     <p>To complete this problem, you need to first finish reading the materials on <strong>"Linked Structures"</strong>. If not, please read that first because the problem will rely on your understanding of the concepts we introduced in the materials :)</p>
-    <p><strong><font size="4" color="tomato">Introduction</font></strong></p>
-    <p><strong>Loop avoidance</strong> is an important concept in computer science. It helps detect and avoid logic that can potentially result in an infinite cycle, especially for a linked structure.</p>
-
-    <p>In the case of a linked list, when we traverse from elements to elements, it is possible that the <code>next</code> pointer of the current entry in the list could be directing us back to a previous entry. If we just iterate down the linked list, <strong>this particular <code>next</code> pointer will direct us back to a previous location we have already visited every single time, so we will just never finish iterating!</strong>. Such is a waste of energy, resources, and computation power! </p>
-
-    <p>Here's an illustration of a linked list containing the type of cycle we described above:</p>
-    <p style="text-align:center;">
-    <img src="https://i2.wp.com/www.techiedelight.com/wp-content/uploads/Cycle-linked-list.png?zoom=2.625&resize=368%2C146&ssl=1" width="400" height="160" >
-    </p>
-  
-    <p>Complete the following method to detect if a given linked list $L$ contains such a cycle.</p>
-
-    <pre class="prettyprint">
-        def contains_cycle(L)
-          # Complete the Method Body
-
-          # Takes in a linked list L of finite length.
-          # Returns true if L contains a cycle, false otherwise.
-        end
-    </pre>
-    <h2 id="file">Q5. File System Sweeper</h2>
+    <h2 id="file">Q4. File System Sweeper</h2>
     <p>In this problem, you will build a feature of a file system sweeper. A file system sweeper is a helpful software on your laptop that periodically checks for files that are duplicates or no longer in use and clears them out to release more storage to you.
     </p>
 
