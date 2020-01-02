@@ -32,9 +32,6 @@
   <a href="/staffsummary">
     <div class="navitem">Staff</div>
   </a>
-  <a href="/scores">
-    <div class="navitem">Scores</div>
-  </a>
   <a href="resources">
     <div class="navitem">Resources</div>
   </a>
@@ -42,18 +39,16 @@
 
 <div id="content-container" class="content-spacer">
   <main id="content">
-    <header class="title">Homework 2: Flow Control, Arrays, and Iterators</header><ul id="markdown-toc">
+    <header class="title">Homework 2: Flow Control, Arrays, Linked Structures, and Hashes</header>
+    <ul id="markdown-toc">
+    <li><font color="slateblue" size="3.5"><strong>NOTE: </strong>If the math expressions are not rendering correctly after you clicked on the link to go to the problem (you are seeing a lot of "$" signs around), <strong>refresh the webpage again</strong> and everything should be rendered correctly :)</font></li>
     <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a>
-    <li><a href="#99-bottles" id="markdown-toc-99-bottles">Q1. 99 Bottles Of Beer On the Wall</a>
+    <li><a href="#prime" id="markdown-toc-prime">Q1. Longest Collatz Sequence</a>
     </li>
-    <li><a href="#deaf-grandma" id="markdown-toc-deaf-grandma">Q2. Deaf Grandma</a></li>
-    <li><a href="#deaf-grandma-extended" id="markdown-toc-deaf-grandma-extended">Q3. Deaf Grandma Extended</a></li>
-    <li><a href="#leap-year-counter" id="markdown-toc-leap-year-counter">Q4. Leap Year Counter</a></li>    <ul>
-    </ul>
-    </li>
-    <li><a href="#array-sort" id="markdown-toc-array-sort">Q5. Array Sort</a></li>
-    <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Q6. Table of Contents
-    </a></li>
+    <li><a href="#asteroids" id="markdown-toc-asteroids">Q2. Asteroid Tracker</a></li>
+    <li><a href="#adder" id="markdown-toc-adding-numbers">Q3. Adding Numbers</a></li>
+    <li><a href="#cycle" id="markdown-toc-cycle">Q4. Loop Avoidance</a></li>
+    <li><a href="#file" id="markdown-toc-file">Q5. File System Sweeper</a></li>
   </ul>
 
 
@@ -61,106 +56,163 @@
 
   <p>Download <%= link_to 'hw2.zip', '/hw/hw2.zip'%></p>
 
-  <p><strong>Due Date:</strong> Homework 2 is due by 11:59 pm on Friday, 7/12</p>
+  <p><strong>Due Date:</strong> Homework 2 is due by 11:59 pm on Sunday, 1/5</p>
   
-  <p><strong>Submission:</strong> When you are done, you can submit your assingment under the SCORE tab on the course website</p>
+  <p><strong>Submission:</strong> When you are done, you can submit your files to the corresponding assignment on Gradescope</p>
 
-  <h2 id="99-bottles">Q1. 99 Bottles Of Beer On the Wall</h2>
+  <h2 id="prime">Q1. Longest Collatz Sequence</h2>
+  <p>
+    The following iterative sequence is defined for any <strong>positive integer</strong> $n$:
+    $$
+    \left\{\begin{matrix}
+        n \rightarrow n/2 &  \text{ if } n \text{ is even }\\ 
+        n \rightarrow 3n + 1 & \text{ if } n \text{ is odd } 
+        \end{matrix}\right.
+    $$
 
-  <p><b>Requirements:</b></p>
-  <ul>
-    <li> Write a program that prints out the lyrics to the classic, “99 Bottles of Beer on the Wall.” </li>
-    <li> Here’s a handy <a href="http://www.99-bottles-of-beer.net/lyrics.html">reference</a>. It must look like this. That means an exact match in the lyrics, and also formatted in the same way with lines in between.</li>
-  </ul>
+    For example, if we use the rule above and start with 13, we generate the following sequence:
+    $$13 \rightarrow 40 \rightarrow 20 \rightarrow 10 \rightarrow 5 \rightarrow 16 \rightarrow 8 \rightarrow 4 \rightarrow 2 \rightarrow 1$$
+
+    It can be seen that this sequence (starting at $13$ and finishing at $1$) <strong>contains 10 numbers in total</strong>. Although it has not been mathematically proven yet, but through numerical computation, so far we have found all the tested positive integers $n$ to <strong>finish at 1</strong>.
+  </p>
+    <p>Complete the following method that finds the largest positive integer less than $x$ that <strong>produces the longest possible sequence</strong>.</p>
+    <pre class="prettyprint">
+        def longest_collatz(x)
+          # Complete the Method Body
+
+          # Takes in a positive integer x.
+          # Returns the largest positive integer less than x that produces 
+          # the longest possible sequence based on the provided iterative rule.
+        end
+    </pre>
+    <h2 id="asteroids">Q2. Asteroid Tracker</h2>
+    <p><strong><font size="4" color="tomato">Introduction</font></strong></p>
+    <p>
+       Seeing your coding potential, NASA wants to recruit you to implement their next state-of-the-art space defense system! Part of the system requires you to build an <strong>asteroid tracker</strong> that keep track of the activites of all the near-Earth asteroids in case one were to collide with the Earth within the next few weeks, everyone would be prepared for it. 
+    </p>
+    <p>
+       Suppose your tracker only observes incoming asteroids that are parallel to its current altitude (relative to the observatory on the ground), this helps simplify things a lot more: <strong>the asteroids observed by your tracker can only move in 2 directions, either to the left or to the right</strong>.
+    </p>
+    <p>
+       Since the asteroids observed by the optical infrared telescope on your tracker are in fact still some distance away (in space), the chance of them colliding with each other is still quite high! Based on each asteroid's mass, which we will represent as an integer, <strong>the following set of rules applies when two asteroids $A$ and $B$ collide with each other (and in addition, suppose $A$ has a mass of $m_A$, and $B$ has a mass of $m_B$</strong>:
+    </p>
+    <ul>
+      <li>If $A$ is heavier than $B$, then upon collision, only $A$ will remain and with a mass of $m_A - m_B$.</li>
+      <li>If $B$ is heavier than $A$, then upon collision, only $B$ will remain and with a mass of $m_B - m_A$.</li>
+      <li>For the asteroid that remains upon collision, it still moves in the same direction as before with the same speed.</li>
+      <li>If $A$ and $B$ have the same mass, then upon collision, neither of the asteroids will remain.</li>
+    </ul>
+    <p><strong><font size="4" color="tomato">Problem Formulation</font></strong></p>
+    <p>
+       Now that you have enough context, let's talk about the collision tracker itself! For simplicity, we will represent all the asteroids observed as an array $A$ of $n$ integers $[x_1, x_2, \dots, x_n]$. In the array:
+       <ul>
+        <li>Each element $x_i$ represents an asteroid that comes into the tracker's scope.</li>
+        <li>Suppose only one asteroid comes into the tracker's scope from one direction (left, right) at a time, an element that shows up later in the array that has the same direction as the asteroid before it comes later into the tracker's scope.</li>
+        <li>We assume all asteroids have the same speed.</li>
+        <li>The <strong>absolute value</strong> of $x_i$ represents the mass of the asteroid.</li>
+        <li>$x_i > 0$ if the asteroid is moving from, and $x_i < 0$ if the asteroid is moving  <strong>right to left</strong>.</li>
+       </ul> 
+    </p>
+    <p>Your job is to complete the following method that, given an array of asteroids that move into the tracker's scope, determines the asteroids that remain <strong>after all the collisions have happened</strong>.
+    </p>
+    <pre class="prettyprint">
+        def track_collisions(A)
+          # Complete the Method Body
+
+          # Takes in an array of integers A encoding the asteroids.
+          # Returns an array representing the asteroids remaining after 
+          # all the collisions have happened within the tracker's scope.
+        end
+    </pre>
+    <p>Here are a few examples:
+    <ol>
+      <li> For $A = [3, -4, -5]$, after all the collisions, we will have the array $[-1, -5]$ since the first two asteroids collide with each other. When they collide, the 2nd asteroid remains (because it is heavier) with a remaining mass of $4-3=1$.</li>
+      <li> For $A = [-1, -2, 3]$, after all the collisions, we will have an empty array $[]$ since the 2nd and 3rd asteroids collide with each toher. When they collide, the 3rd asteroid remains with a mass of $3-2=1$. The 3rd asteroid then collides with the 1st asteroid, and since they are equally heavy, no asteroids remain afterwards.</li>
+      <li> For $A = [1, 2, 3]$, after all the collisions, we will have the array $[1, 2, 3]$ since all 3 asteroids move in the same direction so they will never collide with each other.</li>
+    </ol>
+    </p>
   <br>
-  <p><b> Clarifications/Advice: </b></p>
-  <ul>
-    <li> Main thing to look out for here is that the lyrics change when you get to one or zero bottles of beer left on the wall, so make sure you account for it! <br>
-         And while we're here, what have we learned about recently that lets you do a thing over and over with minor changes until some condition is met? <br>
-    <li> Writing code that simply puts the entire thing in one go, that is, copy pasting the lyrics and adding puts to the start of each line, will get no credit. 
-  </ul>
+    <h2 id="adder">Q3. Adding Numbers</h2>
+    <p>
+      You are given two <strong>non-empty</strong> arrays $X$ and $Y$ representing two non-negative integers (the digits are in the normal orders as if we read them from left to right). 
+    </p>
+    <p>
+      Given a base $b$ (<strong>you may assume $b \leq 10$ </strong>), complete the following method that adds the numbers represented by two arrays $X$ and $Y$ in base $b$ and returns the resulting sum in a similar array form.
+    </p>
+    <pre class="prettyprint">
+        def add_numbers(X, Y, b)
+          # Complete the Method Body
 
-    <h2 id="deaf-grandma">Q2. Deaf Grandma</h2>
-    <p><b>Requirements:</b></p>
-  <ul>
-    <li> Whatever you say to Grandma (whatever you type in), she should respond with this: "HUH?! SPEAK UP, SONNY!" </li>
-    <li> unless you shout it (type in all capitals). If you shout, she can hear you (or at least she thinks so) and yells back: "NO, NOT SINCE 1938!"</li>
-    <li> To make your program really believable, have Grandma shout a different year each time. This has been changed to a requirement, i.e. The year must be completely random (same probability for each year) from 1930 to 1950, inclusive.</li>
-  </ul>
-  <br>
-  <p><b> Clarifications/Advice: </b></p>
-  <ul>
-    <li> Don’t forget about <mark><font size=3 color="blue">.chomp</font></mark>! 'BYE' with an <mark><font size=3 color="blue">Enter</font></mark> at the end is not the same as 'BYE' without one! </li>
-    <li> Try to think about what parts of your program should happen over and over again. All of those should be in your while loop. </li>
-    <li> People often ask, “How can I make rand give me a number in a range not starting at zero?” But you don’t need it to. Is there something you could do to the number rand returns to you? </li> 
-  </ul>  
-
-
-
-    <h2 id="deaf-grandma-extended">Q3. Deaf Grandma Extended</h2>
-
-    <p><b>Requirements:</b></p>
-    <ul>
-      <li> What if Grandma doesn’t want you to leave? When you shout BYE, she could pretend not to hear you. Change your previous program so that you have to shout BYE three times in a row. </li>
-      <li> Make sure to test your program: if you shout BYE three times but not in row, you should still be talking to Grandma.</li>
-    </ul>
-    <br>
-    <p><b> Clarifications/Advice: </b></p>
-    <ul>
-      <li> It's an extension of the previous, so I'd recommend you copy over your previous code and modify it instead of starting over.</li>
-      <li> <b>Important</b>: Main thing that trips people up is not making sure that the three "BYE"s are given in a row. A common mistake was to misinterpret it as exiting on "BYE BYE BYE", but that’s not quite right. For the program to exit you should have to type in "BYE" as your response three times, with Grandma pretending not to hear you the first two times, before giving up and saying goodbye on the third. </li> 
-      <li> Make sure to test your program with ALL the sequences of replies Sony gives, and see if Grandma responds correctly! (Reminder: In the terminal, in this homework's directory, run <mark><font size=3 color="blue">ruby FILE_NAME.rb</font></mark> to run a program you wrote!) </li>
-    </ul>  
+          # Takes in 2 arrays representing integers X and Y in base b.
+          # Returns an array representing the sum X + Y in base b.
+        end
+    </pre>
+    <p>
+      For clarification, normally we work with numbers in base 10 (we just ommit "10"). More generally, if a number $xyz$ has a base of 3, we can write it as $xyz_3$, and in base 10, this is equivalent to $3^2 x + 3^1 y + 3^0 z = 9x+3y+z$.
+    </p>
+    <p>
+      Here are a few examples:
+      <ol>
+        <li>Given $X=[3, 2]$, $Y=[6, 8]$ and the base $b=10$, we will return the array $[1, 0, 0]$ since $32_{10} + 68_{10} = 100$. </li>
+        <li>Given $X=[1, 1, 1, 1]$, $Y=[1]$ and the base $b=2$, we will return the array $[1, 0, 0, 0, 0]$ since $1111_2 + 1_2 = 15_{10}+1_{10} = 16_{10} = 10000_2$.</li>
+      </ol> 
+    </p>
     
     
-    <h2 id="leap-year-counter">Q4. Leap Year Counter</h2>
+    <h2 id="cycle">Q4. Loop Avoidance</h2>
+     <p><strong><font size="4" color="tomato">Prerequisite</font></strong></p>
+     <p>To complete this problem, you need to first finish reading the materials on <strong>"Linked Structures"</strong>. If not, please read that first because the problem will rely on your understanding of the concepts we introduced in the materials :)</p>
+    <p><strong><font size="4" color="tomato">Introduction</font></strong></p>
+    <p><strong>Loop avoidance</strong> is an important concept in computer science. It helps detect and avoid logic that can potentially result in an infinite cycle, especially for a linked structure.</p>
 
-    <p><b>Requirements:</b></p>
-    <ul>
-      <li> Write a program that asks for a starting year and an ending year and then puts all the leap years between them (and including them, if they are also leap years). Leap years are years divisible by 4 (like 1984 and 2004). 
-      <li> However, years divisible by 100 are not leap years (such as 1800 and 1900) unless they are also divisible by 400 (such as 1600 and 2000, which were in fact leap years). What a mess!</li>
-    </ul>
-    <br>
-    <p><b> Clarifications/Advice: </b></p>
-    <ul>
-      <li> Key for this one is keeping the conditions needed for a year to be a leap year in mind. It has to be divisible by 400, or divisible by 4 and not by 100. It’s easy to get mixed up, so double check by trying it out and comparing with this <a href="http://www.onlineconversion.com/leapyear.htm">site</a>. </li>
-    </ul>  
-    
+    <p>In the case of a linked list, when we traverse from elements to elements, it is possible that the <code>next</code> pointer of the current entry in the list could be directing us back to a previous entry. If we just iterate down the linked list, <strong>this particular <code>next</code> pointer will direct us back to a previous location we have already visited every single time, so we will just never finish iterating!</strong>. Such is a waste of energy, resources, and computation power! </p>
 
-    <h2 id="array-sort">Q5. Array Sort</h2>
-    <p><b>Requirements:</b></p>
-    <ul>
-      <li> Write the program we talked about at the beginning of this chapter, one that asks us to type as many words as we want (one word per line, continuing until we just press Enter on an empty line) and then repeats the words back to us in alphabetical order. </li>
-    </ul>
-    <br>
-    <p><b> Clarifications/Advice: </b></p>
-    <ul>
-      <li> Make sure to test your program thoroughly; for example, does hitting <mark><font size=3 color="blue">Enter</font></mark> on an empty line always exit your program? Even on the first line? And the second? </li>
-      <li> There’s a lovely array method that will give you a sorted version of an array: <mark><font size=3 color="blue">.sort</font></mark>. Use it! </li>
-    </ul>  
-    
+    <p>Here's an illustration of a linked list containing the type of cycle we described above:</p>
+    <p style="text-align:center;">
+    <img src="https://i2.wp.com/www.techiedelight.com/wp-content/uploads/Cycle-linked-list.png?zoom=2.625&resize=368%2C146&ssl=1" width="400" height="160" >
+    </p>
+  
+    <p>Complete the following method to detect if a given linked list $L$ contains such a cycle.</p>
 
-    <h2 id="table-of-contents">Q6. Table Of Contents</h2>
+    <pre class="prettyprint">
+        def contains_cycle(L)
+          # Complete the Method Body
 
-    <p><b>Requirements:</b></p>
-    <ul>
-      <li> Rewrite your table of contents program from chapter 6. Start the program with an array holding all of the information for your table of contents (chapter names, page numbers, and so on). Then print out the information from the array in a beautifully formatted table of contents.</li>
-    </ul>
-    <br>
-    <p><b> Clarifications/Advice: </b></p>
-    <ul>
-      <li> Main thing is to actually use an array to store your strings, don’t just copy paste the old code. <b>You will get no credit if you don't use arrays.</b> </li>
-      <li> A possible misinterpretation is to just literally store all the variables you'll need in an array like 
-      <mark><font size=3 color="blue">stuff_i_will_need = ["Table of Contents", 1, "Getting Started", 1, 2, "Numbers", 9]</font></mark>. 
-      But if you do that, you'll notice that it doesn't make the code any easier to write. Programmers don't usually just store a bunch of different stuff in an array just like that! 
-      Instead, you'll have an array containing the first X, the second X, and so on. For example, <mark><font size=3 color="blue">chapter_names = ["Getting Started", "Numbers", "Letters"]</font></mark> 
-      contains the first chapter name, the second name, etc. Or if you want to be clever, you can use a nested array: 
-      <mark><font size=3 color="blue">chapters = [["Getting Started", 1], ["Numbers", 9], ["Letters", 13]]</font></mark>. 
-      Either way, you'll now be able to do everything in an elegant loop (use the <mark><font size=3 color="blue">.each</font></mark> or <mark><font size=3 color="blue">.each_with_index</font></mark> 
-      method -- google the latter). That's the beauty of arrays. </li>
-    </ul>  
-    
+          # Takes in a linked list L of finite length.
+          # Returns true if L contains a cycle, false otherwise.
+        end
+    </pre>
+    <h2 id="file">Q5. File System Sweeper</h2>
+    <p>In this problem, you will build a feature of a file system sweeper. A file system sweeper is a helpful software on your laptop that periodically checks for files that are duplicates or no longer in use and clears them out to release more storage to you.
+    </p>
 
+    <p>Given a list of directory info including directory path, and all the files with contents in this directory, you need to find out all the groups of duplicate files in the file system in terms of their paths.</p>
+
+    <p>A group of duplicate files consists of <strong>at least two files</strong> that have exactly the same content.</p>
+
+    <p>A single directory info string in the <strong>input</strong> list has the following format:</p>
+
+    <p><code>"root/d1/d2/.../dm f1.txt(f1_content) ... fn.txt(fn_content)"</code></p>
+
+    <p>It means there are $n$ files <code>f1.txt, f2.txt ... fn.txt</code> with content <code>f1_content, f2_content ... fn_content</code>, respectively) in directory <code>root/d1/d2/.../dm</code>. Note that $n geq 1$ and $m \geq 0$. If $m = 0$, it means the directory is just the root directory.</p>
+
+    <p>Complete the following method which outputs a list of group of duplicate file paths. For each group, it contains all the file paths of the files that have the same content. A file path is a string that has the following format:</p>
+
+    <p><code>"directory_path/file_name.txt"</code></p>
+
+    <pre class="prettyprint">
+        def find_duplicate(file_paths)
+          # Complete the Method Body
+
+          # Takes in a list of file paths (strings).
+          # Returns a list of group of dupliate file paths.
+        end
+    </pre>
+
+    <p>Here is an example:</p>
+    <ol>
+      <li>Given the file paths <code>["root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"]</code>, we will return the following list of group of duplicate file paths: <code>[["root/a/2.txt","root/c/d/4.txt","root/4.txt"],["root/a/1.txt","root/c/3.txt"]]</code></li>
+    <ol>
   </main>
 </div>
 </body>
@@ -172,6 +224,7 @@
 <script type="text/javascript"
         src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <script>
     $("#markdown-toc").insertBefore("#content");
 </script>
