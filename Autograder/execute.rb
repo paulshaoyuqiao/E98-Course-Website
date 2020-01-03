@@ -19,12 +19,7 @@ class Exec
           "new_roman_numerals.rb"=> %w(new_roman0 new_roman1 new_roman2 new_roman3 new_roman4 new_roman5)
       },
       "week2" => {
-          "99_bob.rb" => ["bottles_99"],
-          "deaf_grandma.rb" => %w(deaf_grandma1 deaf_grandma2 deaf_grandma3 deaf_grandma4),
-          "deaf_grandma_extended.rb" => %w(extended_deaf_grandma1 extended_deaf_grandma2 extended_deaf_grandma3 extended_deaf_grandma4),
-          "leap_year_counter.rb" => %w(leap_year_counter1 leap_year_counter2 leap_year_counter3),
-          "array_sort.rb" => %w(arr_sort1 arr_sort2 arr_sort3),
-          "table_of_contents.rb" => ["table_of_contents"]
+          "q1.rb" => %w(q1_1 q1_2 q1_3 q1_4 q1_5 q1_6 q1_7 q1_8 q1_9 q1_10 q1_11 q1_12),
       },
       "week1" => {
           "age_in_seconds.rb" => ["age_in_seconds"],
