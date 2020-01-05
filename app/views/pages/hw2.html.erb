@@ -39,13 +39,15 @@
 
 <div id="content-container" class="content-spacer">
   <main id="content">
-    <header class="title">Homework 2: Flow Control, Arrays, Linked Structures, and Hashes</header><ul id="markdown-toc">
-    <li><a href="#prime" id="markdown-toc-prime-hunter">Q1. Prime Hunter</a>
+    <header class="title">Homework 2: Flow Control, Arrays, Linked Structures, and Hashes</header>
+    <ul id="markdown-toc">
+    <li><font color="slateblue" size="3.5"><strong>NOTE: </strong>If the math expressions are not rendering correctly after you clicked on the link to go to the problem (you are seeing a lot of "$" signs around), <strong>refresh the webpage again</strong> and everything should be rendered correctly :)</font></li>
+    <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a>
+    <li><a href="#prime" id="markdown-toc-prime">Q1. Longest Collatz Sequence</a>
     </li>
-    <li><a href="#asteroid" id="markdown-toc-asteroid-tracker">Q2. Asteroid Tracker</a></li>
-    <li><a href="#add" id="markdown-toc-add">Q3. Adding Numbers</a></li>
-    <li><a href="#word" id="markdown-toc-excel">Q4. Word of the Decade</a></li>
-    <li><a href="#cycle" id="markdown-toc">
+    <li><a href="#asteroids" id="markdown-toc-asteroids">Q2. Asteroid Tracker</a></li>
+    <li><a href="#adder" id="markdown-toc-adding-numbers">Q3. Adding Numbers</a></li>
+    <li><a href="#file" id="markdown-toc-file">Q4. File System Sweeper</a></li>
   </ul>
 
 
@@ -53,118 +55,139 @@
 
   <p>Download <%= link_to 'hw1.zip', '/hw/hw1.zip'%></p>
 
-  <p><strong>Due Date:</strong> Homework 1 is due by 11:59 pm on Friday, 7/5</p>
+  <p><strong>Due Date:</strong> Homework 2 is due by 11:59 pm on Sunday, 1/5</p>
   
-  <p><strong>Submission:</strong> When you are done, compress the files into a zip file by directly using 
-  (<mark><font size=3 color="blue">command/ctrl</font></mark>) + left click to select all 4 files and compress them.
-  (Do NOT put all 4 files into a folder first and then compress them.)</p>
+  <p><strong>Submission:</strong> When you are done, you can submit your files to the corresponding assignment on Gradescope</p>
 
-  <p><strong>Note:</strong> 
-  <ul>
-    <li>Do not modify the file names.</li>
-    <li>Do not modify the method signature, i.e. the method names and the parameter names.</li>
-    <li>Other than the two things above, feel free to write the method in any way 
-    you want (except question 1) and write any additional helper methods you want to use. </li>
-  </ul>
+  <h2 id="prime">Q1. Longest Collatz Sequence</h2>
+  <p>
+    The following iterative sequence is defined for any <strong>positive integer</strong> $n$:
+    $$
+    \left\{\begin{matrix}
+        n \rightarrow n/2 &  \text{ if } n \text{ is even }\\ 
+        n \rightarrow 3n + 1 & \text{ if } n \text{ is odd } 
+        \end{matrix}\right.
+    $$
 
-    <h2 id="diff">Q1. Difference Between Numbers</h2>
+    For example, if we use the rule above and start with 13, we generate the following sequence:
+    $$13 \rightarrow 40 \rightarrow 20 \rightarrow 10 \rightarrow 5 \rightarrow 16 \rightarrow 8 \rightarrow 4 \rightarrow 2 \rightarrow 1$$
 
-    <p>Complete the following Ruby method for finding the difference between 
-    two given numbers <mark><font size=3 color="blue">x</font></mark> and 
-    <mark><font size=3 color="blue">y</font></mark>. Note that the difference 
-    between two numbers are always non-negative (>=0).</p>
+    It can be seen that this sequence (starting at $13$ and finishing at $1$) <strong>contains 10 numbers in total</strong>. Although it has not been mathematically proven yet, but through numerical computation, so far we have found all the tested positive integers $n$ to <strong>finish at 1</strong>.
+  </p>
+    <p>Complete the following method that finds the largest positive integer less than $x$ that <strong>produces the longest possible sequence</strong>.</p>
+    <pre class="prettyprint">
+        def longest_collatz(x)
+          # Complete the Method Body
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight">
-    <code><span class="nv"></span>def diff(x, y)
-      if _______________
-        return ______________
-      else
-        return ______________
-      end
-    end
-    <span class="nt"></span></code></pre></div>    
-    </div>
-
-    <h2 id="leap">Q2. Is Leap Year </h2>
-
-    <p>Complete the following Ruby Method for determining if a given year is a leap year. 
-    Every year that is exactly divisible by four is a leap year, except for years that are 
-    exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400.
+          # Takes in a positive integer x.
+          # Returns the largest positive integer less than x that produces 
+          # the longest possible sequence based on the provided iterative rule.
+        end
+    </pre>
+    <h2 id="asteroids">Q2. Asteroid Tracker</h2>
+    <p><strong><font size="4" color="tomato">Introduction</font></strong></p>
+    <p>
+       Seeing your coding potential, NASA wants to recruit you to implement their next state-of-the-art space defense system! Part of the system requires you to build an <strong>asteroid tracker</strong> that keep track of the activites of all the near-Earth asteroids in case one were to collide with the Earth within the next few weeks, everyone would be prepared for it. 
     </p>
-
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight">
-    <code><span class="nv"></span><span class="nv"></span>def is_leap(year)
-      # Complete the Method
-      # returns the string “yes” if it is leap year; “no” otherwise
-    end
-    <span class="nt"></span></code></pre></div>    </div>
-
-
-    <h2 id="snack">Q3. Is Better Snack</h2>
-
-    <p>Complete the following Ruby Method that given a few attributes of two snacks A and B, 
-    determines if A is a “healthier” snack than B (assuming you don’t have to break ties in the end):
-    <br>
-    To compare a snack A with another snack B, we compare their attributes in the following specific order:
+    <p>
+       Suppose your tracker only observes incoming asteroids that are parallel to its current altitude (relative to the observatory on the ground), this helps simplify things a lot more: <strong>the asteroids observed by your tracker can only move in 2 directions, either to the left or to the right</strong>.
+    </p>
+    <p>
+       Since the asteroids observed by the optical infrared telescope on your tracker are in fact still some distance away (in space), the chance of them colliding with each other is still quite high! Based on each asteroid's mass, which we will represent as an integer, <strong>the following set of rules applies when two asteroids $A$ and $B$ collide with each other (and in addition, suppose $A$ has a mass of $m_A$, and $B$ has a mass of $m_B$</strong>:
+    </p>
     <ul>
-      <li> sweetness (an integer from 1 to 10 inclusive)
-        <ul><li> If a snack is less sweet, then it is considered healthier</li></ul>
-      </li>
-      <li> calories (an integer from 30 to 300 inclusive)
-        <ul><li> If a snack has less calories, then it is considered healthier</li></ul>
-      </li>
-      <li> proteins (an integer from 0 to 20 inclusive)
-        <ul><li> If a snack has more proteins, then it is considered healthier</li></ul>
-      </li>
-      <li> popularity (a string that can, in decreasing order of popularity, take on one of the following values: “viral” > “popular” > “trending” > “moderate” > “novice”)
-        <ul><li> If a snack is more popular, then it is considered healthier</li></ul>
-      </li>
+      <li>If $A$ is heavier than $B$, then upon collision, only $A$ will remain and with a mass of $m_A - m_B$.</li>
+      <li>If $B$ is heavier than $A$, then upon collision, only $B$ will remain and with a mass of $m_B - m_A$.</li>
+      <li>For the asteroid that remains upon collision, it still moves in the same direction as before with the same speed.</li>
+      <li>If $A$ and $B$ have the same mass, then upon collision, neither of the asteroids will remain.</li>
     </ul>
+    <p><strong><font size="4" color="tomato">Problem Formulation</font></strong></p>
+    <p>
+       Now that you have enough context, let's talk about the collision tracker itself! For simplicity, we will represent all the asteroids observed as an array $A$ of $n$ integers $[x_1, x_2, \dots, x_n]$. In the array:
+       <ul>
+        <li>Each element $x_i$ represents an asteroid that comes into the tracker's scope.</li>
+        <li>Suppose only one asteroid comes into the tracker's scope from one direction (left, right) at a time, an element that shows up later in the array that has the same direction as the asteroid before it comes later into the tracker's scope.</li>
+        <li>We assume all asteroids have the same speed.</li>
+        <li>The <strong>absolute value</strong> of $x_i$ represents the mass of the asteroid.</li>
+        <li>$x_i > 0$ if the asteroid is moving from <strong>left to right</strong>, and $x_i < 0$ if the asteroid is moving from <strong>right to left</strong>.</li>
+       </ul> 
+    </p>
+    <p>Your job is to complete the following method that, given an array of asteroids that move into the tracker's scope, determines the asteroids that remain <strong>after all the collisions have happened</strong>.
+    </p>
+    <pre class="prettyprint">
+        def track_collisions(A)
+          # Complete the Method Body
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>
-    <span class="nv"></span>def is_better_snack(A_sweetness, A_calories, A_proteins, A_popularity, B_sweetness, B_calories, B_proteins, B_popularity)
-      # Complete the Method
-      # returns True if snack A is better than B.
-      # returns False otherwise.
-    end
-    <span class="nt"></span></code></pre></div>    </div>
+          # Takes in an array of integers A encoding the asteroids.
+          # Returns an array representing the asteroids remaining after 
+          # all the collisions have happened within the tracker's scope.
+        end
+    </pre>
+    <p>Here are a few examples:
+    <ol>
+      <li> For $A = [3, -4, -5]$, after all the collisions, we will have the array $[-1, -5]$ since the first two asteroids collide with each other. When they collide, the 2nd asteroid remains (because it is heavier) with a remaining mass of $4-3=1$.</li>
+      <li> For $A = [-1, -2, 3]$, after all the collisions, we will have an empty array $[]$ since the 2nd and 3rd asteroids collide with each toher. When they collide, the 3rd asteroid remains with a mass of $3-2=1$. The 3rd asteroid then collides with the 1st asteroid, and since they are equally heavy, no asteroids remain afterwards.</li>
+      <li> For $A = [1, 2, 3]$, after all the collisions, we will have the array $[1, 2, 3]$ since all 3 asteroids move in the same direction so they will never collide with each other.</li>
+    </ol>
+    </p>
+  <br>
+    <h2 id="adder">Q3. Adding Numbers</h2>
+    <p>
+      You are given two <strong>non-empty</strong> arrays $X$ and $Y$ representing two non-negative integers (the digits are in the normal orders as if we read them from left to right). 
+    </p>
+    <p>
+      Given a base $b$ (<strong>you may assume $b \leq 10$ </strong>), complete the following method that adds the numbers represented by two arrays $X$ and $Y$ in base $b$ and returns the resulting sum in a similar array form.
+    </p>
+    <pre class="prettyprint">
+        def add_numbers(x, y, b)
+          # Complete the Method Body
 
+          # Takes in 2 arrays representing integers X and Y in base b.
+          # Returns an array representing the sum X + Y in base b.
+        end
+    </pre>
+    <p>
+      For clarification, normally we work with numbers in base 10 (we just ommit "10"). More generally, if a number $xyz$ has a base of 3, we can write it as $xyz_3$, and in base 10, this is equivalent to $3^2 x + 3^1 y + 3^0 z = 9x+3y+z$.
+    </p>
+    <p>
+      Here are a few examples:
+      <ol>
+        <li>Given $X=[3, 2]$, $Y=[6, 8]$ and the base $b=10$, we will return the array $[1, 0, 0]$ since $32_{10} + 68_{10} = 100$. </li>
+        <li>Given $X=[1, 1, 1, 1]$, $Y=[1]$ and the base $b=2$, we will return the array $[1, 0, 0, 0, 0]$ since $1111_2 + 1_2 = 15_{10}+1_{10} = 16_{10} = 10000_2$.</li>
+      </ol> 
+    </p>
     
-    <h2 id="excel">Q4. Are You Good at Excel?</h2>
-
-    <p> Complete the following Ruby Method that given an integer <mark><font size=3 color="blue">n</font></mark> 
-    (with max 3 digits) representing the column number, convert this integer to its corresponding Excel 
-    representation (note that the representation will only consist of upper case English letter(s).
-
-    For example:
-    <ul>
-      <li> Column 1 would be mapped to the string “A”. </li>
-      <li> Column 2 would be mapped to the string “B”. </li>
-      <li> Column 26 would be mapped to the string “Z”. </li>
-      <li> Column 27 would be mapped to the string “AB”. </li>
-      <li> Column 28 would be mapped to the string “AC”. </li>
-    </ul>
+    <h2 id="file">Q4. File System Sweeper</h2>
+    <p>In this problem, you will build a feature of a file system sweeper. A file system sweeper is a helpful software on your laptop that periodically checks for files that are duplicates or no longer in use and clears them out to release more storage to you.
     </p>
 
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> 
-    def convert_to_excel(n):
-      # Complete the Method
-      # Hint 1: Consider splitting your method into 3 separate cases based on the 
-      # possible number of letters the converted Excel representation can have using 
-      # the if - elsif - else statements. 
-      # Hint 2: You are welcome (but not required) to fill in the helper method 
-      # below or add additional helper methods and use it in this method. 
-      # The method we have provided below converts a 1-digit column number to the 
-      # corresponding Excel representation.
-    end
+    <p>Given a list of directory info including directory path, and all the files with contents in this directory, you need to find out all the groups of duplicate files in the file system in terms of their paths.</p>
 
-    def convert_single_digit(n):
-      # Complete the Method
-      # Note that n is guaranteed to have only 1 digit!
-    end
-    <span class="nt"></span>
-</code></pre></div>    </div>
+    <p>A group of duplicate files consists of <strong>at least two files</strong> that have exactly the same content.</p>
 
+    <p>A single directory info string in the <strong>input</strong> list has the following format:</p>
+
+    <p><code>"root/d1/d2/.../dm f1.txt(f1_content) f2.txt(f2_content) ... fn.txt(fn_content)"</code></p>
+
+    <p>It means there are $n$ files <code>f1.txt, f2.txt ... fn.txt</code> with content <code>f1_content, f2_content ... fn_content</code>, respectively) in directory <code>root/d1/d2/.../dm</code>. Note that $n \geq 1$ and $m \geq 0$. If $m = 0$, it means the directory is just the root directory.</p>
+
+    <p>Complete the following method which outputs a list of group of duplicate file paths. For each group, it contains all the file paths of the files that have the same content. A file path is a string that has the following format:</p>
+
+    <p><code>"directory_path/file_name.txt"</code></p>
+
+    <pre class="prettyprint">
+        def find_duplicate(file_paths)
+          # Complete the Method Body
+
+          # Takes in a list of file paths (strings).
+          # Returns a list of group of dupliate file paths.
+        end
+    </pre>
+
+    <p>Here is an example:</p>
+    <ol>
+      <li>Given the file paths <code>["root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"]</code>, we will return the following list of group of duplicate file paths: <code>[["root/a/2.txt","root/c/d/4.txt","root/4.txt"],["root/a/1.txt","root/c/3.txt"]]</code></li>
+    <ol>
   </main>
 </div>
 </body>
@@ -176,6 +199,7 @@
 <script type="text/javascript"
         src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <script>
     $("#markdown-toc").insertBefore("#content");
 </script>
