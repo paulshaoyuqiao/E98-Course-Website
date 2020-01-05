@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Main | ICSBC Summer 2019</title>
+  <title>Main | ICSBC Winter 2019</title>
   <meta charset="UTF-8">
   <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
   <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
@@ -32,9 +32,6 @@
   <a href="/staffsummary">
     <div class="navitem">Staff</div>
   </a>
-  <a href="/scores">
-    <div class="navitem">Scores</div>
-  </a>
   <a href="resources">
     <div class="navitem">Resources</div>
   </a>
@@ -42,124 +39,131 @@
 
 <div id="content-container" class="content-spacer">
   <main id="content">
-    <header class="title">Homework 2: Flow Control, Arrays, and Iterators</header><ul id="markdown-toc">
-    <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a>
-    <li><a href="#99-bottles" id="markdown-toc-99-bottles">Q1. 99 Bottles Of Beer On the Wall</a>
+    <header class="title">Homework 2: Flow Control, Arrays, Linked Structures, and Hashes</header><ul id="markdown-toc">
+    <li><a href="#prime" id="markdown-toc-prime-hunter">Q1. Prime Hunter</a>
     </li>
-    <li><a href="#deaf-grandma" id="markdown-toc-deaf-grandma">Q2. Deaf Grandma</a></li>
-    <li><a href="#deaf-grandma-extended" id="markdown-toc-deaf-grandma-extended">Q3. Deaf Grandma Extended</a></li>
-    <li><a href="#leap-year-counter" id="markdown-toc-leap-year-counter">Q4. Leap Year Counter</a></li>    <ul>
-    </ul>
-    </li>
-    <li><a href="#array-sort" id="markdown-toc-array-sort">Q5. Array Sort</a></li>
-    <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Q6. Table of Contents
-    </a></li>
+    <li><a href="#asteroid" id="markdown-toc-asteroid-tracker">Q2. Asteroid Tracker</a></li>
+    <li><a href="#add" id="markdown-toc-add">Q3. Adding Numbers</a></li>
+    <li><a href="#word" id="markdown-toc-excel">Q4. Word of the Decade</a></li>
+    <li><a href="#cycle" id="markdown-toc">
   </ul>
 
 
-  <h2 id="instructions">Instructions</h2>
+  <h2 id="f-leap-year">Instructions</h2>
 
-  <p>Download <%= link_to 'hw2.zip', '/hw/hw2.zip'%></p>
+  <p>Download <%= link_to 'hw1.zip', '/hw/hw1.zip'%></p>
 
-  <p><strong>Due Date:</strong> Homework 2 is due by 11:59 pm on Friday, 7/12</p>
+  <p><strong>Due Date:</strong> Homework 1 is due by 11:59 pm on Friday, 7/5</p>
   
-  <p><strong>Submission:</strong> When you are done, you can submit your assingment under the SCORE tab on the course website</p>
+  <p><strong>Submission:</strong> When you are done, compress the files into a zip file by directly using 
+  (<mark><font size=3 color="blue">command/ctrl</font></mark>) + left click to select all 4 files and compress them.
+  (Do NOT put all 4 files into a folder first and then compress them.)</p>
 
-  <h2 id="99-bottles">Q1. 99 Bottles Of Beer On the Wall</h2>
-
-  <p><b>Requirements:</b></p>
+  <p><strong>Note:</strong> 
   <ul>
-    <li> Write a program that prints out the lyrics to the classic, “99 Bottles of Beer on the Wall.” </li>
-    <li> Here’s a handy <a href="http://www.99-bottles-of-beer.net/lyrics.html">reference</a>. It must look like this. That means an exact match in the lyrics, and also formatted in the same way with lines in between.</li>
-  </ul>
-  <br>
-  <p><b> Clarifications/Advice: </b></p>
-  <ul>
-    <li> Main thing to look out for here is that the lyrics change when you get to one or zero bottles of beer left on the wall, so make sure you account for it! <br>
-         And while we're here, what have we learned about recently that lets you do a thing over and over with minor changes until some condition is met? <br>
-    <li> Writing code that simply puts the entire thing in one go, that is, copy pasting the lyrics and adding puts to the start of each line, will get no credit. 
+    <li>Do not modify the file names.</li>
+    <li>Do not modify the method signature, i.e. the method names and the parameter names.</li>
+    <li>Other than the two things above, feel free to write the method in any way 
+    you want (except question 1) and write any additional helper methods you want to use. </li>
   </ul>
 
-    <h2 id="deaf-grandma">Q2. Deaf Grandma</h2>
-    <p><b>Requirements:</b></p>
-  <ul>
-    <li> Whatever you say to Grandma (whatever you type in), she should respond with this: "HUH?! SPEAK UP, SONNY!" </li>
-    <li> unless you shout it (type in all capitals). If you shout, she can hear you (or at least she thinks so) and yells back: "NO, NOT SINCE 1938!"</li>
-    <li> To make your program really believable, have Grandma shout a different year each time. This has been changed to a requirement, i.e. The year must be completely random (same probability for each year) from 1930 to 1950, inclusive.</li>
-  </ul>
-  <br>
-  <p><b> Clarifications/Advice: </b></p>
-  <ul>
-    <li> Don’t forget about <mark><font size=3 color="blue">.chomp</font></mark>! 'BYE' with an <mark><font size=3 color="blue">Enter</font></mark> at the end is not the same as 'BYE' without one! </li>
-    <li> Try to think about what parts of your program should happen over and over again. All of those should be in your while loop. </li>
-    <li> People often ask, “How can I make rand give me a number in a range not starting at zero?” But you don’t need it to. Is there something you could do to the number rand returns to you? </li> 
-  </ul>  
+    <h2 id="diff">Q1. Difference Between Numbers</h2>
+
+    <p>Complete the following Ruby method for finding the difference between 
+    two given numbers <mark><font size=3 color="blue">x</font></mark> and 
+    <mark><font size=3 color="blue">y</font></mark>. Note that the difference 
+    between two numbers are always non-negative (>=0).</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight">
+    <code><span class="nv"></span>def diff(x, y)
+      if _______________
+        return ______________
+      else
+        return ______________
+      end
+    end
+    <span class="nt"></span></code></pre></div>    
+    </div>
+
+    <h2 id="leap">Q2. Is Leap Year </h2>
+
+    <p>Complete the following Ruby Method for determining if a given year is a leap year. 
+    Every year that is exactly divisible by four is a leap year, except for years that are 
+    exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400.
+    </p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight">
+    <code><span class="nv"></span><span class="nv"></span>def is_leap(year)
+      # Complete the Method
+      # returns the string “yes” if it is leap year; “no” otherwise
+    end
+    <span class="nt"></span></code></pre></div>    </div>
 
 
+    <h2 id="snack">Q3. Is Better Snack</h2>
 
-    <h2 id="deaf-grandma-extended">Q3. Deaf Grandma Extended</h2>
-
-    <p><b>Requirements:</b></p>
-    <ul>
-      <li> What if Grandma doesn’t want you to leave? When you shout BYE, she could pretend not to hear you. Change your previous program so that you have to shout BYE three times in a row. </li>
-      <li> Make sure to test your program: if you shout BYE three times but not in row, you should still be talking to Grandma.</li>
-    </ul>
+    <p>Complete the following Ruby Method that given a few attributes of two snacks A and B, 
+    determines if A is a “healthier” snack than B (assuming you don’t have to break ties in the end):
     <br>
-    <p><b> Clarifications/Advice: </b></p>
+    To compare a snack A with another snack B, we compare their attributes in the following specific order:
     <ul>
-      <li> It's an extension of the previous, so I'd recommend you copy over your previous code and modify it instead of starting over.</li>
-      <li> <b>Important</b>: Main thing that trips people up is not making sure that the three "BYE"s are given in a row. A common mistake was to misinterpret it as exiting on "BYE BYE BYE", but that’s not quite right. For the program to exit you should have to type in "BYE" as your response three times, with Grandma pretending not to hear you the first two times, before giving up and saying goodbye on the third. </li> 
-      <li> Make sure to test your program with ALL the sequences of replies Sony gives, and see if Grandma responds correctly! (Reminder: In the terminal, in this homework's directory, run <mark><font size=3 color="blue">ruby FILE_NAME.rb</font></mark> to run a program you wrote!) </li>
-    </ul>  
-    
-    
-    <h2 id="leap-year-counter">Q4. Leap Year Counter</h2>
-
-    <p><b>Requirements:</b></p>
-    <ul>
-      <li> Write a program that asks for a starting year and an ending year and then puts all the leap years between them (and including them, if they are also leap years). Leap years are years divisible by 4 (like 1984 and 2004). 
-      <li> However, years divisible by 100 are not leap years (such as 1800 and 1900) unless they are also divisible by 400 (such as 1600 and 2000, which were in fact leap years). What a mess!</li>
+      <li> sweetness (an integer from 1 to 10 inclusive)
+        <ul><li> If a snack is less sweet, then it is considered healthier</li></ul>
+      </li>
+      <li> calories (an integer from 30 to 300 inclusive)
+        <ul><li> If a snack has less calories, then it is considered healthier</li></ul>
+      </li>
+      <li> proteins (an integer from 0 to 20 inclusive)
+        <ul><li> If a snack has more proteins, then it is considered healthier</li></ul>
+      </li>
+      <li> popularity (a string that can, in decreasing order of popularity, take on one of the following values: “viral” > “popular” > “trending” > “moderate” > “novice”)
+        <ul><li> If a snack is more popular, then it is considered healthier</li></ul>
+      </li>
     </ul>
-    <br>
-    <p><b> Clarifications/Advice: </b></p>
-    <ul>
-      <li> Key for this one is keeping the conditions needed for a year to be a leap year in mind. It has to be divisible by 400, or divisible by 4 and not by 100. It’s easy to get mixed up, so double check by trying it out and comparing with this <a href="http://www.onlineconversion.com/leapyear.htm">site</a>. </li>
-    </ul>  
-    
 
-    <h2 id="array-sort">Q5. Array Sort</h2>
-    <p><b>Requirements:</b></p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span>
+    <span class="nv"></span>def is_better_snack(A_sweetness, A_calories, A_proteins, A_popularity, B_sweetness, B_calories, B_proteins, B_popularity)
+      # Complete the Method
+      # returns True if snack A is better than B.
+      # returns False otherwise.
+    end
+    <span class="nt"></span></code></pre></div>    </div>
+
+    
+    <h2 id="excel">Q4. Are You Good at Excel?</h2>
+
+    <p> Complete the following Ruby Method that given an integer <mark><font size=3 color="blue">n</font></mark> 
+    (with max 3 digits) representing the column number, convert this integer to its corresponding Excel 
+    representation (note that the representation will only consist of upper case English letter(s).
+
+    For example:
     <ul>
-      <li> Write the program we talked about at the beginning of this chapter, one that asks us to type as many words as we want (one word per line, continuing until we just press Enter on an empty line) and then repeats the words back to us in alphabetical order. </li>
+      <li> Column 1 would be mapped to the string “A”. </li>
+      <li> Column 2 would be mapped to the string “B”. </li>
+      <li> Column 26 would be mapped to the string “Z”. </li>
+      <li> Column 27 would be mapped to the string “AB”. </li>
+      <li> Column 28 would be mapped to the string “AC”. </li>
     </ul>
-    <br>
-    <p><b> Clarifications/Advice: </b></p>
-    <ul>
-      <li> Make sure to test your program thoroughly; for example, does hitting <mark><font size=3 color="blue">Enter</font></mark> on an empty line always exit your program? Even on the first line? And the second? </li>
-      <li> There’s a lovely array method that will give you a sorted version of an array: <mark><font size=3 color="blue">.sort</font></mark>. Use it! </li>
-    </ul>  
-    
+    </p>
 
-    <h2 id="table-of-contents">Q6. Table Of Contents</h2>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv"></span> 
+    def convert_to_excel(n):
+      # Complete the Method
+      # Hint 1: Consider splitting your method into 3 separate cases based on the 
+      # possible number of letters the converted Excel representation can have using 
+      # the if - elsif - else statements. 
+      # Hint 2: You are welcome (but not required) to fill in the helper method 
+      # below or add additional helper methods and use it in this method. 
+      # The method we have provided below converts a 1-digit column number to the 
+      # corresponding Excel representation.
+    end
 
-    <p><b>Requirements:</b></p>
-    <ul>
-      <li> Rewrite your table of contents program from chapter 6. Start the program with an array holding all of the information for your table of contents (chapter names, page numbers, and so on). Then print out the information from the array in a beautifully formatted table of contents.</li>
-    </ul>
-    <br>
-    <p><b> Clarifications/Advice: </b></p>
-    <ul>
-      <li> Main thing is to actually use an array to store your strings, don’t just copy paste the old code. <b>You will get no credit if you don't use arrays.</b> </li>
-      <li> A possible misinterpretation is to just literally store all the variables you'll need in an array like 
-      <mark><font size=3 color="blue">stuff_i_will_need = ["Table of Contents", 1, "Getting Started", 1, 2, "Numbers", 9]</font></mark>. 
-      But if you do that, you'll notice that it doesn't make the code any easier to write. Programmers don't usually just store a bunch of different stuff in an array just like that! 
-      Instead, you'll have an array containing the first X, the second X, and so on. For example, <mark><font size=3 color="blue">chapter_names = ["Getting Started", "Numbers", "Letters"]</font></mark> 
-      contains the first chapter name, the second name, etc. Or if you want to be clever, you can use a nested array: 
-      <mark><font size=3 color="blue">chapters = [["Getting Started", 1], ["Numbers", 9], ["Letters", 13]]</font></mark>. 
-      Either way, you'll now be able to do everything in an elegant loop (use the <mark><font size=3 color="blue">.each</font></mark> or <mark><font size=3 color="blue">.each_with_index</font></mark> 
-      method -- google the latter). That's the beauty of arrays. </li>
-    </ul>  
-    
+    def convert_single_digit(n):
+      # Complete the Method
+      # Note that n is guaranteed to have only 1 digit!
+    end
+    <span class="nt"></span>
+</code></pre></div>    </div>
 
   </main>
 </div>
