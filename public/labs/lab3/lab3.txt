@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/Intro-to-CS-Bootcamp/labs/master/lab3/lab3.json
+https://raw.githubusercontent.com/Intro-to-CS-Bootcamp/labs/master/winter_lab3/lab3.json
