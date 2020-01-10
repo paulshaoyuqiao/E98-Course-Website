@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Main | ICSBC Summer 2019</title>
+  <title>Main | ICSBC Winter 2020</title>
   <meta charset="UTF-8">
   <meta name="description" content="ICS: Introduction to CS Bootcamp in Ruby>
   <meta name="keywords" content="Intro to CS, CS, Programming in Ruby, Berkeley, EECS">
@@ -32,9 +32,6 @@
   <a href="/staffsummary">
     <div class="navitem">Staff</div>
   </a>
-  <a href="/scores">
-    <div class="navitem">Scores</div>
-  </a>
   <a href="resources">
     <div class="navitem">Resources</div>
   </a>
@@ -42,84 +39,92 @@
 
 <div id="content-container" class="content-spacer">
   <main id="content">
-    <header class="title">Homework 3: Writing Your Own Methods</header><ul id="markdown-toc">
-    <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a>
-    <li><a href="#ask" id="markdown-toc-ask">Q1. Improved `Ask` Method.</a>
-    </li>
-    <li><a href="#old-roman-numerals" id="markdown-toc-old-roman-numerals">Q2. Old-school Roman Numerals</a></li>
-    <li><a href="#new-roman-numerals" id="markdown-toc-new-roman-numerals">Q3. "Modern" Roman Numerals</a></li>
-  </ul>
+    <header class="title">Homework 3: Recursion and Object Oriented Programming</header>
+    <ul id="markdown-toc">
+      <li><font color="slateblue" size="3.5"><strong>NOTE: </strong>If the math expressions are not rendering correctly after you clicked on the link to go to the problem (you are seeing a lot of "$" signs around), <strong>refresh the webpage again</strong> and everything should be rendered correctly :)</font></li>
+      <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a>
+      <li><a href="#merge" id="markdown-toc-merge">Q1. Merging Arrays</a>
+      </li>
+      <li><a href="#vote" id="markdown-toc-file">Q2. Ballot System</a></li>
+    </ul>
 
 
-  <h2 id="instructions">Instructions</h2>
+    <h2 id="f-leap-year">Instructions</h2>
 
-  <p>Download <%= link_to 'hw3.zip', '/hw/hw3.zip'%></p>
+    <p>Download <%= link_to 'hw3.zip', '/hw/hw3.zip'%></p>
 
-  <p><strong>Due Date:</strong> Homework 3 is due by 11:59 pm on Friday, 7/19</p>
-  
-  <p><strong>Submission:</strong> When you are done, you can submit your assingment under the SCORE tab on the course website</p>
+    <p><strong>Due Date:</strong> Homework 3 is due by 11:59 pm on Tuesday, 1/14</p>
 
-  <h2 id="ask">Q1. Improved `Ask` Method.</h2>
+    <p><strong>Submission:</strong> When you are done, you can submit your files to the corresponding assignment on Gradescope</p>
 
-  <p><b>Requirements:</b></p>
-  <ul>
-    <li> That ask method I showed you was OK, but I bet you could do better. Try to clean it up by removing the answer variable. 
-    You’ll have to use <mark><font size=3 color="blue">Return</font></mark> to exit from the loop. 
-    (Well, it will get you out of the whole method, but it will get you out of the loop in the process.) 
-    How do you like the resulting method? I usually try to avoid using <mark><font size=3 color="blue">Return</font></mark> (a personal preference), but I might make an exception here.</li>
-  </ul>
-  <p><b> Clarifications/Advice: </b></p>
-  <ul>
-    <li> Make sure to account for the three distinct cases:
+    <h2 id="merge">Q1. Merging Arrays</h2>
+    <p>
+      Given 2 already sorted arrays $A$ and $B$, we would like to merge those 2 arrays together into 1 sorted array, in a recursive way 🤔😃.
+    </p>
+    <p>Complete the following method that recursively merges 2 sorted arrays together into one sorted array. You should follow the provided recursive skeleton.</p>
+    <pre class="prettyprint">
+        def merge(a, b)
+          if _______________________________
+             return ________________________
+          elsif _____________________________
+             return ________________________
+          else
+             return ________________________
+          end
+        end
+    </pre>
+
+    <p>Here're some examples:</p>
+    <ol>
+      <li><code>merge([1, 4], [2, 3])</code> will return <code>[1, 2, 3, 4]</code></li>
+      <li><code>merge([1, 2], [])</code> will return <code>[1, 2]</code></li>
+      <li><code>merge([1, 2, 3], [2, 3, 4])</code> will return <code>[1, 2, 2, 3, 3, 4]</code></li>
+    </ol>
+    <h2 id="vote">Q2. Ballot System</h2>
+    <p>
+      You are again recruited as a software engineer because of your talent in coding! This time, the ones in need are the ASUC senators.
+      They would like you to help them build a voter registration and ballot system so they can keep track of all the student voters for the next
+      ASUC Senate race and protect the fairness and integrity of the election.
+    </p>
+    <p>
+      You decided to build the registration system as a Ruby class. The class should have the following methods:
       <ul>
-        <li> Answer was "yes" </li>
-        <li> Answer was "no" </li>
-        <li> Answer was anything else </li>
+        <li><code>register(SID, name, vote)</code> registers a student with the corresponding SID (a string), the name (a string), and vote (a list of the senators' names the student is voting for).</li>
+        <li><code>count()</code>returns the total number of students who have voted so far</li>
+        <li><code>update_vote(SID, vote)</code> allows a student to update the list of voted senators. If the student has not registered yet, this method won't do anything.</li>
+        <li><code>tally(name)</code>returns the total number of votes so far for the queried senator candidate "name"</li>
       </ul>
-    <li> Capitalization or uppercasing should not affect the result.
-    <li> Please name your method <mark><font size=3 color="blue">ask</font></mark> so the autograder can run on it. </li>
-  </ul>
+    </p>
+    <p>Complete the following class so that the 4 methods described above will function properly. Feel free to add any additional helper method as you see fit.</p>
+    <pre class="prettyprint">
+      class Person
+        def initialize() # Please don't add any parameters here
+           # Add some codes here for the constructor of your class
+        end
 
+        def register(SID, name, vote) # Please don't add any parameters here
+          # Add some codes here
+          # registers a student with the corresponding SID (a string), the name (a string),
+          # and vote (a list of the senators' names the student is voting for)
+        end
 
-    <h2 id="old-roman-numerals">Q2. Old-school Roman Numerals</h2>
-    <p><b>Requirements:</b></p>
-  <ul>
-    <li> In the early days of Roman numerals, the Romans didn’t bother with any of this new-fangled subtraction “IX” nonsense. 
-    No sir, it was straight addition, biggest to littlest—so 9 was written “VIIII”, and so on. Write a method that when passed an integer between 1 and 3000 (or so) 
-    returns a string containing the proper oldschool Roman numeral. In other words, <mark><font size=3 color="blue">old_roman_numeral 4</font></mark> should return 'IIII'. 
-    Make sure to test your method on a bunch of different numbers. Hint: Use the integer division and modulus methods on page 32 of the textbook TLP.</li>
-    <li> For reference, these are the values of the letters used:</li>
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv"></span>   I = 1 
-    V = 5 
-    X = 10 
-    L = 50
-    C = 100 
-    D = 500 
-    M = 1000<span class="k"></span></code></pre></div></div>
-  </ul>
-  <br>
-  <p><b> Clarifications/Advice: </b></p>
-  <ul>
-    <li> This one is tricky, both roman ones are really. Things to keep in mind are to make sure you’re printing the largest numerals first, and to not overcount. That is, entering ‘5’ should return ‘V’, not ‘VIIIII’.</li>
-    <li> Please name your method <mark><font size=3 color="blue">romanize_old</font></mark> so the autograder can run on it. </li> 
-  </ul>  
+        def count() # Please don't add any parameters here
+          # Add some codes here
+          # returns the total number of students who have voted so far
+        end
 
-    <h2 id="new-roman-numerals">Q3. "Modern" Roman Numerals</h2>
+        def update_vote(SID, vote) # Please don't add any parameters here
+          # Add some codes here
+          # allows a student to update the list of voted senators
+          # If the student has not registered yet, this method won't do anything
+        end
 
-    <p><b>Requirements:</b></p>
-    <ul>
-      <li> Eventually, someone thought it would be terribly clever if putting a smaller number before a larger one meant you had to subtract the smaller one. 
-      As a result of this development, you must now suffer. Rewrite your previous method to return the new-style Roman numerals so when someone calls 
-      <mark><font size=3 color="blue">roman_numeral 4</font></mark>, it should return 'IV'.</li>
-    </ul>
-    <br>
-    <p><b> Clarifications/Advice: </b></p>
-    <ul>
-      <li> This one is really just a harder version of the previous one with more symbols to account for, ‘IV’ for 4, ‘IX’ for 9, and so on for 40 and 90, and 400 and 900.</li>
-      <li> Please name your method <mark><font size=3 color="blue">romanize_new</font></mark> so the autograder can run on it.</li>
-      <li> To test your accuracy for this one, checkout this <a href="https://www.romannumerals.org/converterRoman"> Roman-numerals<=>Integers converter</a>. </li>
-    </ul>
-
+        def tally(name)
+          # Add some codes here
+          # returns the total number of votes so far for a particular candidate "name"
+        end
+      end
+    </pre>
   </main>
 </div>
 </body>
@@ -131,6 +136,7 @@
 <script type="text/javascript"
         src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <script>
     $("#markdown-toc").insertBefore("#content");
 </script>
